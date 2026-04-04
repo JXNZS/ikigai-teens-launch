@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation, Navigate } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,11 +8,46 @@ import Index from "./pages/Index.tsx";
 import About from "./pages/About.tsx";
 import Teenzone from "./pages/Teenzone.tsx";
 import ParentHub from "./pages/ParentHub.tsx";
-import Resources from "./pages/Resources.tsx";
+import ResourceArticle from "./pages/ResourceArticle.tsx";
+import ResourceBlogs from "./pages/ResourceBlogs.tsx";
+import ResourceVideos from "./pages/ResourceVideos.tsx";
 import GetInvolved from "./pages/GetInvolved.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
+
+const ScrollToHash = () => {
+  const { hash, pathname, search } = useLocation();
+
+  useEffect(() => {
+    if (!("scrollRestoration" in window.history)) {
+      return;
+    }
+
+    const previous = window.history.scrollRestoration;
+    window.history.scrollRestoration = "manual";
+
+    return () => {
+      window.history.scrollRestoration = previous;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!hash) {
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+      return;
+    }
+
+    const id = hash.replace("#", "");
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+      window.history.replaceState(window.history.state, "", `${pathname}${search}`);
+    }
+  }, [hash, pathname, search]);
+
+  return null;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -19,12 +55,16 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToHash />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/teenzone" element={<Teenzone />} />
           <Route path="/parent-hub" element={<ParentHub />} />
-          <Route path="/resources" element={<Resources />} />
+          <Route path="/resources" element={<Navigate to="/resources/blogs" replace />} />
+          <Route path="/resources/blogs" element={<ResourceBlogs />} />
+          <Route path="/resources/videos" element={<ResourceVideos />} />
+          <Route path="/resources/blog/:slug" element={<ResourceArticle />} />
           <Route path="/get-involved" element={<GetInvolved />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

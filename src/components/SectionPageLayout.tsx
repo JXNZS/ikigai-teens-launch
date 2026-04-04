@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 interface SectionPageLayoutProps {
   title: string;
   subtitle: string;
-  sections: { title: string; description: string }[];
+  sections: { title: string; description: string; path?: string }[];
 }
 
 const containerVariants = {
@@ -65,24 +66,45 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
               viewport={{ once: true, margin: "-30px" }}
             >
               {sections.map((s) => (
-                <motion.div
-                  key={s.title}
-                  className="glass-card p-8 group"
-                  variants={cardVariants}
-                  whileHover={{
-                    y: -6,
-                    boxShadow: "0 20px 40px -15px hsl(152 60% 45% / 0.15)",
-                    transition: { duration: 0.3 },
-                  }}
-                >
-                  <motion.div
-                    className="w-1 h-0 bg-primary rounded-full mb-4"
-                    whileInView={{ height: 24 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.2 }}
-                  />
-                  <h2 className="text-xl font-display font-semibold text-foreground mb-3">{s.title}</h2>
-                  <p className="text-muted-foreground font-body text-sm leading-relaxed">{s.description}</p>
+                <motion.div key={s.title} variants={cardVariants}>
+                  {s.path ? (
+                    <Link to={s.path} className="block glass-card p-8 group hover:border-primary/40 transition-colors">
+                      <motion.div
+                        whileHover={{
+                          y: -6,
+                          boxShadow: "0 20px 40px -15px hsl(152 60% 45% / 0.15)",
+                          transition: { duration: 0.3 },
+                        }}
+                      >
+                        <motion.div
+                          className="w-1 h-0 bg-primary rounded-full mb-4"
+                          whileInView={{ height: 24 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: 0.2 }}
+                        />
+                        <h2 className="text-xl font-display font-semibold text-foreground mb-3">{s.title}</h2>
+                        <p className="text-muted-foreground font-body text-sm leading-relaxed">{s.description}</p>
+                      </motion.div>
+                    </Link>
+                  ) : (
+                    <motion.div
+                      className="glass-card p-8 group"
+                      whileHover={{
+                        y: -6,
+                        boxShadow: "0 20px 40px -15px hsl(152 60% 45% / 0.15)",
+                        transition: { duration: 0.3 },
+                      }}
+                    >
+                      <motion.div
+                        className="w-1 h-0 bg-primary rounded-full mb-4"
+                        whileInView={{ height: 24 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: 0.2 }}
+                      />
+                      <h2 className="text-xl font-display font-semibold text-foreground mb-3">{s.title}</h2>
+                      <p className="text-muted-foreground font-body text-sm leading-relaxed">{s.description}</p>
+                    </motion.div>
+                  )}
                 </motion.div>
               ))}
             </motion.div>

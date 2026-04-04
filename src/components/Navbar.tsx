@@ -1,17 +1,20 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
-import logo from "@/assets/ikigai-logo-white.jpeg";
+import logo from "@/assets/ikigai logo no bg.png";
+import NavHeader from "@/components/ui/nav-header";
 
-const navItems = [
+const NAVBAR_OPEN_EVENT = "ikigai:openNavbarDropdown";
+
+export const navItems = [
   {
     label: "About",
     path: "/about",
     children: ["Vision & Mission", "Grounding Philosophy", "Core Values", "The Journey", "Founder & Team"],
   },
   {
-    label: "Teenzone",
+    label: "Teen Zone",
     path: "/teenzone",
     children: ["Teen Identity", "Teen Issues", "Teen Solutions", "Teen Resources", "IkigaiTeen Club & App"],
   },
@@ -22,7 +25,7 @@ const navItems = [
   },
   {
     label: "Resources",
-    path: "/resources",
+    path: "/resources/blogs",
     children: ["Blog/Articles", "Video/Podcast Links", "Recent Events", "Upcoming Events", "IkigaiTeen Facts & Stats"],
   },
   {
@@ -35,6 +38,140 @@ const navItems = [
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [dropdownAnchorX, setDropdownAnchorX] = useState<number | null>(null);
+  const desktopNavRef = useRef<HTMLDivElement>(null);
+  const location = useLocation();
+
+  const normalizeHeaderLabel = (label?: string | null) => {
+    if (label === "Teenzone") {
+      return "Teen Zone";
+    }
+    return label ?? null;
+  };
+
+  useEffect(() => {
+    const state = location.state as { openNav?: string } | null;
+    if (!state?.openNav) return;
+
+    const normalized = normalizeHeaderLabel(state.openNav);
+    const match = navItems.find((item) => item.label === normalized);
+    if (match) {
+      setOpenDropdown(match.label);
+    }
+  }, [location.key, location.state]);
+
+  useEffect(() => {
+    const handleOpenFromCTA = (event: Event) => {
+      const customEvent = event as CustomEvent<{ label?: string }>;
+      const label = normalizeHeaderLabel(customEvent.detail?.label);
+      if (!label) return;
+
+      const match = navItems.find((item) => item.label === label);
+      if (match) {
+        setOpenDropdown(match.label);
+      }
+    };
+
+    window.addEventListener(NAVBAR_OPEN_EVENT, handleOpenFromCTA);
+    return () => window.removeEventListener(NAVBAR_OPEN_EVENT, handleOpenFromCTA);
+  }, []);
+
+  useEffect(() => {
+    const updateAnchor = () => {
+      if (!openDropdown || !desktopNavRef.current) {
+        setDropdownAnchorX(null);
+        return;
+      }
+
+      const activeTab = desktopNavRef.current.querySelector<HTMLElement>(`[data-nav-tab="${openDropdown}"]`);
+      if (!activeTab) {
+        setDropdownAnchorX(null);
+        return;
+      }
+
+      setDropdownAnchorX(activeTab.offsetLeft + activeTab.offsetWidth / 2);
+    };
+
+    updateAnchor();
+    window.addEventListener("resize", updateAnchor);
+    return () => window.removeEventListener("resize", updateAnchor);
+  }, [openDropdown]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setOpenDropdown(null);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (!desktopNavRef.current) return;
+      if (!desktopNavRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => document.removeEventListener("mousedown", handleOutsideClick);
+  }, []);
+
+  const [contactActive, setContactActive] = useState(false);
+  const activeDesktopItem = navItems.find((item) => item.label === openDropdown) ?? null;
+
+  const getChildPath = (parentLabel: string, childLabel: string, fallbackPath: string) => {
+    if (parentLabel === "Resources" && childLabel === "Blog/Articles") {
+      return "/resources/blogs";
+    }
+
+    if (parentLabel === "Resources" && childLabel === "Video/Podcast Links") {
+      return "/resources/videos";
+    }
+
+    return fallbackPath;
+  };
+
+  const dropdownVariants = {
+    closed: {
+      opacity: 0,
+      y: -10,
+      scale: 0.95,
+      rotateX: -8,
+      filter: "blur(6px)",
+      transition: { duration: 0.18, ease: "easeInOut" },
+    },
+    open: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      rotateX: 0,
+      filter: "blur(0px)",
+      transition: {
+        type: "spring",
+        stiffness: 420,
+        damping: 26,
+        mass: 0.7,
+        staggerChildren: 0.045,
+        delayChildren: 0.04,
+      },
+    },
+  };
+
+  const dropdownItemVariants = {
+    closed: { opacity: 0, x: -8, y: 4 },
+    open: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: { type: "spring", stiffness: 380, damping: 22, mass: 0.6 },
+    },
+  };
+
+  const handleDesktopHeaderClick = (label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/30">
@@ -45,46 +182,52 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-1">
-          {navItems.map((item) => (
-            <div
-              key={item.label}
-              className="relative"
-              onMouseEnter={() => setOpenDropdown(item.label)}
-              onMouseLeave={() => setOpenDropdown(null)}
-            >
-              <Link to={item.path} className="nav-link flex items-center gap-1 px-4 py-2 font-body">
-                {item.label}
-                <ChevronDown className="w-3 h-3" />
-              </Link>
-              <AnimatePresence>
-                {openDropdown === item.label && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.2 }}
-                    className="absolute top-full left-0 mt-1 min-w-[220px] bg-card border border-border rounded-lg shadow-xl py-2"
-                  >
-                    {item.children.map((child) => (
-                      <Link
-                        key={child}
-                        to={item.path}
-                        className="block px-4 py-2.5 text-sm font-body text-foreground/70 hover:text-primary hover:bg-secondary/50 transition-colors"
-                      >
-                        {child}
-                      </Link>
-                    ))}
+        <div ref={desktopNavRef} className="hidden lg:flex relative">
+          <NavHeader items={navItems.map((item) => item.label)} activeItem={openDropdown} onItemClick={handleDesktopHeaderClick} />
+
+          <AnimatePresence mode="wait">
+            {activeDesktopItem && dropdownAnchorX !== null && (
+              <motion.div
+                key={activeDesktopItem.label}
+                initial="closed"
+                animate="open"
+                exit="closed"
+                variants={dropdownVariants}
+                style={{ left: dropdownAnchorX, transformPerspective: 1000, transformOrigin: "top center" }}
+                className="absolute top-full mt-2 min-w-[260px] -translate-x-1/2 bg-card border border-border rounded-lg shadow-xl py-2"
+              >
+                {activeDesktopItem.children.map((child) => (
+                  <motion.div key={child} variants={dropdownItemVariants}>
+                    <Link
+                      to={getChildPath(activeDesktopItem.label, child, activeDesktopItem.path)}
+                      className="block px-4 py-2.5 text-sm font-body text-foreground/70 hover:text-primary hover:bg-secondary/50 transition-colors"
+                    >
+                      {child}
+                    </Link>
                   </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
-        <a href="#" className="hidden lg:inline-flex px-5 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold font-body hover:opacity-90 transition-opacity">
-          Contact Us
-        </a>
+        <motion.div
+          className="hidden lg:block"
+          animate={{ scale: contactActive ? 1.03 : 1 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.94 }}
+          onMouseEnter={() => setContactActive(true)}
+          onMouseLeave={() => setContactActive(false)}
+        >
+          <Link
+            to="/#contact"
+            className={`inline-flex px-5 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold font-body transition-all duration-300 ${
+              contactActive ? "ring-2 ring-primary/50" : ""
+            }`}
+          >
+            Contact Us
+          </Link>
+        </motion.div>
 
         {/* Mobile Toggle */}
         <button className="lg:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
@@ -120,7 +263,7 @@ const Navbar = () => {
                         className="overflow-hidden pl-4"
                       >
                         {item.children.map((child) => (
-                          <Link key={child} to={item.path} className="block py-2 text-sm text-muted-foreground hover:text-primary font-body" onClick={() => setMobileOpen(false)}>
+                          <Link key={child} to={getChildPath(item.label, child, item.path)} className="block py-2 text-sm text-muted-foreground hover:text-primary font-body" onClick={() => setMobileOpen(false)}>
                             {child}
                           </Link>
                         ))}
@@ -129,9 +272,9 @@ const Navbar = () => {
                   </AnimatePresence>
                 </div>
               ))}
-              <a href="#" className="block mt-4 text-center px-5 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold font-body">
+              <Link to="/#contact" className="block mt-4 text-center px-5 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold font-body" onClick={() => setMobileOpen(false)}>
                 Contact Us
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

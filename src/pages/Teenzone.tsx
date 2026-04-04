@@ -10,7 +10,7 @@ const sections = [
 
 const Teenzone = () => (
   <SectionPageLayout
-    title="Teenzone"
+    title="Teen Zone"
     subtitle="A dedicated space for teens to explore, learn, and grow."
     sections={sections}
   />

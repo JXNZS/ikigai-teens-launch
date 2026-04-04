@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/ikigai-logo-white.jpeg";
+import logo from "@/assets/ikigai logo no bg.png";
 
 interface LoadingScreenProps {
   isLoading: boolean;
@@ -23,7 +23,7 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
             <motion.img
               src={logo}
               alt="Ikigai Teen"
-              className="w-32 h-32 rounded-2xl object-cover"
+              className="w-40 h-40 rounded-2xl object-cover"
               animate={{
                 scale: [1, 1.08, 1],
               }}
