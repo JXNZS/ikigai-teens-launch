@@ -53,10 +53,10 @@ const Navbar = () => {
               onMouseEnter={() => setOpenDropdown(item.label)}
               onMouseLeave={() => setOpenDropdown(null)}
             >
-              <button className="nav-link flex items-center gap-1 px-4 py-2 font-body">
+              <Link to={item.path} className="nav-link flex items-center gap-1 px-4 py-2 font-body">
                 {item.label}
                 <ChevronDown className="w-3 h-3" />
-              </button>
+              </Link>
               <AnimatePresence>
                 {openDropdown === item.label && (
                   <motion.div
