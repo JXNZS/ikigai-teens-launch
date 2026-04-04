@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "@/assets/ikigai-logo-white.jpeg";
@@ -6,22 +7,27 @@ import logo from "@/assets/ikigai-logo-white.jpeg";
 const navItems = [
   {
     label: "About",
+    path: "/about",
     children: ["Vision & Mission", "Grounding Philosophy", "Core Values", "The Journey", "Founder & Team"],
   },
   {
     label: "Teenzone",
+    path: "/teenzone",
     children: ["Teen Identity", "Teen Issues", "Teen Solutions", "Teen Resources", "IkigaiTeen Club & App"],
   },
   {
     label: "Parent Hub",
+    path: "/parent-hub",
     children: ["Parent Role", "Parent Challenges", "Parent Collab", "IkigaiTeen Parent Circle"],
   },
   {
     label: "Resources",
+    path: "/resources",
     children: ["Blog/Articles", "Video/Podcast Links", "Recent Events", "Upcoming Events", "IkigaiTeen Facts & Stats"],
   },
   {
     label: "Get Involved",
+    path: "/get-involved",
     children: ["Be Our Experts", "Be Our Collaborators", "Be Our Trainee Coaches", "Be Our Interns/Guests", "Be Our Patrons", "IkigaiTeen Patrons"],
   },
 ];
@@ -33,10 +39,10 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/30">
       <div className="container mx-auto px-6 flex items-center justify-between h-16">
-        <a href="/" className="flex items-center gap-3">
+        <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="Ikigai Teen" className="h-10 w-10 rounded-lg object-cover" />
           <span className="font-display text-lg font-semibold text-foreground">Ikigai Teen</span>
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <div className="hidden lg:flex items-center gap-1">
@@ -47,10 +53,10 @@ const Navbar = () => {
               onMouseEnter={() => setOpenDropdown(item.label)}
               onMouseLeave={() => setOpenDropdown(null)}
             >
-              <button className="nav-link flex items-center gap-1 px-4 py-2 font-body">
+              <Link to={item.path} className="nav-link flex items-center gap-1 px-4 py-2 font-body">
                 {item.label}
                 <ChevronDown className="w-3 h-3" />
-              </button>
+              </Link>
               <AnimatePresence>
                 {openDropdown === item.label && (
                   <motion.div
@@ -61,13 +67,13 @@ const Navbar = () => {
                     className="absolute top-full left-0 mt-1 min-w-[220px] bg-card border border-border rounded-lg shadow-xl py-2"
                   >
                     {item.children.map((child) => (
-                      <a
+                      <Link
                         key={child}
-                        href="#"
+                        to={item.path}
                         className="block px-4 py-2.5 text-sm font-body text-foreground/70 hover:text-primary hover:bg-secondary/50 transition-colors"
                       >
                         {child}
-                      </a>
+                      </Link>
                     ))}
                   </motion.div>
                 )}
@@ -114,9 +120,9 @@ const Navbar = () => {
                         className="overflow-hidden pl-4"
                       >
                         {item.children.map((child) => (
-                          <a key={child} href="#" className="block py-2 text-sm text-muted-foreground hover:text-primary font-body">
+                          <Link key={child} to={item.path} className="block py-2 text-sm text-muted-foreground hover:text-primary font-body" onClick={() => setMobileOpen(false)}>
                             {child}
-                          </a>
+                          </Link>
                         ))}
                       </motion.div>
                     )}
