@@ -7,22 +7,27 @@ import logo from "@/assets/ikigai-logo-white.jpeg";
 const navItems = [
   {
     label: "About",
+    path: "/about",
     children: ["Vision & Mission", "Grounding Philosophy", "Core Values", "The Journey", "Founder & Team"],
   },
   {
     label: "Teenzone",
+    path: "/teenzone",
     children: ["Teen Identity", "Teen Issues", "Teen Solutions", "Teen Resources", "IkigaiTeen Club & App"],
   },
   {
     label: "Parent Hub",
+    path: "/parent-hub",
     children: ["Parent Role", "Parent Challenges", "Parent Collab", "IkigaiTeen Parent Circle"],
   },
   {
     label: "Resources",
+    path: "/resources",
     children: ["Blog/Articles", "Video/Podcast Links", "Recent Events", "Upcoming Events", "IkigaiTeen Facts & Stats"],
   },
   {
     label: "Get Involved",
+    path: "/get-involved",
     children: ["Be Our Experts", "Be Our Collaborators", "Be Our Trainee Coaches", "Be Our Interns/Guests", "Be Our Patrons", "IkigaiTeen Patrons"],
   },
 ];
