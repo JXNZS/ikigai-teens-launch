@@ -120,9 +120,9 @@ const Navbar = () => {
                         className="overflow-hidden pl-4"
                       >
                         {item.children.map((child) => (
-                          <a key={child} href="#" className="block py-2 text-sm text-muted-foreground hover:text-primary font-body">
+                          <Link key={child} to={item.path} className="block py-2 text-sm text-muted-foreground hover:text-primary font-body" onClick={() => setMobileOpen(false)}>
                             {child}
-                          </a>
+                          </Link>
                         ))}
                       </motion.div>
                     )}
