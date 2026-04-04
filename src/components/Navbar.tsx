@@ -67,13 +67,13 @@ const Navbar = () => {
                     className="absolute top-full left-0 mt-1 min-w-[220px] bg-card border border-border rounded-lg shadow-xl py-2"
                   >
                     {item.children.map((child) => (
-                      <a
+                      <Link
                         key={child}
-                        href="#"
+                        to={item.path}
                         className="block px-4 py-2.5 text-sm font-body text-foreground/70 hover:text-primary hover:bg-secondary/50 transition-colors"
                       >
                         {child}
-                      </a>
+                      </Link>
                     ))}
                   </motion.div>
                 )}
