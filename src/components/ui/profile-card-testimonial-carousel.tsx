@@ -60,9 +60,9 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
 
   return (
     <div className={cn("w-full max-w-sm h-[446px] flex flex-col", className)}>
-      <div className="rounded-2xl border border-border/60 bg-card/90 backdrop-blur-md shadow-xl overflow-hidden flex-1">
+      <div className="rounded-2xl border border-white/50 bg-white shadow-xl overflow-hidden flex-1">
         <Link to={`/resources/blog/${currentArticle.slug}`} className="block">
-          <div className="relative h-48 bg-secondary/40 border-b border-border/50">
+          <div className="relative h-48 bg-white border-b border-border/30">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentArticle.slug}
@@ -72,8 +72,8 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="absolute inset-0 p-4"
               >
-                <div className="h-full rounded-lg border border-border/50 bg-background/75 p-3 overflow-hidden">
-                  <div className="space-y-1 text-[11px] leading-snug text-foreground/80">
+                <div className="h-full rounded-lg border border-white/15 bg-[hsl(195_25%_15%)] p-3 overflow-hidden">
+                  <div className="space-y-1 text-[11px] leading-snug text-white/90">
                     {previewLines.map((line, index) => (
                       <p key={`${line}-${index}`} className="line-clamp-1">
                         {line}
@@ -96,7 +96,7 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <p className="text-xs uppercase tracking-[0.14em] text-primary font-semibold mb-1.5">{currentArticle.audience}</p>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-4 min-h-[5rem]">{currentArticle.summary}</p>
+                <p className="text-sm text-[hsl(195_25%_18%)] leading-relaxed mb-4 line-clamp-4 min-h-[5rem]">{currentArticle.summary}</p>
 
                 <motion.span
                   className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold transition-all duration-300 hover:ring-2 hover:ring-primary/50 mt-auto"
@@ -115,7 +115,7 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
         <motion.button
           onClick={handlePrevious}
           aria-label="Previous article"
-          className="h-10 w-10 rounded-full border border-border bg-card/80 text-foreground/80 hover:text-foreground hover:bg-card hover:ring-2 hover:ring-primary/40 transition-all duration-300 flex items-center justify-center"
+            className="h-10 w-10 rounded-full border border-border bg-card/80 text-foreground/80 hover:text-foreground hover:bg-card hover:ring-2 hover:ring-primary/40 transition-all duration-300 flex items-center justify-center"
           whileHover={{ scale: 1.08, x: -1 }}
           whileTap={{ scale: 0.92 }}
         >
@@ -139,7 +139,7 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
         <motion.button
           onClick={handleNext}
           aria-label="Next article"
-          className="h-10 w-10 rounded-full border border-border bg-card/80 text-foreground/80 hover:text-foreground hover:bg-card hover:ring-2 hover:ring-primary/40 transition-all duration-300 flex items-center justify-center"
+            className="h-10 w-10 rounded-full border border-border bg-card/80 text-foreground/80 hover:text-foreground hover:bg-card hover:ring-2 hover:ring-primary/40 transition-all duration-300 flex items-center justify-center"
           whileHover={{ scale: 1.08, x: 1 }}
           whileTap={{ scale: 0.92 }}
         >

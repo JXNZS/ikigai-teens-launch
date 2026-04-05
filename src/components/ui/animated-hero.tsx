@@ -2,10 +2,11 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
 const localizedGlowMask = "radial-gradient(var(--hero-glow-radius, 140px) var(--hero-glow-radius, 140px) at var(--hero-glow-x, 50%) var(--hero-glow-y, 50%), rgba(0,0,0,1) 20%, rgba(0,0,0,0) 76%)";
+const heroAccentColor = "hsl(152 55% 55%)";
 const localizedGlowStyle = {
   WebkitMaskImage: localizedGlowMask,
   maskImage: localizedGlowMask,
-  textShadow: "0 0 24px hsl(152 60% 45% / 0.9), 0 0 10px hsl(0 0% 100% / 0.8)",
+  textShadow: "0 0 24px hsl(152 55% 55% / 0.9), 0 0 10px hsl(0 0% 100% / 0.8)",
   opacity: "var(--hero-glow-opacity, 0)",
 } as const;
 
@@ -33,7 +34,7 @@ function Hero() {
         <div className="flex gap-8 py-20 lg:py-28 items-start justify-center flex-col">
           <div data-hero-glow-target className="flex gap-4 flex-col">
             <h1 className="text-5xl md:text-7xl max-w-3xl tracking-tighter text-left font-regular text-foreground">
-              <span className="relative inline-block text-primary">
+              <span className="relative inline-block" style={{ color: heroAccentColor }}>
                 Empowering Teens to
                 <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={localizedGlowStyle}>
                   Empowering Teens to

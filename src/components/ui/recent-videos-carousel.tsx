@@ -52,7 +52,7 @@ const RecentVideosCarousel = ({ className }: RecentVideosCarouselProps) => {
             </AnimatePresence>
           </div>
 
-          <div className="p-4 min-h-[188px] flex flex-col">
+          <div className="p-4 min-h-[188px] flex flex-col bg-white border-t border-border/30">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentVideo.title}
@@ -63,7 +63,7 @@ const RecentVideosCarousel = ({ className }: RecentVideosCarouselProps) => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <p className="text-xs uppercase tracking-[0.14em] text-primary font-semibold mb-1.5">YouTube Series</p>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-4 min-h-[5rem]">Click to watch this episode on YouTube.</p>
+                <p className="text-sm text-[hsl(195_25%_18%)] leading-relaxed mb-4 line-clamp-4 min-h-[5rem]">Click to watch this episode on YouTube.</p>
 
                 <motion.span
                   className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold transition-all duration-300 hover:ring-2 hover:ring-primary/50 mt-auto"

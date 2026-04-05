@@ -188,10 +188,15 @@ const Navbar = () => {
 
   return (
     <nav className="navbar-theme-legacy fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/30">
-      <div className="container mx-auto px-6 flex items-center justify-between h-16">
+      <div className="container mx-auto px-6 flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logo} alt="Ikigai Teen" className="h-10 w-10 rounded-lg object-cover" />
-          <span className="font-display text-lg font-semibold text-foreground">Ikigai Teen</span>
+          <div className="h-[6.75rem] w-[6.75rem] shrink-0 overflow-hidden rounded-lg">
+            <img
+              src={logo}
+              alt="Ikigai Teen"
+              className="h-full w-full object-cover object-top scale-[1.22] origin-top drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]"
+            />
+          </div>
         </Link>
 
         {/* Desktop Nav */}

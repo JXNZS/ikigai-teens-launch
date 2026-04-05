@@ -1,65 +1,70 @@
-import { motion } from "framer-motion";
-import { Compass, Heart, Users, BookOpen, Lightbulb } from "lucide-react";
+import { ReactNode, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { LetterSwapForward } from "@/components/ui/letter-swap";
 
-const features = [
-  { icon: Compass, title: "Discover Purpose", desc: "Help teens explore their unique Ikigai through guided self-discovery." },
-  { icon: Heart, title: "Passion-Led Growth", desc: "Programs designed around what teens love and care about." },
-  { icon: Users, title: "Community Support", desc: "A safe space for teens to connect, share, and grow together." },
-  { icon: BookOpen, title: "Curated Resources", desc: "Expert-crafted content for teens and parents alike." },
-  { icon: Lightbulb, title: "Skill Building", desc: "Workshops and tools to build real-world skills and confidence." },
-];
+const renderNumberText = (text: string): ReactNode => {
+  const numberPattern = /\d[\d,-]*/g;
+  const nodes: ReactNode[] = [];
+  let lastIndex = 0;
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: { staggerChildren: 0.12 },
-  },
+  for (const match of text.matchAll(numberPattern)) {
+    const matchIndex = match.index ?? 0;
+
+    if (matchIndex > lastIndex) {
+      nodes.push(text.slice(lastIndex, matchIndex));
+    }
+
+    nodes.push(
+      <span key={`${text}-${matchIndex}-${match[0]}`} className="number-font">
+        {match[0]}
+      </span>,
+    );
+    lastIndex = matchIndex + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push(text.slice(lastIndex));
+  }
+
+  return nodes.length === 1 ? nodes[0] : nodes;
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
-  },
-};
+const FeaturesSection = () => {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  const headingColor = useTransform(scrollYProgress, [0, 0.45], ["hsl(195 10% 70%)", "hsl(var(--foreground))"]);
 
-interface FeaturesSectionProps {
-  glowEnabled?: boolean;
-}
-
-const FeaturesSection = ({ glowEnabled = true }: FeaturesSectionProps) => {
   return (
-    <section className="py-20 bg-card overflow-hidden">
+    <section ref={ref} className="py-20 bg-card overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
+          className="max-w-4xl mx-auto text-center rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8 md:p-10"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
         >
-          {features.map((f) => (
-            <motion.div
-              key={f.title}
-              className="flex flex-col items-center text-center gap-3 group"
-              variants={itemVariants}
-            >
-              <motion.div
-                className={`w-14 h-14 rounded-full bg-secondary flex items-center justify-center transition-shadow duration-300 ${
-                  glowEnabled ? "group-hover:shadow-[0_0_26px_hsl(152_60%_45%_/_0.45)] group-hover:border group-hover:border-primary/35" : ""
-                }`}
-                whileHover={{ scale: 1.15, rotate: 5 }}
-                transition={{ type: "spring", stiffness: 300 }}
-              >
-                <f.icon className="w-6 h-6 text-primary" />
-              </motion.div>
-              <h3 className="font-display text-sm font-semibold text-foreground">{f.title}</h3>
-              <p className="text-xs text-muted-foreground font-body leading-relaxed">{f.desc}</p>
-            </motion.div>
-          ))}
+          <motion.h2 style={{ color: headingColor }}>
+            <LetterSwapForward
+              label="Origin Of Ikigai Teen"
+              className="justify-center text-3xl md:text-4xl font-display font-bold text-current mb-3"
+            />
+          </motion.h2>
+          <p className="text-lg md:text-xl font-display text-primary mb-6">From Humanitarian Field Work to a Teen Mindset Movement</p>
+          <div className="space-y-4 text-sm md:text-base text-muted-foreground font-body leading-relaxed text-left md:text-center">
+            <p>
+              After two decades of working with children through humanitarian programs, education initiatives, and youth
+              development projects across India, Irene Arathi has reached over {renderNumberText("107,893")} children through life-skills
+              education, disaster preparedness training, and school-based programs.
+            </p>
+            <p>
+              Today, that experience is being transformed into Ikigai Teen - a platform dedicated to helping teenagers develop
+              clarity, resilience, character, and purpose in a rapidly changing world.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

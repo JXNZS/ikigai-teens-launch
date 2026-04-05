@@ -14,6 +14,7 @@ const CTASection = () => {
 
   const textY = useTransform(scrollYProgress, [0, 0.5], [40, 0]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
+  const headingColor = useTransform(scrollYProgress, [0, 0.45], ["hsl(195 10% 70%)", "hsl(var(--foreground))"]);
 
   const openNavbarDropdown = (label: "Teen Zone" | "Parent Hub") => {
     window.dispatchEvent(new CustomEvent(NAVBAR_OPEN_EVENT, { detail: { label } }));
@@ -22,13 +23,16 @@ const CTASection = () => {
   return (
     <section ref={ref} className="relative py-20 bg-card overflow-hidden">
       <div className="container mx-auto px-6">
-        <motion.div className="max-w-3xl mx-auto text-center" style={{ y: textY, opacity: textOpacity }}>
-          <h2>
+        <motion.div
+          className="max-w-3xl mx-auto text-center rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8 md:p-10"
+          style={{ y: textY, opacity: textOpacity }}
+        >
+          <motion.h2 style={{ color: headingColor }}>
             <LetterSwapForward
               label="Ready to Start Your Journey?"
-              className="justify-center text-3xl md:text-4xl font-display font-bold text-foreground mb-4"
+              className="justify-center text-3xl md:text-4xl font-display font-bold text-current mb-4"
             />
-          </h2>
+          </motion.h2>
           <p className="text-muted-foreground font-body mb-8 leading-relaxed">
             Whether you're a teen looking for guidance or a parent seeking support, we're here for you.
           </p>
