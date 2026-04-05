@@ -47,6 +47,7 @@ const PdfInlineViewer = ({ fileUrl, className }: PdfInlineViewerProps) => {
           canvas.height = viewport.height;
 
           await page.render({
+            canvas,
             canvasContext: context,
             viewport,
           }).promise;

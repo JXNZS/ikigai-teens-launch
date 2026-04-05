@@ -1,6 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { getYoutubeThumbnail, videos } from "@/lib/videos";
 
 const ResourceVideos = () => {
@@ -10,12 +11,17 @@ const ResourceVideos = () => {
       <main className="pt-16 bg-background min-h-screen">
         <section className="py-20 bg-card/60 border-b border-border/50">
           <div className="container mx-auto px-6 max-w-5xl text-center">
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">Video / Podcast Links</h1>
+            <h1>
+              <LetterSwapForward
+                label="Video / Podcast Links"
+                className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
+              />
+            </h1>
             <p className="text-lg text-muted-foreground font-body">Browse all uploaded episodes and open them directly on YouTube.</p>
           </div>
         </section>
 
-        <section className="py-14">
+        <section className="content-theme-legacy py-14 bg-background">
           <div className="container mx-auto px-6 max-w-6xl">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {videos.map((video) => (

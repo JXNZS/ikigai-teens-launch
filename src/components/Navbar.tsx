@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "@/assets/ikigai logo no bg.png";
+import { LetterSwapPingPong } from "@/components/ui/letter-swap";
 import NavHeader from "@/components/ui/nav-header";
 
 const NAVBAR_OPEN_EVENT = "ikigai:openNavbarDropdown";
@@ -11,7 +12,7 @@ export const navItems = [
   {
     label: "About",
     path: "/about",
-    children: ["Vision & Mission", "Grounding Philosophy", "Core Values", "The Journey", "Founder & Team"],
+    children: ["Values, Vision & Mission", "Grounding Philosophy", "The Journey", "Founder & Team"],
   },
   {
     label: "Teen Zone",
@@ -122,6 +123,18 @@ const Navbar = () => {
   const activeDesktopItem = navItems.find((item) => item.label === openDropdown) ?? null;
 
   const getChildPath = (parentLabel: string, childLabel: string, fallbackPath: string) => {
+    if (parentLabel === "About" && childLabel === "Founder & Team") {
+      return "/about/founder-team";
+    }
+
+    if (parentLabel === "About" && childLabel === "Grounding Philosophy") {
+      return "/about/grounding-philosophy";
+    }
+
+    if (parentLabel === "About" && childLabel === "Values, Vision & Mission") {
+      return "/about/values-vision-mission";
+    }
+
     if (parentLabel === "Resources" && childLabel === "Blog/Articles") {
       return "/resources/blogs";
     }
@@ -174,7 +187,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/30">
+    <nav className="navbar-theme-legacy fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/30">
       <div className="container mx-auto px-6 flex items-center justify-between h-16">
         <Link to="/" className="flex items-center gap-3">
           <img src={logo} alt="Ikigai Teen" className="h-10 w-10 rounded-lg object-cover" />
@@ -225,7 +238,7 @@ const Navbar = () => {
               contactActive ? "ring-2 ring-primary/50" : ""
             }`}
           >
-            Contact Us
+            <LetterSwapPingPong label="Contact Us" className="justify-center" />
           </Link>
         </motion.div>
 
@@ -273,7 +286,7 @@ const Navbar = () => {
                 </div>
               ))}
               <Link to="/#contact" className="block mt-4 text-center px-5 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold font-body" onClick={() => setMobileOpen(false)}>
-                Contact Us
+                <LetterSwapPingPong label="Contact Us" className="justify-center" />
               </Link>
             </div>
           </motion.div>

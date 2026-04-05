@@ -6,7 +6,14 @@ import Footer from "@/components/Footer";
 interface SectionPageLayoutProps {
   title: string;
   subtitle: string;
-  sections: { title: string; description: string; path?: string }[];
+  sections: {
+    title: string;
+    description: string;
+    path?: string;
+    id?: string;
+    body?: string[];
+    bullets?: string[];
+  }[];
 }
 
 const containerVariants = {
@@ -36,7 +43,7 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
               className="max-w-3xl mx-auto text-center"
             >
               <motion.h1
-                className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4"
+                className="text-4xl md:text-5xl font-display font-bold text-primary mb-4"
                 initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -56,7 +63,7 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
         </section>
 
         {/* Subsections */}
-        <section className="py-16">
+        <section className="content-theme-legacy py-16 bg-background">
           <div className="container mx-auto px-6">
             <motion.div
               className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
@@ -66,7 +73,7 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
               viewport={{ once: true, margin: "-30px" }}
             >
               {sections.map((s) => (
-                <motion.div key={s.title} variants={cardVariants}>
+                <motion.div key={s.title} variants={cardVariants} id={s.id} className="scroll-mt-24">
                   {s.path ? (
                     <Link to={s.path} className="block glass-card p-8 group hover:border-primary/40 transition-colors">
                       <motion.div
@@ -84,6 +91,20 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                         />
                         <h2 className="text-xl font-display font-semibold text-foreground mb-3">{s.title}</h2>
                         <p className="text-muted-foreground font-body text-sm leading-relaxed">{s.description}</p>
+                        {s.body?.length ? (
+                          <div className="mt-5 space-y-4 text-sm leading-relaxed text-muted-foreground font-body">
+                            {s.body.map((paragraph) => (
+                              <p key={paragraph}>{paragraph}</p>
+                            ))}
+                          </div>
+                        ) : null}
+                        {s.bullets?.length ? (
+                          <div className="mt-5 space-y-3 text-sm leading-relaxed text-muted-foreground font-body">
+                            {s.bullets.map((bullet) => (
+                              <p key={bullet}>{bullet}</p>
+                            ))}
+                          </div>
+                        ) : null}
                       </motion.div>
                     </Link>
                   ) : (
@@ -103,6 +124,20 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                       />
                       <h2 className="text-xl font-display font-semibold text-foreground mb-3">{s.title}</h2>
                       <p className="text-muted-foreground font-body text-sm leading-relaxed">{s.description}</p>
+                      {s.body?.length ? (
+                        <div className="mt-5 space-y-4 text-sm leading-relaxed text-muted-foreground font-body">
+                          {s.body.map((paragraph) => (
+                            <p key={paragraph}>{paragraph}</p>
+                          ))}
+                        </div>
+                      ) : null}
+                      {s.bullets?.length ? (
+                        <div className="mt-5 space-y-3 text-sm leading-relaxed text-muted-foreground font-body">
+                          {s.bullets.map((bullet) => (
+                            <p key={bullet}>{bullet}</p>
+                          ))}
+                        </div>
+                      ) : null}
                     </motion.div>
                   )}
                 </motion.div>

@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { LetterSwapForward } from "@/components/ui/letter-swap";
 
 const NAVBAR_OPEN_EVENT = "ikigai:openNavbarDropdown";
 
@@ -22,8 +23,11 @@ const CTASection = () => {
     <section ref={ref} className="relative py-20 bg-card overflow-hidden">
       <div className="container mx-auto px-6">
         <motion.div className="max-w-3xl mx-auto text-center" style={{ y: textY, opacity: textOpacity }}>
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
-            Ready to Start Your Journey?
+          <h2>
+            <LetterSwapForward
+              label="Ready to Start Your Journey?"
+              className="justify-center text-3xl md:text-4xl font-display font-bold text-foreground mb-4"
+            />
           </h2>
           <p className="text-muted-foreground font-body mb-8 leading-relaxed">
             Whether you're a teen looking for guidance or a parent seeking support, we're here for you.

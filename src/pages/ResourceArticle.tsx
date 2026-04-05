@@ -30,7 +30,7 @@ const ResourceArticle = () => {
               {article.audience}
             </span>
 
-            <h1 className="text-3xl md:text-5xl font-display font-semibold tracking-tight text-foreground leading-tight max-w-4xl mb-5">
+            <h1 className="text-3xl md:text-5xl font-display font-semibold tracking-tight text-primary leading-tight max-w-4xl mb-5">
               {article.title}
             </h1>
 
@@ -51,11 +51,59 @@ const ResourceArticle = () => {
           </div>
         </section>
 
-        <section className="py-12 md:py-14">
+        <section className="content-theme-legacy py-12 md:py-14 bg-background">
           <div className="container mx-auto px-6 max-w-5xl">
-            <div className="rounded-xl border border-border/60 bg-secondary/20 p-2 md:p-3 mb-14">
-              <PdfInlineViewer fileUrl={article.pdfUrl} className="w-full" />
-            </div>
+            {article.content && article.content.length > 0 ? (
+              <article className="rounded-xl border border-border/60 bg-card/70 p-6 md:p-8 mb-14 space-y-5">
+                {article.content.map((block, index) => {
+                  const key = `${block.type}-${index}`;
+
+                  if (block.type === "heading") {
+                    return (
+                      <h2 key={key} className="text-2xl md:text-3xl font-display font-semibold text-foreground pt-2 first:pt-0">
+                        {block.text}
+                      </h2>
+                    );
+                  }
+
+                  if (block.type === "quote") {
+                    return (
+                      <blockquote key={key} className="border-l-4 border-primary/70 pl-4 py-1 text-foreground/90 italic text-xl leading-relaxed">
+                        {block.text}
+                      </blockquote>
+                    );
+                  }
+
+                  if (block.type === "raw") {
+                    return (
+                      <div key={key} className="text-muted-foreground text-lg leading-loose whitespace-pre-wrap">
+                        {block.text}
+                      </div>
+                    );
+                  }
+
+                  if (block.type === "list") {
+                    return (
+                      <ul key={key} className="list-disc pl-6 space-y-2 text-muted-foreground text-lg leading-loose">
+                        {block.items.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    );
+                  }
+
+                  return (
+                    <p key={key} className="text-muted-foreground text-lg leading-loose">
+                      {block.text}
+                    </p>
+                  );
+                })}
+              </article>
+            ) : (
+              <div className="rounded-xl border border-border/60 bg-secondary/20 p-2 md:p-3 mb-14">
+                <PdfInlineViewer fileUrl={article.pdfUrl} className="w-full" />
+              </div>
+            )}
 
             <div>
               <h2 className="text-2xl md:text-3xl font-display font-semibold text-foreground mb-6">More Articles</h2>

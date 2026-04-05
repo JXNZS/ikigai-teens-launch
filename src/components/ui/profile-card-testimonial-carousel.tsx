@@ -27,61 +27,100 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
 
   const currentArticle = articles[currentIndex];
 
+  const getPreviewLines = () => {
+    if (!currentArticle.content || currentArticle.content.length === 0) {
+      return [currentArticle.summary];
+    }
+
+    const lines: string[] = [];
+
+    for (const block of currentArticle.content) {
+      if (block.type === "raw") {
+        lines.push(
+          ...block.text
+            .split("\n")
+            .map((line) => line.trim())
+            .filter((line) => line.length > 0),
+        );
+        continue;
+      }
+
+      if (block.type === "list") {
+        lines.push(...block.items.map((item) => `- ${item}`));
+        continue;
+      }
+
+      lines.push(block.text);
+    }
+
+    return lines.slice(0, 12);
+  };
+
+  const previewLines = getPreviewLines();
+
   return (
-    <div className={cn("w-full max-w-sm", className)}>
-      <div className="rounded-2xl border border-border/60 bg-card/90 backdrop-blur-md shadow-xl overflow-hidden">
-        <div className="relative h-48 bg-secondary/40 border-b border-border/50">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentArticle.pdfUrl}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              className="absolute inset-0"
-            >
-              <iframe
-                src={`${currentArticle.pdfUrl}#page=1&toolbar=0&navpanes=0&scrollbar=0&view=FitH`}
-                title={currentArticle.title}
-                className="h-full w-full pointer-events-none"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        <div className="p-4">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentArticle.title}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            >
-              <p className="text-xs uppercase tracking-[0.14em] text-primary font-semibold mb-1.5">{currentArticle.audience}</p>
-              <h3 className="text-base font-semibold text-foreground leading-snug mb-2">{currentArticle.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">{currentArticle.summary}</p>
-
-              <Link
-                to={`/resources/blog/${currentArticle.slug}`}
-                className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold hover:opacity-90 transition-opacity"
+    <div className={cn("w-full max-w-sm h-[446px] flex flex-col", className)}>
+      <div className="rounded-2xl border border-border/60 bg-card/90 backdrop-blur-md shadow-xl overflow-hidden flex-1">
+        <Link to={`/resources/blog/${currentArticle.slug}`} className="block">
+          <div className="relative h-48 bg-secondary/40 border-b border-border/50">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentArticle.slug}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="absolute inset-0 p-4"
               >
-                Open Article
-              </Link>
-            </motion.div>
-          </AnimatePresence>
-        </div>
+                <div className="h-full rounded-lg border border-border/50 bg-background/75 p-3 overflow-hidden">
+                  <div className="space-y-1 text-[11px] leading-snug text-foreground/80">
+                    {previewLines.map((line, index) => (
+                      <p key={`${line}-${index}`} className="line-clamp-1">
+                        {line}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <div className="p-4 min-h-[188px] flex flex-col">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentArticle.title}
+                className="h-full flex flex-col"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              >
+                <p className="text-xs uppercase tracking-[0.14em] text-primary font-semibold mb-1.5">{currentArticle.audience}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-4 min-h-[5rem]">{currentArticle.summary}</p>
+
+                <motion.span
+                  className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold transition-all duration-300 hover:ring-2 hover:ring-primary/50 mt-auto"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.94 }}
+                >
+                  Open Article
+                </motion.span>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </Link>
       </div>
 
-      <div className="mt-4 flex items-center justify-between">
-        <button
+      <div className="mt-4 h-10 flex items-center justify-between shrink-0">
+        <motion.button
           onClick={handlePrevious}
           aria-label="Previous article"
-          className="h-10 w-10 rounded-full border border-border bg-card/80 text-foreground/80 hover:text-foreground hover:bg-card transition-colors flex items-center justify-center"
+          className="h-10 w-10 rounded-full border border-border bg-card/80 text-foreground/80 hover:text-foreground hover:bg-card hover:ring-2 hover:ring-primary/40 transition-all duration-300 flex items-center justify-center"
+          whileHover={{ scale: 1.08, x: -1 }}
+          whileTap={{ scale: 0.92 }}
         >
           <ChevronLeft className="h-5 w-5" />
-        </button>
+        </motion.button>
 
         <div className="flex items-center gap-1.5">
           {articles.map((_, index) => (
@@ -97,13 +136,15 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
           ))}
         </div>
 
-        <button
+        <motion.button
           onClick={handleNext}
           aria-label="Next article"
-          className="h-10 w-10 rounded-full border border-border bg-card/80 text-foreground/80 hover:text-foreground hover:bg-card transition-colors flex items-center justify-center"
+          className="h-10 w-10 rounded-full border border-border bg-card/80 text-foreground/80 hover:text-foreground hover:bg-card hover:ring-2 hover:ring-primary/40 transition-all duration-300 flex items-center justify-center"
+          whileHover={{ scale: 1.08, x: 1 }}
+          whileTap={{ scale: 0.92 }}
         >
           <ChevronRight className="h-5 w-5" />
-        </button>
+        </motion.button>
       </div>
     </div>
   );

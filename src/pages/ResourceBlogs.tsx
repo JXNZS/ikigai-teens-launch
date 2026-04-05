@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Calendar, Clock3, User } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { articles } from "@/lib/articles";
 
 const ResourceBlogs = () => {
@@ -11,12 +12,17 @@ const ResourceBlogs = () => {
       <main className="pt-16 bg-background min-h-screen">
         <section className="py-20 bg-card/60 border-b border-border/50">
           <div className="container mx-auto px-6 max-w-5xl text-center">
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">Blog / Articles</h1>
+            <h1>
+              <LetterSwapForward
+                label="Blog / Articles"
+                className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
+              />
+            </h1>
             <p className="text-lg text-muted-foreground font-body">Browse all published blogs in sequence.</p>
           </div>
         </section>
 
-        <section className="py-14">
+        <section className="content-theme-legacy py-14 bg-background">
           <div className="container mx-auto px-6 max-w-5xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {articles.map((article, index) => (

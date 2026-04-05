@@ -6,6 +6,7 @@ import blog4Parent from "@/assets/BLOG 4 PARENT FORMAT.pdf";
 import blog4Teen from "@/assets/BLOG 4 TEEN FORMAT.pdf";
 import blog5Parent from "@/assets/BLOG 5 PARENT FORMAT.pdf";
 import blog5Teen from "@/assets/BLOG 5 TEEN FORMAT.pdf";
+import { articleBodies, type ArticleContentBlock } from "@/lib/articleBodies";
 
 export type Article = {
   slug: string;
@@ -16,6 +17,7 @@ export type Article = {
   pdfUrl: string;
   readTime: string;
   publishedOn: string;
+  content?: ArticleContentBlock[];
 };
 
 export const articles: Article[] = [
@@ -29,6 +31,7 @@ export const articles: Article[] = [
     pdfUrl: blog2Parent2,
     readTime: "5 min read",
     publishedOn: "Jan 22, 2024",
+    content: articleBodies["from-tool-to-trap-digital-dependence-in-teens"],
   },
   {
     slug: "social-media-self-worth-comparison-culture",
@@ -40,6 +43,7 @@ export const articles: Article[] = [
     pdfUrl: blog3Parent,
     readTime: "4 min read",
     publishedOn: "Jan 29, 2024",
+    content: articleBodies["social-media-self-worth-comparison-culture"],
   },
   {
     slug: "digital-is-not-the-enemy-for-parents",
@@ -51,6 +55,7 @@ export const articles: Article[] = [
     pdfUrl: blog4Parent,
     readTime: "5 min read",
     publishedOn: "Feb 5, 2024",
+    content: articleBodies["digital-is-not-the-enemy-for-parents"],
   },
   {
     slug: "digital-is-not-the-enemy-parent-guide",
@@ -62,6 +67,7 @@ export const articles: Article[] = [
     pdfUrl: blog5Parent,
     readTime: "4 min read",
     publishedOn: "Feb 12, 2024",
+    content: articleBodies["inside-the-teen-brain-digital-world"],
   },
   {
     slug: "your-brain-isnt-broken",
@@ -73,6 +79,7 @@ export const articles: Article[] = [
     pdfUrl: blog2Teen,
     readTime: "5 min read",
     publishedOn: "Jan 15, 2024",
+    content: articleBodies["your-brain-isnt-broken"],
   },
   {
     slug: "from-tool-to-trap-phone-starts-using-you",
@@ -84,6 +91,7 @@ export const articles: Article[] = [
     pdfUrl: blog3Teen,
     readTime: "3 min read",
     publishedOn: "Jan 22, 2024",
+    content: articleBodies["from-tool-to-trap-phone-starts-using-you"],
   },
   {
     slug: "social-media-comparison-and-you",
@@ -95,6 +103,7 @@ export const articles: Article[] = [
     pdfUrl: blog4Teen,
     readTime: "4 min read",
     publishedOn: "Jan 29, 2024",
+    content: articleBodies["social-media-comparison-and-you"],
   },
   {
     slug: "digital-is-not-the-enemy-for-teens",
@@ -106,6 +115,7 @@ export const articles: Article[] = [
     pdfUrl: blog5Teen,
     readTime: "4 min read",
     publishedOn: "Feb 5, 2024",
+    content: articleBodies["digital-is-not-the-enemy-for-teens"],
   },
 ];
 

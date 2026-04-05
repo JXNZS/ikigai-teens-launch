@@ -26,8 +26,8 @@ const RecentVideosCarousel = ({ className }: RecentVideosCarouselProps) => {
   const thumbnail = getYoutubeThumbnail(currentVideo.youtubeUrl);
 
   return (
-    <div className={cn("w-full max-w-sm", className)}>
-      <div className="rounded-2xl border border-border/60 bg-card/90 backdrop-blur-md shadow-xl overflow-hidden">
+    <div className={cn("w-full max-w-sm h-[446px] flex flex-col", className)}>
+      <div className="rounded-2xl border border-border/60 bg-card/90 backdrop-blur-md shadow-xl overflow-hidden flex-1">
         <a href={currentVideo.youtubeUrl} target="_blank" rel="noopener noreferrer" className="block">
           <div className="relative h-48 bg-secondary/40 border-b border-border/50 overflow-hidden">
             <AnimatePresence mode="wait">
@@ -45,40 +45,49 @@ const RecentVideosCarousel = ({ className }: RecentVideosCarouselProps) => {
                   <div className="h-full w-full bg-secondary" />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-background/75 via-transparent to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 px-3 pb-3 pt-6 bg-gradient-to-t from-background/90 via-background/35 to-transparent">
+                  <p className="text-sm font-semibold text-foreground line-clamp-2">{currentVideo.title}</p>
+                </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          <div className="p-4">
+          <div className="p-4 min-h-[188px] flex flex-col">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentVideo.title}
+                className="h-full flex flex-col"
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <p className="text-xs uppercase tracking-[0.14em] text-primary font-semibold mb-1.5">YouTube Series</p>
-                <h3 className="text-base font-semibold text-foreground leading-snug mb-2">{currentVideo.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">Click to watch on YouTube.</p>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-4 min-h-[5rem]">Click to watch this episode on YouTube.</p>
 
-                <span className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold hover:opacity-90 transition-opacity">
+                <motion.span
+                  className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold transition-all duration-300 hover:ring-2 hover:ring-primary/50 mt-auto"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.94 }}
+                >
                   Watch Video
-                </span>
+                </motion.span>
               </motion.div>
             </AnimatePresence>
           </div>
         </a>
       </div>
 
-      <div className="mt-4 flex items-center justify-between">
-        <button
+      <div className="mt-4 h-10 flex items-center justify-between shrink-0">
+        <motion.button
           onClick={handlePrevious}
           aria-label="Previous video"
-          className="h-10 w-10 rounded-full border border-border bg-card/80 text-foreground/80 hover:text-foreground hover:bg-card transition-colors flex items-center justify-center"
+          className="h-10 w-10 rounded-full border border-border bg-card/80 text-foreground/80 hover:text-foreground hover:bg-card hover:ring-2 hover:ring-primary/40 transition-all duration-300 flex items-center justify-center"
+          whileHover={{ scale: 1.08, x: -1 }}
+          whileTap={{ scale: 0.92 }}
         >
           <ChevronLeft className="h-5 w-5" />
-        </button>
+        </motion.button>
 
         <div className="flex items-center gap-1.5">
           {videos.map((_, index) => (
@@ -94,13 +103,15 @@ const RecentVideosCarousel = ({ className }: RecentVideosCarouselProps) => {
           ))}
         </div>
 
-        <button
+        <motion.button
           onClick={handleNext}
           aria-label="Next video"
-          className="h-10 w-10 rounded-full border border-border bg-card/80 text-foreground/80 hover:text-foreground hover:bg-card transition-colors flex items-center justify-center"
+          className="h-10 w-10 rounded-full border border-border bg-card/80 text-foreground/80 hover:text-foreground hover:bg-card hover:ring-2 hover:ring-primary/40 transition-all duration-300 flex items-center justify-center"
+          whileHover={{ scale: 1.08, x: 1 }}
+          whileTap={{ scale: 0.92 }}
         >
           <ChevronRight className="h-5 w-5" />
-        </button>
+        </motion.button>
       </div>
     </div>
   );

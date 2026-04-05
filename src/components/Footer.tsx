@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, Facebook, Instagram, Linkedin, Mail, PhoneCall, Youtube } from "lucide-react";
 import logo from "@/assets/ikigai logo no bg.png";
 import { navItems } from "@/components/Navbar";
+import { LetterSwapForward } from "@/components/ui/letter-swap";
 import TiltedDock, { type TiltedDockItem } from "@/components/ui/tilted-dock";
 
 const contactDockItems: TiltedDockItem[] = [
@@ -18,6 +19,18 @@ const Footer = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const getChildPath = (groupLabel: string, childLabel: string, fallbackPath: string) => {
+    if (groupLabel === "About" && childLabel === "Founder & Team") {
+      return "/about/founder-team";
+    }
+
+    if (groupLabel === "About" && childLabel === "Grounding Philosophy") {
+      return "/about/grounding-philosophy";
+    }
+
+    if (groupLabel === "About" && childLabel === "Values, Vision & Mission") {
+      return "/about/values-vision-mission";
+    }
+
     if (groupLabel === "Resources" && childLabel === "Blog/Articles") {
       return "/resources/blogs";
     }
@@ -74,11 +87,22 @@ const Footer = () => {
           </div>
 
           <div className="space-y-4 lg:pl-8">
-            <h3 className="font-display text-lg font-semibold text-foreground">Contact Us</h3>
-            <div className="space-y-2 text-sm font-body text-foreground/85">
-              <p><span className="text-foreground font-semibold">Email:</span> hello@ikigaiteen.org</p>
-              <p><span className="text-foreground font-semibold">Phone:</span> +91 12345 67890</p>
-              <p><span className="text-foreground font-semibold">Address:</span> 123 bengaluru, karnataka</p>
+            <h3>
+              <LetterSwapForward label="Contact Us" className="justify-start font-display text-lg font-semibold text-foreground" />
+            </h3>
+            <div className="space-y-2.5 text-sm md:text-base font-body text-foreground/85">
+              <p className="grid grid-cols-[78px_1fr] items-baseline gap-2">
+                <span className="text-foreground font-semibold">Email:</span>
+                <span className="text-foreground/80">hello@ikigaiteen.org</span>
+              </p>
+              <p className="grid grid-cols-[78px_1fr] items-baseline gap-2">
+                <span className="text-foreground font-semibold">Phone:</span>
+                <span className="text-foreground/80">+91 12345 67890</span>
+              </p>
+              <p className="grid grid-cols-[78px_1fr] items-baseline gap-2">
+                <span className="text-foreground font-semibold">Address:</span>
+                <span className="text-foreground/80">123 Bengaluru, Karnataka</span>
+              </p>
             </div>
             <TiltedDock className="pt-6 justify-start" items={contactDockItems} />
           </div>

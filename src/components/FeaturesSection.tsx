@@ -26,7 +26,11 @@ const itemVariants = {
   },
 };
 
-const FeaturesSection = () => {
+interface FeaturesSectionProps {
+  glowEnabled?: boolean;
+}
+
+const FeaturesSection = ({ glowEnabled = true }: FeaturesSectionProps) => {
   return (
     <section className="py-20 bg-card overflow-hidden">
       <div className="container mx-auto px-6">
@@ -44,7 +48,9 @@ const FeaturesSection = () => {
               variants={itemVariants}
             >
               <motion.div
-                className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center"
+                className={`w-14 h-14 rounded-full bg-secondary flex items-center justify-center transition-shadow duration-300 ${
+                  glowEnabled ? "group-hover:shadow-[0_0_26px_hsl(152_60%_45%_/_0.45)] group-hover:border group-hover:border-primary/35" : ""
+                }`}
                 whileHover={{ scale: 1.15, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
