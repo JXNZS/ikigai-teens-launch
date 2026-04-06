@@ -92,7 +92,7 @@ const teamMembers: TeamMember[] = [
 		name: "Jiya Giri",
 		role: "Networking & Business Coordination",
 		region: "India",
-		image: jiyaPhoto,
+		image: "",
 		imageClassName: "object-[68%_12%]",
 		quote: "Grace, responsibility, and sincerity in small actions often build the strongest foundations.",
 		bio: [
