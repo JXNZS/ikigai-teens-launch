@@ -50,7 +50,7 @@ const ApplePodcastIcon = () => (
 const contactDockItems: TiltedDockItem[] = [
   { id: 1, icon: <Instagram size={28} />, label: "Instagram", href: "https://www.instagram.com/ikigaiteen_by_irenearathi?igsh=MWJvdGk3am42YjU3OQ==", external: true },
   { id: 2, icon: <Facebook size={28} />, label: "Facebook", href: "https://www.facebook.com/people/Ikigai-Teen/61580750702758/?mibextid=rS40aB7S9Ucbxw6v", external: true },
-  { id: 3, icon: <Mail size={28} />, label: "Email", href: "mailto:hello@ikigaiteen.org" },
+  { id: 3, icon: <Mail size={28} />, label: "Email", href: "mailto:ikigaiteenhub@gmail.com" },
   { id: 4, icon: <Youtube size={28} />, label: "YouTube", href: "https://youtube.com/@ikigaiteenhub?si=r09nOD2aIVp-7otA", external: true },
   { id: 5, icon: <Linkedin size={28} />, label: "LinkedIn", href: "https://www.linkedin.com/company/ikigaiteen/", external: true },
   { id: 6, icon: <SpotifyIcon />, label: "Spotify", href: "https://open.spotify.com/show/5Ujbc6JbEW9OCRwcwfqyfS?si=5ogDDYumSl6q6dLIYuS6WA", external: true },
@@ -94,6 +94,10 @@ const Footer = () => {
 
     if (groupLabel === "About" && childLabel === "Grounding Philosophy") {
       return "/about/grounding-philosophy";
+    }
+
+    if (groupLabel === "About" && childLabel === "The Journey") {
+      return "/about/journey";
     }
 
     if (groupLabel === "About" && childLabel === "Vision, Mission & Values") {

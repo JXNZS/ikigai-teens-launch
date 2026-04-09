@@ -19,23 +19,29 @@ type TeamMember = {
 	imageStyle?: CSSProperties;
 	quote: string;
 	bio: string[];
+	extendedBio?: string[];
 };
 
-const founderBio = [
-	"Irene Arathi Pais is the founder of Ikigai Teen, a teen development initiative dedicated to helping teenagers build self-awareness, resilience, and purpose in a rapidly changing world. With over two decades of professional experience in human resources and humanitarian project leadership across international organisations across the globe, including work in disaster response and conflict environments, she has designed and delivered youth-focused programs that have reached over 107,893 students across India.",
-	"Drawing from her background in child development, leadership, and community engagement and social sector, Irene founded Ikigai Teen to create practical tools and conversations that support teens, parents, and educators alike.",
-];
-
-const founderExtendedBio = [
-	"Irene Arathi Pais is the founder of Ikigai Teen, a values-driven initiative dedicated to helping young people grow into self-aware, resilient and responsible individuals.",
-	"With over two decades of professional experience in human resources, humanitarian operations and youth-focused initiatives, Irene has worked in some of the world's most complex environments, including India, Iraq, Sudan, Ethiopia and Haiti. Her work has included roles within the Red Cross movement, United Nations system and international organisations such as Oxfam, where she contributed to programmes in disaster response, conflict contexts and large-scale humanitarian operations.",
-	"Through these experiences, Irene witnessed first-hand how resilience, character and inner strength shape the course of a young person's life. Alongside her humanitarian career, she pursued her deep interest in child development and adolescent growth, designing and delivering programmes for high school students across several Indian states that reached over 100,000 students.",
-	"Irene holds a Master's degree and has been trained in child development and youth engagement practices. Over the years, she has worked closely with educators, institutions and communities to support young people in building life skills, emotional strength and a sense of purpose.",
-	"Ikigai Teen was born from Irene's conviction that adolescence is a critical window in life - a time when the right guidance can help young people discover who they are, develop strong values and build the confidence to navigate an increasingly complex world.",
-	"Through Ikigai Teen, Irene aims to create practical tools, coaching programmes and supportive communities that help teens, parents and educators work together to nurture the next generation of thoughtful, capable and compassionate leaders.",
-];
-
 const teamMembers: TeamMember[] = [
+	{
+		name: "Irene Arathi Pais",
+		role: "Founder, Ikigai Teen",
+		image: irenePhoto,
+		imageClassName: "object-[50%_30%]",
+		quote: "When young people understand themselves early, they gain the power to shape their future with clarity and courage.",
+		bio: [
+			"Irene Arathi Pais is the founder of Ikigai Teen, a teen development initiative dedicated to helping teenagers build self-awareness, resilience, and purpose in a rapidly changing world. With over two decades of professional experience in human resources and humanitarian project leadership across international organisations across the globe, including work in disaster response and conflict environments, she has designed and delivered youth-focused programs that have reached over 107,893 students across India.",
+			"Drawing from her background in child development, leadership, and community engagement and social sector, Irene founded Ikigai Teen to create practical tools and conversations that support teens, parents, and educators alike.",
+		],
+		extendedBio: [
+			"Irene Arathi Pais is the founder of Ikigai Teen, a values-driven initiative dedicated to helping young people grow into self-aware, resilient and responsible individuals.",
+			"With over two decades of professional experience in human resources, humanitarian operations and youth-focused initiatives, Irene has worked in some of the world's most complex environments, including India, Iraq, Sudan, Ethiopia and Haiti. Her work has included roles within the Red Cross movement, United Nations system and international organisations such as Oxfam, where she contributed to programmes in disaster response, conflict contexts and large-scale humanitarian operations.",
+			"Through these experiences, Irene witnessed first-hand how resilience, character and inner strength shape the course of a young person's life. Alongside her humanitarian career, she pursued her deep interest in child development and adolescent growth, designing and delivering programmes for high school students across several Indian states that reached over 100,000 students.",
+			"Irene holds a Master's degree and has been trained in child development and youth engagement practices. Over the years, she has worked closely with educators, institutions and communities to support young people in building life skills, emotional strength and a sense of purpose.",
+			"Ikigai Teen was born from Irene's conviction that adolescence is a critical window in life - a time when the right guidance can help young people discover who they are, develop strong values and build the confidence to navigate an increasingly complex world.",
+			"Through Ikigai Teen, Irene aims to create practical tools, coaching programmes and supportive communities that help teens, parents and educators work together to nurture the next generation of thoughtful, capable and compassionate leaders.",
+		],
+	},
 	{
 		name: "Zubaida Zuhair",
 		role: "Research & Content Associate",
@@ -128,7 +134,6 @@ const CircleProfilePhoto = ({ src, alt, imageClassName, imageStyle }: { src: str
 
 const FounderTeam = () => {
 	const [showFullFounderBio, setShowFullFounderBio] = useState(false);
-	const activeFounderBio = showFullFounderBio ? founderExtendedBio : founderBio;
 
 	return (
 		<>
@@ -148,49 +153,6 @@ const FounderTeam = () => {
 
 				<section className="py-14 bg-background">
 					<div className="container mx-auto px-6 max-w-6xl space-y-8">
-						<article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-6">
-							<header className="space-y-3">
-								<h2 className="text-2xl md:text-3xl font-display font-semibold text-primary">Founder</h2>
-							</header>
-
-							<article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20 hover:border-primary/40">
-								<div className="mb-3">
-									<div>
-										<h3 className="text-xl md:text-2xl font-display font-semibold text-primary">Irene Arathi Pais</h3>
-										<p className="text-sm md:text-base text-primary font-semibold">Founder, Ikigai Teen</p>
-									</div>
-								</div>
-								<div className="flex flex-row gap-5 items-start pt-1">
-									<CircleProfilePhoto src={irenePhoto} alt="Irene Arathi Pais" imageClassName="object-[50%_30%]" />
-									<div className="space-y-3">
-										{activeFounderBio.map((paragraph, paragraphIndex) => (
-											<p key={paragraph} className="text-sm md:text-base text-muted-foreground leading-relaxed">
-												{paragraph}
-												{paragraphIndex === activeFounderBio.length - 1 ? (
-													<>
-														{" "}
-														<button
-															type="button"
-															onClick={() => setShowFullFounderBio((previous) => !previous)}
-															className="ml-1 inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
-														>
-															{showFullFounderBio ? "Show less" : "Read more"}
-														</button>
-													</>
-												) : null}
-											</p>
-										))}
-
-										<p className="text-sm md:text-base italic font-semibold text-foreground/85">
-											"When young people understand themselves early, they gain the power to shape their future with clarity
-											and courage."
-										</p>
-									</div>
-								</div>
-							</article>
-
-						</article>
-
 						<section className="space-y-5">
 							<div className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
 								<h2 className="text-2xl md:text-3xl font-display font-semibold text-primary">Team</h2>
@@ -212,11 +174,33 @@ const FounderTeam = () => {
 											<div className="flex flex-row gap-5 items-start pt-1">
 												<CircleProfilePhoto src={member.image} alt={member.name} imageClassName={member.imageClassName} imageStyle={member.imageStyle} />
 												<div className="space-y-3">
-													{member.bio.map((paragraph) => (
+													{member.name === "Irene Arathi Pais" ? (
+														<>
+															{(showFullFounderBio ? member.extendedBio ?? member.bio : member.bio).map((paragraph, paragraphIndex) => (
+																<p key={paragraph} className="text-sm md:text-base text-muted-foreground leading-relaxed">
+																	{paragraph}
+																	{paragraphIndex === (showFullFounderBio ? member.extendedBio ?? member.bio : member.bio).length - 1 ? (
+																		<>
+																			{" "}
+																			<button
+																				type="button"
+																					onClick={() => setShowFullFounderBio((previous) => !previous)}
+																					className="ml-1 inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
+																				>
+																					{showFullFounderBio ? "Show less" : "Read more"}
+																				</button>
+																			</>
+																		) : null}
+																</p>
+															))}
+														</>
+													) : (
+														member.bio.map((paragraph) => (
 														<p key={paragraph} className="text-sm md:text-base text-muted-foreground leading-relaxed">
 															{paragraph}
 														</p>
-													))}
+														))
+													)}
 
 													<p className="text-sm md:text-base italic font-semibold text-foreground/85">"{member.quote}"</p>
 												</div>

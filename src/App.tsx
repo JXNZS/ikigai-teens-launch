@@ -9,6 +9,7 @@ import About from "./pages/About.tsx";
 import FounderTeam from "./pages/FounderTeam.tsx";
 import GroundingPhilosophy from "./pages/GroundingPhilosophy.tsx";
 import ValuesVisionMission from "./pages/ValuesVisionMission.tsx";
+import Journey from "./pages/Journey.tsx";
 import Teenzone from "./pages/Teenzone.tsx";
 import ParentHub from "./pages/ParentHub.tsx";
 import ResourceArticle from "./pages/ResourceArticle.tsx";
@@ -64,6 +65,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/about/values-vision-mission" element={<ValuesVisionMission />} />
           <Route path="/about/grounding-philosophy" element={<GroundingPhilosophy />} />
+          <Route path="/about/journey" element={<Journey />} />
           <Route path="/about/founder-team" element={<FounderTeam />} />
           <Route path="/teenzone" element={<Teenzone />} />
           <Route path="/parent-hub" element={<ParentHub />} />

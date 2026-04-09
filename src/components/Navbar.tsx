@@ -165,6 +165,10 @@ const Navbar = () => {
       return "/about/grounding-philosophy";
     }
 
+    if (parentLabel === "About" && childLabel === "The Journey") {
+      return "/about/journey";
+    }
+
     if (parentLabel === "About" && childLabel === "Vision, Mission & Values") {
       return "/about/values-vision-mission";
     }
