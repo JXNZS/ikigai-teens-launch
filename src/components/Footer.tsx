@@ -104,6 +104,10 @@ const Footer = () => {
       return "/about/values-vision-mission";
     }
 
+    if (groupLabel === "Teen Zone" && childLabel === "Know Yourself") {
+      return "/teenzone/know-yourself";
+    }
+
     if (groupLabel === "Resources" && childLabel === "Blog/Articles") {
       return "/resources/blogs";
     }

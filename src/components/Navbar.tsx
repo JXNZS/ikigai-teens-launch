@@ -18,7 +18,7 @@ export const navItems = [
   {
     label: "Teen Zone",
     path: "/teenzone",
-    children: ["Teen Identity", "Teen Issues", "Teen Solutions", "Teen Resources", "IkigaiTeen Club & App"],
+    children: ["Know Yourself", "Teen Toolkit", "IkigaiTeen Club", "IkigaiTeen App"],
   },
   {
     label: "Parent Hub",
@@ -171,6 +171,10 @@ const Navbar = () => {
 
     if (parentLabel === "About" && childLabel === "Vision, Mission & Values") {
       return "/about/values-vision-mission";
+    }
+
+    if (parentLabel === "Teen Zone" && childLabel === "Know Yourself") {
+      return "/teenzone/know-yourself";
     }
 
     if (parentLabel === "Resources" && childLabel === "Blog/Articles") {
