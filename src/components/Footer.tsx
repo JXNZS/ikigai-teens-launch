@@ -8,48 +8,53 @@ import TiltedDock, { type TiltedDockItem } from "@/components/ui/tilted-dock";
 import { ReactNode } from "react";
 
 const SpotifyIcon = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path
-      d="M6.8 8.6c3.1-1.1 7.8-.9 11.1.9"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-    />
-    <path
-      d="M7.5 12.1c2.6-.7 6.2-.5 8.9.7"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-    />
-    <path
-      d="M8.1 15.4c1.7-.3 3.7-.2 5.7.4"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-    />
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="shrink-0">
+    <g transform="translate(12 12) scale(1.35) translate(-12 -12)">
+      <path
+        d="M6.8 8.6c3.1-1.1 7.8-.9 11.1.9"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+      />
+      <path
+        d="M7.5 12.1c2.6-.7 6.2-.5 8.9.7"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M8.1 15.4c1.7-.3 3.7-.2 5.7.4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+    </g>
   </svg>
 );
 
-const AppleMusicIcon = () => (
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path
-      d="M14.8 4.4v8.4c0 .6-.3 1.1-.8 1.5-.5.4-1 .6-1.6.6-.6 0-1.2-.2-1.6-.6-.5-.4-.8-.9-.8-1.5 0-.6.3-1.1.8-1.5.5-.4 1-.6 1.6-.6.4 0 .8.1 1.2.3V6.3l-5.9 1.2v7.7c0 .6-.3 1.1-.8 1.5-.5.4-1 .6-1.6.6-.6 0-1.2-.2-1.6-.6-.5-.4-.8-.9-.8-1.5 0-.6.3-1.1.8-1.5.5-.4 1-.6 1.6-.6.4 0 .8.1 1.2.3V5.5l8.3-1.1Z"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinejoin="round"
-      strokeLinecap="round"
-    />
+const ApplePodcastIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="shrink-0">
+    <g transform="translate(12 12) scale(1.15) translate(-12 -12)">
+      <circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="12" cy="12" r="4.8" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="12" cy="8.4" r="1.2" fill="currentColor" />
+      <path
+        d="M12 10.6c-.95 0-1.7.77-1.7 1.72 0 .6.28 1.02.56 1.5.33.56.64 1.12.64 2.12V18a.5.5 0 0 0 .5.5h0a.5.5 0 0 0 .5-.5v-2.06c0-1 .3-1.56.64-2.12.28-.48.56-.9.56-1.5 0-.95-.75-1.72-1.7-1.72Z"
+        fill="currentColor"
+        strokeLinecap="round"
+      />
+    </g>
   </svg>
 );
 
 const contactDockItems: TiltedDockItem[] = [
-  { id: 1, icon: <Instagram size={28} />, label: "Instagram", href: "https://www.instagram.com/", external: true },
-  { id: 2, icon: <Facebook size={28} />, label: "Facebook", href: "https://www.facebook.com/", external: true },
+  { id: 1, icon: <Instagram size={28} />, label: "Instagram", href: "https://www.instagram.com/ikigaiteen_by_irenearathi?igsh=MWJvdGk3am42YjU3OQ==", external: true },
+  { id: 2, icon: <Facebook size={28} />, label: "Facebook", href: "https://www.facebook.com/people/Ikigai-Teen/61580750702758/?mibextid=rS40aB7S9Ucbxw6v", external: true },
   { id: 3, icon: <Mail size={28} />, label: "Email", href: "mailto:hello@ikigaiteen.org" },
-  { id: 4, icon: <Youtube size={28} />, label: "YouTube", href: "https://www.youtube.com/", external: true },
-  { id: 5, icon: <Linkedin size={28} />, label: "LinkedIn", href: "https://www.linkedin.com/", external: true },
-  { id: 6, icon: <SpotifyIcon />, label: "Spotify", href: "https://open.spotify.com/", external: true },
-  { id: 7, icon: <AppleMusicIcon />, label: "Apple Music", href: "https://music.apple.com/", external: true },
+  { id: 4, icon: <Youtube size={28} />, label: "YouTube", href: "https://youtube.com/@ikigaiteenhub?si=r09nOD2aIVp-7otA", external: true },
+  { id: 5, icon: <Linkedin size={28} />, label: "LinkedIn", href: "https://www.linkedin.com/company/ikigaiteen/", external: true },
+  { id: 6, icon: <SpotifyIcon />, label: "Spotify", href: "https://open.spotify.com/show/5Ujbc6JbEW9OCRwcwfqyfS?si=5ogDDYumSl6q6dLIYuS6WA", external: true },
+  { id: 7, icon: <ApplePodcastIcon />, label: "Apple Podcasts", href: "https://podcasts.apple.com/in/podcast/ikigai-teen-compass-a-teen-mindset-transformation/id1846845044?utm_source=ig&utm_medium=social&utm_content=link_in_bio", external: true },
 ];
 
 const renderNumberText = (text: string): ReactNode => {
@@ -91,7 +96,7 @@ const Footer = () => {
       return "/about/grounding-philosophy";
     }
 
-    if (groupLabel === "About" && childLabel === "Values, Vision & Mission") {
+    if (groupLabel === "About" && childLabel === "Vision, Mission & Values") {
       return "/about/values-vision-mission";
     }
 

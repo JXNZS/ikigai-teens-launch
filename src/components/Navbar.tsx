@@ -7,12 +7,13 @@ import { LetterSwapPingPong } from "@/components/ui/letter-swap";
 import NavHeader from "@/components/ui/nav-header";
 
 const NAVBAR_OPEN_EVENT = "ikigai:openNavbarDropdown";
+const DARK_SECTION_CLASSES = ["hero-theme-legacy", "content-theme-legacy", "footer-theme-legacy", "navbar-theme-legacy"];
 
 export const navItems = [
   {
     label: "About",
     path: "/about",
-    children: ["Values, Vision & Mission", "Grounding Philosophy", "The Journey", "Founder & Team"],
+    children: ["Vision, Mission & Values", "Grounding Philosophy", "The Journey", "Founder & Team"],
   },
   {
     label: "Teen Zone",
@@ -39,6 +40,7 @@ export const navItems = [
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [useLightNavbarSurface, setUseLightNavbarSurface] = useState(true);
   const [dropdownAnchorX, setDropdownAnchorX] = useState<number | null>(null);
   const desktopNavRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
@@ -119,6 +121,38 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
+  useEffect(() => {
+    const isInsideDarkSection = (node: Element | null) => {
+      let current = node as HTMLElement | null;
+      while (current) {
+        if (DARK_SECTION_CLASSES.some((className) => current.classList?.contains(className))) {
+          return true;
+        }
+        current = current.parentElement;
+      }
+      return false;
+    };
+
+    const updateNavbarSurface = () => {
+      if (window.scrollY < 8) {
+        setUseLightNavbarSurface(true);
+        return;
+      }
+
+      const sampleY = Math.min(window.innerHeight - 1, 96);
+      const sampleElement = document.elementFromPoint(window.innerWidth / 2, sampleY);
+      setUseLightNavbarSurface(isInsideDarkSection(sampleElement));
+    };
+
+    updateNavbarSurface();
+    window.addEventListener("scroll", updateNavbarSurface, { passive: true });
+    window.addEventListener("resize", updateNavbarSurface);
+    return () => {
+      window.removeEventListener("scroll", updateNavbarSurface);
+      window.removeEventListener("resize", updateNavbarSurface);
+    };
+  }, [location.pathname]);
+
   const [contactActive, setContactActive] = useState(false);
   const activeDesktopItem = navItems.find((item) => item.label === openDropdown) ?? null;
 
@@ -131,7 +165,7 @@ const Navbar = () => {
       return "/about/grounding-philosophy";
     }
 
-    if (parentLabel === "About" && childLabel === "Values, Vision & Mission") {
+    if (parentLabel === "About" && childLabel === "Vision, Mission & Values") {
       return "/about/values-vision-mission";
     }
 
@@ -186,15 +220,23 @@ const Navbar = () => {
     setOpenDropdown((prev) => (prev === label ? null : label));
   };
 
+  const navbarThemeClass = useLightNavbarSurface
+    ? "bg-[hsl(195_25%_96%_/_0.92)] border-[hsl(152_20%_86%_/_0.7)]"
+    : "footer-theme-legacy bg-card border-border/50";
+
+  const logoClass = useLightNavbarSurface
+    ? "h-full w-full object-cover object-top scale-[1.22] origin-top [filter:brightness(0)_saturate(100%)_invert(21%)_sepia(35%)_saturate(636%)_hue-rotate(122deg)_brightness(95%)_contrast(93%)] drop-shadow-[0_0_8px_rgba(22,62,52,0.25)]"
+    : "h-full w-full object-cover object-top scale-[1.22] origin-top drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]";
+
   return (
-    <nav className="navbar-theme-legacy fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/30">
+    <nav className={`navbar-theme-legacy fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-colors duration-500 ${navbarThemeClass}`}>
       <div className="container mx-auto px-6 flex items-center justify-between h-20">
         <Link to="/" className="flex items-center gap-3">
           <div className="h-[6.75rem] w-[6.75rem] shrink-0 overflow-hidden rounded-lg">
             <img
               src={logo}
               alt="Ikigai Teen"
-              className="h-full w-full object-cover object-top scale-[1.22] origin-top drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]"
+              className={logoClass}
             />
           </div>
         </Link>

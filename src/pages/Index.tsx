@@ -12,6 +12,7 @@ const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isMouseGlowEnabled, setIsMouseGlowEnabled] = useState(true);
   const [showGlowTip, setShowGlowTip] = useState(true);
+  const [isHeroInView, setIsHeroInView] = useState(true);
   const lastTapRef = useRef<{ time: number; x: number; y: number } | null>(null);
 
   const mouseX = useMotionValue(-200);
@@ -33,6 +34,21 @@ const Index = () => {
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2000);
     return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    const hero = document.querySelector("[data-home-hero]");
+    if (!hero) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsHeroInView(entry.isIntersecting);
+      },
+      { threshold: 0.2 },
+    );
+
+    observer.observe(hero);
+    return () => observer.disconnect();
   }, []);
 
   const moveGlowToHeroTextCenter = () => {
@@ -152,7 +168,7 @@ const Index = () => {
       </main>
       <Footer />
 
-      {showGlowTip && (
+      {showGlowTip && isHeroInView && (
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}

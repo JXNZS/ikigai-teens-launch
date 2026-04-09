@@ -1,11 +1,11 @@
-import { ReactNode, useRef } from "react";
+import { ReactNode, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 
 type FAQPoint = {
   title: string;
-  description: string;
+  description?: string;
 };
 
 type FAQItem = {
@@ -239,10 +239,166 @@ const faqItems: FAQItem[] = [
       },
     ],
   },
+  {
+    question: "Does Ikigai Teen avoid difficult or sensitive teen realities?",
+    intro: [
+      "No.",
+      "Ikigai Teen does not ignore the real world teenagers are growing up in today.",
+      "We understand that teens may be navigating issues such as:",
+    ],
+    points: [
+      { title: "Identity confusion" },
+      { title: "Pressure and comparison" },
+      { title: "Distraction and digital overload" },
+      { title: "Body image struggles" },
+      { title: "Emotional ups and downs" },
+      { title: "Friendship and belonging issues" },
+      { title: "Attraction, attachment, and relationship confusion" },
+      { title: "Validation-seeking" },
+      { title: "Peer pressure" },
+      { title: "Risky exposure online and offline" },
+      { title: "Substance exposure" },
+      { title: "Lack of direction, discipline, or self-trust" },
+    ],
+    closing: [
+      "These realities are too important to avoid - and too sensitive to handle carelessly.",
+    ],
+  },
+  {
+    question: "What makes Ikigai Teen different in the way it speaks to teens?",
+    intro: ["Ikigai Teen is designed to be:"],
+    points: [
+      { title: "Truthful, not dramatic" },
+      { title: "Deep, not heavy" },
+      { title: "Values-based, not preachy" },
+      { title: "Emotionally intelligent, not over-psychologized" },
+      { title: "Protective, not controlling" },
+      { title: "Relevant, not shallow" },
+      { title: "Growth-focused, not fear-based" },
+      { title: "Respectful, not patronizing" },
+    ],
+    closing: [
+      "We believe teens respond best to guidance that is honest, practical, age-aware, and grounded in dignity.",
+    ],
+  },
+  {
+    question: "What does Ikigai Teen avoid in its approach?",
+    intro: ["Ikigai Teen does not approach teens through:"],
+    points: [
+      { title: "Moral panic" },
+      { title: "Over-psychologizing normal developmental struggles" },
+      { title: "Over-sexualizing teen realities" },
+      { title: "Fear-based messaging" },
+      { title: "Parent-policing language" },
+      { title: "Preachy lectures" },
+      { title: "Shame-based correction" },
+      { title: "Over-labelling" },
+      { title: "Fake forced relatability" },
+      { title: "Treating teens like children" },
+      { title: "Reducing every struggle to a diagnosis" },
+      { title: "Glorifying emotional chaos" },
+      { title: "Normalizing unhealthy behaviour simply because it is common" },
+    ],
+    closing: [
+      "We take teen struggles seriously - without making teens feel judged, exposed, or reduced to a problem.",
+    ],
+  },
+  {
+    question: "How does Ikigai Teen handle difficult topics?",
+    intro: [
+      "With care, courage, and balance.",
+      "We address difficult topics in ways that are:",
+    ],
+    points: [
+      { title: "Age-appropriate" },
+      { title: "Emotionally safe" },
+      { title: "Non-invasive" },
+      { title: "Non-sensational" },
+      { title: "Practical" },
+      { title: "Values-aware" },
+      { title: "Growth-oriented" },
+    ],
+    closing: [
+      "Our goal is not to create alarm.",
+      "Our goal is to help teens think clearly, act wisely, and grow stronger from the inside out.",
+    ],
+  },
+  {
+    question: "Is Ikigai Teen too strict or too soft?",
+    intro: [
+      "Neither.",
+      "Ikigai Teen does not believe in harsh control, nor in anything-goes thinking.",
+      "We believe teens grow best when they are given:",
+    ],
+    points: [
+      { title: "Understanding" },
+      { title: "Structure" },
+      { title: "Responsibility" },
+      { title: "Self-awareness" },
+      { title: "Tools" },
+      { title: "Truth" },
+      { title: "Hope" },
+      { title: "Practice" },
+    ],
+    closing: ["We are not here to scare teens.", "We are here to strengthen them."],
+  },
+  {
+    question: "Does Ikigai Teen make teens feel bad for struggling?",
+    intro: [
+      "No.",
+      "Struggles are not the problem.",
+      "Remaining stuck without awareness, tools, or support is the problem.",
+      "Ikigai Teen helps teens move from:",
+    ],
+    points: [
+      { title: "Confusion to clarity" },
+      { title: "Reaction to response" },
+      { title: "Drift to direction" },
+      { title: "Self-doubt to self-respect" },
+      { title: "Inconsistency to inner strength" },
+    ],
+  },
+  {
+    question: "Is Ikigai Teen trying to replace parents, schools, or counselling?",
+    intro: [
+      "No.",
+      "Ikigai Teen is not a replacement for:",
+    ],
+    points: [
+      { title: "Healthy parenting" },
+      { title: "Wise mentoring" },
+      { title: "Schools" },
+      { title: "Professional mental health support where needed" },
+    ],
+    closing: [
+      "Instead, it offers a growth-focused bridge that helps teens build stronger habits, steadier emotions, wiser choices, and a deeper sense of identity and purpose.",
+    ],
+  },
+  {
+    question: "What is the deeper philosophy behind Ikigai Teen?",
+    intro: [
+      "At the heart of Ikigai Teen is this belief:",
+      "A teenager is not just someone to be corrected.",
+      "A teenager is someone becoming.",
+      "That means our work is not only about stopping bad habits or solving surface issues.",
+      "It is about helping teens become more:",
+    ],
+    points: [
+      { title: "Reliable" },
+      { title: "Authentic" },
+      { title: "Disciplined" },
+      { title: "Emotionally aware" },
+      { title: "Purpose-driven" },
+      { title: "Grounded" },
+      { title: "Considerate toward family, society, and the world" },
+    ],
+    closing: ["That is the spirit behind Ikigai Teen."],
+  },
 ];
 
 const FAQSection = () => {
   const ref = useRef<HTMLElement>(null);
+  const [openFaq, setOpenFaq] = useState<string | undefined>(undefined);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -259,30 +415,41 @@ const FAQSection = () => {
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="text-center mb-8">
-            <motion.h2 style={{ color: headingColor }}>
-              <LetterSwapForward
-                label="Frequently Asked Questions"
-                className="justify-center text-3xl md:text-4xl font-display font-bold text-current mb-3"
-              />
-            </motion.h2>
-          </div>
-
           <div className="rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-4 md:p-6">
-            <Accordion type="single" collapsible className="w-full">
+            <div className="text-center mb-8">
+              <motion.h2 style={{ color: headingColor }}>
+                <LetterSwapForward
+                  label="Frequently Asked Questions"
+                  className="justify-center text-3xl md:text-4xl font-display font-bold text-current mb-3"
+                />
+              </motion.h2>
+              <p className="text-lg md:text-xl font-display text-primary">
+                Ikigai Teen is real, safe, intelligent, and trustworthy.
+              </p>
+            </div>
+
+            <Accordion type="single" collapsible className="w-full" value={openFaq} onValueChange={setOpenFaq}>
               {faqItems.map((item, index) => (
                 <AccordionItem
                   key={item.question}
                   value={`faq-${index}`}
-                  className="border-border/60 group px-4 data-[state=open]:bg-[hsl(195_25%_15%)] data-[state=open]:rounded-xl transition-all duration-300"
+                  onPointerDownCapture={(event) => {
+                    const target = event.target as HTMLElement | null;
+                    if (target?.closest("[data-faq-trigger='true']")) {
+                      return;
+                    }
+
+                    setOpenFaq(undefined);
+                  }}
+                  className="border-border/60 group px-4 data-[state=open]:bg-[hsl(195_25%_96%_/_0.8)] data-[state=open]:rounded-xl transition-all duration-300"
                 >
-                  <AccordionTrigger className="text-left text-base md:text-lg font-display font-semibold text-foreground hover:text-[hsl(152_55%_38%)] hover:drop-shadow-[0_0_12px_hsl(152_55%_38%_/_0.45)] data-[state=open]:text-white hover:no-underline transition-all duration-300">
+                  <AccordionTrigger data-faq-trigger="true" className="text-left text-base md:text-lg font-display font-semibold text-foreground hover:text-[hsl(152_55%_38%)] hover:drop-shadow-[0_0_12px_hsl(152_55%_38%_/_0.45)] data-[state=open]:text-foreground hover:no-underline transition-all duration-300">
                     {item.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-white font-body">
+                  <AccordionContent className="text-primary font-body">
                     <div className="space-y-4 pt-1">
                       {item.intro?.map((paragraph) => (
-                        <p key={paragraph} className="text-sm md:text-base leading-relaxed text-white/95">
+                        <p key={paragraph} className="text-sm md:text-base leading-relaxed text-primary">
                           {renderNumberText(paragraph)}
                         </p>
                       ))}
@@ -290,16 +457,16 @@ const FAQSection = () => {
                       <ol className="space-y-3">
                         {item.points.map((point, pointIndex) => (
                           <li key={point.title} className="text-sm md:text-base leading-relaxed">
-                            <span className="font-semibold text-white">
+                            <span className="font-semibold text-primary">
                               {pointIndex + 1}. {renderNumberText(point.title)}
                             </span>
-                            <span className="text-white/90">: {renderNumberText(point.description)}</span>
+                            {point.description ? <span className="text-primary">: {renderNumberText(point.description)}</span> : null}
                           </li>
                         ))}
                       </ol>
 
                       {item.closing?.map((paragraph) => (
-                        <p key={paragraph} className="text-sm md:text-base leading-relaxed italic text-white">
+                        <p key={paragraph} className="text-sm md:text-base leading-relaxed italic text-primary">
                           {renderNumberText(paragraph)}
                         </p>
                       ))}

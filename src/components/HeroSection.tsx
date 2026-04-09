@@ -20,6 +20,7 @@ const HeroSection = () => {
   return (
     <section
       ref={ref}
+      data-home-hero
       className="hero-theme-legacy relative min-h-screen flex items-center overflow-hidden bg-background"
     >
       <motion.img

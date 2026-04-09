@@ -19,7 +19,7 @@ const ResourceArticle = () => {
     <>
       <Navbar />
       <main className="pt-16 bg-background min-h-screen">
-        <section className="py-16 md:py-20 bg-card/60 border-b border-border/50">
+        <section className="footer-theme-legacy py-16 md:py-20 bg-card border-b border-border/50">
           <div className="container mx-auto px-6 max-w-5xl">
             <Link to="/resources" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-5">
               <ArrowLeft className="h-4 w-4" />
@@ -51,16 +51,16 @@ const ResourceArticle = () => {
           </div>
         </section>
 
-        <section className="content-theme-legacy py-12 md:py-14 bg-background">
+        <section className="py-12 md:py-14 bg-background">
           <div className="container mx-auto px-6 max-w-5xl">
             {article.content && article.content.length > 0 ? (
-              <article className="rounded-xl border border-border/60 bg-card/70 p-6 md:p-8 mb-14 space-y-5">
+              <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 mb-14 space-y-5">
                 {article.content.map((block, index) => {
                   const key = `${block.type}-${index}`;
 
                   if (block.type === "heading") {
                     return (
-                      <h2 key={key} className="text-2xl md:text-3xl font-display font-semibold text-foreground pt-2 first:pt-0">
+                      <h2 key={key} className="text-2xl md:text-3xl font-display font-semibold text-primary pt-2 first:pt-0">
                         {block.text}
                       </h2>
                     );
@@ -68,7 +68,7 @@ const ResourceArticle = () => {
 
                   if (block.type === "quote") {
                     return (
-                      <blockquote key={key} className="border-l-4 border-primary/70 pl-4 py-1 text-foreground/90 italic text-xl leading-relaxed">
+                      <blockquote key={key} className="border-l-4 border-primary/70 pl-4 py-1 text-primary italic text-xl leading-relaxed">
                         {block.text}
                       </blockquote>
                     );
@@ -112,10 +112,10 @@ const ResourceArticle = () => {
                   <Link
                     key={item.slug}
                     to={`/resources/blog/${item.slug}`}
-                    className="rounded-xl border border-border/60 bg-card/70 p-5 hover:bg-card transition-colors"
+                    className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 hover:border-primary/40 transition-colors"
                   >
                     <p className="text-xs font-semibold text-primary mb-1.5">{item.audience}</p>
-                    <h3 className="text-lg font-semibold text-foreground mb-2">{item.title}</h3>
+                    <h3 className="text-lg font-semibold text-primary mb-2">{item.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">{item.summary}</p>
                   </Link>
                 ))}

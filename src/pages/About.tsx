@@ -2,7 +2,7 @@ import SectionPageLayout from "@/components/SectionPageLayout";
 
 const sections = [
   {
-    title: "Values, Vision & Mission",
+    title: "Vision, Mission & Values",
     path: "/about/values-vision-mission",
     description: "Our vision is a world where every teenager discovers their unique purpose and lives a life of meaning. Our mission is to guide teens through self-discovery using the Ikigai framework, grounded in strong values.",
   },
