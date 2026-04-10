@@ -12,6 +12,7 @@ import ValuesVisionMission from "./pages/ValuesVisionMission.tsx";
 import Journey from "./pages/Journey.tsx";
 import Teenzone from "./pages/Teenzone.tsx";
 import KnowYourself from "./pages/KnowYourself.tsx";
+import TeenToolkit from "./pages/TeenToolkit.tsx";
 import ParentHub from "./pages/ParentHub.tsx";
 import ResourceArticle from "./pages/ResourceArticle.tsx";
 import ResourceBlogs from "./pages/ResourceBlogs.tsx";
@@ -70,6 +71,7 @@ const App = () => (
           <Route path="/about/founder-team" element={<FounderTeam />} />
           <Route path="/teenzone" element={<Teenzone />} />
           <Route path="/teenzone/know-yourself" element={<KnowYourself />} />
+          <Route path="/teenzone/teen-toolkit" element={<TeenToolkit />} />
           <Route path="/parent-hub" element={<ParentHub />} />
           <Route path="/resources" element={<Navigate to="/resources/blogs" replace />} />
           <Route path="/resources/blogs" element={<ResourceBlogs />} />

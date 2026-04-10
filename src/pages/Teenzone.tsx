@@ -2,7 +2,7 @@ import SectionPageLayout from "@/components/SectionPageLayout";
 
 const sections = [
   { title: "Know Yourself", description: "Explore who you are — your strengths, passions, and values. Build a strong sense of self through guided activities and reflections.", path: "/teenzone/know-yourself" },
-  { title: "Teen Toolkit", description: "Discover actionable strategies, practical tools, and frameworks designed specifically for teenagers facing real-world challenges and growth." },
+  { title: "Teen Toolkit", description: "Discover actionable strategies, practical tools, and frameworks designed specifically for teenagers facing real-world challenges and growth.", path: "/teenzone/teen-toolkit" },
   { title: "IkigaiTeen Club", description: "Join the IkigaiTeen Club for exclusive access to events, mentorship, and a community of teens on their Ikigai journey." },
   { title: "IkigaiTeen App", description: "Explore our upcoming app designed to guide your Ikigai journey with interactive tools, progress tracking, and personalized insights." },
 ];

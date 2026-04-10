@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
@@ -888,6 +889,10 @@ const KnowYourself = () => {
                   <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve confidence and discipline</li>
                   <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">become more grounded and responsible</li>
                 </ul>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <button type="button" className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium">See What This Could Help With</button>
+                  <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Show This to My Parent</button>
+                </div>
               </div>
 
               <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
@@ -908,6 +913,29 @@ const KnowYourself = () => {
                     </li>
                   ))}
                 </ul>
+              </div>
+
+              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+                <h3 className="mb-3">
+                  <LetterSwapForward
+                    label="Understanding yourself is the beginning. Building yourself is the next step."
+                    className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
+                  />
+                </h3>
+                <p className="text-muted-foreground mb-5">
+                  If this page made you realise something about yourself, don't stop there.
+                </p>
+                <p className="text-sm font-semibold text-foreground mb-3">Next Step Options</p>
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    to="/teenzone/teen-toolkit?age=13-15"
+                    className="inline-flex items-center px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium"
+                  >
+                    Go to Teen Toolkit
+                  </Link>
+                  <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">See What Ikigai Teen Offers</button>
+                  <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Show This to My Parent</button>
+                </div>
               </div>
             </div>
           </motion.section>
@@ -1176,7 +1204,12 @@ const KnowYourself = () => {
                 </p>
                 <p className="text-sm font-semibold text-foreground mb-3">Next Step Options</p>
                 <div className="flex flex-wrap gap-3">
-                  <button type="button" className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium">Go to Teen Toolkit</button>
+                  <Link
+                    to="/teenzone/teen-toolkit?age=16-18"
+                    className="inline-flex items-center px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium"
+                  >
+                    Go to Teen Toolkit
+                  </Link>
                   <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">See What Ikigai Teen Offers</button>
                   <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Show This to My Parent</button>
                 </div>

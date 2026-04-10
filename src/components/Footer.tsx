@@ -108,6 +108,10 @@ const Footer = () => {
       return "/teenzone/know-yourself";
     }
 
+    if (groupLabel === "Teen Zone" && childLabel === "Teen Toolkit") {
+      return "/teenzone/teen-toolkit";
+    }
+
     if (groupLabel === "Resources" && childLabel === "Blog/Articles") {
       return "/resources/blogs";
     }

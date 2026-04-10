@@ -177,6 +177,10 @@ const Navbar = () => {
       return "/teenzone/know-yourself";
     }
 
+    if (parentLabel === "Teen Zone" && childLabel === "Teen Toolkit") {
+      return "/teenzone/teen-toolkit";
+    }
+
     if (parentLabel === "Resources" && childLabel === "Blog/Articles") {
       return "/resources/blogs";
     }
