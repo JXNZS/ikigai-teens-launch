@@ -181,6 +181,14 @@ const Navbar = () => {
       return "/teenzone/teen-toolkit";
     }
 
+    if (parentLabel === "Teen Zone" && childLabel === "IkigaiTeen Club") {
+      return "/teenzone/ikigai-teen-club";
+    }
+
+    if (parentLabel === "Teen Zone" && childLabel === "IkigaiTeen App") {
+      return "/teenzone/ikigai-teen-app";
+    }
+
     if (parentLabel === "Resources" && childLabel === "Blog/Articles") {
       return "/resources/blogs";
     }
