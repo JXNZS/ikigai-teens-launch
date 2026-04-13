@@ -35,8 +35,8 @@ const ResourceBlogs = () => {
     <>
       <Navbar />
       <main className="pt-16 bg-background min-h-screen">
-        <section className="footer-theme-legacy py-20 bg-card border-b border-border/50">
-          <div className="container mx-auto px-6 max-w-5xl text-center">
+        <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50">
+          <div className="container mx-auto px-4 sm:px-6 max-w-5xl text-center">
             <h1>
               <LetterSwapForward
                 label="Blog / Articles"
@@ -48,7 +48,7 @@ const ResourceBlogs = () => {
         </section>
 
         <section className="py-14 bg-background">
-          <div className="container mx-auto px-6 max-w-5xl">
+          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {articles.map((article, index) => (
                 <Link

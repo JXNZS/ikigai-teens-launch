@@ -205,8 +205,8 @@ const IkigaiTeenClub = () => {
     <>
       <Navbar />
       <main className="pt-16 bg-background min-h-screen">
-        <section className="footer-theme-legacy py-20 bg-card border-b border-border/50 overflow-hidden">
-          <div className="container mx-auto px-6">
+        <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50 overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div className="max-w-4xl mx-auto text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <motion.h1
                 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4"
@@ -239,7 +239,7 @@ const IkigaiTeenClub = () => {
         </section>
 
         <section className="py-16 bg-background">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-6xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8 md:p-10">
               <h2 className="text-3xl md:text-4xl font-display font-semibold text-primary text-center mb-4">
                 <LetterSwapForward label="What Members Unlock" className="justify-center" />
@@ -316,7 +316,7 @@ const IkigaiTeenClub = () => {
         </section>
 
         <section className="py-16 bg-background">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8 md:p-10">
               <div className="grid md:grid-cols-2 gap-6">
                 <motion.div
@@ -361,7 +361,7 @@ const IkigaiTeenClub = () => {
         </section>
 
         <section className="pb-20 bg-background">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-4xl mx-auto rounded-2xl border border-primary/20 bg-[hsl(195_25%_96%_/_0.8)] p-8 text-center">
               <p className="text-base md:text-lg text-foreground/90 leading-relaxed mb-8">
                 Inside Ikigai Teen Club, growth does not feel heavy. It feels meaningful. It feels exciting. It feels

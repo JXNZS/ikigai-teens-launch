@@ -25,8 +25,8 @@ const GallerySection = () => {
   const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
 
   return (
-    <section ref={ref} className="py-20 bg-background overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="py-12 md:py-20 bg-background overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.h2
           className="text-3xl md:text-4xl font-display font-bold text-center text-foreground mb-12"
           initial={{ opacity: 0, y: 20 }}
