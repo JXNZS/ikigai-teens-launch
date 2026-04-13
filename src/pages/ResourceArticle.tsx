@@ -19,22 +19,22 @@ const ResourceArticle = () => {
     <>
       <Navbar />
       <main className="pt-16 bg-background min-h-screen">
-        <section className="footer-theme-legacy py-16 md:py-20 bg-card border-b border-border/50">
-          <div className="container mx-auto px-6 max-w-5xl">
-            <Link to="/resources" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-5">
+        <section className="footer-theme-legacy py-12 md:py-16 md:py-20 bg-card border-b border-border/50">
+          <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+            <Link to="/resources" className="inline-flex items-center gap-2 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors mb-4 md:mb-5">
               <ArrowLeft className="h-4 w-4" />
               Back to all articles
             </Link>
 
-            <span className="inline-flex rounded-full bg-primary/15 px-3 py-1 text-xs font-semibold text-primary mb-4">
+            <span className="inline-flex rounded-full bg-primary/15 px-2 md:px-3 py-1 text-xs font-semibold text-primary mb-3 md:mb-4">
               {article.audience}
             </span>
 
-            <h1 className="text-3xl md:text-5xl font-display font-semibold tracking-tight text-primary leading-tight max-w-4xl mb-5">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-display font-semibold tracking-tight text-primary leading-tight max-w-4xl mb-4 md:mb-5">
               {article.title}
             </h1>
 
-            <div className="flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
+            <div className="flex flex-wrap items-center gap-3 md:gap-5 text-xs md:text-sm text-muted-foreground">
               <span className="inline-flex items-center gap-2">
                 <User className="h-4 w-4" />
                 {article.author}
@@ -51,8 +51,8 @@ const ResourceArticle = () => {
           </div>
         </section>
 
-        <section className="py-12 md:py-14 bg-background">
-          <div className="container mx-auto px-6 max-w-5xl">
+        <section className="py-10 md:py-12 lg:py-14 bg-background">
+          <div className="container mx-auto px-4 md:px-6 max-w-5xl">
             {article.content && article.content.length > 0 ? (
               <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 mb-14 space-y-5">
                 {article.content.map((block, index) => {

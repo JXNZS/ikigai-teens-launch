@@ -250,9 +250,9 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar-theme-legacy fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-colors duration-500 ${navbarThemeClass}`}>
-      <div className="container mx-auto px-6 flex items-center justify-between h-20">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="h-[6.75rem] w-[6.75rem] shrink-0 overflow-hidden rounded-lg">
+      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
+        <Link to="/" className="flex items-center gap-2 md:gap-3">
+          <div className="h-12 w-12 md:h-[6.75rem] md:w-[6.75rem] shrink-0 overflow-hidden rounded-lg">
             <img
               src={logo}
               alt="Ikigai Teen"
@@ -322,14 +322,14 @@ const Navbar = () => {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden overflow-hidden bg-card border-t border-border"
+            className="lg:hidden overflow-hidden bg-card border-t border-border max-h-[80vh] overflow-y-auto"
           >
-            <div className="px-6 py-4 space-y-2">
+            <div className="px-4 md:px-6 py-4 space-y-1">
               {navItems.map((item) => (
                 <div key={item.label}>
                   <button
                     onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
-                    className="w-full flex items-center justify-between py-2 text-foreground/80 font-body text-sm uppercase tracking-wide"
+                    className="w-full flex items-center justify-between py-2.5 px-2 text-foreground/80 font-body text-xs md:text-sm uppercase tracking-wide hover:bg-secondary/50 rounded transition-colors"
                   >
                     {item.label}
                     <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === item.label ? "rotate-180" : ""}`} />
@@ -343,7 +343,7 @@ const Navbar = () => {
                         className="overflow-hidden pl-4"
                       >
                         {item.children.map((child) => (
-                          <Link key={child} to={getChildPath(item.label, child, item.path)} className="block py-2 text-sm text-muted-foreground hover:text-primary font-body" onClick={() => setMobileOpen(false)}>
+                          <Link key={child} to={getChildPath(item.label, child, item.path)} className="block py-1.5 px-2 text-xs md:text-sm text-muted-foreground hover:text-primary font-body rounded transition-colors" onClick={() => setMobileOpen(false)}>
                             {child}
                           </Link>
                         ))}
@@ -352,7 +352,7 @@ const Navbar = () => {
                   </AnimatePresence>
                 </div>
               ))}
-              <Link to="/#contact" className="block mt-4 text-center px-5 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold font-body" onClick={() => setMobileOpen(false)}>
+              <Link to="/#contact" className="block mt-4 text-center px-4 py-2 bg-primary text-primary-foreground rounded-full text-xs md:text-sm font-semibold font-body" onClick={() => setMobileOpen(false)}>
                 <LetterSwapPingPong label="Contact Us" className="justify-center" />
               </Link>
             </div>

@@ -30,10 +30,10 @@ function Hero() {
 
   return (
     <div className="w-full">
-      <div className="container mx-auto">
-        <div className="flex gap-8 py-20 lg:py-28 items-start justify-center flex-col">
-          <div data-hero-glow-target className="flex gap-4 flex-col">
-            <h1 className="text-5xl md:text-7xl max-w-3xl tracking-tighter text-left font-regular text-foreground">
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="flex gap-6 md:gap-8 py-12 md:py-20 lg:py-28 items-start justify-center flex-col">
+          <div data-hero-glow-target className="flex gap-3 md:gap-4 flex-col">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl tracking-tighter text-left font-regular text-foreground leading-tight">
               <span className="relative inline-block" style={{ color: heroAccentColor }}>
                 Empowering Teens to
                 <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={localizedGlowStyle}>
@@ -45,7 +45,7 @@ function Hero() {
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
-                    className="absolute font-semibold whitespace-nowrap"
+                    className="absolute font-semibold whitespace-nowrap text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
                     initial={{ opacity: 0, y: -36 }}
                     transition={{ duration: 0.55, ease: "easeInOut" }}
                     animate={
@@ -69,7 +69,7 @@ function Hero() {
               </span>
             </h1>
 
-            <p className="relative text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-left">
+            <p className="relative text-sm md:text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-left">
               Discover your Ikigai - the intersection where your passion, mission, vocation, and profession align to create a life of meaning and fulfillment.
               <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={localizedGlowStyle}>
                 Discover your Ikigai - the intersection where your passion, mission, vocation, and profession align to create a life of meaning and fulfillment.

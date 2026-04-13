@@ -25,10 +25,10 @@ const GallerySection = () => {
   const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
 
   return (
-    <section ref={ref} className="py-20 bg-background overflow-hidden">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="py-12 md:py-20 bg-background overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6">
         <motion.h2
-          className="text-3xl md:text-4xl font-display font-bold text-center text-foreground mb-12"
+          className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-center text-foreground mb-8 md:mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -38,24 +38,24 @@ const GallerySection = () => {
         </motion.h2>
 
         <motion.div className="relative max-w-4xl mx-auto" style={{ y }}>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4">
             <motion.button
               onClick={prev}
-              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="p-1.5 md:p-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
               whileHover={{ scale: 1.2, x: -4 }}
               whileTap={{ scale: 0.9 }}
             >
-              <ChevronLeft className="w-8 h-8" />
+              <ChevronLeft className="w-5 h-5 md:w-8 md:h-8" />
             </motion.button>
 
-            <div className="flex-1 grid grid-cols-3 gap-4">
+            <div className="flex-1 grid grid-cols-3 gap-2 md:gap-4">
               <AnimatePresence mode="popLayout">
                 {images.map((img, i) => {
                   const offset = (i - current + images.length) % images.length;
                   return (
                     <motion.div
                       key={`${img.alt}-${current}`}
-                      className="aspect-[3/4] rounded-lg overflow-hidden"
+                      className="aspect-[3/4] rounded-lg md:rounded-xl overflow-hidden"
                       layout
                       animate={{
                         scale: offset === 1 ? 1.05 : 0.95,
@@ -81,11 +81,11 @@ const GallerySection = () => {
 
             <motion.button
               onClick={next}
-              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="p-1.5 md:p-2 text-muted-foreground hover:text-foreground transition-colors shrink-0"
               whileHover={{ scale: 1.2, x: 4 }}
               whileTap={{ scale: 0.9 }}
             >
-              <ChevronRight className="w-8 h-8" />
+              <ChevronRight className="w-5 h-5 md:w-8 md:h-8" />
             </motion.button>
           </div>
         </motion.div>

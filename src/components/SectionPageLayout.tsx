@@ -35,15 +35,15 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
   return (
     <>
       <Navbar />
-      <main className="pt-16 bg-background min-h-screen">
+      <main className="pt-16 md:pt-20 bg-background min-h-screen">
         {/* Page Header */}
-        <section className="footer-theme-legacy py-20 bg-card border-b border-border/50 overflow-hidden">
-          <div className="container mx-auto px-6">
+        <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50 overflow-hidden">
+          <div className="container mx-auto px-4 md:px-6">
             <motion.div
               className="max-w-3xl mx-auto text-center"
             >
               <motion.h1
-                className="text-4xl md:text-5xl font-display font-bold text-primary mb-4"
+                className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-3 md:mb-4"
                 initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -51,7 +51,7 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                 {title}
               </motion.h1>
               <motion.p
-                className="text-lg text-muted-foreground font-body"
+                className="text-base sm:text-lg md:text-xl text-muted-foreground font-body px-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -63,17 +63,17 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
         </section>
 
         {/* Subsections */}
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-6">
+        <section className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto px-4 md:px-6">
             <motion.div
-              className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+              className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto"
             >
               {sections.map((s) => (
                 <motion.div key={s.title} variants={cardVariants} id={s.id} className="scroll-mt-24">
                   {s.path ? (
                     <Link to={s.path} className="block">
                       <motion.div
-                        className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-8 group cursor-pointer hover:border-primary/40 transition-colors"
+                        className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 group cursor-pointer hover:border-primary/40 transition-colors"
                         whileHover={{
                           y: -6,
                           boxShadow: "0 20px 40px -15px hsl(152 60% 45% / 0.15)",
@@ -86,17 +86,17 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                           viewport={{ once: true }}
                           transition={{ duration: 0.4, delay: 0.2 }}
                         />
-                        <h2 className="text-xl font-display font-semibold text-primary mb-3">{s.title}</h2>
+                        <h2 className="text-lg md:text-xl font-display font-semibold text-primary mb-3">{s.title}</h2>
                         <p className="text-muted-foreground font-body text-sm leading-relaxed">{s.description}</p>
                         {s.body?.length ? (
-                          <div className="mt-5 space-y-4 text-sm leading-relaxed text-muted-foreground font-body">
+                          <div className="mt-5 space-y-3 md:space-y-4 text-xs sm:text-sm leading-relaxed text-muted-foreground font-body">
                             {s.body.map((paragraph) => (
                               <p key={paragraph}>{paragraph}</p>
                             ))}
                           </div>
                         ) : null}
                         {s.bullets?.length ? (
-                          <div className="mt-5 space-y-3 text-sm leading-relaxed text-muted-foreground font-body">
+                          <div className="mt-5 space-y-2 md:space-y-3 text-xs sm:text-sm leading-relaxed text-muted-foreground font-body">
                             {s.bullets.map((bullet) => (
                               <p key={bullet}>{bullet}</p>
                             ))}
@@ -106,7 +106,7 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                     </Link>
                   ) : (
                     <motion.div
-                      className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-8 group"
+                      className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 group"
                       whileHover={{
                         y: -6,
                         boxShadow: "0 20px 40px -15px hsl(152 60% 45% / 0.15)",
@@ -119,17 +119,17 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: 0.2 }}
                       />
-                      <h2 className="text-xl font-display font-semibold text-primary mb-3">{s.title}</h2>
+                      <h2 className="text-lg md:text-xl font-display font-semibold text-primary mb-3">{s.title}</h2>
                       <p className="text-muted-foreground font-body text-sm leading-relaxed">{s.description}</p>
                       {s.body?.length ? (
-                        <div className="mt-5 space-y-4 text-sm leading-relaxed text-muted-foreground font-body">
+                        <div className="mt-5 space-y-3 md:space-y-4 text-xs sm:text-sm leading-relaxed text-muted-foreground font-body">
                           {s.body.map((paragraph) => (
                             <p key={paragraph}>{paragraph}</p>
                           ))}
                         </div>
                       ) : null}
                       {s.bullets?.length ? (
-                        <div className="mt-5 space-y-3 text-sm leading-relaxed text-muted-foreground font-body">
+                        <div className="mt-5 space-y-2 md:space-y-3 text-xs sm:text-sm leading-relaxed text-muted-foreground font-body">
                           {s.bullets.map((bullet) => (
                             <p key={bullet}>{bullet}</p>
                           ))}

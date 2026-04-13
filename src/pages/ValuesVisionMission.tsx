@@ -82,29 +82,29 @@ const ValuesVisionMission = () => {
     <>
       <Navbar />
       <main className="pt-16 bg-background min-h-screen">
-        <section className="footer-theme-legacy py-20 bg-card border-b border-border/50">
-          <div className="container mx-auto px-6 max-w-4xl text-center">
+        <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50">
+          <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
             <h1>
               <LetterSwapForward
                 label="Vision, Mission & Values"
-                className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
+                className="justify-center text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-3 md:mb-4"
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">Our shared foundation for raising grounded, responsible, and purposeful young individuals.</p>
+            <p className="text-base md:text-lg text-muted-foreground font-body px-2">Our shared foundation for raising grounded, responsible, and purposeful young individuals.</p>
           </div>
         </section>
 
-        <section className="py-14 bg-background">
-          <div className="container mx-auto px-6 max-w-4xl">
-            <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8">
-              <section className="space-y-6">
+        <section className="py-10 md:py-14 bg-background">
+          <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+            <article className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-6 md:space-y-8">
+              <section className="space-y-4 md:space-y-6">
                 <div className="space-y-2">
-                  <h3 className="text-xl md:text-2xl font-display font-semibold text-primary">Vision</h3>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body">{visionStatement}</p>
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-display font-semibold text-primary">Vision</h3>
+                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-body">{visionStatement}</p>
                 </div>
-                <div className="space-y-2 border-t border-border/50 pt-6">
-                  <h3 className="text-xl md:text-2xl font-display font-semibold text-primary">Mission</h3>
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body">{missionStatement}</p>
+                <div className="space-y-2 border-t border-border/50 pt-4 md:pt-6">
+                  <h3 className="text-lg md:text-xl lg:text-2xl font-display font-semibold text-primary">Mission</h3>
+                  <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-body">{missionStatement}</p>
                 </div>
               </section>
 

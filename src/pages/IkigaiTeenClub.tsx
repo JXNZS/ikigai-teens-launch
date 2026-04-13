@@ -205,11 +205,11 @@ const IkigaiTeenClub = () => {
     <>
       <Navbar />
       <main className="pt-16 bg-background min-h-screen">
-        <section className="footer-theme-legacy py-20 bg-card border-b border-border/50 overflow-hidden">
-          <div className="container mx-auto px-6">
-            <motion.div className="max-w-4xl mx-auto text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+        <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50 overflow-hidden">
+          <div className="container mx-auto px-4 md:px-6">
+            <motion.div className="max-w-3xl mx-auto text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <motion.h1
-                className="text-4xl md:text-5xl font-display font-bold text-primary mb-4"
+                className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-4 md:mb-6"
                 initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -238,13 +238,13 @@ const IkigaiTeenClub = () => {
           </div>
         </section>
 
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="max-w-6xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8 md:p-10">
-              <h2 className="text-3xl md:text-4xl font-display font-semibold text-primary text-center mb-4">
+        <section className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-6xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-6 md:p-8 lg:p-10">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold text-primary text-center mb-3 md:mb-4">
                 <LetterSwapForward label="What Members Unlock" className="justify-center" />
               </h2>
-              <p className="text-center text-muted-foreground mb-10 max-w-3xl mx-auto">
+              <p className="text-center text-muted-foreground mb-8 md:mb-10 max-w-3xl mx-auto text-sm md:text-base">
                 Click any card to jump to a detailed section. The homepage stays breathable and the deeper content stays
                 easy to explore.
               </p>
@@ -315,10 +315,10 @@ const IkigaiTeenClub = () => {
           </div>
         </section>
 
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8 md:p-10">
-              <div className="grid md:grid-cols-2 gap-6">
+        <section className="py-12 md:py-16 bg-background">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-6 md:p-8 lg:p-10\">
+              <div className="grid md:grid-cols-2 gap-4 md:gap-6">
                 <motion.div
                   className="h-full"
                   initial={{ opacity: 0, x: -16 }}
@@ -360,17 +360,17 @@ const IkigaiTeenClub = () => {
           </div>
         </section>
 
-        <section className="pb-20 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="max-w-4xl mx-auto rounded-2xl border border-primary/20 bg-[hsl(195_25%_96%_/_0.8)] p-8 text-center">
-              <p className="text-base md:text-lg text-foreground/90 leading-relaxed mb-8">
+        <section className="pb-12 md:pb-20 bg-background">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="max-w-4xl mx-auto rounded-lg md:rounded-2xl border border-primary/20 bg-[hsl(195_25%_96%_/_0.8)] p-6 md:p-8 text-center">
+              <p className="text-sm md:text-base lg:text-lg text-foreground/90 leading-relaxed mb-6 md:mb-8 px-2">
                 Inside Ikigai Teen Club, growth does not feel heavy. It feels meaningful. It feels exciting. It feels
                 real. Most of all, it feels like a space where teens can become more of who they are meant to be.
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-3">
+              <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
                 <Link
                   to="/#contact"
-                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-semibold"
+                  className="inline-flex items-center justify-center px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-primary text-primary-foreground text-xs md:text-sm font-semibold\"
                 >
                   Join the Club
                 </Link>

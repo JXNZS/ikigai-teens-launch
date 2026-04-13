@@ -300,12 +300,12 @@ const TeenToolkit = () => {
   return (
     <>
       <Navbar />
-      <main className="pt-16 bg-background min-h-screen">
-        <section className="footer-theme-legacy py-20 bg-card border-b border-border/50 overflow-hidden">
-          <div className="container mx-auto px-6">
+      <main className="pt-16 md:pt-20 bg-background min-h-screen">
+        <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50 overflow-hidden">
+          <div className="container mx-auto px-4 md:px-6">
             <motion.div className="max-w-3xl mx-auto text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <motion.h1
-                className="text-4xl md:text-5xl font-display font-bold text-primary mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-4 md:mb-6"
                 initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -314,7 +314,7 @@ const TeenToolkit = () => {
               </motion.h1>
 
               <motion.p
-                className="text-lg md:text-xl text-muted-foreground font-medium leading-relaxed"
+                className="text-base sm:text-lg md:text-xl text-muted-foreground font-medium leading-relaxed px-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -329,19 +329,19 @@ const TeenToolkit = () => {
           {selectedAge === null && (
             <motion.section
               key="choose-age"
-              className="py-20 bg-background"
+              className="py-12 md:py-20 bg-background"
               initial={{ opacity: 0, x: 56 * transitionDirection, scale: 0.985, filter: "blur(8px)" }}
               animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
               exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
               transition={pageTransition}
             >
-              <div className="container mx-auto px-6">
+              <div className="container mx-auto px-4 md:px-6">
                 <div className="max-w-3xl mx-auto">
-                  <h2 className="text-2xl md:text-3xl font-display font-bold text-primary/85 mb-12 text-center">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-primary/85 mb-8 md:mb-12 text-center">
                     <LetterSwapForward label="Choose your age" />
                   </h2>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                     {ageCategories.map((category) => (
                       <motion.button
                         key={category.id}
@@ -349,7 +349,7 @@ const TeenToolkit = () => {
                         onMouseMove={handleCardMouseMove}
                         onMouseLeave={handleCardMouseLeave}
                         onClick={() => selectAge(category.id)}
-                        className="relative p-8 rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden border-border hover:border-primary/80 bg-[hsl(195_25%_96%_/_0.7)] hover:bg-[hsl(195_25%_96%_/_0.82)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_28px_hsl(var(--primary)/0.5)]"
+                        className="relative p-6 md:p-8 rounded-lg md:rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden border-border hover:border-primary/80 bg-[hsl(195_25%_96%_/_0.7)] hover:bg-[hsl(195_25%_96%_/_0.82)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_28px_hsl(var(--primary)/0.5)]"
                         style={{
                           transformStyle: "preserve-3d",
                           transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
@@ -364,11 +364,11 @@ const TeenToolkit = () => {
                         />
 
                         <div className="relative z-10">
-                          <div className="flex items-center justify-between mb-4">
-                            <h3 className="text-3xl md:text-4xl number-font font-bold text-primary tracking-tight">{category.label}</h3>
-                            <ArrowRight className="w-6 h-6 text-primary/60" />
+                          <div className="flex items-center justify-between mb-3 md:mb-4">
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl number-font font-bold text-primary tracking-tight">{category.label}</h3>
+                            <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-primary/60 shrink-0" />
                           </div>
-                          <p className="text-foreground/75 text-sm md:text-base leading-relaxed">{category.description}</p>
+                          <p className="text-foreground/75 text-xs sm:text-sm md:text-base leading-relaxed">{category.description}</p>
                         </div>
                       </motion.button>
                     ))}
@@ -382,13 +382,13 @@ const TeenToolkit = () => {
             <motion.section
               key="age-13-15"
               ref={selectedSectionRef}
-              className="py-16 md:py-20 bg-background"
+              className="py-12 md:py-16 lg:py-20 bg-background"
               initial={{ opacity: 0, x: 56 * transitionDirection, scale: 0.985, filter: "blur(8px)" }}
               animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
               exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
               transition={pageTransition}
             >
-              <div className="container mx-auto px-6 space-y-16">
+              <div className="container mx-auto px-4 md:px-6 space-y-12 md:space-y-16">
                 <div className="max-w-5xl mx-auto">
                   <button
                     type="button"
@@ -601,7 +601,7 @@ const TeenToolkit = () => {
               exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
               transition={pageTransition}
             >
-              <div className="container mx-auto px-6 space-y-16">
+              <div className="container mx-auto px-4 md:px-6 space-y-12 md:space-y-16">
                 <div className="max-w-5xl mx-auto">
                   <button
                     type="button"
@@ -620,23 +620,23 @@ const TeenToolkit = () => {
                       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                       exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                      className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.7)] p-8"
+                      className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.7)] p-6 md:p-8"
                     >
-                      <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Teen Toolkit (Age 16-18)</p>
-                      <h2 className="w-full leading-tight text-3xl md:text-4xl font-display font-bold text-primary/85 mb-4">
+                      <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2 md:mb-3">Teen Toolkit (Age 16-18)</p>
+                      <h2 className="w-full leading-tight text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary/85 mb-3 md:mb-4">
                         You Don't Need Another Lecture. You Need Tools That Actually Help.
                       </h2>
-                      <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                      <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
                         Not everything needs a big solution. Sometimes you just need the right reset at the right time.
                       </p>
-                      <p className="mt-5 text-foreground font-medium mb-3">Choose what you need right now:</p>
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                      <p className="mt-4 md:mt-5 text-foreground font-medium mb-2 md:mb-3 text-sm md:text-base">Choose what you need right now:</p>
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
                         {toolkitNeedsNow.map((need) => (
                           <button
                             key={need}
                             type="button"
                             onClick={() => setSelectedNeed1618(need)}
-                            className={`text-left rounded-xl border p-5 transition-[transform,border-color,box-shadow,background-color,color] duration-300 ${
+                            className={`text-left rounded-lg md:rounded-xl border p-3 md:p-5 transition-[transform,border-color,box-shadow,background-color,color] duration-300 text-xs md:text-sm ${
                               selectedNeed1618 === need
                                 ? "border-primary/80 bg-[hsl(195_25%_96%_/_0.95)] text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
                                 : "border-border/60 bg-card text-muted-foreground hover:border-primary/60 hover:bg-[hsl(195_25%_96%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
@@ -646,7 +646,7 @@ const TeenToolkit = () => {
                           </button>
                         ))}
                       </div>
-                      <div className="mt-6 flex justify-end">
+                      <div className="mt-4 md:mt-6 flex justify-end">
                         <button
                           type="button"
                           onClick={() => setHasContinued1618(true)}

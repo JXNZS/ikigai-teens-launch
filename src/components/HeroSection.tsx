@@ -33,13 +33,13 @@ const HeroSection = () => {
       <div className="absolute inset-0 hero-gradient" />
 
       <motion.div
-        className="relative z-10 container mx-auto px-6 pt-20"
+        className="relative z-10 container mx-auto px-4 md:px-6 pt-12 md:pt-20"
         style={{
           y: textY,
           opacity,
         }}
       >
-        <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_360px] gap-8 items-start">
+        <div className="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_360px] gap-6 md:gap-8 items-start">
           <Hero />
 
           <aside className="hidden xl:block pt-3">
@@ -47,7 +47,7 @@ const HeroSection = () => {
               <h2>
                 <LetterSwapForward
                   label="Recent Resources"
-                  className="justify-start text-xl font-display font-semibold text-foreground"
+                  className="justify-start text-lg md:text-xl font-display font-semibold text-foreground"
                 />
               </h2>
             </div>
@@ -56,7 +56,7 @@ const HeroSection = () => {
               <button
                 type="button"
                 onClick={() => setContentTab("articles")}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-colors ${
+                className={`px-3 md:px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-colors ${
                   contentTab === "articles" ? "bg-primary text-primary-foreground" : "text-foreground/75 hover:text-foreground"
                 }`}
               >
@@ -65,7 +65,7 @@ const HeroSection = () => {
               <button
                 type="button"
                 onClick={() => setContentTab("videos")}
-                className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-colors ${
+                className={`px-3 md:px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-colors ${
                   contentTab === "videos" ? "bg-primary text-primary-foreground" : "text-foreground/75 hover:text-foreground"
                 }`}
               >
