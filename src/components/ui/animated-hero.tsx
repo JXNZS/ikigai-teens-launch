@@ -31,9 +31,9 @@ function Hero() {
   return (
     <div className="w-full">
       <div className="container mx-auto">
-        <div className="flex gap-8 py-20 lg:py-28 items-start justify-center flex-col">
+        <div className="flex gap-8 py-8 sm:py-14 lg:py-28 items-start justify-center flex-col">
           <div data-hero-glow-target className="flex gap-4 flex-col">
-            <h1 className="text-5xl md:text-7xl max-w-3xl tracking-tighter text-left font-regular text-foreground">
+            <h1 className="text-2xl sm:text-4xl md:text-6xl xl:text-7xl max-w-3xl tracking-tighter text-left font-regular text-foreground">
               <span className="relative inline-block" style={{ color: heroAccentColor }}>
                 Empowering Teens to
                 <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={localizedGlowStyle}>

@@ -139,8 +139,8 @@ const FounderTeam = () => {
 		<>
 			<Navbar />
 			<main className="pt-16 bg-background min-h-screen">
-				<section className="footer-theme-legacy py-20 bg-card border-b border-border/50">
-					<div className="container mx-auto px-6 max-w-4xl text-center">
+				<section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50">
+					<div className="container mx-auto px-4 sm:px-6 max-w-4xl text-center">
 						<h1>
 							<LetterSwapForward
 								label="Founder & Team"
@@ -151,8 +151,8 @@ const FounderTeam = () => {
 					</div>
 				</section>
 
-				<section className="py-14 bg-background">
-					<div className="container mx-auto px-6 max-w-6xl space-y-8">
+				<section className="py-10 md:py-14 bg-background">
+					<div className="container mx-auto px-4 sm:px-6 max-w-6xl space-y-8">
 						<section className="space-y-5">
 							<div className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
 								<h2 className="text-2xl md:text-3xl font-display font-semibold text-primary">Team</h2>
@@ -171,7 +171,7 @@ const FounderTeam = () => {
 													{member.region && <p className="text-xs text-muted-foreground mt-1">{member.region}</p>}
 												</header>
 											</div>
-											<div className="flex flex-row gap-5 items-start pt-1">
+											<div className="flex flex-col sm:flex-row gap-5 items-start pt-1">
 												<CircleProfilePhoto src={member.image} alt={member.name} imageClassName={member.imageClassName} imageStyle={member.imageStyle} />
 												<div className="space-y-3">
 													{member.name === "Irene Arathi Pais" ? (

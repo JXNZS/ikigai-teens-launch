@@ -37,8 +37,8 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
       <Navbar />
       <main className="pt-16 bg-background min-h-screen">
         {/* Page Header */}
-        <section className="footer-theme-legacy py-20 bg-card border-b border-border/50 overflow-hidden">
-          <div className="container mx-auto px-6">
+        <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50 overflow-hidden">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               className="max-w-3xl mx-auto text-center"
             >
@@ -63,8 +63,8 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
         </section>
 
         {/* Subsections */}
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-6">
+        <section className="py-10 md:py-16 bg-background">
+          <div className="container mx-auto px-4 sm:px-6">
             <motion.div
               className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
             >
@@ -73,7 +73,7 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                   {s.path ? (
                     <Link to={s.path} className="block">
                       <motion.div
-                        className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-8 group cursor-pointer hover:border-primary/40 transition-colors"
+                        className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 sm:p-8 group cursor-pointer hover:border-primary/40 transition-colors"
                         whileHover={{
                           y: -6,
                           boxShadow: "0 20px 40px -15px hsl(152 60% 45% / 0.15)",
@@ -106,7 +106,7 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                     </Link>
                   ) : (
                     <motion.div
-                      className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-8 group"
+                      className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 sm:p-8 group"
                       whileHover={{
                         y: -6,
                         boxShadow: "0 20px 40px -15px hsl(152 60% 45% / 0.15)",

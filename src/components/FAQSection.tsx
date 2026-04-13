@@ -406,8 +406,8 @@ const FAQSection = () => {
   const headingColor = useTransform(scrollYProgress, [0, 0.45], ["hsl(195 10% 70%)", "hsl(var(--foreground))"]);
 
   return (
-    <section ref={ref} className="py-20 bg-card border-t border-b border-border/50">
-      <div className="container mx-auto px-6">
+    <section ref={ref} className="py-12 md:py-20 bg-card border-t border-b border-border/50">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           className="max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 18 }}

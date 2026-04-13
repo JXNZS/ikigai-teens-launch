@@ -125,11 +125,11 @@ const Footer = () => {
 
   return (
     <footer id="contact" className="footer-theme-legacy bg-card border-t border-border py-12 scroll-mt-20">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
           <div className="space-y-1">
             <div className="flex items-center gap-3">
-              <div className="h-[6.75rem] w-[6.75rem] shrink-0 overflow-hidden rounded-lg">
+              <div className="h-12 w-12 sm:h-[6.75rem] sm:w-[6.75rem] shrink-0 overflow-hidden rounded-lg">
                 <img
                   src={logo}
                   alt="Ikigai Teen"
