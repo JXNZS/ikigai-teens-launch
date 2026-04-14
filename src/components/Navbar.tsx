@@ -250,9 +250,15 @@ const Navbar = () => {
 
   return (
     <nav className={`navbar-theme-legacy fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-colors duration-500 ${navbarThemeClass}`}>
+<<<<<<< HEAD
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2 md:gap-3">
           <div className="h-12 w-12 md:h-[6.75rem] md:w-[6.75rem] shrink-0 overflow-hidden rounded-lg">
+=======
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between h-20">
+        <Link to="/" className="flex items-center gap-3">
+          <div className="h-12 w-12 sm:h-16 sm:w-16 lg:h-[6.75rem] lg:w-[6.75rem] shrink-0 overflow-hidden rounded-lg">
+>>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
             <img
               src={logo}
               alt="Ikigai Teen"

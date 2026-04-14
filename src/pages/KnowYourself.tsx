@@ -569,7 +569,11 @@ const KnowYourself = () => {
       <Navbar />
       <main className="pt-16 bg-background min-h-screen">
         <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50 overflow-hidden">
+<<<<<<< HEAD
           <div className="container mx-auto px-4 md:px-6">
+=======
+          <div className="container mx-auto px-4 sm:px-6">
+>>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
             <motion.div className="max-w-3xl mx-auto text-center" variants={containerVariants} initial="hidden" animate="visible">
               <motion.h1
                 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-4 md:mb-6"
@@ -596,13 +600,17 @@ const KnowYourself = () => {
           {selectedAge === null && (
           <motion.section
             key="choose-age"
-            className="py-20 bg-background"
+            className="py-12 md:py-20 bg-background"
             initial={{ opacity: 0, x: 56 * transitionDirection, scale: 0.985, filter: "blur(8px)" }}
             animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
             exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
             transition={pageTransition}
           >
+<<<<<<< HEAD
             <div className="container mx-auto px-4 md:px-6">
+=======
+            <div className="container mx-auto px-4 sm:px-6">
+>>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
               <motion.div className="max-w-3xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
                 <motion.h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-primary/85 mb-8 md:mb-12 text-center" variants={itemVariants}>
                   <LetterSwapForward label="Choose your age" />
@@ -617,7 +625,7 @@ const KnowYourself = () => {
                       onMouseMove={handleCardMouseMove}
                       onMouseLeave={handleCardMouseLeave}
                       onClick={() => selectAge(category.id)}
-                      className={`relative p-8 rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden hover:border-primary/80 hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_28px_hsl(var(--primary)/0.5)] ${
+                      className={`relative p-5 sm:p-8 rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden hover:border-primary/80 hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_28px_hsl(var(--primary)/0.5)] ${
                         selectedAge === category.id
                           ? "border-primary/60 bg-[hsl(195_25%_96%_/_0.8)]"
                           : "border-border hover:border-primary/40 bg-[hsl(195_25%_96%_/_0.7)] hover:bg-[hsl(195_25%_96%_/_0.82)]"
@@ -669,7 +677,11 @@ const KnowYourself = () => {
             exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
             transition={pageTransition}
           >
+<<<<<<< HEAD
             <div className="container mx-auto px-4 md:px-6 space-y-12 md:space-y-16">
+=======
+            <div className="container mx-auto px-4 sm:px-6 space-y-16">
+>>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
               <div className="max-w-5xl mx-auto">
                 <button
                   type="button"
@@ -680,9 +692,15 @@ const KnowYourself = () => {
                 </button>
               </div>
 
+<<<<<<< HEAD
               <div className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.7)] p-6 md:p-8">
                 <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2 md:mb-3">Know Yourself (Age 13-15)</p>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary/85 mb-3 md:mb-4">
+=======
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.7)] p-5 sm:p-8">
+                <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Know Yourself (Age 13-15)</p>
+                <h2 className="text-3xl md:text-4xl font-display font-bold text-primary/85 mb-4">
+>>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
                   You are not just going through stuff. You are becoming a person.
                 </h2>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
@@ -690,7 +708,7 @@ const KnowYourself = () => {
                 </p>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="Quick relatable cards"
@@ -712,7 +730,7 @@ const KnowYourself = () => {
                 </p>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-2">
                   <LetterSwapForward
                     label="What's affecting you most right now?"
@@ -785,7 +803,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="The 8 things quietly building your identity"
@@ -807,7 +825,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="What might be getting in your way"
@@ -833,7 +851,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="No one told you this... but it matters"
@@ -851,7 +869,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-6">
                   <LetterSwapForward
                     label="Try this today"
@@ -871,7 +889,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-3">
                   <LetterSwapForward
                     label="Quick understanding helps. But stronger growth needs more than one page."
@@ -895,7 +913,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-4">
                   <LetterSwapForward
                     label="How to ask at home"
@@ -915,7 +933,7 @@ const KnowYourself = () => {
                 </ul>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-3">
                   <LetterSwapForward
                     label="Understanding yourself is the beginning. Building yourself is the next step."
@@ -951,7 +969,7 @@ const KnowYourself = () => {
             exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
             transition={pageTransition}
           >
-            <div className="container mx-auto px-6 space-y-16">
+            <div className="container mx-auto px-4 sm:px-6 space-y-16">
               <div className="max-w-5xl mx-auto">
                 <button
                   type="button"
@@ -962,7 +980,7 @@ const KnowYourself = () => {
                 </button>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.7)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.7)] p-5 sm:p-8">
                 <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Know Yourself (Age 16-18)</p>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-primary/85 mb-4">
                   You are not just managing school, screens, and stress. You are shaping your identity.
@@ -972,7 +990,7 @@ const KnowYourself = () => {
                 </p>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward label="Quick relatable cards" className="text-2xl font-display font-semibold text-primary/85" />
                 </h3>
@@ -988,7 +1006,7 @@ const KnowYourself = () => {
                 </p>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-2">
                   <LetterSwapForward
                     label="What's Quietly Affecting You Most Right Now?"
@@ -1070,7 +1088,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="The 8 Forces Quietly Building the Person You're Becoming"
@@ -1090,7 +1108,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="What May Be Getting in Your Way"
@@ -1116,7 +1134,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="Things You Need to Hear Clearly"
@@ -1130,7 +1148,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-6">
                   <LetterSwapForward label="Do This Today" className="text-2xl font-display font-semibold text-primary/85" />
                 </h3>
@@ -1147,7 +1165,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-3">
                   <LetterSwapForward
                     label="You don't need more random content. You need a stronger inner system."
@@ -1172,7 +1190,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-4">
                   <LetterSwapForward
                     label="If you want to explore this with your parent"
@@ -1192,7 +1210,7 @@ const KnowYourself = () => {
                 </ul>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-3">
                   <LetterSwapForward
                     label="Understanding yourself is the beginning. Building yourself is the next step."

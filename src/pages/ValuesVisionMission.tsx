@@ -83,7 +83,11 @@ const ValuesVisionMission = () => {
       <Navbar />
       <main className="pt-16 bg-background min-h-screen">
         <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50">
+<<<<<<< HEAD
           <div className="container mx-auto px-4 md:px-6 max-w-4xl text-center">
+=======
+          <div className="container mx-auto px-4 sm:px-6 max-w-4xl text-center">
+>>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
             <h1>
               <LetterSwapForward
                 label="Vision, Mission & Values"
@@ -94,10 +98,17 @@ const ValuesVisionMission = () => {
           </div>
         </section>
 
+<<<<<<< HEAD
         <section className="py-10 md:py-14 bg-background">
           <div className="container mx-auto px-4 md:px-6 max-w-4xl">
             <article className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-6 md:space-y-8">
               <section className="space-y-4 md:space-y-6">
+=======
+        <section className="py-14 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
+            <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8">
+              <section className="space-y-6">
+>>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
                 <div className="space-y-2">
                   <h3 className="text-lg md:text-xl lg:text-2xl font-display font-semibold text-primary">Vision</h3>
                   <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed font-body">{visionStatement}</p>

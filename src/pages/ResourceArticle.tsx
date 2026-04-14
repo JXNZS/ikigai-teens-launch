@@ -19,9 +19,15 @@ const ResourceArticle = () => {
     <>
       <Navbar />
       <main className="pt-16 bg-background min-h-screen">
+<<<<<<< HEAD
         <section className="footer-theme-legacy py-12 md:py-16 md:py-20 bg-card border-b border-border/50">
           <div className="container mx-auto px-4 md:px-6 max-w-5xl">
             <Link to="/resources" className="inline-flex items-center gap-2 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors mb-4 md:mb-5">
+=======
+        <section className="footer-theme-legacy py-16 md:py-20 bg-card border-b border-border/50">
+          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+            <Link to="/resources" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-5">
+>>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
               <ArrowLeft className="h-4 w-4" />
               Back to all articles
             </Link>
@@ -51,8 +57,13 @@ const ResourceArticle = () => {
           </div>
         </section>
 
+<<<<<<< HEAD
         <section className="py-10 md:py-12 lg:py-14 bg-background">
           <div className="container mx-auto px-4 md:px-6 max-w-5xl">
+=======
+        <section className="py-12 md:py-14 bg-background">
+          <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
+>>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
             {article.content && article.content.length > 0 ? (
               <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 mb-14 space-y-5">
                 {article.content.map((block, index) => {
