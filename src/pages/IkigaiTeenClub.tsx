@@ -206,13 +206,10 @@ const IkigaiTeenClub = () => {
       <Navbar />
       <main className="pt-16 bg-background min-h-screen">
         <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50 overflow-hidden">
-<<<<<<< HEAD
+
           <div className="container mx-auto px-4 md:px-6">
             <motion.div className="max-w-3xl mx-auto text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-=======
-          <div className="container mx-auto px-4 sm:px-6">
-            <motion.div className="max-w-4xl mx-auto text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
+
               <motion.h1
                 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-4 md:mb-6"
                 initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
@@ -243,17 +240,12 @@ const IkigaiTeenClub = () => {
           </div>
         </section>
 
-<<<<<<< HEAD
+
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-6xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-6 md:p-8 lg:p-10">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold text-primary text-center mb-3 md:mb-4">
-=======
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-6xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8 md:p-10">
-              <h2 className="text-3xl md:text-4xl font-display font-semibold text-primary text-center mb-4">
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
+
                 <LetterSwapForward label="What Members Unlock" className="justify-center" />
               </h2>
               <p className="text-center text-muted-foreground mb-8 md:mb-10 max-w-3xl mx-auto text-sm md:text-base">
@@ -327,17 +319,12 @@ const IkigaiTeenClub = () => {
           </div>
         </section>
 
-<<<<<<< HEAD
+
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-6 md:p-8 lg:p-10\">
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
-=======
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8 md:p-10">
-              <div className="grid md:grid-cols-2 gap-6">
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
+
                 <motion.div
                   className="h-full"
                   initial={{ opacity: 0, x: -16 }}
@@ -379,17 +366,12 @@ const IkigaiTeenClub = () => {
           </div>
         </section>
 
-<<<<<<< HEAD
+
         <section className="pb-12 md:pb-20 bg-background">
           <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-4xl mx-auto rounded-lg md:rounded-2xl border border-primary/20 bg-[hsl(195_25%_96%_/_0.8)] p-6 md:p-8 text-center">
               <p className="text-sm md:text-base lg:text-lg text-foreground/90 leading-relaxed mb-6 md:mb-8 px-2">
-=======
-        <section className="pb-20 bg-background">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-4xl mx-auto rounded-2xl border border-primary/20 bg-[hsl(195_25%_96%_/_0.8)] p-8 text-center">
-              <p className="text-base md:text-lg text-foreground/90 leading-relaxed mb-8">
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
+
                 Inside Ikigai Teen Club, growth does not feel heavy. It feels meaningful. It feels exciting. It feels
                 real. Most of all, it feels like a space where teens can become more of who they are meant to be.
               </p>
