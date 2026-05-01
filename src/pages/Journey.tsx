@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
+import TeenRealityCards from "@/components/TeenRealityCards";
 import {
   MorphingPopover,
   MorphingPopoverContent,
@@ -20,7 +21,7 @@ const credibilityStats: CredibilityStat[] = [
   { value: 200, suffix: "+", label: "Schools Engaged" },
   { value: 63, label: "Villages Served" },
   { value: 32, label: "Countries with Footprints" },
-  { value: 36, label: "Nationalities for Colleagues" },
+  { value: 136, label: "Nationalities for Colleagues" },
 ];
 
 type Milestone = {
@@ -61,7 +62,7 @@ const milestones: Milestone[] = [
   },
   {
     label: "2002 – 2012",
-    title: "17 Years with the Red Cross Movement",
+    title: "Red Cross Movement Work in India",
     details: [
       "Designed and delivered multiple children's programs across India.",
       "Reached over 107,893 children across schools and communities.",
@@ -82,7 +83,7 @@ const milestones: Milestone[] = [
     ],
   },
   {
-    label: "2018 - 2024",
+    label: "2023 - 2025",
     title: "Oxfam – Iraq",
     details: [
       "Continued humanitarian leadership and program work in complex conflict contexts.",
@@ -261,11 +262,8 @@ const Journey = () => {
           onMouseLeave={() => setActiveMilestoneLabel(null)}
         >
           <div className="px-6 md:px-10 lg:px-14">
-            <h2>
-              <LetterSwapForward
-                label="Founder Milestones - Irene Arathi"
-                className="text-2xl md:text-3xl font-display font-semibold text-primary"
-              />
+            <h2 className="text-2xl md:text-3xl font-display font-semibold text-primary text-center">
+              Founder Milestones - Irene Arathi
             </h2>
           </div>
           <div className="relative mt-6 w-full px-4 sm:px-6 md:px-10 lg:px-14">
@@ -430,25 +428,8 @@ const Journey = () => {
                 Global research and national data increasingly warn that adolescent well-being is being reshaped by rapid digital exposure.
               </p>
 
-              <ul className="space-y-2 text-sm md:text-base text-muted-foreground leading-relaxed">
-                <li>• Over 95% of young people aged 15-29 in India who own a mobile phone now use a smartphone, giving widespread access to the internet and social media.</li>
-                <li>• Studies estimate that around 23% of Indian school children may experience mental health challenges, including anxiety, behavioural issues, or emotional distress.</li>
-                <li>• The Economic Survey of India (2025-26) has flagged digital addiction and excessive screen use as a growing concern affecting youth productivity and mental health.</li>
-                <li>• Global research suggests more than 1 in 10 adolescents show problematic social-media behaviour, struggling to control their usage.</li>
-                <li>• Across many countries, over one-third of young people report experiencing cyberbullying online, highlighting growing safety concerns in digital spaces.</li>
-              </ul>
 
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                Studies by organisations such as UNICEF, WHO, and child-development researchers increasingly warn about rising screen dependency, sleep disruption, and mental-health pressures among adolescents.
-              </p>
-
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                Governments are beginning to respond. Countries such as Australia have introduced social-media bans for children under 16, while nations including France, Indonesia, Spain, and others are considering similar restrictions to protect young users.
-              </p>
-
-              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                Even in India, Karnataka has proposed restricting social-media access for children under 16, reflecting growing concern about digital addiction and online risks among youth.
-              </p>
+              <TeenRealityCards />
 
               <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                 These developments underline a global recognition that while technology offers immense opportunity, young people need guidance to navigate the digital world safely and wisely.

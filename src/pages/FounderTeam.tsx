@@ -50,7 +50,7 @@ const teamMembers: TeamMember[] = [
 		imageClassName: "object-[50%_30%]",
 		quote: "When knowledge is shared with sincerity, it becomes a bridge that helps others grow.",
 		bio: [
-			"Zubaida Zuhair is a young research and content contributor based in Erbil, Iraq, with a background in English Language and Literature and experience in student engagement and education support. In the early stages of her career, she has already worked across academic institutions, teacher training programs, and community initiatives, including exposure to humanitarian work with Oxfam.",
+			"Zubaida Zuhair is a young research and content contributor based in Erbil, Iraq, with a background in English Language and Literature From Lebanese French University and British International University and experience in student engagement and education support. In the early stages of her career, she has already worked across academic institutions, teacher training programs, and community initiatives, including exposure to humanitarian work with Oxfam.",
 			"At Ikigai Teen, Zubaida contributes to research, teen profiling, and resource development. She supports the creation of blogs, podcasts, and educational articles through research-backed writing, content refinement, and audio-visual editing. Her multilingual skills and curiosity about youth experiences help translate insights into meaningful learning resources.",
 		],
 	},
@@ -75,14 +75,14 @@ const teamMembers: TeamMember[] = [
 		imageStyle: { objectPosition: "50% 50%", transform: "translateX(-22%) scale(1.45)", transformOrigin: "center center" },
 		quote: "Age does not define responsibility - commitment and action do.",
 		bio: [
-			"Poorvi Praveen is an 18-year-old Chartered Accountancy student from Bangalore, Karnataka, and an enthusiastic young contributor to the Ikigai Teen initiative. A disciplined weightlifting enthusiast, she brings the same determination and perseverance to her work supporting youth development programs.",
+			"Poorvi Praveen is a Chartered Accountancy student from Bangalore, Karnataka, and an enthusiastic young contributor to the Ikigai Teen initiative. A disciplined weightlifting enthusiast, she brings the same determination and perseverance to her work supporting youth development programs.",
 			"Curious, responsible, and a natural go-getter, Poorvi volunteered to support Ikigai Teen and quickly became a dependable contributor across many areas, from program coordination to podcast production logistics, website development support, and social media content production among others. Having grown up observing her mother's enterprising spirit in launching small business initiatives, Poorvi developed an early appreciation for initiative, resilience, and learning through action.",
 		],
 	},
 	{
 		name: "Jeevan Shaji John",
 		role: "Technology & Collaborations Support",
-		region: "India",
+		region: "India|Kuwait",
 		image: jeevanPhoto,
 		imageStyle: { objectPosition: "50% 44%", transform: "translateX(22%) scale(1.7)", transformOrigin: "center center" },
 		quote: "A willing mind and consistent action can turn small beginnings into meaningful impact.",
@@ -99,7 +99,7 @@ const teamMembers: TeamMember[] = [
 		imageClassName: "object-[68%_12%]",
 		quote: "Grace, responsibility, and sincerity in small actions often build the strongest foundations.",
 		bio: [
-			"Jiya Giri is a young and thoughtful contributor from Dharwad with a strong interest in healthcare, emotional well-being, and meaningful human connection. Currently pursuing her studies in science, she brings a calm, responsible, and people-centred approach to the work she takes on. Known for being polished, sincere, and meticulous, Jiya has a natural ability to communicate with warmth, attentiveness, and care.",
+			"Jiya Giri is a young and thoughtful contributor from Dharwad, a student of German language and literature with a strong interest in healthcare, emotional well-being, and meaningful human connection. Currently pursuing her studies in science, she brings a calm, responsible, and people-centred approach to the work she takes on. Known for being polished, sincere, and meticulous, Jiya has a natural ability to communicate with warmth, attentiveness, and care.",
 			"At Ikigai Teen, Jiya supports networking, coordination, and relationship management across key areas of the initiative. Her role includes assisting with communication, stakeholder coordination, and operational follow-through that help keep engagements and collaborations organised and professional. With her grounded nature and strong sense of responsibility, she reflects the kind of thoughtful young leadership that helps meaningful initiatives grow with care and consistency.",
 		],
 	},

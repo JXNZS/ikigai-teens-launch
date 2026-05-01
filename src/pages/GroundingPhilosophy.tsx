@@ -1,6 +1,8 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 const philosophyParagraphs = [
   "At Ikigai Teen, our philosophy is inspired by timeless Japanese principles that emphasize purposeful living, steady growth, and mindful action. These ideas are simple yet powerful - and when applied early in life, they help young people build strong foundations for the future.",
@@ -9,25 +11,37 @@ const philosophyParagraphs = [
   "Our goal is not to create perfection, but to help teens become self-aware, grounded, and responsible individuals who can navigate life with clarity and purpose.",
 ];
 
-const principles = [
-  <>
-    <span className="font-semibold text-foreground">Ikigai</span> - discovering meaning and direction in life by aligning one’s strengths, interests, values, and contribution to the world.
-  </>,
-  <>
-    <span className="font-semibold text-foreground">Kaizen</span> - the practice of small, consistent improvements that lead to lasting personal growth.
-  </>,
-  <>
-    <span className="font-semibold text-foreground">Shoshin</span> - the beginner’s mind, encouraging curiosity, openness, and the willingness to learn without ego.
-  </>,
-  <>
-    <span className="font-semibold text-foreground">Hansei</span> - thoughtful reflection and self-awareness, helping teens learn from experiences and make wiser decisions.
-  </>,
-  <>
-    <span className="font-semibold text-foreground">Kintsugi</span> - the idea that imperfections and setbacks can strengthen character and become part of one’s unique story.
-  </>,
+const principleData = [
+  {
+    title: "Ikigai",
+    desc: "Discovering meaning and direction in life by aligning one’s strengths, interests, values, and contribution to the world.",
+    color: "#2ec27e",
+  },
+  {
+    title: "Kaizen",
+    desc: "The practice of small, consistent improvements that lead to lasting personal growth.",
+    color: "#3b82f6",
+  },
+  {
+    title: "Shoshin",
+    desc: "The beginner’s mind, encouraging curiosity, openness, and the willingness to learn without ego.",
+    color: "#f59e42",
+  },
+  {
+    title: "Hansei",
+    desc: "Thoughtful reflection and self-awareness, helping teens learn from experiences and make wiser decisions.",
+    color: "#a855f7",
+  },
+  {
+    title: "Kintsugi",
+    desc: "The idea that imperfections and setbacks can strengthen character and become part of one’s unique story.",
+    color: "#fbbf24",
+  },
 ];
 
+
 const GroundingPhilosophy = () => {
+  const [hovered, setHovered] = useState<number | null>(null);
   return (
     <>
       <Navbar />
@@ -45,8 +59,14 @@ const GroundingPhilosophy = () => {
         </section>
 
         <section className="py-14 bg-background">
+<<<<<<< HEAD
           <div className="container mx-auto px-4 sm:px-6 max-w-4xl">
             <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-6">
+=======
+          <div className="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row gap-10 md:gap-16 items-stretch">
+            {/* Left: Philosophy Box */}
+            <article className="flex-1 rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-6 flex flex-col justify-center min-w-[320px] max-w-xl">
+>>>>>>> b2191a1 (work on progress)
               <div className="space-y-3">
                 <h2 className="text-2xl md:text-3xl font-display font-semibold text-primary">Philosophy</h2>
                 <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed font-body">
@@ -55,15 +75,144 @@ const GroundingPhilosophy = () => {
                   ))}
                 </div>
               </div>
-
-              <div className="space-y-4 border-t border-border/50 pt-6">
-                {principles.map((principle, index) => (
-                  <p key={index} className="text-sm md:text-base text-muted-foreground leading-relaxed font-body">
-                    {principle}
-                  </p>
-                ))}
-              </div>
             </article>
+
+            {/* Right: Expandable Circles */}
+            <div className="flex-1 flex flex-col justify-center">
+              <div className="grid grid-rows-3 grid-cols-2 gap-8 h-full place-items-center relative" style={{minHeight:'500px'}}>
+                {/* Row 1: Kintsugi, Kaizen */}
+                <motion.div
+                  className="relative flex flex-col items-center justify-center row-start-1 col-start-1"
+                  onMouseEnter={() => setHovered(4)}
+                  onMouseLeave={() => setHovered(null)}
+                >
+                  <motion.div
+                    animate={hovered === 4 ? { scale: 1.18, boxShadow: `0 8px 32px 0 ${principleData[4].color}55` } : { scale: 1, boxShadow: "0 2px 12px 0 rgba(0,0,0,0.08)" }}
+                    transition={{ type: "spring", stiffness: 320, damping: 22 }}
+                    className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer bg-white border-4 border-primary font-display font-bold text-xl md:text-2xl text-center select-none"
+                    style={{ color: principleData[4].color, borderColor: principleData[4].color, zIndex: hovered === 4 ? 20 : 1 }}
+                  >
+                    {principleData[4].title}
+                  </motion.div>
+                  {hovered === 4 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 16 }}
+                      transition={{ duration: 0.25 }}
+                      className="absolute top-full mt-4 w-64 md:w-72 bg-white border border-border rounded-xl shadow-xl p-4 text-sm md:text-base text-muted-foreground font-body z-30"
+                    >
+                      {principleData[4].desc}
+                    </motion.div>
+                  )}
+                </motion.div>
+                <motion.div
+                  className="relative flex flex-col items-center justify-center row-start-1 col-start-2"
+                  onMouseEnter={() => setHovered(1)}
+                  onMouseLeave={() => setHovered(null)}
+                >
+                  <motion.div
+                    animate={hovered === 1 ? { scale: 1.18, boxShadow: `0 8px 32px 0 ${principleData[1].color}55` } : { scale: 1, boxShadow: "0 2px 12px 0 rgba(0,0,0,0.08)" }}
+                    transition={{ type: "spring", stiffness: 320, damping: 22 }}
+                    className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer bg-white border-4 border-primary font-display font-bold text-xl md:text-2xl text-center select-none"
+                    style={{ color: principleData[1].color, borderColor: principleData[1].color, zIndex: hovered === 1 ? 20 : 1 }}
+                  >
+                    {principleData[1].title}
+                  </motion.div>
+                  {hovered === 1 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 16 }}
+                      transition={{ duration: 0.25 }}
+                      className="absolute top-full mt-4 w-64 md:w-72 bg-white border border-border rounded-xl shadow-xl p-4 text-sm md:text-base text-muted-foreground font-body z-30"
+                    >
+                      {principleData[1].desc}
+                    </motion.div>
+                  )}
+                </motion.div>
+
+                {/* Row 2: Ikigai centered */}
+                <motion.div
+                  className="relative flex flex-col items-center justify-center row-start-2 col-span-2 col-start-1"
+                  style={{ gridColumn: '1 / span 2', justifySelf: 'center' }}
+                  onMouseEnter={() => setHovered(0)}
+                  onMouseLeave={() => setHovered(null)}
+                >
+                  <motion.div
+                    animate={hovered === 0 ? { scale: 1.18, boxShadow: `0 8px 32px 0 ${principleData[0].color}55` } : { scale: 1, boxShadow: "0 2px 12px 0 rgba(0,0,0,0.08)" }}
+                    transition={{ type: "spring", stiffness: 320, damping: 22 }}
+                    className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer bg-white border-4 border-primary font-display font-bold text-xl md:text-2xl text-center select-none"
+                    style={{ color: principleData[0].color, borderColor: principleData[0].color, zIndex: hovered === 0 ? 20 : 1 }}
+                  >
+                    {principleData[0].title}
+                  </motion.div>
+                  {hovered === 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 16 }}
+                      transition={{ duration: 0.25 }}
+                      className="absolute top-full mt-4 w-64 md:w-72 bg-white border border-border rounded-xl shadow-xl p-4 text-sm md:text-base text-muted-foreground font-body z-30"
+                    >
+                      {principleData[0].desc}
+                    </motion.div>
+                  )}
+                </motion.div>
+
+                {/* Row 3: Shoshin, Hansei */}
+                <motion.div
+                  className="relative flex flex-col items-center justify-center row-start-3 col-start-1"
+                  onMouseEnter={() => setHovered(2)}
+                  onMouseLeave={() => setHovered(null)}
+                >
+                  <motion.div
+                    animate={hovered === 2 ? { scale: 1.18, boxShadow: `0 8px 32px 0 ${principleData[2].color}55` } : { scale: 1, boxShadow: "0 2px 12px 0 rgba(0,0,0,0.08)" }}
+                    transition={{ type: "spring", stiffness: 320, damping: 22 }}
+                    className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer bg-white border-4 border-primary font-display font-bold text-xl md:text-2xl text-center select-none"
+                    style={{ color: principleData[2].color, borderColor: principleData[2].color, zIndex: hovered === 2 ? 20 : 1 }}
+                  >
+                    {principleData[2].title}
+                  </motion.div>
+                  {hovered === 2 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 16 }}
+                      transition={{ duration: 0.25 }}
+                      className="absolute top-full mt-4 w-64 md:w-72 bg-white border border-border rounded-xl shadow-xl p-4 text-sm md:text-base text-muted-foreground font-body z-30"
+                    >
+                      {principleData[2].desc}
+                    </motion.div>
+                  )}
+                </motion.div>
+                <motion.div
+                  className="relative flex flex-col items-center justify-center row-start-3 col-start-2"
+                  onMouseEnter={() => setHovered(3)}
+                  onMouseLeave={() => setHovered(null)}
+                >
+                  <motion.div
+                    animate={hovered === 3 ? { scale: 1.18, boxShadow: `0 8px 32px 0 ${principleData[3].color}55` } : { scale: 1, boxShadow: "0 2px 12px 0 rgba(0,0,0,0.08)" }}
+                    transition={{ type: "spring", stiffness: 320, damping: 22 }}
+                    className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer bg-white border-4 border-primary font-display font-bold text-xl md:text-2xl text-center select-none"
+                    style={{ color: principleData[3].color, borderColor: principleData[3].color, zIndex: hovered === 3 ? 20 : 1 }}
+                  >
+                    {principleData[3].title}
+                  </motion.div>
+                  {hovered === 3 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 16 }}
+                      transition={{ duration: 0.25 }}
+                      className="absolute top-full mt-4 w-64 md:w-72 bg-white border border-border rounded-xl shadow-xl p-4 text-sm md:text-base text-muted-foreground font-body z-30"
+                    >
+                      {principleData[3].desc}
+                    </motion.div>
+                  )}
+                </motion.div>
+              </div>
+            </div>
           </div>
         </section>
       </main>

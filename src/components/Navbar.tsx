@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { easeInOut, type AnimationGeneratorType } from "framer-motion";
 import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "@/assets/ikigai logo no bg.png";
 import { LetterSwapPingPong } from "@/components/ui/letter-swap";
@@ -207,7 +208,7 @@ const Navbar = () => {
       scale: 0.95,
       rotateX: -8,
       filter: "blur(6px)",
-      transition: { duration: 0.18, ease: "easeInOut" },
+      transition: { duration: 0.18, ease: easeInOut },
     },
     open: {
       opacity: 1,
@@ -216,7 +217,7 @@ const Navbar = () => {
       rotateX: 0,
       filter: "blur(0px)",
       transition: {
-        type: "spring",
+        type: 'spring' as AnimationGeneratorType,
         stiffness: 420,
         damping: 26,
         mass: 0.7,
@@ -232,7 +233,7 @@ const Navbar = () => {
       opacity: 1,
       x: 0,
       y: 0,
-      transition: { type: "spring", stiffness: 380, damping: 22, mass: 0.6 },
+      transition: { type: 'spring' as AnimationGeneratorType, stiffness: 380, damping: 22, mass: 0.6 },
     },
   };
 

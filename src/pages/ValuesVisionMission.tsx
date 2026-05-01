@@ -6,7 +6,7 @@ const introParagraphs = [
   "At Ikigai Teen, we believe that the strength of a young person's future is shaped by the values they build early in life. In a world filled with distraction, pressure, and rapid change, values act as an inner compass - helping teens make wise decisions, develop strong character, and contribute positively to the world around them.",
   "Our work with teens is guided by nine core values, organised into three essential areas of growth:",
   <span key="intro-focus-line" className="font-semibold text-foreground">
-    Who I Am | How I Live | How I Engage With the World
+    Who I Am - How I Live - How I Engage With the World
   </span>,
   "Together, these values form the foundation of the Ikigai Teen approach to developing grounded, responsible, and purposeful young individuals.",
 ];
@@ -16,18 +16,18 @@ const sections = [
     title: "Inner Character",
     subtitle: (
       <>
-        <span className="font-semibold text-primary">Who I Am:</span> A strong life begins with a strong inner foundation. These values help teens understand themselves and develop the courage to live authentically.
+        <span className="font-semibold text-foreground">Who I Am:</span> A strong life begins with a strong inner foundation. These values help teens understand themselves and develop the courage to live authentically.
       </>
     ),
     values: [
       <>
-        <span className="font-semibold text-foreground">Integrity</span> - Doing what is right even when it is difficult or when no one is watching.
+        <span className="font-semibold text-primary">Integrity</span> - Doing what is right even when it is difficult or when no one is watching.
       </>,
       <>
-        <span className="font-semibold text-foreground">Self-Awareness</span> - Understanding one's thoughts, emotions, strengths, and limitations.
+        <span className="font-semibold text-primary">Self-Awareness</span> - Understanding one's thoughts, emotions, strengths, and limitations.
       </>,
       <>
-        <span className="font-semibold text-foreground">Courage</span> - The willingness to face challenges, admit mistakes, and stand up for what matters.
+        <span className="font-semibold text-primary">Courage</span> - The willingness to face challenges, admit mistakes, and stand up for what matters.
       </>,
     ],
   },
@@ -35,18 +35,18 @@ const sections = [
     title: "Self-Mastery",
     subtitle: (
       <>
-        <span className="font-semibold text-primary">How I Live:</span> Character becomes meaningful when it shapes daily choices and habits. These values help teens develop discipline, responsibility, and self-control.
+        <span className="font-semibold text-foreground">How I Live:</span> Character becomes meaningful when it shapes daily choices and habits. These values help teens develop discipline, responsibility, and self-control.
       </>
     ),
     values: [
       <>
-        <span className="font-semibold text-foreground">Responsibility</span> - Taking ownership of one's choices, actions, and their consequences.
+        <span className="font-semibold text-primary">Responsibility</span> - Taking ownership of one's choices, actions, and their consequences.
       </>,
       <>
-        <span className="font-semibold text-foreground">Discipline</span> - Building consistent habits that support growth and long-term success.
+        <span className="font-semibold text-primary">Discipline</span> - Building consistent habits that support growth and long-term success.
       </>,
       <>
-        <span className="font-semibold text-foreground">Temperance</span> - Practicing self-control and balance, especially in a world full of distractions and impulses.
+        <span className="font-semibold text-primary">Temperance</span> - Practicing self-control and balance, especially in a world full of distractions and impulses.
       </>,
     ],
   },
