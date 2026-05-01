@@ -87,7 +87,7 @@ const teamMembers: TeamMember[] = [
 		imageStyle: { objectPosition: "50% 44%", transform: "translateX(22%) scale(1.7)", transformOrigin: "center center" },
 		quote: "A willing mind and consistent action can turn small beginnings into meaningful impact.",
 		bio: [
-			"Jeevan Shaji John is a young technology enthusiast from Pathanamthitta, Kerala, with a Bachelor degree in Computer Applications. With a growing interest in web development, cybersecurity, and digital problem-solving, he represents a new generation of learners eager to apply technology in meaningful and socially relevant ways.",
+			"Jeevan Shaji John is a young technology enthusiast from Kerala, with a Bachelor degree in Computer Applications. With a growing interest in web development, cybersecurity, and digital problem-solving, he represents a new generation of learners eager to apply technology in meaningful and socially relevant ways.",
 			"At Ikigai Teen, Jeevan supports both application and website development, along with collaboration-building efforts that strengthen the initiative's digital and operational ecosystem, driving innovation and rapid evolution. His interests in tech design, systems thinking, and continuous learning make him a valuable contributor to a mission-driven platform designed for the next generation. Passionate about growth and stepping beyond his comfort zone, Jeevan embodies the curiosity, adaptability, and purpose-driven mindset that Ikigai Teen seeks to nurture in young people.",
 		],
 	},
@@ -108,7 +108,7 @@ const teamMembers: TeamMember[] = [
 const CircleProfilePhoto = ({ src, alt, imageClassName, imageStyle }: { src: string; alt: string; imageClassName?: string; imageStyle?: CSSProperties }) => {
 	const [failed, setFailed] = useState(false);
 
-	if (failed) {
+	if (failed || !src) {
 		return (
 			<div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-border/70 shrink-0">
 				<div className="w-full h-full bg-secondary flex items-center justify-center text-xs font-semibold text-muted-foreground px-3 text-center">
@@ -177,7 +177,7 @@ const FounderTeam = () => {
 													{member.name === "Irene Arathi Pais" ? (
 														<>
 															{(showFullFounderBio ? member.extendedBio ?? member.bio : member.bio).map((paragraph, paragraphIndex) => (
-																<p key={paragraph} className="text-sm md:text-base text-muted-foreground leading-relaxed">
+																<p key={`founder-bio-${paragraphIndex}`} className="text-sm md:text-base text-muted-foreground leading-relaxed">
 																	{paragraph}
 																	{paragraphIndex === (showFullFounderBio ? member.extendedBio ?? member.bio : member.bio).length - 1 ? (
 																		<>
@@ -195,8 +195,8 @@ const FounderTeam = () => {
 															))}
 														</>
 													) : (
-														member.bio.map((paragraph) => (
-														<p key={paragraph} className="text-sm md:text-base text-muted-foreground leading-relaxed">
+														member.bio.map((paragraph, idx) => (
+														<p key={`${member.name}-bio-${idx}`} className="text-sm md:text-base text-muted-foreground leading-relaxed">
 															{paragraph}
 														</p>
 														))

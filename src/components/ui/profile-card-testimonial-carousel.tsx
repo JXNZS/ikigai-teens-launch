@@ -18,12 +18,15 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
   const handlePrevious = () => setCurrentIndex((index) => (index - 1 + articles.length) % articles.length);
 
   useEffect(() => {
+    if (articles.length <= 1) return;
     const timer = window.setInterval(() => {
       setCurrentIndex((index) => (index + 1) % articles.length);
     }, 5000);
 
     return () => window.clearInterval(timer);
-  }, []);
+  }, [articles.length]);
+
+  if (!articles || articles.length === 0) return null;
 
   const currentArticle = articles[currentIndex];
 

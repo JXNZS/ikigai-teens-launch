@@ -12,15 +12,18 @@ const RecentVideosCarousel = ({ className }: RecentVideosCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    if (videos.length <= 1) return;
     const timer = window.setInterval(() => {
       setCurrentIndex((index) => (index + 1) % videos.length);
     }, 5000);
 
     return () => window.clearInterval(timer);
-  }, []);
+  }, [videos.length]);
 
   const handleNext = () => setCurrentIndex((index) => (index + 1) % videos.length);
   const handlePrevious = () => setCurrentIndex((index) => (index - 1 + videos.length) % videos.length);
+
+  if (!videos || videos.length === 0) return null;
 
   const currentVideo = videos[currentIndex];
   const thumbnail = getYoutubeThumbnail(currentVideo.youtubeUrl);

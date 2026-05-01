@@ -32,7 +32,7 @@ const Index = () => {
   const glowRadiusCss = useMotionTemplate`${smoothGlowRadius}px`;
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
+    const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
   }, []);
 

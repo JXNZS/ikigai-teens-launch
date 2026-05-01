@@ -68,7 +68,7 @@ function Hero() {
                 ))}
               </span>
             </h1>
-            <p className="relative text-sm md:text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-left">
+            <p className="relative text-sm md:text-lg md:text-xl leading-relaxed tracking-tight text-foreground max-w-2xl text-left">
               Discover your Ikigai - the intersection where your passion, mission, vocation, and profession align to create a life of meaning and fulfillment.
               <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={localizedGlowStyle}>
                 Discover your Ikigai - the intersection where your passion, mission, vocation, and profession align to create a life of meaning and fulfillment.
