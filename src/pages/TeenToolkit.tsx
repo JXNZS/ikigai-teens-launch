@@ -300,15 +300,9 @@ const TeenToolkit = () => {
   return (
     <>
       <Navbar />
-<<<<<<< HEAD
       <main className="pt-16 md:pt-20 bg-background min-h-screen">
         <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50 overflow-hidden">
           <div className="container mx-auto px-4 md:px-6">
-=======
-      <main className="pt-16 bg-background min-h-screen">
-        <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50 overflow-hidden">
-          <div className="container mx-auto px-4 sm:px-6">
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
             <motion.div className="max-w-3xl mx-auto text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
               <motion.h1
                 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-4 md:mb-6"
@@ -341,11 +335,7 @@ const TeenToolkit = () => {
               exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
               transition={pageTransition}
             >
-<<<<<<< HEAD
               <div className="container mx-auto px-4 md:px-6">
-=======
-              <div className="container mx-auto px-4 sm:px-6">
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
                 <div className="max-w-3xl mx-auto">
                   <h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-primary/85 mb-8 md:mb-12 text-center">
                     <LetterSwapForward label="Choose your age" />
@@ -359,11 +349,7 @@ const TeenToolkit = () => {
                         onMouseMove={handleCardMouseMove}
                         onMouseLeave={handleCardMouseLeave}
                         onClick={() => selectAge(category.id)}
-<<<<<<< HEAD
                         className="relative p-6 md:p-8 rounded-lg md:rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden border-border hover:border-primary/80 bg-[hsl(195_25%_96%_/_0.7)] hover:bg-[hsl(195_25%_96%_/_0.82)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_28px_hsl(var(--primary)/0.5)]"
-=======
-                        className="relative p-5 sm:p-8 rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden border-border hover:border-primary/80 bg-[hsl(195_25%_96%_/_0.7)] hover:bg-[hsl(195_25%_96%_/_0.82)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_28px_hsl(var(--primary)/0.5)]"
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
                         style={{
                           transformStyle: "preserve-3d",
                           transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
@@ -402,11 +388,7 @@ const TeenToolkit = () => {
               exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
               transition={pageTransition}
             >
-<<<<<<< HEAD
               <div className="container mx-auto px-4 md:px-6 space-y-12 md:space-y-16">
-=======
-              <div className="container mx-auto px-4 sm:px-6 space-y-16">
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
                 <div className="max-w-5xl mx-auto">
                   <button
                     type="button"
@@ -619,11 +601,7 @@ const TeenToolkit = () => {
               exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
               transition={pageTransition}
             >
-<<<<<<< HEAD
               <div className="container mx-auto px-4 md:px-6 space-y-12 md:space-y-16">
-=======
-              <div className="container mx-auto px-4 sm:px-6 space-y-16">
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
                 <div className="max-w-5xl mx-auto">
                   <button
                     type="button"
@@ -642,11 +620,7 @@ const TeenToolkit = () => {
                       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                       exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-<<<<<<< HEAD
                       className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.7)] p-6 md:p-8"
-=======
-                      className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.7)] p-5 sm:p-8"
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
                     >
                       <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2 md:mb-3">Teen Toolkit (Age 16-18)</p>
                       <h2 className="w-full leading-tight text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary/85 mb-3 md:mb-4">

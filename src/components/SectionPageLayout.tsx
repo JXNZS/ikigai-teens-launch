@@ -38,11 +38,7 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
       <main className="pt-16 md:pt-20 bg-background min-h-screen">
         {/* Page Header */}
         <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50 overflow-hidden">
-<<<<<<< HEAD
           <div className="container mx-auto px-4 md:px-6">
-=======
-          <div className="container mx-auto px-4 sm:px-6">
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
             <motion.div
               className="max-w-3xl mx-auto text-center"
             >
@@ -67,13 +63,8 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
         </section>
 
         {/* Subsections */}
-<<<<<<< HEAD
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto px-4 md:px-6">
-=======
-        <section className="py-10 md:py-16 bg-background">
-          <div className="container mx-auto px-4 sm:px-6">
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
             <motion.div
               className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto"
             >
@@ -82,11 +73,7 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                   {s.path ? (
                     <Link to={s.path} className="block">
                       <motion.div
-<<<<<<< HEAD
                         className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 group cursor-pointer hover:border-primary/40 transition-colors"
-=======
-                        className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 sm:p-8 group cursor-pointer hover:border-primary/40 transition-colors"
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
                         whileHover={{
                           y: -6,
                           boxShadow: "0 20px 40px -15px hsl(152 60% 45% / 0.15)",
@@ -119,11 +106,7 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                     </Link>
                   ) : (
                     <motion.div
-<<<<<<< HEAD
                       className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 group"
-=======
-                      className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 sm:p-8 group"
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
                       whileHover={{
                         y: -6,
                         boxShadow: "0 20px 40px -15px hsl(152 60% 45% / 0.15)",

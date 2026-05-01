@@ -33,11 +33,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 hero-gradient" />
 
       <motion.div
-<<<<<<< HEAD
         className="relative z-10 container mx-auto px-4 md:px-6 pt-12 md:pt-20"
-=======
-        className="relative z-10 container mx-auto px-4 sm:px-6 pt-20"
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
         style={{
           y: textY,
           opacity,

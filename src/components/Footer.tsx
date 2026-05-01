@@ -124,21 +124,12 @@ const Footer = () => {
   };
 
   return (
-<<<<<<< HEAD
     <footer id="contact" className="footer-theme-legacy bg-card border-t border-border py-8 md:py-12 scroll-mt-20">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-8 md:gap-10 lg:grid-cols-[1.4fr_1fr]">
           <div className="space-y-2">
             <div className="flex items-center gap-2 md:gap-3">
               <div className="h-12 md:h-[6.75rem] w-12 md:w-[6.75rem] shrink-0 overflow-hidden rounded-lg">
-=======
-    <footer id="contact" className="footer-theme-legacy bg-card border-t border-border py-12 scroll-mt-20">
-      <div className="container mx-auto px-4 sm:px-6">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
-          <div className="space-y-1">
-            <div className="flex items-center gap-3">
-              <div className="h-12 w-12 sm:h-[6.75rem] sm:w-[6.75rem] shrink-0 overflow-hidden rounded-lg">
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
                 <img
                   src={logo}
                   alt="Ikigai Teen"

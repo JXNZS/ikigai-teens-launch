@@ -26,11 +26,7 @@ const GallerySection = () => {
 
   return (
     <section ref={ref} className="py-12 md:py-20 bg-background overflow-hidden">
-<<<<<<< HEAD
       <div className="container mx-auto px-4 md:px-6">
-=======
-      <div className="container mx-auto px-4 sm:px-6">
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
         <motion.h2
           className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-center text-foreground mb-8 md:mb-12"
           initial={{ opacity: 0, y: 20 }}

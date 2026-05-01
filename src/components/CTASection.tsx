@@ -22,15 +22,9 @@ const CTASection = () => {
 
   return (
     <section ref={ref} className="relative py-12 md:py-20 bg-card overflow-hidden">
-<<<<<<< HEAD
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           className="max-w-3xl mx-auto text-center rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-6 md:p-10"
-=======
-      <div className="container mx-auto px-4 sm:px-6">
-        <motion.div
-          className="max-w-3xl mx-auto text-center rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8 md:p-10"
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
           style={{ y: textY, opacity: textOpacity }}
         >
           <motion.h2 style={{ color: headingColor }}>

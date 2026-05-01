@@ -407,11 +407,7 @@ const FAQSection = () => {
 
   return (
     <section ref={ref} className="py-12 md:py-20 bg-card border-t border-b border-border/50">
-<<<<<<< HEAD
       <div className="container mx-auto px-4 md:px-6">
-=======
-      <div className="container mx-auto px-4 sm:px-6">
->>>>>>> 6d07954ad0898ce35934f6986d5b771a91b52efb
         <motion.div
           className="max-w-5xl mx-auto"
           initial={{ opacity: 0, y: 18 }}
