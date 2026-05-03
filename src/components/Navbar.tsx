@@ -190,6 +190,22 @@ const Navbar = () => {
       return "/teenzone/ikigai-teen-app";
     }
 
+    if (parentLabel === "Parent Hub" && childLabel === "Parent Role") {
+      return "/parent-hub/parent-role";
+    }
+
+    if (parentLabel === "Parent Hub" && childLabel === "Parent Challenges") {
+      return "/parent-hub/parent-challenges";
+    }
+
+    if (parentLabel === "Parent Hub" && childLabel === "Parent Collab") {
+      return "/parent-hub/parent-collab";
+    }
+
+    if (parentLabel === "Parent Hub" && childLabel === "IkigaiTeen Parent Circle") {
+      return "/parent-hub/ikigaiteen-parent-circle";
+    }
+
     if (parentLabel === "Resources" && childLabel === "Blog/Articles") {
       return "/resources/blogs";
     }

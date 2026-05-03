@@ -21,6 +21,7 @@ import ResourceBlogs from "./pages/ResourceBlogs.tsx";
 import ResourceVideos from "./pages/ResourceVideos.tsx";
 import GetInvolved from "./pages/GetInvolved.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ParentRole from "./pages/ParentRole.tsx";
 
 const queryClient = new QueryClient();
 
@@ -77,6 +78,7 @@ const App = () => (
           <Route path="/teenzone/ikigai-teen-club" element={<IkigaiTeenClub />} />
           <Route path="/teenzone/ikigai-teen-app" element={<IkigaiTeenApp />} />
           <Route path="/parent-hub" element={<ParentHub />} />
+          <Route path="/parent-hub/parent-role" element={<ParentRole />} />
           <Route path="/resources" element={<Navigate to="/resources/blogs" replace />} />
           <Route path="/resources/blogs" element={<ResourceBlogs />} />
           <Route path="/resources/videos" element={<ResourceVideos />} />

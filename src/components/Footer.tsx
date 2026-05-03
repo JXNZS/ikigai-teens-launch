@@ -112,6 +112,22 @@ const Footer = () => {
       return "/teenzone/teen-toolkit";
     }
 
+    if (groupLabel === "Parent Hub" && childLabel === "Parent Role") {
+      return "/parent-hub/parent-role";
+    }
+
+    if (groupLabel === "Parent Hub" && childLabel === "Parent Challenges") {
+      return "/parent-hub/parent-challenges";
+    }
+
+    if (groupLabel === "Parent Hub" && childLabel === "Parent Collab") {
+      return "/parent-hub/parent-collab";
+    }
+
+    if (groupLabel === "Parent Hub" && childLabel === "IkigaiTeen Parent Circle") {
+      return "/parent-hub/ikigaiteen-parent-circle";
+    }
+
     if (groupLabel === "Resources" && childLabel === "Blog/Articles") {
       return "/resources/blogs";
     }
