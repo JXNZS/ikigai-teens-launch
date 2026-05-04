@@ -20,6 +20,7 @@ import ResourceArticle from "./pages/ResourceArticle.tsx";
 import ResourceBlogs from "./pages/ResourceBlogs.tsx";
 import ResourceVideos from "./pages/ResourceVideos.tsx";
 import GetInvolved from "./pages/GetInvolved.tsx";
+import BeOurExperts from "./pages/BeOurExperts.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ParentRole from "./pages/ParentRole.tsx";
 import ParentChallenges from "./pages/ParentChallenges.tsx";
@@ -90,6 +91,7 @@ const App = () => (
           <Route path="/resources/videos" element={<ResourceVideos />} />
           <Route path="/resources/blog/:slug" element={<ResourceArticle />} />
           <Route path="/get-involved" element={<GetInvolved />} />
+          <Route path="/get-involved/be-our-experts" element={<BeOurExperts />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

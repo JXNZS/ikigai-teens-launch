@@ -1,7 +1,7 @@
 import SectionPageLayout from "@/components/SectionPageLayout";
 
 const sections = [
-  { title: "Be Our Experts", description: "Share your expertise in youth development, psychology, education, or coaching to help shape the Ikigai Teen programs." },
+  { title: "Be Our Experts", description: "Share your expertise in youth development, psychology, education, or coaching to help shape the Ikigai Teen programs.", path: "/get-involved/be-our-experts" },
   { title: "Be Our Collaborators", description: "Partner with us as an organization, school, or community group to bring Ikigai-based programs to more teens." },
   { title: "Be Our Trainee Coaches", description: "Join our coaching program and learn to guide teens through their Ikigai journey with our certified training." },
   { title: "Be Our Interns/Guests", description: "Gain hands-on experience in youth empowerment through internship opportunities or guest speaking engagements." },

@@ -214,6 +214,10 @@ const Navbar = () => {
       return "/resources/videos";
     }
 
+    if (parentLabel === "Get Involved" && childLabel === "Be Our Experts") {
+      return "/get-involved/be-our-experts";
+    }
+
     return fallbackPath;
   };
 
