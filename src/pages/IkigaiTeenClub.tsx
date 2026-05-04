@@ -219,7 +219,7 @@ const IkigaiTeenClub = () => {
                 <LetterSwapForward label="Ikigai Teen Club" className="justify-center" />
               </motion.h1>
               <motion.p
-                className="text-lg md:text-xl text-muted-foreground font-medium"
+                className="text-xl md:text-2xl text-muted-foreground font-medium"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}

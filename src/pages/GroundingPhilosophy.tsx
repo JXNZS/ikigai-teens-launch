@@ -39,6 +39,81 @@ const principleData = [
   },
 ];
 
+interface CircleButtonProps {
+  index: number;
+  principleData: typeof principleData;
+  hovered: number | null;
+  setHovered: (index: number | null) => void;
+  descriptionPosition?: 'top' | 'bottom';
+}
+
+const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPosition = 'bottom' }: CircleButtonProps) => {
+  const isHovered = hovered === index;
+  const isBottom = descriptionPosition === 'bottom';
+  
+  return (
+    <motion.div
+      className="relative flex flex-col items-center justify-center"
+      onMouseEnter={() => setHovered(index)}
+      onMouseLeave={() => setHovered(null)}
+    >
+      {/* Glow background ring */}
+      <motion.div
+        className="absolute rounded-full"
+        style={{
+          width: "140%",
+          height: "140%",
+          background: `radial-gradient(circle, ${principleData[index].color}20, transparent)`,
+          zIndex: 0,
+        }}
+        animate={isHovered ? { opacity: 1, scale: 1.2 } : { opacity: 0.5, scale: 1 }}
+        transition={{ duration: 0.3 }}
+      />
+
+      {/* Main circle */}
+      <motion.div
+        animate={
+          isHovered
+            ? { 
+                scale: 1.22,
+                boxShadow: `0 0 0 3px ${principleData[index].color}40, 0 12px 48px 0 ${principleData[index].color}60`,
+              }
+            : {
+                scale: 1,
+                boxShadow: `0 0 0 0px ${principleData[index].color}10, 0 4px 16px 0 rgba(0,0,0,0.12)`,
+              }
+        }
+        transition={{ type: "spring", stiffness: 380, damping: 28, mass: 0.8 }}
+        className="relative w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer bg-white border-4 font-display font-bold text-xl md:text-2xl text-center select-none transition-colors duration-200"
+        style={{
+          color: principleData[index].color,
+          borderColor: principleData[index].color,
+          zIndex: isHovered ? 20 : 1,
+        }}
+      >
+        {principleData[index].title}
+      </motion.div>
+
+      {/* Description popup */}
+      {isHovered && (
+        <motion.div
+          initial={{ opacity: 0, y: isBottom ? 16 : -16, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: isBottom ? 16 : -16, scale: 0.95 }}
+          transition={{ duration: 0.25, type: "spring", stiffness: 300, damping: 30 }}
+          className={`absolute w-64 md:w-72 border-2 rounded-xl shadow-2xl p-4 text-sm md:text-base font-body z-30 ${isBottom ? 'top-full mt-4' : 'bottom-full mb-4'}`}
+          style={{
+            backgroundColor: `${principleData[index].color}15`,
+            borderColor: principleData[index].color,
+            color: principleData[index].color,
+          }}
+        >
+          {principleData[index].desc}
+        </motion.div>
+      )}
+    </motion.div>
+  );
+};
 
 const GroundingPhilosophy = () => {
   const [hovered, setHovered] = useState<number | null>(null);
@@ -75,137 +150,18 @@ const GroundingPhilosophy = () => {
             {/* Right: Expandable Circles */}
             <div className="flex-1 flex flex-col justify-center">
               <div className="grid grid-rows-3 grid-cols-2 gap-8 h-full place-items-center relative" style={{minHeight:'500px'}}>
-                {/* Row 1: Kintsugi, Kaizen */}
-                <motion.div
-                  className="relative flex flex-col items-center justify-center row-start-1 col-start-1"
-                  onMouseEnter={() => setHovered(4)}
-                  onMouseLeave={() => setHovered(null)}
-                >
-                  <motion.div
-                    animate={hovered === 4 ? { scale: 1.18, boxShadow: `0 8px 32px 0 ${principleData[4].color}55` } : { scale: 1, boxShadow: "0 2px 12px 0 rgba(0,0,0,0.08)" }}
-                    transition={{ type: "spring", stiffness: 320, damping: 22 }}
-                    className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer bg-white border-4 border-primary font-display font-bold text-xl md:text-2xl text-center select-none"
-                    style={{ color: principleData[4].color, borderColor: principleData[4].color, zIndex: hovered === 4 ? 20 : 1 }}
-                  >
-                    {principleData[4].title}
-                  </motion.div>
-                  {hovered === 4 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 16 }}
-                      transition={{ duration: 0.25 }}
-                      className="absolute top-full mt-4 w-64 md:w-72 bg-white border border-border rounded-xl shadow-xl p-4 text-sm md:text-base text-muted-foreground font-body z-30"
-                    >
-                      {principleData[4].desc}
-                    </motion.div>
-                  )}
-                </motion.div>
-                <motion.div
-                  className="relative flex flex-col items-center justify-center row-start-1 col-start-2"
-                  onMouseEnter={() => setHovered(1)}
-                  onMouseLeave={() => setHovered(null)}
-                >
-                  <motion.div
-                    animate={hovered === 1 ? { scale: 1.18, boxShadow: `0 8px 32px 0 ${principleData[1].color}55` } : { scale: 1, boxShadow: "0 2px 12px 0 rgba(0,0,0,0.08)" }}
-                    transition={{ type: "spring", stiffness: 320, damping: 22 }}
-                    className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer bg-white border-4 border-primary font-display font-bold text-xl md:text-2xl text-center select-none"
-                    style={{ color: principleData[1].color, borderColor: principleData[1].color, zIndex: hovered === 1 ? 20 : 1 }}
-                  >
-                    {principleData[1].title}
-                  </motion.div>
-                  {hovered === 1 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 16 }}
-                      transition={{ duration: 0.25 }}
-                      className="absolute top-full mt-4 w-64 md:w-72 bg-white border border-border rounded-xl shadow-xl p-4 text-sm md:text-base text-muted-foreground font-body z-30"
-                    >
-                      {principleData[1].desc}
-                    </motion.div>
-                  )}
-                </motion.div>
+                {/* Row 1: Kintsugi (index 4), Kaizen (index 1) */}
+                <CircleButton index={4} principleData={principleData} hovered={hovered} setHovered={setHovered} />
+                <CircleButton index={1} principleData={principleData} hovered={hovered} setHovered={setHovered} />
 
-                {/* Row 2: Ikigai centered */}
-                <motion.div
-                  className="relative flex flex-col items-center justify-center row-start-2 col-span-2 col-start-1"
-                  style={{ gridColumn: '1 / span 2', justifySelf: 'center' }}
-                  onMouseEnter={() => setHovered(0)}
-                  onMouseLeave={() => setHovered(null)}
-                >
-                  <motion.div
-                    animate={hovered === 0 ? { scale: 1.18, boxShadow: `0 8px 32px 0 ${principleData[0].color}55` } : { scale: 1, boxShadow: "0 2px 12px 0 rgba(0,0,0,0.08)" }}
-                    transition={{ type: "spring", stiffness: 320, damping: 22 }}
-                    className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer bg-white border-4 border-primary font-display font-bold text-xl md:text-2xl text-center select-none"
-                    style={{ color: principleData[0].color, borderColor: principleData[0].color, zIndex: hovered === 0 ? 20 : 1 }}
-                  >
-                    {principleData[0].title}
-                  </motion.div>
-                  {hovered === 0 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 16 }}
-                      transition={{ duration: 0.25 }}
-                      className="absolute top-full mt-4 w-64 md:w-72 bg-white border border-border rounded-xl shadow-xl p-4 text-sm md:text-base text-muted-foreground font-body z-30"
-                    >
-                      {principleData[0].desc}
-                    </motion.div>
-                  )}
-                </motion.div>
+                {/* Row 2: Ikigai (index 0) centered */}
+                <div style={{ gridColumn: '1 / span 2', justifySelf: 'center' }}>
+                  <CircleButton index={0} principleData={principleData} hovered={hovered} setHovered={setHovered} />
+                </div>
 
-                {/* Row 3: Shoshin, Hansei */}
-                <motion.div
-                  className="relative flex flex-col items-center justify-center row-start-3 col-start-1"
-                  onMouseEnter={() => setHovered(2)}
-                  onMouseLeave={() => setHovered(null)}
-                >
-                  <motion.div
-                    animate={hovered === 2 ? { scale: 1.18, boxShadow: `0 8px 32px 0 ${principleData[2].color}55` } : { scale: 1, boxShadow: "0 2px 12px 0 rgba(0,0,0,0.08)" }}
-                    transition={{ type: "spring", stiffness: 320, damping: 22 }}
-                    className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer bg-white border-4 border-primary font-display font-bold text-xl md:text-2xl text-center select-none"
-                    style={{ color: principleData[2].color, borderColor: principleData[2].color, zIndex: hovered === 2 ? 20 : 1 }}
-                  >
-                    {principleData[2].title}
-                  </motion.div>
-                  {hovered === 2 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 16 }}
-                      transition={{ duration: 0.25 }}
-                      className="absolute top-full mt-4 w-64 md:w-72 bg-white border border-border rounded-xl shadow-xl p-4 text-sm md:text-base text-muted-foreground font-body z-30"
-                    >
-                      {principleData[2].desc}
-                    </motion.div>
-                  )}
-                </motion.div>
-                <motion.div
-                  className="relative flex flex-col items-center justify-center row-start-3 col-start-2"
-                  onMouseEnter={() => setHovered(3)}
-                  onMouseLeave={() => setHovered(null)}
-                >
-                  <motion.div
-                    animate={hovered === 3 ? { scale: 1.18, boxShadow: `0 8px 32px 0 ${principleData[3].color}55` } : { scale: 1, boxShadow: "0 2px 12px 0 rgba(0,0,0,0.08)" }}
-                    transition={{ type: "spring", stiffness: 320, damping: 22 }}
-                    className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer bg-white border-4 border-primary font-display font-bold text-xl md:text-2xl text-center select-none"
-                    style={{ color: principleData[3].color, borderColor: principleData[3].color, zIndex: hovered === 3 ? 20 : 1 }}
-                  >
-                    {principleData[3].title}
-                  </motion.div>
-                  {hovered === 3 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 16 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 16 }}
-                      transition={{ duration: 0.25 }}
-                      className="absolute top-full mt-4 w-64 md:w-72 bg-white border border-border rounded-xl shadow-xl p-4 text-sm md:text-base text-muted-foreground font-body z-30"
-                    >
-                      {principleData[3].desc}
-                    </motion.div>
-                  )}
-                </motion.div>
+                {/* Row 3: Shoshin (index 2), Hansei (index 3) */}
+                <CircleButton index={2} principleData={principleData} hovered={hovered} setHovered={setHovered} descriptionPosition="top" />
+                <CircleButton index={3} principleData={principleData} hovered={hovered} setHovered={setHovered} descriptionPosition="top" />
               </div>
             </div>
           </div>

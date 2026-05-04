@@ -15,7 +15,7 @@ type LinkBoxProps = {
 
 type ClipPathInfoCardProps = {
   title?: string;
-  body?: string;
+  body?: React.ReactNode;
   className?: string;
   children?: React.ReactNode;
 };

@@ -67,9 +67,9 @@ const mindEmotionTools = [
   {
     title: "What Am I Feeling?",
     steps: [
-      "Pick one: Angry, Confused, Left out, Pressured, Low",
-      "Why might I feel this?",
-      "What will help me right now?",
+      "Name the Emotion: Angry, Confused, Left out, Pressured, Low...",
+      "Ask: Why might I feel this?",
+      "Allot how many minutes I want to feel this before moving on?",
     ],
   },
   {
@@ -82,7 +82,7 @@ const mindEmotionTools = [
   },
   {
     title: "Confidence Builder",
-    steps: ["Do 1 thing you've been avoiding", "Small courage builds real confidence"],
+    steps: ["Do 1 thing you've been avoiding", "Small courage builds real confidence", "It's okay to stand up for what you think is right"],
   },
 ];
 
@@ -90,13 +90,14 @@ const bodyEnergyTools = [
   {
     title: "Why Am I So Tired?",
     steps: [
-      "Check: Sleep late? Too much screen? No movement?",
-      "Fix: Sleep earlier, move your body, drink water",
+      "Check: Did I sleep for 8 hours?",
+      "Fix: How long did I spend on screens?",
+      "Did I drink enough water and move my body?"
     ],
   },
   {
     title: "Self-Respect Basics",
-    steps: ["Clean body", "Proper sleep", "Eat on time", "Keep your space decent"],
+    steps: ["Clean body", "Eat on time", "Keep your space decent"],
   },
 ];
 
@@ -170,7 +171,7 @@ const mindEmotionTools1618 = [
 const bodyControlTools1618 = [
   {
     title: "Energy Audit",
-    steps: ["Sleep", "Food", "Screen", "Movement", "Fix the weakest one"],
+    steps: ["Sleep", "Food", "Movement"],
   },
   {
     title: "Night Routine Reset",
@@ -227,17 +228,19 @@ const TeenToolkit = () => {
   const ageCategories = [
     {
       id: "13-15",
-      label: "13-15",
+       label: "13-15 years",
       description: "Early teen years - practical tools for identity, habits, and confidence.",
     },
     {
       id: "16-18",
-      label: "16-18",
+       label: "16-18 years",
       description: "Late teen years - deeper tools for clarity, discipline, and direction.",
     },
   ];
 
   const getDirectionFromAge = (ageId: string) => (ageId === "13-15" ? -1 : 1);
+   const arrangedToolkitNeeds1315 = toolkitNeedsNow;
+  const arrangedToolkitNeeds1618 = toolkitNeedsNow;
 
   const selectAge = (ageId: string) => {
     setTransitionDirection(getDirectionFromAge(ageId));
@@ -418,7 +421,7 @@ const TeenToolkit = () => {
                   </p>
                   <p className="mt-5 text-foreground font-medium mb-3">Choose what you need right now:</p>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                    {toolkitNeedsNow.map((need) => (
+                     {arrangedToolkitNeeds1315.map((need) => (
                       <button
                         key={need}
                         type="button"
@@ -437,12 +440,7 @@ const TeenToolkit = () => {
                     <button
                       type="button"
                       onClick={() => setHasContinued1315(true)}
-                      disabled={!selectedNeed1315}
-                      className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                        selectedNeed1315
-                          ? "bg-primary text-primary-foreground hover:brightness-105"
-                          : "bg-muted text-muted-foreground cursor-not-allowed"
-                      }`}
+                      className={`px-4 py-2 rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground hover:brightness-105`}
                     >
                       Continue
                     </button>
@@ -631,7 +629,7 @@ const TeenToolkit = () => {
                       </p>
                       <p className="mt-4 md:mt-5 text-foreground font-medium mb-2 md:mb-3 text-sm md:text-base">Choose what you need right now:</p>
                       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
-                        {toolkitNeedsNow.map((need) => (
+                         {arrangedToolkitNeeds1618.map((need) => (
                           <button
                             key={need}
                             type="button"
@@ -650,12 +648,7 @@ const TeenToolkit = () => {
                         <button
                           type="button"
                           onClick={() => setHasContinued1618(true)}
-                          disabled={!selectedNeed1618}
-                          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                            selectedNeed1618
-                              ? "bg-primary text-primary-foreground hover:brightness-105"
-                              : "bg-muted text-muted-foreground cursor-not-allowed"
-                          }`}
+                          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground hover:brightness-105`}
                         >
                           Continue
                         </button>

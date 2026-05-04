@@ -1,5 +1,5 @@
 import { ReactNode, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 
@@ -399,6 +399,31 @@ const faqItems: FAQItem[] = [
 const FAQSection = () => {
   const ref = useRef<HTMLElement>(null);
   const [openFaq, setOpenFaq] = useState<string | undefined>(undefined);
+  const [openPointKeys, setOpenPointKeys] = useState<Record<string, boolean>>({});
+
+  const togglePoint = (faqIndex: number, pointKey: string) => {
+    setOpenPointKeys((prev) => {
+      const updated = { ...prev };
+      
+      // Check if this point is currently open before clearing
+      const isCurrentlyOpen = !!updated[pointKey];
+      
+      // Close all other points in this FAQ item
+      Object.keys(updated).forEach((key) => {
+        if (key.startsWith(`${faqIndex}-`)) {
+          delete updated[key];
+        }
+      });
+      
+      // Toggle the clicked point: if it was open, keep it closed; if it was closed, open it
+      if (!isCurrentlyOpen) {
+        updated[pointKey] = true;
+      }
+      
+      return updated;
+    });
+  };
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -448,28 +473,87 @@ const FAQSection = () => {
                   </AccordionTrigger>
                   <AccordionContent className="text-primary font-body">
                     <div className="space-y-2 md:space-y-4 pt-1 px-1">
-                      {item.intro?.map((paragraph) => (
-                        <p key={paragraph} className="text-xs md:text-base leading-relaxed text-primary">
-                          {renderNumberText(paragraph)}
+                      {item.intro && item.intro.length > 0 && (
+                        <p key="intro" className="text-xs md:text-base leading-relaxed text-black">
+                          {renderNumberText(item.intro.join(" "))}
                         </p>
-                      ))}
+                      )}
 
-                      <ol className="space-y-2 md:space-y-3">
-                        {item.points.map((point, pointIndex) => (
-                          <li key={point.title} className="text-xs md:text-base leading-relaxed">
-                            <span className="font-semibold text-primary">
-                              {pointIndex + 1}. {renderNumberText(point.title)}
-                            </span>
-                            {point.description ? <span className="text-primary">: {renderNumberText(point.description)}</span> : null}
-                          </li>
-                        ))}
-                      </ol>
+                      {(() => {
+                        const hasExpandable = item.points.some((p) => p.description);
+                        return hasExpandable ? (
+                          <ol className="space-y-2 md:space-y-3">
+                            {item.points.map((point, pointIndex) => {
+                              const key = `${index}-${pointIndex}`;
+                              const isOpen = !!openPointKeys[key];
 
-                      {item.closing?.map((paragraph) => (
-                        <p key={paragraph} className="text-xs md:text-base leading-relaxed italic text-primary">
-                          {renderNumberText(paragraph)}
+                              return (
+                                <li key={point.title} className="text-xs md:text-base leading-relaxed">
+                                  <div
+                                    className="flex items-center gap-2 cursor-pointer"
+                                    onClick={() => point.description && togglePoint(index, key)}
+                                    role={point.description ? "button" : undefined}
+                                    tabIndex={point.description ? 0 : undefined}
+                                    onKeyDown={(e) => {
+                                      if (point.description && (e.key === "Enter" || e.key === " ")) {
+                                        e.preventDefault();
+                                        togglePoint(index, key);
+                                      }
+                                    }}
+                                  >
+                                    <span className="font-semibold text-primary">
+                                      {pointIndex + 1}. {renderNumberText(point.title)}
+                                    </span>
+
+                                    {point.description ? (
+                                      <svg
+                                        className={`w-4 h-4 transition-transform shrink-0 text-primary/80 group-hover:text-primary ${isOpen ? "rotate-180" : "rotate-0"}`}
+                                        viewBox="0 0 20 20"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        aria-hidden
+                                      >
+                                        <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                                      </svg>
+                                    ) : null}
+                                  </div>
+
+                                  <AnimatePresence>
+                                    {point.description && isOpen && (
+                                      <motion.div
+                                        key={`desc-${key}`}
+                                        initial={{ opacity: 0, y: -6 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -6 }}
+                                        transition={{ duration: 0.18 }}
+                                        className="overflow-hidden"
+                                      >
+                                        <p className="text-black mt-1 md:mt-2">{renderNumberText(point.description)}</p>
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
+                                </li>
+                              );
+                            })}
+                          </ol>
+                        ) : (
+                          <ol className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3">
+                            {item.points.map((point, pointIndex) => (
+                              <li key={point.title} className="text-xs md:text-base leading-relaxed">
+                                <span className="font-semibold text-primary">
+                                  {pointIndex + 1}. {renderNumberText(point.title)}
+                                </span>
+                              </li>
+                            ))}
+                          </ol>
+                        );
+                      })()}
+
+                      {item.closing && item.closing.length > 0 && (
+                        <p key="closing" className="text-xs md:text-base leading-relaxed italic text-black">
+                          {renderNumberText(item.closing.join(" "))}
                         </p>
-                      ))}
+                      )}
                     </div>
                   </AccordionContent>
                 </AccordionItem>

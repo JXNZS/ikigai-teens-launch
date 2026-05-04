@@ -120,8 +120,8 @@ const BeOurExperts = () => {
                   <ArrowLeft className="h-3.5 w-3.5" />
                   Back
                 </button>
-                <h3 className="text-xl font-display font-semibold text-primary mb-3">
-                  <LetterSwapForward label={detailsById[card.id]?.title ?? card.title} className="justify-start flex-wrap gap-y-1" />
+                <h3 className="text-base md:text-lg font-display font-semibold text-primary mb-3 leading-tight">
+                  <LetterSwapForward label={detailsById[card.id]?.title ?? card.title} className="justify-start" />
                 </h3>
                 {detailsById[card.id]?.opening && (
                   <p className="text-sm leading-relaxed text-muted-foreground mb-4">{detailsById[card.id]?.opening}</p>

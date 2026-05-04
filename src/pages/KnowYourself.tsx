@@ -30,7 +30,10 @@ const relatableQuestions = [
   "Why do I care so much what others think?",
   "Why do I keep wasting time even when I don't want to?",
   "Why do I feel left out so easily?",
-  "Why do small things affect me so much?",
+  <>
+    Why do small things affect me <br />
+    so much?
+  </>,
   "Why do I know better but still do the wrong thing?",
 ];
 
@@ -152,9 +155,11 @@ const quickTruths = [
   "Confidence is not loudness. It grows when you keep promises to yourself.",
   "Wanting to be liked can quietly make you lose yourself.",
   "Your screen habits are also shaping your identity.",
-  "Feelings are real, but they are not always wise leaders.",
   "You don't need to be perfect. You need to become more aware and intentional.",
+  "Feelings are real, but they are not always wise leaders.",
 ];
+
+  const arrangedQuickTruths = quickTruths;
 
 const microActions = [
   {
@@ -192,6 +197,7 @@ const relatableQuestions1618 = [
   "Why do I care so much what people think?",
   "Why do I feel emotionally messy and mentally tired?",
   "Why do I feel pressure without clarity?",
+ "Why do I feel distant from my parents?",
 ];
 
 const selfCheckPrompts1618: SelfCheckPrompt[] = [
@@ -486,15 +492,26 @@ const KnowYourself = () => {
   const ageCategories = [
     {
       id: "13-15",
-      label: "13-15",
+       label: "13-15 years",
       description: "Early teen years - discovering who you are and finding your voice.",
     },
     {
       id: "16-18",
-      label: "16-18",
+       label: "16-18 years",
       description: "Late teen years - deepening self-understanding and planning your future.",
     },
   ];
+ 
+  const arrangedRelatableQuestions = [
+    relatableQuestions[0],
+    relatableQuestions[1],
+    relatableQuestions[2],
+    relatableQuestions[5],
+    relatableQuestions[4],
+    relatableQuestions[3],
+  ];
+ 
+   const arrangedRelatableQuestions1618 = relatableQuestions1618;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -581,7 +598,7 @@ const KnowYourself = () => {
               </motion.h1>
 
               <motion.div className="space-y-4" variants={itemVariants}>
-                <p className="text-lg md:text-xl text-muted-foreground font-medium leading-relaxed">
+                <p className="text-xl md:text-2xl text-muted-foreground font-medium leading-relaxed">
                   You can't grow well if you don't understand what's going on inside you.
                 </p>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
@@ -698,18 +715,15 @@ const KnowYourself = () => {
                   />
                 </h3>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {relatableQuestions.map((question) => (
-                    <ClipPathInfoCard
-                      key={question}
-                      body={question}
-                    />
+                  {arrangedRelatableQuestions.map((question, idx) => (
+                    question === "__SPACER__" ? (
+                      <div key={`spacer-1315-${idx}`} className="lg:block hidden" aria-hidden />
+                    ) : (
+                      <ClipPathInfoCard key={`rel-${idx}`} body={question} />
+                    )
                   ))}
                 </div>
-                <p className="mt-5 text-foreground font-medium">
-                  Do you feel like <span className="text-primary">"This is literally me."</span>
-                  <br />
-                  Take the small test below
-                </p>
+                <p className="mt-5 text-foreground font-medium">Do you feel like <span className="text-primary">"This is literally me."</span> Take the small test below</p>
               </div>
 
               <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
@@ -778,7 +792,7 @@ const KnowYourself = () => {
                     </>
                   ) : (
                     <>
-                      <p className="text-sm text-muted-foreground mb-2">Answer all 8 questions to see your result.</p>
+                      <p className="text-sm text-primary/80 mb-2">Answer all 8 questions to see your result.</p>
                       <p className="text-base text-foreground/80">Your result will be based on the pattern of your responses, not just one answer.</p>
                     </>
                   )}
@@ -841,12 +855,16 @@ const KnowYourself = () => {
                   />
                 </h3>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {quickTruths.map((truth) => (
-                    <ClipPathInfoCard
-                      key={truth}
-                      body={truth}
-                      className="border-primary/30 bg-[hsl(195_25%_96%_/_0.8)]"
-                    />
+                  {arrangedQuickTruths.map((truth, idx) => (
+                    truth === "__SPACER__" ? (
+                      <div key={`qt-spacer-${idx}`} className="lg:block hidden" aria-hidden />
+                    ) : (
+                      <ClipPathInfoCard
+                        key={`qt-${idx}`}
+                        body={truth}
+                        className="border-primary/30 bg-[hsl(195_25%_96%_/_0.8)]"
+                      />
+                    )
                   ))}
                 </div>
               </div>
@@ -977,15 +995,15 @@ const KnowYourself = () => {
                   <LetterSwapForward label="Quick relatable cards" className="text-2xl font-display font-semibold text-primary/85" />
                 </h3>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {relatableQuestions1618.map((question) => (
-                    <ClipPathInfoCard key={question} body={question} />
+                   {arrangedRelatableQuestions1618.map((question, idx) => (
+                     question === "__SPACER__" ? (
+                       <div key={`spacer-1618-${idx}`} className="lg:block hidden" aria-hidden />
+                     ) : (
+                       <ClipPathInfoCard key={`rel-1618-${idx}`} body={question} />
+                     )
                   ))}
                 </div>
-                <p className="mt-5 text-foreground font-medium">
-                  Do you feel like <span className="text-primary">"This site actually gets it."</span>
-                  <br />
-                  Take the small test below
-                </p>
+                <p className="mt-5 text-foreground font-medium">Do you feel like <span className="text-primary">"This site actually gets it."</span> Take the small test below</p>
               </div>
 
               <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
@@ -1063,7 +1081,7 @@ const KnowYourself = () => {
                     </>
                   ) : (
                     <>
-                      <p className="text-sm text-muted-foreground mb-2">Answer all 10 prompts to view your growth result.</p>
+                      <p className="text-sm text-primary/80 mb-2">Answer all 10 prompts to view your growth result.</p>
                       <p className="text-base text-foreground/80">This reflection helps you notice patterns that may need strengthening right now.</p>
                     </>
                   )}
