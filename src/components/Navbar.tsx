@@ -203,7 +203,7 @@ const Navbar = () => {
     }
 
     if (parentLabel === "Parent Hub" && childLabel === "IkigaiTeen Parent Circle") {
-      return "/parent-hub/ikigaiteen-parent-circle";
+      return "/parent-hub/parent-circle";
     }
 
     if (parentLabel === "Resources" && childLabel === "Blog/Articles") {
