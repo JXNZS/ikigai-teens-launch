@@ -11,8 +11,6 @@ import Footer from "@/components/Footer";
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isMouseGlowEnabled, setIsMouseGlowEnabled] = useState(true);
-  const [showGlowTip, setShowGlowTip] = useState(true);
-  const [isHeroInView, setIsHeroInView] = useState(true);
   const lastTapRef = useRef<{ time: number; x: number; y: number } | null>(null);
 
   const mouseX = useMotionValue(-200);
@@ -34,21 +32,6 @@ const Index = () => {
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    const hero = document.querySelector("[data-home-hero]");
-    if (!hero) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsHeroInView(entry.isIntersecting);
-      },
-      { threshold: 0.2 },
-    );
-
-    observer.observe(hero);
-    return () => observer.disconnect();
   }, []);
 
   const moveGlowToHeroTextCenter = () => {
@@ -89,7 +72,6 @@ const Index = () => {
 
       if (elapsed < 320 && distance < 44) {
         toggleGlowMode();
-        setShowGlowTip(false);
         lastTapRef.current = null;
         return;
       }
@@ -99,10 +81,14 @@ const Index = () => {
   };
 
   const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
-    if (!isMouseGlowEnabled) return;
-
     mouseX.set(event.clientX);
     mouseY.set(event.clientY);
+
+    if (!isMouseGlowEnabled) {
+      setIsMouseGlowEnabled(true);
+      textGlow.set(0);
+      glowRadius.set(140);
+    }
 
     const glowTarget = document.querySelector("[data-hero-glow-target]") as HTMLElement | null;
     const targetRect = glowTarget?.getBoundingClientRect();
@@ -152,9 +138,9 @@ const Index = () => {
         className="fixed z-[30] pointer-events-none -translate-x-1/2 -translate-y-1/2"
         style={{ left: smoothX, top: smoothY }}
       >
-        <div className="relative w-44 h-24">
-          <div className="absolute inset-0 rounded-[999px] bg-gradient-to-r from-transparent via-primary/35 to-transparent blur-2xl" />
-          <div className="absolute inset-x-10 inset-y-4 rounded-[999px] bg-gradient-to-r from-transparent via-white/45 to-transparent blur-lg" />
+        <div className="relative w-36 h-20">
+          <div className="absolute inset-0 rounded-[999px] bg-gradient-to-r from-transparent via-primary/46 to-transparent blur-xl" />
+          <div className="absolute inset-x-8 inset-y-3 rounded-[999px] bg-gradient-to-r from-transparent via-white/58 to-transparent blur-md" />
         </div>
       </motion.div>
 
@@ -167,16 +153,6 @@ const Index = () => {
         <CTASection />
       </main>
       <Footer />
-
-      {showGlowTip && isHeroInView && (
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="fixed bottom-6 left-6 z-40 rounded-full border border-border/60 bg-background/75 px-4 py-2 text-xs font-body text-foreground/80 backdrop-blur"
-        >
-          Double tap anywhere to see the magic.
-        </motion.div>
-      )}
     </motion.div>
   );
 };

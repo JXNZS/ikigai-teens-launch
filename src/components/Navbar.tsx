@@ -155,7 +155,15 @@ const Navbar = () => {
   }, [location.pathname]);
 
   const [contactActive, setContactActive] = useState(false);
+  const [showLanguageSoon, setShowLanguageSoon] = useState(false);
   const activeDesktopItem = navItems.find((item) => item.label === openDropdown) ?? null;
+
+  const handleLanguageClick = () => {
+    setShowLanguageSoon(true);
+    window.setTimeout(() => {
+      setShowLanguageSoon(false);
+    }, 1500);
+  };
 
   const getChildPath = (parentLabel: string, childLabel: string, fallbackPath: string) => {
     if (parentLabel === "About" && childLabel === "Founder & Team") {
@@ -332,23 +340,48 @@ const Navbar = () => {
           </AnimatePresence>
         </div>
 
-        <motion.div
-          className="hidden lg:block"
-          animate={{ scale: contactActive ? 1.03 : 1 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.94 }}
-          onMouseEnter={() => setContactActive(true)}
-          onMouseLeave={() => setContactActive(false)}
-        >
-          <Link
-            to="/#contact"
-            className={`inline-flex px-5 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold font-body transition-all duration-300 ${
-              contactActive ? "ring-2 ring-primary/50" : ""
-            }`}
+        <div className="hidden lg:flex items-center gap-2">
+          <div className="relative">
+            <button
+              type="button"
+              onClick={handleLanguageClick}
+              aria-label="Switch language"
+              className="relative inline-flex h-9 w-[132px] items-center overflow-hidden rounded-full border border-[hsl(195_25%_15%_/_0.35)] bg-[hsl(195_25%_96%_/_0.9)] text-[13px] font-semibold transition-colors"
+            >
+              <span
+                className="absolute inset-y-0 left-0 w-1/2 bg-[hsl(195_25%_15%)]"
+              />
+              <span className="relative z-10 w-1/2 text-center text-[hsl(195_25%_96%)]">
+                English
+              </span>
+              <span className="relative z-10 w-1/2 text-center text-[hsl(195_25%_15%)]">
+                ಕನ್ನಡ
+              </span>
+            </button>
+            <div
+              className={`pointer-events-none absolute left-1/2 top-full z-20 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md border border-border/70 bg-background px-2.5 py-1 text-[11px] font-medium text-foreground shadow-sm transition-all duration-200 ${showLanguageSoon ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"}`}
+            >
+              Coming soon
+            </div>
+          </div>
+
+          <motion.div
+            animate={{ scale: contactActive ? 1.03 : 1 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.94 }}
+            onMouseEnter={() => setContactActive(true)}
+            onMouseLeave={() => setContactActive(false)}
           >
-            <LetterSwapPingPong label="Contact Us" className="justify-center" />
-          </Link>
-        </motion.div>
+            <Link
+              to="/#contact"
+              className={`inline-flex px-5 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold font-body transition-all duration-300 ${
+                contactActive ? "ring-2 ring-primary/50" : ""
+              }`}
+            >
+              <LetterSwapPingPong label="Contact Us" className="justify-center" />
+            </Link>
+          </motion.div>
+        </div>
 
         {/* Mobile Toggle */}
         <button className="lg:hidden text-foreground" onClick={() => setMobileOpen(!mobileOpen)}>
@@ -393,9 +426,35 @@ const Navbar = () => {
                   </AnimatePresence>
                 </div>
               ))}
-              <Link to="/#contact" className="block mt-4 text-center px-4 py-2 bg-primary text-primary-foreground rounded-full text-xs md:text-sm font-semibold font-body" onClick={() => setMobileOpen(false)}>
-                <LetterSwapPingPong label="Contact Us" className="justify-center" />
-              </Link>
+              <div className="mt-4 flex items-center justify-center gap-2">
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={handleLanguageClick}
+                    aria-label="Switch language"
+                    className="relative inline-flex h-9 w-[132px] items-center overflow-hidden rounded-full border border-[hsl(195_25%_15%_/_0.35)] bg-[hsl(195_25%_96%_/_0.9)] text-[13px] font-semibold transition-colors"
+                  >
+                    <span
+                      className="absolute inset-y-0 left-0 w-1/2 bg-[hsl(195_25%_15%)]"
+                    />
+                    <span className="relative z-10 w-1/2 text-center text-[hsl(195_25%_96%)]">
+                      English
+                    </span>
+                    <span className="relative z-10 w-1/2 text-center text-[hsl(195_25%_15%)]">
+                      ಕನ್ನಡ
+                    </span>
+                  </button>
+                  <div
+                    className={`pointer-events-none absolute left-1/2 top-full z-20 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md border border-border/70 bg-background px-2.5 py-1 text-[11px] font-medium text-foreground shadow-sm transition-all duration-200 ${showLanguageSoon ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"}`}
+                  >
+                    Coming soon
+                  </div>
+                </div>
+
+                <Link to="/#contact" className="block text-center px-4 py-2 bg-primary text-primary-foreground rounded-full text-xs md:text-sm font-semibold font-body" onClick={() => setMobileOpen(false)}>
+                  <LetterSwapPingPong label="Contact Us" className="justify-center" />
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

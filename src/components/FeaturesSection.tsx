@@ -38,10 +38,10 @@ const FeaturesSection = () => {
   const headingColor = useTransform(scrollYProgress, [0, 0.45], ["hsl(195 10% 70%)", "hsl(var(--foreground))"]);
 
   return (
-    <section ref={ref} className="py-12 md:py-20 bg-card overflow-hidden">
+    <section ref={ref} className="pt-12 pb-6 md:pt-20 md:pb-10 bg-[hsl(195_25%_96%_/_0.8)] overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
-          className="max-w-4xl mx-auto text-center rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-6 md:p-10"
+          className="max-w-4xl mx-auto text-center rounded-lg md:rounded-2xl border border-border/60 bg-background p-6 md:p-10"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
