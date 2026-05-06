@@ -7,91 +7,91 @@ import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { ClipPathInfoCard } from "@/components/ui/clip-path-links";
 
-const beOurExpertsCards = [
-  { id: "who-we-are-looking-for", title: "Who We Are Looking For", description: "Educators, coaches, psychologists, and professionals with real-world experience." },
-  { id: "your-role", title: "Your Role", description: "Not to speak. To shape. Guide sessions and support habit building." },
-  { id: "areas-to-contribute", title: "Areas You Can Contribute", description: "Focus, emotional awareness, digital balance, and purpose." },
-  { id: "what-makes-different", title: "What Makes This Different", description: "Structured, outcome-based development—not just one-time sessions." },
-  { id: "not-for-you-if", title: "This May Not Be For You If", description: "You prefer one-way speaking or struggle with consistency." },
-  { id: "why-this-matters", title: "Why This Matters", description: "Help teens build habits, stay consistent, and grow stronger." }
+const beOurCollaboratorsCards = [
+  { id: "who-we-collaborate-with", title: "Who We Collaborate With", description: "Schools, coaching centres, youth organisations, NGOs, and professionals aligned with teen development." },
+  { id: "what-collaboration-looks-like", title: "What Collaboration Can Look Like", description: "School programs, 90-Day Challenge partnerships, co-hosted sessions, and structured teen development programs." },
+  { id: "what-we-bring", title: "What We Bring", description: "Structured, outcome-based teen programs focused on behaviour, habits, and identity — practical tools, not just theory." },
+  { id: "what-you-bring", title: "What You Bring", description: "Access to teen and parent communities, aligned intent toward growth, and openness to long-term impact." },
+  { id: "what-makes-different", title: "What Makes This Different", description: "Consistent, structured teen development — not one-time events or generic awareness sessions." },
+  { id: "why-this-matters", title: "Why This Matters", description: "Teens need structure, guidance, and consistency. Collaboration helps deliver this at scale." },
 ];
 
-const beOurExpertsDetails = [
+const beOurCollaboratorsDetails = [
   {
-    id: "who-we-are-looking-for",
-    title: "Who We Are Looking For",
-    opening: "We are looking for:",
+    id: "who-we-collaborate-with",
+    title: "Who We Collaborate With",
+    opening: "We work with partners who want to support teens:",
     bullets: [
-      "Educators, coaches, mentors",
-      "Psychologists / counsellors",
+      "Schools & educational institutions",
+      "Coaching centres & academies",
+      "Youth organisations & communities",
+      "NGOs & social initiatives",
       "Professionals working with teens",
-      "Individuals with real-world experience"
+      "Organisations aligned with teen development",
     ],
-    closing: "You should be: clear in communication, practical in approach, grounded in values, and consistent and responsible."
   },
   {
-    id: "your-role",
-    title: "Your Role",
-    opening: "Not to speak. To shape. You may:",
+    id: "what-collaboration-looks-like",
+    title: "What Collaboration Can Look Like",
     bullets: [
-      "guide focused sessions",
-      "support behaviour and habit building",
-      "bring real-life perspective",
-      "help teens grow with clarity and structure"
-    ]
+      "School programs & workshops",
+      "90-Day Challenge partnerships",
+      "Co-hosted sessions or events",
+      "Structured teen development programs",
+      "Parent + teen engagement initiatives",
+    ],
   },
   {
-    id: "areas-to-contribute",
-    title: "Areas You Can Contribute",
+    id: "what-we-bring",
+    title: "What We Bring",
     bullets: [
-      "Focus & discipline",
-      "Emotional awareness",
-      "Confidence & self-respect",
-      "Communication & decision-making",
-      "Digital balance",
-      "Purpose & direction"
-    ]
+      "structured, outcome-based teen programs",
+      "focus on behaviour, habits, and identity",
+      "practical tools, not just theory",
+      "consistency and guided engagement",
+      "alignment with real teen challenges today",
+    ],
+  },
+  {
+    id: "what-you-bring",
+    title: "What You Bring",
+    bullets: [
+      "access to teens / parent communities",
+      "aligned intent toward growth",
+      "willingness to implement structured programs",
+      "openness to long-term impact",
+    ],
   },
   {
     id: "what-makes-different",
     title: "What Makes This Different",
     opening: "This is not:",
     bullets: [
-      "motivational speaking",
-      "one-time sessions"
+      "one-time events",
+      "generic awareness sessions",
     ],
-    closing: "This is structured, outcome-based teen development."
-  },
-  {
-    id: "not-for-you-if",
-    title: "This May Not Be For You If",
-    bullets: [
-      "you prefer only one-way speaking",
-      "your approach is purely motivational",
-      "consistency is difficult"
-    ]
+    closing: "This is consistent, structured teen development.",
   },
   {
     id: "why-this-matters",
     title: "Why This Matters",
-    opening: "Teens today know a lot, but struggle to act. The right guidance helps them:",
+    opening: "Teens today don't just need information. They need:",
     bullets: [
-      "build habits",
-      "stay consistent",
-      "grow into stronger individuals"
-    ]
-  }
+      "structure, guidance, and consistency",
+    ],
+    closing: "Collaboration helps deliver this at scale.",
+  },
 ];
 
-const BeOurExperts = () => {
+const BeOurCollaborators = () => {
   const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
 
-  const detailsById = beOurExpertsDetails.reduce<Record<string, (typeof beOurExpertsDetails)[number]>>((acc, section) => {
+  const detailsById = beOurCollaboratorsDetails.reduce<Record<string, (typeof beOurCollaboratorsDetails)[number]>>((acc, section) => {
     acc[section.id] = section;
     return acc;
   }, {});
 
-  const renderCardGrid = (cards: typeof beOurExpertsCards, colsClass = "lg:grid-cols-3") => (
+  const renderCardGrid = (cards: typeof beOurCollaboratorsCards, colsClass = "lg:grid-cols-3") => (
     <div className={`grid md:grid-cols-2 ${colsClass} gap-4 pt-6 border-t border-border/50`}>
       {cards.map((card, index) => (
         <motion.div
@@ -170,12 +170,12 @@ const BeOurExperts = () => {
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h1>
               <LetterSwapForward
-                label="Be Our Experts"
+                label="Be Our Collaborators"
                 className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
               />
             </h1>
             <p className="text-lg text-muted-foreground font-body">
-              If you can guide a teen, you can shape a life.
+              Stronger ecosystems build stronger teens.
             </p>
           </div>
         </section>
@@ -186,15 +186,15 @@ const BeOurExperts = () => {
             <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
               <section className="space-y-4 text-center">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary flex flex-col items-center gap-1 md:gap-2">
-                  <LetterSwapForward label="We’re building a generation of teens who are" className="justify-center" />
-                  <LetterSwapForward label="more aware, disciplined, and purpose-driven." className="justify-center" />
+                  <LetterSwapForward label="Ikigai Teen works with partners who want to support" className="justify-center" />
+                  <LetterSwapForward label="teens in becoming more aware, disciplined, and purpose-driven." className="justify-center" />
                 </h3>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body max-w-3xl mx-auto">
-                  This requires real guidance — not just information.
+                  Stronger ecosystems build stronger teens.
                 </p>
               </section>
 
-              {renderCardGrid(beOurExpertsCards)}
+              {renderCardGrid(beOurCollaboratorsCards)}
             </article>
           </div>
         </section>
@@ -208,7 +208,7 @@ const BeOurExperts = () => {
                   <LetterSwapForward label="Next Step" className="justify-center" />
                 </h3>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body max-w-2xl mx-auto">
-                  If you can guide with clarity, we’d like to hear from you. Share your background and tell us how you can contribute.
+                  If you want to build something meaningful for teens, let's work together. Tell us about your organisation, share your intent and audience, and explore possible collaboration formats.
                 </p>
               </section>
 
@@ -217,13 +217,13 @@ const BeOurExperts = () => {
                   to="/#contact"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6"
                 >
-                  Apply as an Expert
+                  Partner With Us
                 </Link>
                 <Link
                   to="/#contact"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-primary/35 text-primary bg-background hover:bg-primary/10 h-11 py-2 px-6"
                 >
-                  Share Your Profile
+                  Explore Collaboration Options
                 </Link>
                 <Link
                   to="/get-involved"
@@ -242,4 +242,4 @@ const BeOurExperts = () => {
   );
 };
 
-export default BeOurExperts;
+export default BeOurCollaborators;

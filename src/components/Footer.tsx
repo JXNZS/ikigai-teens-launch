@@ -112,6 +112,14 @@ const Footer = () => {
       return "/teenzone/teen-toolkit";
     }
 
+    if (groupLabel === "Teen Zone" && childLabel === "IkigaiTeen Club") {
+      return "/teenzone/ikigai-teen-club";
+    }
+
+    if (groupLabel === "Teen Zone" && childLabel === "IkigaiTeen App") {
+      return "/teenzone/ikigai-teen-app";
+    }
+
     if (groupLabel === "Parent Hub" && childLabel === "Parent Role") {
       return "/parent-hub/parent-role";
     }
@@ -125,7 +133,7 @@ const Footer = () => {
     }
 
     if (groupLabel === "Parent Hub" && childLabel === "IkigaiTeen Parent Circle") {
-      return "/parent-hub/ikigaiteen-parent-circle";
+      return "/parent-hub/parent-circle";
     }
 
     if (groupLabel === "Resources" && childLabel === "Blog/Articles") {
@@ -134,6 +142,30 @@ const Footer = () => {
 
     if (groupLabel === "Resources" && childLabel === "Video/Podcast Links") {
       return "/resources/videos";
+    }
+
+    if (groupLabel === "Get Involved" && childLabel === "Be Our Experts") {
+      return "/get-involved/be-our-experts";
+    }
+
+    if (groupLabel === "Get Involved" && childLabel === "Be Our Collaborators") {
+      return "/get-involved/be-our-collaborators";
+    }
+
+    if (groupLabel === "Get Involved" && childLabel === "Be Our Trainee Coaches") {
+      return "/get-involved/be-our-trainee-coaches";
+    }
+
+    if (groupLabel === "Get Involved" && childLabel === "Be Our Interns/Guests") {
+      return "/get-involved/be-our-interns-guests";
+    }
+
+    if (groupLabel === "Get Involved" && childLabel === "Be Our Patrons") {
+      return "/get-involved/be-our-patrons";
+    }
+
+    if (groupLabel === "Get Involved" && childLabel === "IkigaiTeen Patrons") {
+      return "/get-involved/ikigaiteen-patrons";
     }
 
     return fallbackPath;

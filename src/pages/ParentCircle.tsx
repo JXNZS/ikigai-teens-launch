@@ -156,7 +156,7 @@ const ParentCircle = () => {
                   Back
                 </button>
                 <h3 className="text-xl font-display font-semibold text-primary mb-3">
-                  <LetterSwapForward label={detailsById[card.id]?.title ?? card.title} className="justify-start" />
+                  {detailsById[card.id]?.title ?? card.title}
                 </h3>
                 {detailsById[card.id]?.opening && (
                   <p className="text-sm leading-relaxed text-muted-foreground mb-4">{detailsById[card.id]?.opening}</p>

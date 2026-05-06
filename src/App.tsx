@@ -21,6 +21,11 @@ import ResourceBlogs from "./pages/ResourceBlogs.tsx";
 import ResourceVideos from "./pages/ResourceVideos.tsx";
 import GetInvolved from "./pages/GetInvolved.tsx";
 import BeOurExperts from "./pages/BeOurExperts.tsx";
+import BeOurCollaborators from "./pages/BeOurCollaborators.tsx";
+import BeOurTraineeCoaches from "./pages/BeOurTraineeCoaches.tsx";
+import BeOurInternsGuests from "./pages/BeOurInternsGuests.tsx";
+import BeOurPatrons from "./pages/BeOurPatrons.tsx";
+import IkigaiTeenPatrons from "./pages/IkigaiTeenPatrons.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ParentRole from "./pages/ParentRole.tsx";
 import ParentChallenges from "./pages/ParentChallenges.tsx";
@@ -92,6 +97,11 @@ const App = () => (
           <Route path="/resources/blog/:slug" element={<ResourceArticle />} />
           <Route path="/get-involved" element={<GetInvolved />} />
           <Route path="/get-involved/be-our-experts" element={<BeOurExperts />} />
+          <Route path="/get-involved/be-our-collaborators" element={<BeOurCollaborators />} />
+          <Route path="/get-involved/be-our-trainee-coaches" element={<BeOurTraineeCoaches />} />
+          <Route path="/get-involved/be-our-interns-guests" element={<BeOurInternsGuests />} />
+          <Route path="/get-involved/be-our-patrons" element={<BeOurPatrons />} />
+          <Route path="/get-involved/ikigaiteen-patrons" element={<IkigaiTeenPatrons />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

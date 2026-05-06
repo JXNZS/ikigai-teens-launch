@@ -218,6 +218,26 @@ const Navbar = () => {
       return "/get-involved/be-our-experts";
     }
 
+    if (parentLabel === "Get Involved" && childLabel === "Be Our Collaborators") {
+      return "/get-involved/be-our-collaborators";
+    }
+
+    if (parentLabel === "Get Involved" && childLabel === "Be Our Trainee Coaches") {
+      return "/get-involved/be-our-trainee-coaches";
+    }
+
+    if (parentLabel === "Get Involved" && childLabel === "Be Our Interns/Guests") {
+      return "/get-involved/be-our-interns-guests";
+    }
+
+    if (parentLabel === "Get Involved" && childLabel === "Be Our Patrons") {
+      return "/get-involved/be-our-patrons";
+    }
+
+    if (parentLabel === "Get Involved" && childLabel === "IkigaiTeen Patrons") {
+      return "/get-involved/ikigaiteen-patrons";
+    }
+
     return fallbackPath;
   };
 

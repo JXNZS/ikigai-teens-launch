@@ -7,91 +7,85 @@ import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { ClipPathInfoCard } from "@/components/ui/clip-path-links";
 
-const beOurExpertsCards = [
-  { id: "who-we-are-looking-for", title: "Who We Are Looking For", description: "Educators, coaches, psychologists, and professionals with real-world experience." },
-  { id: "your-role", title: "Your Role", description: "Not to speak. To shape. Guide sessions and support habit building." },
-  { id: "areas-to-contribute", title: "Areas You Can Contribute", description: "Focus, emotional awareness, digital balance, and purpose." },
-  { id: "what-makes-different", title: "What Makes This Different", description: "Structured, outcome-based development—not just one-time sessions." },
-  { id: "not-for-you-if", title: "This May Not Be For You If", description: "You prefer one-way speaking or struggle with consistency." },
-  { id: "why-this-matters", title: "Why This Matters", description: "Help teens build habits, stay consistent, and grow stronger." }
+const beOurPatronsCards = [
+  { id: "why-patron-support-matters", title: "Why Patron Support Matters", description: "Enables access, strengthens programs at scale, and helps build long-term, meaningful impact for teens." },
+  { id: "ways-you-can-support", title: "Ways You Can Support", description: "Sponsor a student, support program development, or contribute to initiatives and outreach efforts." },
+  { id: "what-your-support-creates", title: "What Your Support Creates", description: "More teens receiving structured guidance, better habits, and stronger individuals for families and society." },
+  { id: "what-makes-different", title: "What Makes This Different", description: "Investing in long-term teen development — not one-time charity." },
+  { id: "transparency-intent", title: "Transparency & Intent", description: "Your support is directed toward structured programs, teen development initiatives, and expanding reach responsibly." },
+  { id: "next-step", title: "Next Step", description: "Choose how you'd like to contribute and connect with us to be part of this journey." },
 ];
 
-const beOurExpertsDetails = [
+const beOurPatronsDetails = [
   {
-    id: "who-we-are-looking-for",
-    title: "Who We Are Looking For",
-    opening: "We are looking for:",
+    id: "why-patron-support-matters",
+    title: "Why Patron Support Matters",
     bullets: [
-      "Educators, coaches, mentors",
-      "Psychologists / counsellors",
-      "Professionals working with teens",
-      "Individuals with real-world experience"
+      "enables access for teens who may not afford programs",
+      "supports development of better tools and content",
+      "strengthens structured teen programs at scale",
+      "helps build long-term, meaningful impact",
     ],
-    closing: "You should be: clear in communication, practical in approach, grounded in values, and consistent and responsible."
   },
   {
-    id: "your-role",
-    title: "Your Role",
-    opening: "Not to speak. To shape. You may:",
+    id: "ways-you-can-support",
+    title: "Ways You Can Support",
     bullets: [
-      "guide focused sessions",
-      "support behaviour and habit building",
-      "bring real-life perspective",
-      "help teens grow with clarity and structure"
-    ]
+      "sponsor a student or group",
+      "support program development",
+      "contribute to initiatives and outreach",
+      "partner in long-term impact efforts",
+    ],
   },
   {
-    id: "areas-to-contribute",
-    title: "Areas You Can Contribute",
+    id: "what-your-support-creates",
+    title: "What Your Support Creates",
     bullets: [
-      "Focus & discipline",
-      "Emotional awareness",
-      "Confidence & self-respect",
-      "Communication & decision-making",
-      "Digital balance",
-      "Purpose & direction"
-    ]
+      "more teens receiving structured guidance",
+      "better habits, discipline, and direction",
+      "reduced confusion and negative patterns",
+      "stronger individuals for families and society",
+    ],
   },
   {
     id: "what-makes-different",
     title: "What Makes This Different",
     opening: "This is not:",
     bullets: [
-      "motivational speaking",
-      "one-time sessions"
+      "one-time charity",
     ],
-    closing: "This is structured, outcome-based teen development."
+    closing: "This is investing in long-term teen development.",
   },
   {
-    id: "not-for-you-if",
-    title: "This May Not Be For You If",
+    id: "transparency-intent",
+    title: "Transparency & Intent",
+    opening: "Your support is directed toward:",
     bullets: [
-      "you prefer only one-way speaking",
-      "your approach is purely motivational",
-      "consistency is difficult"
-    ]
+      "structured programs",
+      "teen development initiatives",
+      "expanding reach responsibly",
+    ],
   },
   {
-    id: "why-this-matters",
-    title: "Why This Matters",
-    opening: "Teens today know a lot, but struggle to act. The right guidance helps them:",
+    id: "next-step",
+    title: "Next Step",
+    opening: "If you believe in building stronger young individuals, you can be part of this journey.",
     bullets: [
-      "build habits",
-      "stay consistent",
-      "grow into stronger individuals"
-    ]
-  }
+      "choose how you would like to contribute",
+      "connect with us for more details",
+    ],
+  },
 ];
 
-const BeOurExperts = () => {
+const BeOurPatrons = () => {
   const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
 
-  const detailsById = beOurExpertsDetails.reduce<Record<string, (typeof beOurExpertsDetails)[number]>>((acc, section) => {
+  const detailsById = beOurPatronsDetails.reduce<Record<string, (typeof beOurPatronsDetails)[number]>>((acc, section) => {
     acc[section.id] = section;
     return acc;
   }, {});
 
-  const renderCardGrid = (cards: typeof beOurExpertsCards, colsClass = "lg:grid-cols-3") => (
+  const renderCardGrid = (cards: typeof beOurPatronsCards, colsClass = "lg:grid-cols-3") => (
     <div className={`grid md:grid-cols-2 ${colsClass} gap-4 pt-6 border-t border-border/50`}>
       {cards.map((card, index) => (
         <motion.div
@@ -170,12 +164,12 @@ const BeOurExperts = () => {
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h1>
               <LetterSwapForward
-                label="Be Our Experts"
+                label="Be Our Patrons"
                 className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
               />
             </h1>
             <p className="text-lg text-muted-foreground font-body">
-              If you can guide a teen, you can shape a life.
+              Support the making of stronger, more grounded teens.
             </p>
           </div>
         </section>
@@ -186,29 +180,29 @@ const BeOurExperts = () => {
             <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
               <section className="space-y-4 text-center">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary flex flex-col items-center gap-1 md:gap-2">
-                  <LetterSwapForward label="We’re building a generation of teens who are" className="justify-center" />
-                  <LetterSwapForward label="more aware, disciplined, and purpose-driven." className="justify-center" />
+                  <LetterSwapForward label="Ikigai Teen is building structured programs that help teens" className="justify-center" />
+                  <LetterSwapForward label="develop focus, discipline, emotional strength, and purpose." className="justify-center" />
                 </h3>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body max-w-3xl mx-auto">
-                  This requires real guidance — not just information.
+                  Your support helps expand this impact to more teens.
                 </p>
               </section>
 
-              {renderCardGrid(beOurExpertsCards)}
+              {renderCardGrid(beOurPatronsCards)}
             </article>
           </div>
         </section>
 
-        {/* Box 3: Next Step + Final Thoughts + Buttons */}
+        {/* Box 2: CTA Buttons */}
         <section className="py-12 pb-20 bg-background">
           <div className="container mx-auto px-6 max-w-4xl">
             <article className="rounded-xl border border-primary/20 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8 text-center">
               <section className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary flex justify-center">
-                  <LetterSwapForward label="Next Step" className="justify-center" />
+                  <LetterSwapForward label="Be Part of This Journey" className="justify-center" />
                 </h3>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body max-w-2xl mx-auto">
-                  If you can guide with clarity, we’d like to hear from you. Share your background and tell us how you can contribute.
+                  If you believe in building stronger young individuals, choose how you would like to contribute and connect with us for more details.
                 </p>
               </section>
 
@@ -217,19 +211,19 @@ const BeOurExperts = () => {
                   to="/#contact"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6"
                 >
-                  Apply as an Expert
+                  Become a Patron
                 </Link>
                 <Link
                   to="/#contact"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-primary/35 text-primary bg-background hover:bg-primary/10 h-11 py-2 px-6"
                 >
-                  Share Your Profile
+                  Sponsor a Teen
                 </Link>
                 <Link
-                  to="/get-involved"
+                  to="/#contact"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 py-2 px-6"
                 >
-                  Explore Other Roles
+                  Support the Initiative
                 </Link>
               </div>
 
@@ -242,4 +236,4 @@ const BeOurExperts = () => {
   );
 };
 
-export default BeOurExperts;
+export default BeOurPatrons;

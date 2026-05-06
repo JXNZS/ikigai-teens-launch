@@ -7,91 +7,90 @@ import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { ClipPathInfoCard } from "@/components/ui/clip-path-links";
 
-const beOurExpertsCards = [
-  { id: "who-we-are-looking-for", title: "Who We Are Looking For", description: "Educators, coaches, psychologists, and professionals with real-world experience." },
-  { id: "your-role", title: "Your Role", description: "Not to speak. To shape. Guide sessions and support habit building." },
-  { id: "areas-to-contribute", title: "Areas You Can Contribute", description: "Focus, emotional awareness, digital balance, and purpose." },
-  { id: "what-makes-different", title: "What Makes This Different", description: "Structured, outcome-based development—not just one-time sessions." },
-  { id: "not-for-you-if", title: "This May Not Be For You If", description: "You prefer one-way speaking or struggle with consistency." },
-  { id: "why-this-matters", title: "Why This Matters", description: "Help teens build habits, stay consistent, and grow stronger." }
+const beOurTraineeCoachesCards = [
+  { id: "who-this-is-for", title: "Who This Is For", description: "College students, recent graduates, and aspiring coaches or mentors interested in youth development." },
+  { id: "what-you-will-learn", title: "What You Will Learn", description: "How teens think, how to guide without controlling, and how to support real behaviour change." },
+  { id: "what-you-will-do", title: "What You Will Do", description: "Assist in sessions, observe senior guides, support teen engagement, and gradually take on guided responsibilities." },
+  { id: "what-makes-different", title: "What Makes This Different", description: "Hands-on training in real teen development — not a passive internship or just observation." },
+  { id: "what-you-gain", title: "What You Gain", description: "Real experience with teens, structured mentorship, and the opportunity to grow into a future coach." },
+  { id: "who-this-may-not-be-for", title: "Who This May Not Be For", description: "Those seeking quick or casual work, or those not open to learning, feedback, and consistency." },
 ];
 
-const beOurExpertsDetails = [
+const beOurTraineeCoachesDetails = [
   {
-    id: "who-we-are-looking-for",
-    title: "Who We Are Looking For",
+    id: "who-this-is-for",
+    title: "Who This Is For",
     opening: "We are looking for:",
     bullets: [
-      "Educators, coaches, mentors",
-      "Psychologists / counsellors",
-      "Professionals working with teens",
-      "Individuals with real-world experience"
+      "College students / recent graduates",
+      "Aspiring coaches, mentors, educators",
+      "Individuals interested in youth development",
+      "Those who want meaningful, purpose-driven work",
     ],
-    closing: "You should be: clear in communication, practical in approach, grounded in values, and consistent and responsible."
+    closing: "You should be: willing to learn, consistent and responsible, open to feedback, and interested in working with teens.",
   },
   {
-    id: "your-role",
-    title: "Your Role",
-    opening: "Not to speak. To shape. You may:",
+    id: "what-you-will-learn",
+    title: "What You Will Learn",
     bullets: [
-      "guide focused sessions",
-      "support behaviour and habit building",
-      "bring real-life perspective",
-      "help teens grow with clarity and structure"
-    ]
+      "how teens think and behave",
+      "how to guide without controlling",
+      "how to build habits and discipline",
+      "how to communicate clearly and calmly",
+      "how to support real behaviour change",
+    ],
   },
   {
-    id: "areas-to-contribute",
-    title: "Areas You Can Contribute",
+    id: "what-you-will-do",
+    title: "What You Will Do",
     bullets: [
-      "Focus & discipline",
-      "Emotional awareness",
-      "Confidence & self-respect",
-      "Communication & decision-making",
-      "Digital balance",
-      "Purpose & direction"
-    ]
+      "assist in sessions and programs",
+      "observe and learn from senior guides",
+      "support teen engagement and activities",
+      "gradually take on guided responsibilities",
+    ],
   },
   {
     id: "what-makes-different",
     title: "What Makes This Different",
     opening: "This is not:",
     bullets: [
-      "motivational speaking",
-      "one-time sessions"
+      "a passive internship",
+      "just observation",
     ],
-    closing: "This is structured, outcome-based teen development."
+    closing: "This is hands-on training in real teen development.",
   },
   {
-    id: "not-for-you-if",
-    title: "This May Not Be For You If",
+    id: "what-you-gain",
+    title: "What You Gain",
     bullets: [
-      "you prefer only one-way speaking",
-      "your approach is purely motivational",
-      "consistency is difficult"
-    ]
+      "real experience working with teens",
+      "structured learning and mentorship",
+      "clarity in communication and guidance",
+      "exposure to behaviour and habit-building systems",
+      "opportunity to grow into a future coach",
+    ],
   },
   {
-    id: "why-this-matters",
-    title: "Why This Matters",
-    opening: "Teens today know a lot, but struggle to act. The right guidance helps them:",
+    id: "who-this-may-not-be-for",
+    title: "Who This May Not Be For",
     bullets: [
-      "build habits",
-      "stay consistent",
-      "grow into stronger individuals"
-    ]
-  }
+      "if you are looking for quick or casual work",
+      "if consistency is difficult",
+      "if you are not open to learning and feedback",
+    ],
+  },
 ];
 
-const BeOurExperts = () => {
+const BeOurTraineeCoaches = () => {
   const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
 
-  const detailsById = beOurExpertsDetails.reduce<Record<string, (typeof beOurExpertsDetails)[number]>>((acc, section) => {
+  const detailsById = beOurTraineeCoachesDetails.reduce<Record<string, (typeof beOurTraineeCoachesDetails)[number]>>((acc, section) => {
     acc[section.id] = section;
     return acc;
   }, {});
 
-  const renderCardGrid = (cards: typeof beOurExpertsCards, colsClass = "lg:grid-cols-3") => (
+  const renderCardGrid = (cards: typeof beOurTraineeCoachesCards, colsClass = "lg:grid-cols-3") => (
     <div className={`grid md:grid-cols-2 ${colsClass} gap-4 pt-6 border-t border-border/50`}>
       {cards.map((card, index) => (
         <motion.div
@@ -170,12 +169,12 @@ const BeOurExperts = () => {
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h1>
               <LetterSwapForward
-                label="Be Our Experts"
+                label="Be Our Trainee Coaches"
                 className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
               />
             </h1>
             <p className="text-lg text-muted-foreground font-body">
-              If you can guide a teen, you can shape a life.
+              Learn to guide teens. Not just advise them.
             </p>
           </div>
         </section>
@@ -186,20 +185,20 @@ const BeOurExperts = () => {
             <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
               <section className="space-y-4 text-center">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary flex flex-col items-center gap-1 md:gap-2">
-                  <LetterSwapForward label="We’re building a generation of teens who are" className="justify-center" />
-                  <LetterSwapForward label="more aware, disciplined, and purpose-driven." className="justify-center" />
+                  <LetterSwapForward label="Ikigai Teen is building a pool of young individuals who can" className="justify-center" />
+                  <LetterSwapForward label="support teen growth with clarity, structure, and responsibility." className="justify-center" />
                 </h3>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body max-w-3xl mx-auto">
-                  This requires real guidance — not just information.
+                  Learn to guide teens. Not just advise them.
                 </p>
               </section>
 
-              {renderCardGrid(beOurExpertsCards)}
+              {renderCardGrid(beOurTraineeCoachesCards)}
             </article>
           </div>
         </section>
 
-        {/* Box 3: Next Step + Final Thoughts + Buttons */}
+        {/* Box 2: Next Step + CTA Buttons */}
         <section className="py-12 pb-20 bg-background">
           <div className="container mx-auto px-6 max-w-4xl">
             <article className="rounded-xl border border-primary/20 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8 text-center">
@@ -208,7 +207,7 @@ const BeOurExperts = () => {
                   <LetterSwapForward label="Next Step" className="justify-center" />
                 </h3>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body max-w-2xl mx-auto">
-                  If you can guide with clarity, we’d like to hear from you. Share your background and tell us how you can contribute.
+                  If you want to learn how to guide, not just speak — apply. Share your background, tell us why this interests you, and show your willingness to learn.
                 </p>
               </section>
 
@@ -217,13 +216,13 @@ const BeOurExperts = () => {
                   to="/#contact"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6"
                 >
-                  Apply as an Expert
+                  Apply as a Trainee Coach
                 </Link>
                 <Link
                   to="/#contact"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-primary/35 text-primary bg-background hover:bg-primary/10 h-11 py-2 px-6"
                 >
-                  Share Your Profile
+                  Start Your Journey
                 </Link>
                 <Link
                   to="/get-involved"
@@ -242,4 +241,4 @@ const BeOurExperts = () => {
   );
 };
 
-export default BeOurExperts;
+export default BeOurTraineeCoaches;

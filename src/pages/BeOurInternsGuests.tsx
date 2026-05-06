@@ -7,91 +7,86 @@ import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { ClipPathInfoCard } from "@/components/ui/clip-path-links";
 
-const beOurExpertsCards = [
-  { id: "who-we-are-looking-for", title: "Who We Are Looking For", description: "Educators, coaches, psychologists, and professionals with real-world experience." },
-  { id: "your-role", title: "Your Role", description: "Not to speak. To shape. Guide sessions and support habit building." },
-  { id: "areas-to-contribute", title: "Areas You Can Contribute", description: "Focus, emotional awareness, digital balance, and purpose." },
-  { id: "what-makes-different", title: "What Makes This Different", description: "Structured, outcome-based development—not just one-time sessions." },
-  { id: "not-for-you-if", title: "This May Not Be For You If", description: "You prefer one-way speaking or struggle with consistency." },
-  { id: "why-this-matters", title: "Why This Matters", description: "Help teens build habits, stay consistent, and grow stronger." }
+const beOurInternsGuestsCards = [
+  { id: "who-this-is-for", title: "Who This Is For", description: "Students, young professionals, creators, and communicators who want to contribute meaningfully to youth development." },
+  { id: "interns-what-you-do", title: "Interns — What You Do", description: "Support programs, assist in content or operations, work on specific projects, and learn how structured teen development works." },
+  { id: "guests-how-you-contribute", title: "Guests — How You Can Contribute", description: "Share insights, conduct focused sessions, or bring unique real-world perspectives teens can learn from." },
+  { id: "what-you-will-experience", title: "What You Will Experience", description: "A structured, purpose-driven environment with real interaction with teen programs and learning beyond theory." },
+  { id: "what-makes-different", title: "What Makes This Different", description: "Meaningful contribution with real learning — not routine internship work or surface-level guest talks." },
+  { id: "who-this-may-not-be-for", title: "Who This May Not Be For", description: "Those seeking casual or low-commitment work, purely theoretical involvement, or those who struggle with consistency." },
 ];
 
-const beOurExpertsDetails = [
+const beOurInternsGuestsDetails = [
   {
-    id: "who-we-are-looking-for",
-    title: "Who We Are Looking For",
-    opening: "We are looking for:",
+    id: "who-this-is-for",
+    title: "Who This Is For",
+    opening: "We welcome:",
     bullets: [
-      "Educators, coaches, mentors",
-      "Psychologists / counsellors",
-      "Professionals working with teens",
-      "Individuals with real-world experience"
+      "Students and young professionals",
+      "Individuals exploring youth development",
+      "Creators, communicators, facilitators",
+      "Anyone interested in contributing meaningfully",
     ],
-    closing: "You should be: clear in communication, practical in approach, grounded in values, and consistent and responsible."
   },
   {
-    id: "your-role",
-    title: "Your Role",
-    opening: "Not to speak. To shape. You may:",
+    id: "interns-what-you-do",
+    title: "Interns — What You Do",
     bullets: [
-      "guide focused sessions",
-      "support behaviour and habit building",
-      "bring real-life perspective",
-      "help teens grow with clarity and structure"
-    ]
+      "support ongoing programs and activities",
+      "assist in content, operations, or engagement",
+      "work on specific projects or initiatives",
+      "learn how structured teen development works",
+    ],
   },
   {
-    id: "areas-to-contribute",
-    title: "Areas You Can Contribute",
+    id: "guests-how-you-contribute",
+    title: "Guests — How You Can Contribute",
     bullets: [
-      "Focus & discipline",
-      "Emotional awareness",
-      "Confidence & self-respect",
-      "Communication & decision-making",
-      "Digital balance",
-      "Purpose & direction"
-    ]
+      "share insights or real-world experiences",
+      "conduct focused sessions or conversations",
+      "bring unique perspectives teens can learn from",
+    ],
+  },
+  {
+    id: "what-you-will-experience",
+    title: "What You Will Experience",
+    bullets: [
+      "a structured, purpose-driven environment",
+      "real interaction with teen programs",
+      "exposure to behaviour, habits, and growth systems",
+      "learning beyond theory",
+    ],
   },
   {
     id: "what-makes-different",
     title: "What Makes This Different",
     opening: "This is not:",
     bullets: [
-      "motivational speaking",
-      "one-time sessions"
+      "routine internship work",
+      "surface-level guest talks",
     ],
-    closing: "This is structured, outcome-based teen development."
+    closing: "This is meaningful contribution with real learning.",
   },
   {
-    id: "not-for-you-if",
-    title: "This May Not Be For You If",
+    id: "who-this-may-not-be-for",
+    title: "Who This May Not Be For",
     bullets: [
-      "you prefer only one-way speaking",
-      "your approach is purely motivational",
-      "consistency is difficult"
-    ]
+      "if you are looking for casual or low-commitment work",
+      "if you prefer purely theoretical involvement",
+      "if consistency is difficult",
+    ],
   },
-  {
-    id: "why-this-matters",
-    title: "Why This Matters",
-    opening: "Teens today know a lot, but struggle to act. The right guidance helps them:",
-    bullets: [
-      "build habits",
-      "stay consistent",
-      "grow into stronger individuals"
-    ]
-  }
 ];
 
-const BeOurExperts = () => {
+const BeOurInternsGuests = () => {
   const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
 
-  const detailsById = beOurExpertsDetails.reduce<Record<string, (typeof beOurExpertsDetails)[number]>>((acc, section) => {
+  const detailsById = beOurInternsGuestsDetails.reduce<Record<string, (typeof beOurInternsGuestsDetails)[number]>>((acc, section) => {
     acc[section.id] = section;
     return acc;
   }, {});
 
-  const renderCardGrid = (cards: typeof beOurExpertsCards, colsClass = "lg:grid-cols-3") => (
+  const renderCardGrid = (cards: typeof beOurInternsGuestsCards, colsClass = "lg:grid-cols-3") => (
     <div className={`grid md:grid-cols-2 ${colsClass} gap-4 pt-6 border-t border-border/50`}>
       {cards.map((card, index) => (
         <motion.div
@@ -170,12 +165,12 @@ const BeOurExperts = () => {
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h1>
               <LetterSwapForward
-                label="Be Our Experts"
+                label="Be Our Interns / Guests"
                 className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
               />
             </h1>
             <p className="text-lg text-muted-foreground font-body">
-              If you can guide a teen, you can shape a life.
+              Contribute. Learn. Be part of something meaningful.
             </p>
           </div>
         </section>
@@ -186,20 +181,20 @@ const BeOurExperts = () => {
             <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
               <section className="space-y-4 text-center">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary flex flex-col items-center gap-1 md:gap-2">
-                  <LetterSwapForward label="We’re building a generation of teens who are" className="justify-center" />
-                  <LetterSwapForward label="more aware, disciplined, and purpose-driven." className="justify-center" />
+                  <LetterSwapForward label="Ikigai Teen invites individuals who want to experience," className="justify-center" />
+                  <LetterSwapForward label="contribute, and grow in a real teen development environment." className="justify-center" />
                 </h3>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body max-w-3xl mx-auto">
-                  This requires real guidance — not just information.
+                  Contribute. Learn. Be part of something meaningful.
                 </p>
               </section>
 
-              {renderCardGrid(beOurExpertsCards)}
+              {renderCardGrid(beOurInternsGuestsCards)}
             </article>
           </div>
         </section>
 
-        {/* Box 3: Next Step + Final Thoughts + Buttons */}
+        {/* Box 2: Next Step + CTA Buttons */}
         <section className="py-12 pb-20 bg-background">
           <div className="container mx-auto px-6 max-w-4xl">
             <article className="rounded-xl border border-primary/20 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8 text-center">
@@ -208,7 +203,7 @@ const BeOurExperts = () => {
                   <LetterSwapForward label="Next Step" className="justify-center" />
                 </h3>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body max-w-2xl mx-auto">
-                  If you can guide with clarity, we’d like to hear from you. Share your background and tell us how you can contribute.
+                  If you want to contribute and learn in a meaningful way, apply. Share your background, tell us how you'd like to contribute, and highlight your areas of interest.
                 </p>
               </section>
 
@@ -217,13 +212,13 @@ const BeOurExperts = () => {
                   to="/#contact"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6"
                 >
-                  Apply as an Expert
+                  Apply as an Intern
                 </Link>
                 <Link
                   to="/#contact"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-primary/35 text-primary bg-background hover:bg-primary/10 h-11 py-2 px-6"
                 >
-                  Share Your Profile
+                  Join as a Guest Contributor
                 </Link>
                 <Link
                   to="/get-involved"
@@ -242,4 +237,4 @@ const BeOurExperts = () => {
   );
 };
 
-export default BeOurExperts;
+export default BeOurInternsGuests;
