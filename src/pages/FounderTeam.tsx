@@ -27,7 +27,7 @@ const teamMembers: TeamMember[] = [
 		name: "Irene Arathi Pais",
 		role: "Founder, Ikigai Teen",
 		image: irenePhoto,
-		imageStyle: { objectPosition: "50% 35%", transform: "scale(1.5)", transformOrigin: "center center" },
+		imageStyle: { objectPosition: "50% 40%", transform: "translateX(-23%) scale(1.95)", transformOrigin: "center center" },
 		quote: "When young people understand themselves early, they gain the power to shape their future with clarity and courage.",
 		bio: [
 			"Irene Arathi Pais is the founder of Ikigai Teen, a teen development initiative dedicated to helping teenagers build self-awareness, resilience, and purpose in a rapidly changing world. With over two decades of professional experience in human resources and humanitarian project leadership across international organisations across the globe, including work in disaster response and conflict environments, she has designed and delivered youth-focused programs that have reached over 107,893 students across India.",
@@ -47,7 +47,7 @@ const teamMembers: TeamMember[] = [
 		role: "Research & Content Associate",
 		region: "Iraq",
 		image: zubaidaPhoto,
-		imageClassName: "object-[50%_30%]",
+		imageClassName: "object-[50%_1%]",
 		quote: "When knowledge is shared with sincerity, it becomes a bridge that helps others grow.",
 		bio: [
 			"Zubaida Zuhair is a young research and content contributor based in Erbil, Iraq, with a background in English Language and Literature From Lebanese French University and British International University and experience in student engagement and education support. In the early stages of her career, she has already worked across academic institutions, teacher training programs, and community initiatives, including exposure to humanitarian work with Oxfam.",
@@ -59,7 +59,7 @@ const teamMembers: TeamMember[] = [
 		role: "Digital Media & Design Support",
 		region: "Iraq",
 		image: barakatPhoto,
-		imageClassName: "object-[44%_50%] scale-125",
+		imageClassName: "object-[44%_50%] scale-150",
 		quote: "Design has the power to turn ideas into experiences that inspire people to think differently.",
 		bio: [
 			"Barakat Mohammed is a digital designer based in Erbil, Iraq, with a strong interest in youth engagement, visual storytelling, and educational media. A graduate of Lebanese French University (2024), he combines creative design skills with an understanding of how digital platforms influence the way young audiences learn and interact.",
@@ -72,7 +72,7 @@ const teamMembers: TeamMember[] = [
 		region: "India",
 		image: poorviPhoto,
 		imageClassName: "object-center",
-		imageStyle: { objectPosition: "50% 50%", transform: "translateX(-22%) scale(1.45)", transformOrigin: "center center" },
+		imageStyle: { objectPosition: "10% 24%", transform: "translateX(-35%) translateY(25%) scale(2)", transformOrigin: "center center" },
 		quote: "Age does not define responsibility - commitment and action do.",
 		bio: [
 			"Poorvi Praveen is a Chartered Accountancy student from Bangalore, Karnataka, and an enthusiastic young contributor to the Ikigai Teen initiative. A disciplined weightlifting enthusiast, she brings the same determination and perseverance to her work supporting youth development programs.",
@@ -84,7 +84,7 @@ const teamMembers: TeamMember[] = [
 		role: "Technology & Collaborations Support",
 		region: "India|Kuwait",
 		image: jeevanPhoto,
-		imageStyle: { objectPosition: "50% 44%", transform: "translateX(22%) scale(1.7)", transformOrigin: "center center" },
+		imageStyle: { objectPosition: "50% 44%", transform: "translateX(30%) translateY(-10%) scale(2.15)", transformOrigin: "center center" },
 		quote: "A willing mind and consistent action can turn small beginnings into meaningful impact.",
 		bio: [
 			"Jeevan Shaji John is a young technology enthusiast from Kerala, with a Bachelor degree in Computer Applications. With a growing interest in web development, cybersecurity, and digital problem-solving, he represents a new generation of learners eager to apply technology in meaningful and socially relevant ways.",
