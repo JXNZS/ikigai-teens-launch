@@ -124,7 +124,7 @@ const milestonePopoverVariants = {
   },
 };
 
-const whyIkigaiSummary = "Ikigai Teen was founded after Irene Arathi Pais observed dramatic changes in teen behaviour following the widespread adoption of smartphones during the COVID era. Conversations with parents, educators, and teenagers revealed rising digital dependency, declining focus, and emotional strain. Ikigai Teen helps teens develop awareness, resilience, and purpose so they can navigate the digital world wisely and grow into responsible future leaders";
+const whyIkigaiSummary = "Ikigai Teen was founded after Irene Arathi Pais observed dramatic changes in teen behaviour following the widespread adoption of smartphones during the COVID era for education purposes among teens. Conversations with parents, educators, teenagers and government officials revealed rising digital dependency, declining focus, and emotional strain. Ikigai Teen helps teens develop awareness, resilience, and purpose so they can navigate the digital world wisely and grow into responsible future leaders";
 
 const whyIkigaiExpanded = [
   "After more than two decades of working with children across schools, villages, and humanitarian programs, Irene Arathi Pais has witnessed how profoundly the teen years shape the future of individuals and societies.",
@@ -324,9 +324,20 @@ const Journey = () => {
                         </MorphingPopoverTrigger>
 
                         <MorphingPopoverContent
-                          className={`${horizontalAnchorClass} z-30 w-[min(24rem,calc(100vw-2rem))] rounded-lg border border-primary/40 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-4 text-left shadow-lg shadow-primary/20 ${
+                          className={`${horizontalAnchorClass} w-[min(24rem,calc(100vw-2rem))] rounded-lg border p-4 text-left ${
                             isTop ? "bottom-[calc(100%+1rem)]" : "top-[calc(100%+1rem)]"
                           }`}
+                          style={{
+                            backgroundColor: '#ffffff',
+                            opacity: 1,
+                            borderColor: 'rgba(46,194,126,0.15)',
+                            boxShadow: '0 16px 40px rgba(0,0,0,0.08)',
+                            mixBlendMode: 'normal',
+                            isolation: 'isolate',
+                            zIndex: 2147483647,
+                            WebkitBackdropFilter: 'none',
+                            backdropFilter: 'none',
+                          }}
                         >
                           <p className="font-display text-sm font-semibold text-primary">{milestone.label}</p>
                           <p className="mt-1 font-body text-base font-medium text-foreground">{milestone.title}</p>

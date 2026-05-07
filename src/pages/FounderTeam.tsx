@@ -158,7 +158,7 @@ const FounderTeam = () => {
 								<h2 className="text-2xl md:text-3xl font-display font-semibold text-primary">Team</h2>
 								<p className="text-sm md:text-base text-muted-foreground leading-relaxed">
 									Ikigai Teen is powered by a young, global team that believes meaningful change begins with awareness,
-									courage, and collaboration. Together, we bring research, design, technology, and youth perspective to
+									courage, and collaboration. Together, we bring research, design, technology, youth perspective and participation to
 									build a platform that helps teens navigate life with clarity and purpose.
 								</p>
 								<div className="space-y-5">

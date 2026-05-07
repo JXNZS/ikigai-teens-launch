@@ -14,28 +14,28 @@ const philosophyParagraphs = [
 const principleData = [
   {
     title: "Ikigai",
-    desc: "Discovering meaning and direction in life by aligning one’s strengths, interests, values, and contribution to the world.",
-    color: "#2ec27e",
+    desc: "Discovering meaning and direction in life by aligning one's strengths, interests, values, and contribution to the world.",
+    color: "#a8d5d0",
   },
   {
     title: "Kaizen",
     desc: "The practice of small, consistent improvements that lead to lasting personal growth.",
-    color: "#3b82f6",
+    color: "#b8c9e8",
   },
   {
     title: "Shoshin",
-    desc: "The beginner’s mind, encouraging curiosity, openness, and the willingness to learn without ego.",
-    color: "#f59e42",
+    desc: "The beginner's mind, encouraging curiosity, openness, and the willingness to learn without ego.",
+    color: "#e8d4b8",
   },
   {
     title: "Hansei",
     desc: "Thoughtful reflection and self-awareness, helping teens learn from experiences and make wiser decisions.",
-    color: "#a855f7",
+    color: "#d4b8e8",
   },
   {
     title: "Kintsugi",
-    desc: "The idea that imperfections and setbacks can strengthen character and become part of one’s unique story.",
-    color: "#fbbf24",
+    desc: "The idea that imperfections and setbacks can strengthen character and become part of one's unique story.",
+    color: "#e8c4b8",
   },
 ];
 
@@ -47,70 +47,77 @@ interface CircleButtonProps {
   descriptionPosition?: 'top' | 'bottom';
 }
 
+const HoverGreenColor = "#2ec27e"; // Light green for hover state
+const CircleAccent = HoverGreenColor; // Accent color for circle border and text
+
 const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPosition = 'bottom' }: CircleButtonProps) => {
   const isHovered = hovered === index;
-  const isBottom = descriptionPosition === 'bottom';
   
   return (
     <motion.div
       className="relative flex flex-col items-center justify-center"
       onMouseEnter={() => setHovered(index)}
       onMouseLeave={() => setHovered(null)}
+      style={{ position: 'relative', zIndex: isHovered ? 2147483647 : 1 }}
     >
-      {/* Glow background ring */}
-      <motion.div
-        className="absolute rounded-full"
-        style={{
-          width: "140%",
-          height: "140%",
-          background: `radial-gradient(circle, ${principleData[index].color}20, transparent)`,
-          zIndex: 0,
-        }}
-        animate={isHovered ? { opacity: 1, scale: 1.2 } : { opacity: 0.5, scale: 1 }}
-        transition={{ duration: 0.3 }}
-      />
-
-      {/* Main circle */}
+      {/* Animated circle/rectangle container */}
       <motion.div
         animate={
           isHovered
             ? { 
-                scale: 1.22,
-                boxShadow: `0 0 0 3px ${principleData[index].color}40, 0 12px 48px 0 ${principleData[index].color}60`,
+                width: "280px",
+                height: "160px",
+                borderRadius: "16px",
+                padding: "20px",
               }
             : {
-                scale: 1,
-                boxShadow: `0 0 0 0px ${principleData[index].color}10, 0 4px 16px 0 rgba(0,0,0,0.12)`,
+                width: "160px",
+                height: "160px",
+                borderRadius: "50%",
+                padding: "0px",
               }
         }
-        transition={{ type: "spring", stiffness: 380, damping: 28, mass: 0.8 }}
-        className="relative w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center cursor-pointer bg-white border-4 font-display font-bold text-xl md:text-2xl text-center select-none transition-colors duration-200"
+        transition={{ type: "spring", stiffness: 320, damping: 30, mass: 0.8 }}
+        className="relative flex items-center justify-center cursor-pointer bg-white border-4 font-display font-bold text-xl md:text-2xl text-center select-none overflow-hidden"
         style={{
-          color: principleData[index].color,
-          borderColor: principleData[index].color,
-          zIndex: isHovered ? 20 : 1,
+          borderColor: CircleAccent,
+          position: 'relative',
+          zIndex: isHovered ? 2147483647 : 1,
+          backgroundColor: '#ffffff',
+          opacity: 1,
+          boxShadow: isHovered ? '0 16px 40px rgba(0,0,0,0.08)' : '0 2px 6px rgba(0,0,0,0.02)',
+          backdropFilter: 'none',
+          WebkitBackdropFilter: 'none',
+          mixBlendMode: 'normal',
+          isolation: 'isolate',
         }}
       >
-        {principleData[index].title}
-      </motion.div>
-
-      {/* Description popup */}
-      {isHovered && (
         <motion.div
-          initial={{ opacity: 0, y: isBottom ? 16 : -16, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: isBottom ? 16 : -16, scale: 0.95 }}
-          transition={{ duration: 0.25, type: "spring", stiffness: 300, damping: 30 }}
-          className={`absolute w-64 md:w-72 border-2 rounded-xl shadow-2xl p-4 text-sm md:text-base font-body z-30 ${isBottom ? 'top-full mt-4' : 'bottom-full mb-4'}`}
-          style={{
-            backgroundColor: `${principleData[index].color}15`,
-            borderColor: principleData[index].color,
-            color: principleData[index].color,
-          }}
+          animate={isHovered ? { opacity: 1, y: 0 } : { opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="flex flex-col items-center justify-center"
         >
-          {principleData[index].desc}
+          {isHovered ? (
+            <div className="space-y-2 text-left w-full">
+                <h3 
+                  className="text-sm font-display font-bold"
+                  style={{ color: CircleAccent }}
+                >
+                {principleData[index].title}
+              </h3>
+              <p 
+                className="text-xs md:text-sm leading-relaxed font-body text-gray-700"
+              >
+                {principleData[index].desc}
+              </p>
+            </div>
+          ) : (
+            <span style={{ color: CircleAccent }}>
+              {principleData[index].title}
+            </span>
+          )}
         </motion.div>
-      )}
+      </motion.div>
     </motion.div>
   );
 };
@@ -133,7 +140,7 @@ const GroundingPhilosophy = () => {
           </div>
         </section>
 
-        <section className="py-14 bg-background">
+        <section className="py-14 bg-background overflow-hidden">
           <div className="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row gap-10 md:gap-16 items-stretch">
             {/* Left: Philosophy Box */}
             <article className="flex-1 rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-6 flex flex-col justify-center min-w-[320px] max-w-xl">
@@ -148,8 +155,8 @@ const GroundingPhilosophy = () => {
             </article>
 
             {/* Right: Expandable Circles */}
-            <div className="flex-1 flex flex-col justify-center">
-              <div className="grid grid-rows-3 grid-cols-2 gap-8 h-full place-items-center relative" style={{minHeight:'500px'}}>
+            <div className="flex-1 flex flex-col justify-center overflow-visible">
+              <div className="grid grid-rows-3 grid-cols-2 gap-8 h-full place-items-center relative overflow-visible" style={{minHeight:'500px'}}>
                 {/* Row 1: Kintsugi (index 4), Kaizen (index 1) */}
                 <CircleButton index={4} principleData={principleData} hovered={hovered} setHovered={setHovered} />
                 <CircleButton index={1} principleData={principleData} hovered={hovered} setHovered={setHovered} />

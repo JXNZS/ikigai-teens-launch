@@ -159,7 +159,7 @@ const faqItems: FAQItem[] = [
     intro: [
       "Growing into a strong, responsible, and purposeful adult does not happen by accident. It requires guidance, reflection, and practice during the formative teen years.",
       "The Ikigai Teen program is built around a structured Growth Framework that helps teenagers develop the awareness, habits, and inner strength needed to navigate modern life with clarity and confidence.",
-      "This framework focuses on six key areas of development that are essential for young people growing up in today's rapidly changing digital world.",
+"This framework focuses on six key areas of development that are essential for young people growing up in today's rapidly changing digital world.",
     ],
     points: [
       {
@@ -474,9 +474,20 @@ const FAQSection = () => {
                   <AccordionContent className="text-primary font-body">
                     <div className="space-y-2 md:space-y-4 pt-1 px-1">
                       {item.intro && item.intro.length > 0 && (
-                        <p key="intro" className="text-xs md:text-base leading-relaxed text-black">
-                          {renderNumberText(item.intro.join(" "))}
-                        </p>
+                        item.question === "The Ikigai Teen Growth Framework" && item.intro.length >= 3 ? (
+                          <div className="space-y-2">
+                            <p className="text-xs md:text-base leading-relaxed text-black">
+                              {renderNumberText(item.intro.slice(0, 2).join(" "))}
+                            </p>
+                            <p className="text-xs md:text-base leading-relaxed text-black">
+                              {renderNumberText(item.intro[2])}
+                            </p>
+                          </div>
+                        ) : (
+                          <p key="intro" className="text-xs md:text-base leading-relaxed text-black">
+                            {renderNumberText(item.intro.join(" "))}
+                          </p>
+                        )
                       )}
 
                       {(() => {
