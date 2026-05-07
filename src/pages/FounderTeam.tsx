@@ -27,7 +27,7 @@ const teamMembers: TeamMember[] = [
 		name: "Irene Arathi Pais",
 		role: "Founder, Ikigai Teen",
 		image: irenePhoto,
-		imageClassName: "object-[50%_30%]",
+		imageStyle: { objectPosition: "50% 35%", transform: "scale(1.5)", transformOrigin: "center center" },
 		quote: "When young people understand themselves early, they gain the power to shape their future with clarity and courage.",
 		bio: [
 			"Irene Arathi Pais is the founder of Ikigai Teen, a teen development initiative dedicated to helping teenagers build self-awareness, resilience, and purpose in a rapidly changing world. With over two decades of professional experience in human resources and humanitarian project leadership across international organisations across the globe, including work in disaster response and conflict environments, she has designed and delivered youth-focused programs that have reached over 107,893 students across India.",

@@ -1,3 +1,3 @@
-# Welcome to your Lovable project
+# Ikigai Teen
 
-TODO: Document your project here
+React + Vite site for Ikigai Teen.
