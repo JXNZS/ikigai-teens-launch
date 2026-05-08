@@ -25,7 +25,7 @@ const parentChallengesDetails = [
     id: "what-you-may-be-experiencing",
     title: "What You May Be Experiencing",
     bullets: [
-      "reduced communication or openness",
+      "reduced communication or coldness",
       "increased distraction and screen dependence",
       "emotional reactions that feel intense or unpredictable",
       "inconsistency despite ability",
@@ -132,7 +132,7 @@ const parentChallengesDetails = [
       "repeated patterns without change",
       "increasing distraction or inconsistency",
       "emotional reactivity",
-      "difficulty maintaining routines"
+      "difficulty maintaining routines & relationships"
     ],
     closing: "It may be time for structured support, not just guidance."
   }

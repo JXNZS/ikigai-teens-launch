@@ -65,7 +65,7 @@ const detailSections = [
     id: "identity-confidence",
     title: "Identity & Confidence",
     opening: "Figure yourself out. Own who you are.",
-    body: "No fake confidence. No pretending. This is where you start understanding what makes you you and actually feel good about it.",
+    body: "No fake confidence. No pretending. This is where you start understanding what makes you YOU and actually feel good about it.",
     bullets: [
       "What you are good at and what you are still building",
       "How to handle comparison and self-doubt",
@@ -232,7 +232,7 @@ const IkigaiTeenClub = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                More than a membership. More than a club. This is a vibrant members-only space where teens can belong,
+                More than a membership. More than a club. This is a vibrant 'members-only' space where teens can belong,
                 build confidence, express themselves, unlock meaningful opportunities, and grow inside a positive,
                 future-ready community.
               </motion.p>

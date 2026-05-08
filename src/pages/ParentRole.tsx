@@ -66,7 +66,8 @@ const parentRoleDetails = [
       "consistency over intensity",
       "structure over pressure",
       "responsibility over control",
-      "practice over preaching"
+      "presence over preaching",
+      "practice over theory"
     ]
   },
   {
@@ -76,7 +77,8 @@ const parentRoleDetails = [
       "calm understanding instead of overreaction",
       "clear boundaries without constant conflict",
       "guidance without control",
-      "expectations without pressure"
+      "expectations without pressure",
+      "presence without judgement"
     ]
   },
   {
@@ -117,7 +119,8 @@ const parentRoleDetails = [
     bullets: [
       "a steady source of support",
       "a builder of a consistent environment",
-      "a guide rather than an enforcer"
+      "a guide rather than an enforcer",
+      "a silent observer and an open learner"
     ]
   },
   {
@@ -129,7 +132,8 @@ const parentRoleDetails = [
       "lack of consistency",
       "emotional instability",
       "resistance to guidance",
-      "lack of direction"
+      "lack of direction",
+      "distancing"
     ],
     closing: "It is often not just behaviour. It is a lack of structured development."
   }

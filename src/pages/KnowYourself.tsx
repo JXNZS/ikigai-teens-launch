@@ -598,8 +598,8 @@ const KnowYourself = () => {
               </motion.h1>
 
               <motion.div className="space-y-4" variants={itemVariants}>
-                <p className="text-xl md:text-2xl text-muted-foreground font-medium leading-relaxed">
-                  You can't grow well if you don't understand what's going on inside you.
+                <p className="text-xl md:text-2xl text-muted-foreground font-medium leading-relaxed whitespace-nowrap">
+                  You can't grow well if you don't understand what's going on inside YOU.
                 </p>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                   Your thoughts, habits, emotions, choices, friendships, screens, pressure, and patterns are all shaping who you are becoming.
