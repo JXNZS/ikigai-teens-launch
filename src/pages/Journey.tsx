@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
@@ -8,6 +8,34 @@ import {
   MorphingPopoverContent,
   MorphingPopoverTrigger,
 } from "@/components/ui/morphing-popover";
+import irene1Photo from "@/assets/Irene 1.jpeg";
+
+const CircleProfilePhoto = ({ src, alt, imageClassName, imageStyle }: { src: string; alt: string; imageClassName?: string; imageStyle?: CSSProperties }) => {
+	const [failed, setFailed] = useState(false);
+
+	if (failed || !src) {
+		return (
+			<div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-border/70 shrink-0">
+				<div className="w-full h-full bg-secondary flex items-center justify-center text-xs font-semibold text-muted-foreground px-3 text-center">
+					{alt}
+				</div>
+			</div>
+		);
+	}
+
+	return (
+		<div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-border/70 shrink-0">
+			<img
+				src={src}
+				alt={alt}
+				className={`w-full h-full object-cover ${imageClassName ?? "object-center"}`}
+				style={imageStyle}
+				loading="lazy"
+				onError={() => setFailed(true)}
+			/>
+		</div>
+	);
+};
 
 type CredibilityStat = {
   value: number;
@@ -370,56 +398,63 @@ const Journey = () => {
         <section className="pb-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
             <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
-              <h2>
-                <LetterSwapForward
-                  label="Why Irene Started Ikigai Teen"
-                  className="text-2xl md:text-3xl font-display font-semibold text-primary"
-                />
-              </h2>
+              <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
+                <div className="flex-shrink-0">
+                  <CircleProfilePhoto src={irene1Photo} alt="Irene Arathi Pais" />
+                </div>
+                <div className="space-y-4 flex-1">
+                  <h2>
+                    <LetterSwapForward
+                      label="Why Irene Started Ikigai Teen"
+                      className="text-2xl md:text-3xl font-display font-semibold text-primary"
+                    />
+                  </h2>
 
-              <div className="space-y-3">
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                  {whyIkigaiSummary}
-                  {!showWhyReadMore ? (
-                    <>
-                      {" "}
-                      <button
-                        type="button"
-                        onClick={() => setShowWhyReadMore(true)}
-                        className="ml-1 inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
-                      >
-                        Read more
-                      </button>
-                    </>
-                  ) : null}
-                </p>
-
-                {showWhyReadMore ? (
                   <div className="space-y-3">
-                    {whyIkigaiExpanded.map((paragraph, paragraphIndex) => (
-                      <p key={paragraph} className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                        {paragraph}
-                        {paragraphIndex === whyIkigaiExpanded.length - 1 ? (
-                          <>
-                            {" "}
-                            <button
-                              type="button"
-                              onClick={() => setShowWhyReadMore(false)}
-                              className="ml-1 inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
-                            >
-                              Show less
-                            </button>
-                          </>
-                        ) : null}
-                      </p>
-                    ))}
-                  </div>
-                ) : null}
+                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                      {whyIkigaiSummary}
+                      {!showWhyReadMore ? (
+                        <>
+                          {" "}
+                          <button
+                            type="button"
+                            onClick={() => setShowWhyReadMore(true)}
+                            className="ml-1 inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
+                          >
+                            Read more
+                          </button>
+                        </>
+                      ) : null}
+                    </p>
 
-                <p className="text-sm md:text-base italic font-semibold text-foreground/85">
-                  "Teen years are the foundation of a nation's future - what we guide today becomes the character of society tomorrow."
-                </p>
-                <p className="text-xs md:text-sm font-semibold text-primary/90">- Irene Arathi Pais</p>
+                    {showWhyReadMore ? (
+                      <div className="space-y-3">
+                        {whyIkigaiExpanded.map((paragraph, paragraphIndex) => (
+                          <p key={paragraph} className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                            {paragraph}
+                            {paragraphIndex === whyIkigaiExpanded.length - 1 ? (
+                              <>
+                                {" "}
+                                <button
+                                  type="button"
+                                  onClick={() => setShowWhyReadMore(false)}
+                                  className="ml-1 inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
+                                >
+                                  Show less
+                                </button>
+                              </>
+                            ) : null}
+                          </p>
+                        ))}
+                      </div>
+                    ) : null}
+
+                    <p className="text-sm md:text-base italic font-semibold text-foreground/85">
+                      "Teen years are the foundation of a nation's future - what we guide today becomes the character of society tomorrow."
+                    </p>
+                    <p className="text-xs md:text-sm font-semibold text-primary/90">- Irene Arathi Pais</p>
+                  </div>
+                </div>
               </div>
             </article>
           </div>
