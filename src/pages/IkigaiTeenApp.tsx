@@ -463,9 +463,6 @@ const PixelRunnerGame = () => {
           <p className="mt-1 text-xs text-muted-foreground text-center">
             Latest run: {lastScore} | Best: {bestScore}
           </p>
-          <p className="mt-8 text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto text-center">
-            While we're working on the app, you can work on a new high score.
-          </p>
         </>
       )}
     </div>
@@ -485,6 +482,9 @@ const IkigaiTeenApp = () => {
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground font-medium">
                 Under construction
+              </p> 
+              <p className="text-lg md:text-xl text-muted-foreground font-medium">
+                While we're working on the app, you can work on a new high score.
               </p>
             </div>
           </div>

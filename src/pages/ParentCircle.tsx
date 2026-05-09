@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
@@ -53,7 +53,8 @@ const parentCircleDetails = [
       "understanding behaviour",
       "managing reactions",
       "building consistency",
-      "setting effective boundaries"
+      "setting effective boundaries",
+      { text: "Ikigai Teen Compass Resources", href: "/resources/videos" },
     ]
   },
   {
@@ -79,7 +80,7 @@ const parentCircleDetails = [
   {
     id: "alignment-with-ikigai",
     title: "Alignment with Ikigai Teen",
-    opening: "Parents stay informed and aligned with what their teen is learning, ensuring consistency across environments."
+    opening: "Parents stay informed and aligned on weekly bases with what their teen is learning, ensuring consistency across environments."
   },
   {
     id: "what-creates-parents",
@@ -162,12 +163,25 @@ const ParentCircle = () => {
                   <p className="text-sm leading-relaxed text-muted-foreground mb-4">{detailsById[card.id]?.opening}</p>
                 )}
                 <ul className="space-y-2 mb-4 text-sm text-muted-foreground">
-                  {(detailsById[card.id]?.bullets ?? []).map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
+                  {(detailsById[card.id]?.bullets ?? []).map((bullet) => {
+                    const isLink = typeof bullet === "object" && "href" in bullet;
+                    return (
+                      <li key={isLink ? bullet.text : bullet} className="flex items-start gap-2">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                        {isLink ? (
+                          <Link
+                            to={bullet.href}
+                            className="text-primary hover:text-primary/80 underline decoration-primary/50 hover:decoration-primary transition-colors inline-flex items-center gap-1"
+                          >
+                            {bullet.text}
+                            <ArrowUpRight className="h-3.5 w-3.5 mt-0.5" aria-hidden="true" />
+                          </Link>
+                        ) : (
+                          <span>{bullet}</span>
+                        )}
+                      </li>
+                    );
+                  })}
                 </ul>
                 {detailsById[card.id]?.closing && (
                   <p className="text-sm leading-relaxed text-muted-foreground mt-auto pt-2">{detailsById[card.id]?.closing}</p>

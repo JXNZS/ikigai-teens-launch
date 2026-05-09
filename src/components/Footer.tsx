@@ -144,6 +144,14 @@ const Footer = () => {
       return "/resources/videos";
     }
 
+    if (groupLabel === "Resources" && childLabel === "Recent Events") {
+      return "/resources/recent-events";
+    }
+
+    if (groupLabel === "Resources" && childLabel === "Upcoming Events") {
+      return "/resources/upcoming-events";
+    }
+
     if (groupLabel === "Get Involved" && childLabel === "Be Our Experts") {
       return "/get-involved/be-our-experts";
     }

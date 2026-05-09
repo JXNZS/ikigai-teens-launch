@@ -222,6 +222,14 @@ const Navbar = () => {
       return "/resources/videos";
     }
 
+    if (parentLabel === "Resources" && childLabel === "Recent Events") {
+      return "/resources/recent-events";
+    }
+
+    if (parentLabel === "Resources" && childLabel === "Upcoming Events") {
+      return "/resources/upcoming-events";
+    }
+
     if (parentLabel === "Get Involved" && childLabel === "Be Our Experts") {
       return "/get-involved/be-our-experts";
     }

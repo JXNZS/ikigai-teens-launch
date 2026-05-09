@@ -19,6 +19,8 @@ import ParentHub from "./pages/ParentHub.tsx";
 import ResourceArticle from "./pages/ResourceArticle.tsx";
 import ResourceBlogs from "./pages/ResourceBlogs.tsx";
 import ResourceVideos from "./pages/ResourceVideos.tsx";
+import RecentEvents from "./pages/RecentEvents.tsx";
+import UpcomingEvents from "./pages/UpcomingEvents.tsx";
 import GetInvolved from "./pages/GetInvolved.tsx";
 import BeOurExperts from "./pages/BeOurExperts.tsx";
 import BeOurCollaborators from "./pages/BeOurCollaborators.tsx";
@@ -94,6 +96,8 @@ const App = () => (
           <Route path="/resources" element={<Navigate to="/resources/blogs" replace />} />
           <Route path="/resources/blogs" element={<ResourceBlogs />} />
           <Route path="/resources/videos" element={<ResourceVideos />} />
+          <Route path="/resources/recent-events" element={<RecentEvents />} />
+          <Route path="/resources/upcoming-events" element={<UpcomingEvents />} />
           <Route path="/resources/blog/:slug" element={<ResourceArticle />} />
           <Route path="/get-involved" element={<GetInvolved />} />
           <Route path="/get-involved/be-our-experts" element={<BeOurExperts />} />
