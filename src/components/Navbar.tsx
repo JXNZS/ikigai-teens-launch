@@ -43,6 +43,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [useLightNavbarSurface, setUseLightNavbarSurface] = useState(true);
   const [dropdownAnchorX, setDropdownAnchorX] = useState<number | null>(null);
+  const [selectedLanguage, setSelectedLanguage] = useState<'english' | 'kannada'>('english');
   const desktopNavRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
@@ -122,43 +123,19 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
+  // Keep the navbar surface consistent with the hero section.
+  // Previously the navbar updated on scroll to sample page sections; disable that
+  // behavior and force the light/hero surface so the navbar color doesn't change.
   useEffect(() => {
-    const isInsideDarkSection = (node: Element | null) => {
-      let current = node as HTMLElement | null;
-      while (current) {
-        if (DARK_SECTION_CLASSES.some((className) => current.classList?.contains(className))) {
-          return true;
-        }
-        current = current.parentElement;
-      }
-      return false;
-    };
-
-    const updateNavbarSurface = () => {
-      if (window.scrollY < 8) {
-        setUseLightNavbarSurface(true);
-        return;
-      }
-
-      const sampleY = Math.min(window.innerHeight - 1, 96);
-      const sampleElement = document.elementFromPoint(window.innerWidth / 2, sampleY);
-      setUseLightNavbarSurface(isInsideDarkSection(sampleElement));
-    };
-
-    updateNavbarSurface();
-    window.addEventListener("scroll", updateNavbarSurface, { passive: true });
-    window.addEventListener("resize", updateNavbarSurface);
-    return () => {
-      window.removeEventListener("scroll", updateNavbarSurface);
-      window.removeEventListener("resize", updateNavbarSurface);
-    };
-  }, [location.pathname]);
+    setUseLightNavbarSurface(true);
+  }, []);
 
   const [contactActive, setContactActive] = useState(false);
   const [showLanguageSoon, setShowLanguageSoon] = useState(false);
   const activeDesktopItem = navItems.find((item) => item.label === openDropdown) ?? null;
 
   const handleLanguageClick = () => {
+    // Don't change the selected language yet — only show the "Coming soon" popup
     setShowLanguageSoon(true);
     window.setTimeout(() => {
       setShowLanguageSoon(false);
@@ -294,11 +271,11 @@ const Navbar = () => {
   };
 
   const navbarThemeClass = useLightNavbarSurface
-    ? "bg-[hsl(195_25%_96%_/_0.92)] border-[hsl(152_20%_86%_/_0.7)]"
+    ? "bg-[hsl(42_38%_88%_/_0.92)] border-[rgba(44,66,63,0.7)]"
     : "footer-theme-legacy bg-card border-border/50";
 
   const logoClass = useLightNavbarSurface
-    ? "h-full w-full object-cover object-top scale-[1.22] origin-top [filter:brightness(0)_saturate(100%)_invert(21%)_sepia(35%)_saturate(636%)_hue-rotate(122deg)_brightness(95%)_contrast(93%)] drop-shadow-[0_0_8px_rgba(22,62,52,0.25)]"
+    ? "h-full w-full object-cover object-top scale-[1.22] origin-top [filter:brightness(0)_saturate(100%)_invert(21%)_sepia(35%)_saturate(636%)_hue-rotate(122deg)_brightness(95%)_contrast(93%)] drop-shadow-[0_0_8px_rgba(44,66,63,0.25)]"
     : "h-full w-full object-cover object-top scale-[1.22] origin-top drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]";
 
   return (
@@ -306,11 +283,23 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between h-16 md:h-20">
         <Link to="/" className="flex items-center gap-2 md:gap-3">
           <div className="h-12 w-12 md:h-[6.75rem] md:w-[6.75rem] shrink-0 overflow-hidden rounded-lg">
-            <img
-              src={logo}
-              alt="Ikigai Teen"
-              className={logoClass}
+            <div
+              aria-hidden
+              className="h-full w-full"
+              style={{
+                backgroundColor: "#2C423F",
+                WebkitMaskImage: `url(${logo})`,
+                maskImage: `url(${logo})`,
+                WebkitMaskSize: "cover",
+                maskSize: "cover",
+                WebkitMaskRepeat: "no-repeat",
+                maskRepeat: "no-repeat",
+                WebkitMaskPosition: "center",
+                maskPosition: "center",
+                filter: "drop-shadow(0 0 8px rgba(44,66,63,0.25))",
+              }}
             />
+            <img src={logo} alt="Ikigai Teen" className="sr-only" />
           </div>
         </Link>
 
@@ -350,15 +339,24 @@ const Navbar = () => {
               type="button"
               onClick={handleLanguageClick}
               aria-label="Switch language"
-              className="relative inline-flex h-9 w-[132px] items-center overflow-hidden rounded-full border border-[hsl(195_25%_15%_/_0.35)] bg-[hsl(195_25%_96%_/_0.9)] text-[13px] font-semibold transition-colors"
+              className="relative inline-flex h-9 w-[132px] items-center overflow-hidden rounded-full border border-[rgba(44,66,63,0.35)] text-[13px] font-semibold transition-colors"
+              style={{ backgroundColor: "#ECE5D5" }}
             >
               <span
-                className="absolute inset-y-0 left-0 w-1/2 bg-[hsl(195_25%_15%)]"
+                className="absolute inset-y-0 left-0 w-1/2 z-0 transition-colors"
+                style={{ backgroundColor: '#2C423F' }}
               />
-              <span className="relative z-10 w-1/2 text-center text-[hsl(195_25%_96%)]">
+              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-6 w-px z-10" style={{ backgroundColor: '#2C423F' }} />
+              <span 
+                className="relative z-20 w-1/2 text-center font-semibold transition-colors"
+                style={{ color: '#ffffff' }}
+              >
                 English
               </span>
-              <span className="relative z-10 w-1/2 text-center text-[hsl(195_25%_15%)]">
+              <span 
+                className="relative z-20 w-1/2 text-center font-semibold transition-colors"
+                style={{ color: '#2C423F' }}
+              >
                 ಕನ್ನಡ
               </span>
             </button>
@@ -378,9 +376,10 @@ const Navbar = () => {
           >
             <Link
               to="/#contact"
-              className={`inline-flex px-5 py-2 bg-primary text-primary-foreground rounded-full text-sm font-semibold font-body transition-all duration-300 ${
-                contactActive ? "ring-2 ring-primary/50" : ""
+              className={`inline-flex px-5 py-2 rounded-full text-sm font-semibold font-body transition-all duration-300 ${
+                contactActive ? "ring-2 ring-[rgba(44,66,63,0.5)]" : ""
               }`}
+              style={{ backgroundColor: "#2C423F", color: "#ffffff" }}
             >
               <LetterSwapPingPong label="Contact Us" className="justify-center" />
             </Link>
@@ -436,15 +435,24 @@ const Navbar = () => {
                     type="button"
                     onClick={handleLanguageClick}
                     aria-label="Switch language"
-                    className="relative inline-flex h-9 w-[132px] items-center overflow-hidden rounded-full border border-[hsl(195_25%_15%_/_0.35)] bg-[hsl(195_25%_96%_/_0.9)] text-[13px] font-semibold transition-colors"
+                    className="relative inline-flex h-9 w-[132px] items-center overflow-hidden rounded-full border border-[rgba(44,66,63,0.35)] text-[13px] font-semibold transition-colors"
+                    style={{ backgroundColor: "#ECE5D5" }}
                   >
                     <span
-                      className="absolute inset-y-0 left-0 w-1/2 bg-[hsl(195_25%_15%)]"
+                      className="absolute inset-y-0 left-0 w-1/2 z-0 transition-colors"
+                      style={{ backgroundColor: '#2C423F' }}
                     />
-                    <span className="relative z-10 w-1/2 text-center text-[hsl(195_25%_96%)]">
+                    <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-6 w-px z-10" style={{ backgroundColor: '#2C423F' }} />
+                    <span 
+                      className="relative z-20 w-1/2 text-center font-semibold transition-colors"
+                      style={{ color: '#ffffff' }}
+                    >
                       English
                     </span>
-                    <span className="relative z-10 w-1/2 text-center text-[hsl(195_25%_15%)]">
+                    <span 
+                      className="relative z-20 w-1/2 text-center font-semibold transition-colors"
+                      style={{ color: '#2C423F' }}
+                    >
                       ಕನ್ನಡ
                     </span>
                   </button>
@@ -455,7 +463,7 @@ const Navbar = () => {
                   </div>
                 </div>
 
-                <Link to="/#contact" className="block text-center px-4 py-2 bg-primary text-primary-foreground rounded-full text-xs md:text-sm font-semibold font-body" onClick={() => setMobileOpen(false)}>
+                <Link to="/#contact" className="block text-center px-4 py-2 rounded-full text-xs md:text-sm font-semibold font-body" style={{ backgroundColor: "#2C423F", color: "#ffffff" }} onClick={() => setMobileOpen(false)}>
                   <LetterSwapPingPong label="Contact Us" className="justify-center" />
                 </Link>
               </div>

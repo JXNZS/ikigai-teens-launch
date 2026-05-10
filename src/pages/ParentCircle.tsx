@@ -198,7 +198,7 @@ const ParentCircle = () => {
                   <ClipPathInfoCard
                     title={card.title}
                     body={card.description}
-                    className="h-full rounded-xl bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6"
+                    className="h-full rounded-xl bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6"
                   >
                     <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary/90">Open details</p>
                   </ClipPathInfoCard>
@@ -232,7 +232,7 @@ const ParentCircle = () => {
         {/* Box 1: Intro + 6 Cards */}
         <section className="py-12 bg-background">
           <div className="container mx-auto px-6 max-w-5xl">
-            <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
+            <article className="rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
               <section className="space-y-4 text-center">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary">
                   <LetterSwapForward label="Parenting a teenager today can feel overwhelming." className="justify-center" />
@@ -250,7 +250,7 @@ const ParentCircle = () => {
         {/* Box 2: What This Creates for Teens + 4 Cards */}
         <section className="py-6 bg-background">
           <div className="container mx-auto px-6 max-w-5xl">
-            <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
+            <article className="rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
               <section className="space-y-6 text-center">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary text-center">
                   <LetterSwapForward label="What This Creates for Teens" className="justify-center" />
@@ -277,7 +277,7 @@ const ParentCircle = () => {
         {/* Box 3: Next Step + Final Thoughts + Buttons */}
         <section className="py-12 pb-20 bg-background">
           <div className="container mx-auto px-6 max-w-4xl">
-            <article className="rounded-xl border border-primary/20 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8 text-center">
+            <article className="rounded-xl border border-primary/20 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8 text-center">
               <section className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary flex justify-center">
                   <LetterSwapForward label="Next Step" className="justify-center" />

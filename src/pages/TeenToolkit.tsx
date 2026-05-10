@@ -7,14 +7,250 @@ import Footer from "@/components/Footer";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { ClipPathInfoCard } from "@/components/ui/clip-path-links";
 
-const toolkitNeedsNow = [
-  "I feel distracted",
-  "I'm overthinking",
-  "I feel low / confused",
-  "I can't stay consistent",
-  "I want to feel more confident",
-  "I want to fix my routine",
-  "I feel stuck",
+const toolkitNeeds1315 = [
+  {
+    label: "I feel distracted",
+    solution:
+      "Your mind keeps jumping between school, friends, games, videos, and notifications, making it hard to focus on one thing for long.",
+    tips: [
+      "Study or work in short sessions (20–30 minutes)",
+      "Keep your phone away while doing homework",
+      "Turn off unnecessary notifications",
+      "Do one task at a time instead of multitasking",
+      "Take small breaks after focused work",
+      "Sleep properly - tired brains get distracted faster",
+    ],
+    reminder: "Focus is a skill. The more you practice it, the easier it becomes.",
+  },
+  {
+    label: "I'm overthinking",
+    solution:
+      "You replay small moments repeatedly and worry people noticed mistakes that probably mattered less than you think.",
+    tips: [
+      "Ask yourself: 'Will this matter next week?'",
+      "Write your thoughts down instead of keeping them in your head",
+      "Talk to someone you trust",
+      "Keep yourself busy with real activities, not endless thinking",
+      "Stop trying to make everything perfect",
+    ],
+    reminder: "Your thoughts are not always facts.",
+  },
+  {
+    label: "I feel low / confused",
+    solution:
+      "Some days you feel emotionally off, unmotivated, or unsure about yourself without fully understanding why.",
+    tips: [
+      "Get enough sleep consistently",
+      "Spend time outside or move your body daily",
+      "Listen to music, draw, play sports, or do hobbies",
+      "Talk to supportive people instead of isolating yourself",
+      "Be patient with yourself when you feel 'off'",
+    ],
+    reminder: "Not every bad day means something is wrong with you.",
+  },
+  {
+    label: "I can't stay consistent",
+    solution:
+      "You feel motivated at first but quickly lose energy, making routines, habits, or goals difficult to maintain.",
+    tips: [
+      "Start tiny:",
+      "10 minutes of studying",
+      "5 pushups",
+      "Reading 2 pages",
+      "Track small wins daily",
+      "Focus on showing up, not being perfect",
+      "If you miss a day, restart quickly instead of quitting",
+    ],
+    reminder: "Consistency beats intensity.",
+  },
+  {
+    label: "I want to feel more confident",
+    solution:
+      "You sometimes stay quiet, doubt yourself, or avoid things because you’re scared of embarrassment, rejection, or not being enough.",
+    tips: [
+      "Speak up even if your voice shakes",
+      "Try things without needing to be perfect",
+      "Stop apologizing for every little thing",
+      "Spend less time comparing yourself online",
+      "Celebrate small improvements",
+    ],
+    reminder: "Confidence is built, not born.",
+  },
+  {
+    label: "I want to fix my routine",
+    solution:
+      "Your sleep, homework, screen time, or daily habits feel messy and difficult to manage properly.",
+    tips: [
+      "Sleep and wake up around the same time",
+      "Reduce screen time before bed",
+      "Make a basic daily plan:",
+      "School",
+      "Homework",
+      "Break",
+      "Fun time",
+      "Prepare for the next day the night before",
+    ],
+    reminder: "Simple routines are easier to maintain.",
+  },
+  {
+    label: "I feel stuck",
+    solution:
+      "You want things to improve but don’t know where to start or how to change what you’re feeling.",
+    tips: [
+      "Pick ONE thing to improve this week",
+      "Break goals into smaller steps",
+      "Stop waiting for motivation to magically appear",
+      "Spend less time thinking and more time doing",
+    ],
+    reminder: "Small progress is still progress.",
+  },
+  {
+    label: "I feel pressured",
+    solution:
+      "School, expectations, friendships, and trying to fit in can sometimes feel emotionally exhausting and overwhelming.",
+    tips: [
+      "Stop putting pressure on yourself to be perfect",
+      "Take breaks without guilt",
+      "Talk about stress instead of hiding it",
+      "Spend time with people who make you feel safe",
+      "Remember that everyone struggles sometimes",
+    ],
+    reminder: "You are allowed to rest.",
+  },
+  {
+    label: "I keep comparing myself",
+    solution:
+      "Seeing other people online, at school, or around you makes it feel like everyone else is happier, cooler, or doing better.",
+    tips: [
+      "Spend less time scrolling social media",
+      "Focus on improving yourself, not beating others",
+      "Remember people mostly post their best moments",
+      "Practice gratitude for what you already have",
+    ],
+    reminder: "Your journey does not need to look like someone else’s.",
+  },
+];
+
+const toolkitNeeds1618 = [
+  {
+    label: "I feel distracted",
+    solution:
+      "Constant stimulation, stress, social media, and pressure make it difficult to stay mentally focused or emotionally present for long.",
+    tips: [
+      "Study in focused time blocks",
+      "Keep your phone physically away while working",
+      "Avoid switching between apps constantly",
+      "Create a clean workspace",
+      "Prioritize sleep and hydration",
+      "Practice being present without consuming content 24/7",
+    ],
+    reminder: "Your attention is shaped by what you repeatedly give energy to.",
+  },
+  {
+    label: "I'm overthinking",
+    solution:
+      "You analyze conversations, decisions, and mistakes repeatedly until your thoughts become mentally draining and emotionally exhausting.",
+    tips: [
+      "Separate 'thinking' from 'solving'",
+      "Ask: 'Can I control this?'",
+      "Ask: 'Is this useful right now?'",
+      "Journal your thoughts instead of looping them mentally",
+      "Make decisions with the information you have",
+      "Accept that mistakes are part of growth",
+    ],
+    reminder: "Clarity often comes from action, not endless analysis.",
+  },
+  {
+    label: "I feel low / confused",
+    solution:
+      "You feel emotionally disconnected, uncertain about yourself, or mentally overwhelmed while trying to understand where your life is heading.",
+    tips: [
+      "Focus on stability before perfection",
+      "Improve sleep, movement, and eating habits",
+      "Build supportive friendships",
+      "Spend less time comparing yourself online",
+      "Explore interests instead of forcing yourself to 'figure everything out'",
+    ],
+    reminder: "It is okay to still be figuring yourself out.",
+  },
+  {
+    label: "I can't stay consistent",
+    solution:
+      "You struggle maintaining habits, discipline, or motivation even when you genuinely want to improve yourself and your future.",
+    tips: [
+      "Build habits around your daily schedule",
+      "Lower unrealistic expectations",
+      "Focus on progress, not perfection",
+      "Track habits weekly",
+      "Learn to restart quickly after setbacks",
+    ],
+    reminder: "Discipline is built through repetition, not mood.",
+  },
+  {
+    label: "I want to feel more confident",
+    solution:
+      "You often second-guess your choices, feelings, or abilities. Confidence can feel temporary, especially when it depends on how others respond to you.",
+    tips: [
+      "Keep promises you make to yourself",
+      "Speak honestly instead of people-pleasing",
+      "Do difficult things even when uncomfortable",
+      "Stop needing everyone’s approval",
+      "Learn from failure instead of using it against yourself",
+    ],
+    reminder: "Self-trust creates lasting confidence.",
+  },
+  {
+    label: "I want to fix my routine",
+    solution:
+      "Your sleep, productivity, energy, and daily habits feel chaotic, unbalanced, and harder to control consistently.",
+    tips: [
+      "Fix your sleep schedule first",
+      "Reduce late-night scrolling",
+      "Plan your most important tasks earlier in the day",
+      "Add movement/exercise consistently",
+      "Avoid trying to 'completely change your life' overnight",
+    ],
+    reminder: "Balanced routines work better than extreme ones.",
+  },
+  {
+    label: "I feel stuck",
+    solution:
+      "You know something in your life needs to change, but mentally you feel frozen or unsure where to begin.",
+    tips: [
+      "Stop waiting for the perfect plan",
+      "Take one small action daily",
+      "Spend less time consuming and more time creating",
+      "Change your environment occasionally",
+      "Ask for support when needed",
+    ],
+    reminder: "Movement creates momentum.",
+  },
+  {
+    label: "I feel pressured",
+    solution:
+      "Expectations about success, school, future plans, relationships, and responsibilities can feel emotionally heavy all at once.",
+    tips: [
+      "Stop comparing your timeline to others",
+      "Focus on what you can control today",
+      "Rest without feeling guilty",
+      "Learn to say no when overwhelmed",
+      "Remember that success is not one straight path",
+    ],
+    reminder: "You do not need to have your whole life figured out right now.",
+  },
+  {
+    label: "I keep comparing myself",
+    solution:
+      "You frequently compare your looks, accomplishments, friendships, or life progress to other people and end up feeling like you’re falling behind.",
+    tips: [
+      "Reduce social media that triggers insecurity",
+      "Focus on your own growth and goals",
+      "Remember everyone hides struggles differently",
+      "Celebrate your own progress more often",
+      "Build a life you genuinely enjoy instead of trying to impress people",
+    ],
+    reminder: "Someone else doing well does not mean you are failing.",
+  },
 ];
 
 const quickResetTools = [
@@ -239,8 +475,10 @@ const TeenToolkit = () => {
   ];
 
   const getDirectionFromAge = (ageId: string) => (ageId === "13-15" ? -1 : 1);
-   const arrangedToolkitNeeds1315 = toolkitNeedsNow;
-  const arrangedToolkitNeeds1618 = toolkitNeedsNow;
+  const selectedNeed1315Details = toolkitNeeds1315.find((need) => need.label === selectedNeed1315) ?? null;
+  const selectedNeed1618Details = toolkitNeeds1618.find((need) => need.label === selectedNeed1618) ?? null;
+  const arrangedToolkitNeeds1315 = toolkitNeeds1315;
+  const arrangedToolkitNeeds1618 = toolkitNeeds1618;
 
   const selectAge = (ageId: string) => {
     setTransitionDirection(getDirectionFromAge(ageId));
@@ -352,7 +590,7 @@ const TeenToolkit = () => {
                         onMouseMove={handleCardMouseMove}
                         onMouseLeave={handleCardMouseLeave}
                         onClick={() => selectAge(category.id)}
-                        className="relative p-6 md:p-8 rounded-lg md:rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden border-border hover:border-primary/80 bg-[hsl(195_25%_96%_/_0.7)] hover:bg-[hsl(195_25%_96%_/_0.82)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_28px_hsl(var(--primary)/0.5)]"
+                        className="relative p-6 md:p-8 rounded-lg md:rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden border-border hover:border-border/60 bg-[hsl(42_38%_88%_/_0.7)] hover:bg-[hsl(42_38%_88%_/_0.82)] hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_28px_rgba(44,66,63,0.5)]"
                         style={{
                           transformStyle: "preserve-3d",
                           transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
@@ -362,7 +600,7 @@ const TeenToolkit = () => {
                           className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                           style={{
                             background:
-                              "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(52, 211, 153, 0.24), rgba(16, 185, 129, 0.1) 35%, rgba(0, 0, 0, 0) 70%)",
+                              "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(44,66,63,0.24), rgba(44,66,63,0.1) 35%, rgba(0, 0, 0, 0) 70%)",
                           }}
                         />
 
@@ -410,7 +648,7 @@ const TeenToolkit = () => {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
                   transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.7)] p-5 sm:p-8"
+                  className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.7)] p-5 sm:p-8"
                 >
                   <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Teen Toolkit (Age 13-15)</p>
                   <h2 className="w-full leading-tight text-3xl md:text-4xl font-display font-bold text-primary/85 mb-4">
@@ -421,26 +659,42 @@ const TeenToolkit = () => {
                   </p>
                   <p className="mt-5 text-foreground font-medium mb-3">Choose what you need right now:</p>
                   <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                     {arrangedToolkitNeeds1315.map((need) => (
+                    {arrangedToolkitNeeds1315.map((need) => (
                       <button
-                        key={need}
+                        key={need.label}
                         type="button"
-                        onClick={() => setSelectedNeed1315(need)}
+                        onClick={() => setSelectedNeed1315(need.label)}
                         className={`text-left rounded-xl border p-5 transition-[transform,border-color,box-shadow,background-color,color] duration-300 ${
-                          selectedNeed1315 === need
-                            ? "border-primary/80 bg-[hsl(195_25%_96%_/_0.95)] text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
-                            : "border-border/60 bg-card text-muted-foreground hover:border-primary/60 hover:bg-[hsl(195_25%_96%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
+                          selectedNeed1315 === need.label
+                            ? "border-primary/80 bg-[hsl(42_38%_88%_/_0.95)] text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                            : "border-border/60 bg-card text-muted-foreground hover:border-primary/60 hover:bg-[hsl(42_38%_88%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
                         }`}
                       >
-                        {need}
+                        {need.label}
                       </button>
                     ))}
                   </div>
+                  {selectedNeed1315Details && (
+                    <motion.div
+                      key={selectedNeed1315Details.label}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="mt-5 rounded-xl border border-primary/20 bg-white/70 p-4 text-sm text-foreground/80 leading-relaxed"
+                    >
+                      {selectedNeed1315Details.solution}
+                    </motion.div>
+                  )}
                   <div className="mt-6 flex justify-end">
                     <button
                       type="button"
                       onClick={() => setHasContinued1315(true)}
-                      className={`px-4 py-2 rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground hover:brightness-105`}
+                      disabled={!selectedNeed1315}
+                      className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                        selectedNeed1315
+                          ? "bg-primary text-primary-foreground hover:brightness-105"
+                          : "bg-primary/40 text-primary-foreground/70 cursor-not-allowed"
+                      }`}
                     >
                       Continue
                     </button>
@@ -458,7 +712,34 @@ const TeenToolkit = () => {
                     transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                     className="space-y-16"
                   >
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                {selectedNeed1315Details && (
+                  <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.88)] p-5 sm:p-8 space-y-5">
+                    <div>
+                      <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Your selected challenge</p>
+                      <h3 className="text-2xl md:text-3xl font-display font-bold text-primary/85">{selectedNeed1315Details.label}</h3>
+                    </div>
+                    <div className="rounded-xl border border-border/60 bg-white/75 p-4 sm:p-5 space-y-4">
+                      <div>
+                        <p className="text-sm font-semibold text-foreground mb-2">Solution</p>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{selectedNeed1315Details.solution}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-foreground mb-2">Tips to work on it</p>
+                        <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
+                          {selectedNeed1315Details.tips?.map((tip) => (
+                            <li key={tip}>{tip}</li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-foreground mb-2">Reminder</p>
+                        <p className="text-sm text-muted-foreground leading-relaxed">{selectedNeed1315Details.reminder}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                   <h3 className="mb-5">
                     <LetterSwapForward label="Quick Resets (Try Now)" className="text-2xl font-display font-semibold text-primary/85" />
                   </h3>
@@ -475,7 +756,7 @@ const TeenToolkit = () => {
                   </div>
                 </div>
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                   <h3 className="mb-5">
                     <LetterSwapForward label="Build Better Habits" className="text-2xl font-display font-semibold text-primary/85" />
                   </h3>
@@ -492,7 +773,7 @@ const TeenToolkit = () => {
                   </div>
                 </div>
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                   <h3 className="mb-5">
                     <LetterSwapForward label="Mind + Emotion Tools" className="text-2xl font-display font-semibold text-primary/85" />
                   </h3>
@@ -509,7 +790,7 @@ const TeenToolkit = () => {
                   </div>
                 </div>
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                   <h3 className="mb-5">
                     <LetterSwapForward label="Body + Energy Basics" className="text-2xl font-display font-semibold text-primary/85" />
                   </h3>
@@ -526,7 +807,7 @@ const TeenToolkit = () => {
                   </div>
                 </div>
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                   <h3 className="mb-5">
                     <LetterSwapForward label="Get Support" className="text-2xl font-display font-semibold text-primary/85" />
                   </h3>
@@ -541,7 +822,7 @@ const TeenToolkit = () => {
                   </ClipPathInfoCard>
                 </div>
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                   <h3 className="mb-3">
                     <LetterSwapForward
                       label="Quick tools help. But stronger change needs training."
@@ -554,19 +835,15 @@ const TeenToolkit = () => {
                   <p className="text-sm font-semibold text-foreground mb-3">What this is:</p>
                   <p className="text-sm text-muted-foreground mb-3">A 90-day guided challenge to help you:</p>
                   <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">focus better</li>
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build discipline</li>
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">feel more confident</li>
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">manage emotions</li>
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">become more responsible</li>
+                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">focus better</li>
+                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build discipline</li>
+                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">feel more confident</li>
+                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">manage emotions</li>
+                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">become more responsible</li>
                   </ul>
-                  <div className="mt-6 flex flex-wrap gap-3">
-                    <button type="button" className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium">Explore the 90-Day Challenge</button>
-                    <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Share This With My Parent</button>
-                  </div>
                 </div>
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                   <h3 className="mb-4">
                     <LetterSwapForward label="How to Ask Your Parent" className="text-2xl font-display font-semibold text-primary/85" />
                   </h3>
@@ -575,7 +852,7 @@ const TeenToolkit = () => {
                     {supportParentScripts1315.map((line) => (
                       <li
                         key={line}
-                        className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-[hsl(195_25%_96%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                        className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-[hsl(42_38%_88%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
                       >
                         "{line}"
                       </li>
@@ -618,7 +895,7 @@ const TeenToolkit = () => {
                       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                       exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                      className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.7)] p-6 md:p-8"
+                      className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.7)] p-6 md:p-8"
                     >
                       <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2 md:mb-3">Teen Toolkit (Age 16-18)</p>
                       <h2 className="w-full leading-tight text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary/85 mb-3 md:mb-4">
@@ -629,26 +906,42 @@ const TeenToolkit = () => {
                       </p>
                       <p className="mt-4 md:mt-5 text-foreground font-medium mb-2 md:mb-3 text-sm md:text-base">Choose what you need right now:</p>
                       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
-                         {arrangedToolkitNeeds1618.map((need) => (
+                        {arrangedToolkitNeeds1618.map((need) => (
                           <button
-                            key={need}
+                            key={need.label}
                             type="button"
-                            onClick={() => setSelectedNeed1618(need)}
+                            onClick={() => setSelectedNeed1618(need.label)}
                             className={`text-left rounded-lg md:rounded-xl border p-3 md:p-5 transition-[transform,border-color,box-shadow,background-color,color] duration-300 text-xs md:text-sm ${
-                              selectedNeed1618 === need
-                                ? "border-primary/80 bg-[hsl(195_25%_96%_/_0.95)] text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
-                                : "border-border/60 bg-card text-muted-foreground hover:border-primary/60 hover:bg-[hsl(195_25%_96%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
+                              selectedNeed1618 === need.label
+                                ? "border-primary/80 bg-[hsl(42_38%_88%_/_0.95)] text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                                : "border-border/60 bg-card text-muted-foreground hover:border-primary/60 hover:bg-[hsl(42_38%_88%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
                             }`}
                           >
-                            {need}
+                            {need.label}
                           </button>
                         ))}
                       </div>
+                      {selectedNeed1618Details && (
+                        <motion.div
+                          key={selectedNeed1618Details.label}
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.25, ease: "easeOut" }}
+                          className="mt-5 rounded-xl border border-primary/20 bg-white/70 p-4 text-sm text-foreground/80 leading-relaxed"
+                        >
+                          {selectedNeed1618Details.solution}
+                        </motion.div>
+                      )}
                       <div className="mt-4 md:mt-6 flex justify-end">
                         <button
                           type="button"
                           onClick={() => setHasContinued1618(true)}
-                          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors bg-primary text-primary-foreground hover:brightness-105`}
+                          disabled={!selectedNeed1618}
+                          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+                            selectedNeed1618
+                              ? "bg-primary text-primary-foreground hover:brightness-105"
+                              : "bg-primary/40 text-primary-foreground/70 cursor-not-allowed"
+                          }`}
                         >
                           Continue
                         </button>
@@ -666,7 +959,34 @@ const TeenToolkit = () => {
                       transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                       className="space-y-16"
                     >
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                      {selectedNeed1618Details && (
+                        <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.88)] p-5 sm:p-8 space-y-4">
+                          <div>
+                            <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Your selected challenge</p>
+                            <h3 className="text-2xl md:text-3xl font-display font-bold text-primary/85">{selectedNeed1618Details.label}</h3>
+                          </div>
+                          <div className="rounded-xl border border-border/60 bg-white/75 p-4 sm:p-5">
+                            <p className="text-sm font-semibold text-foreground mb-2">Solution</p>
+                            <p className="text-sm text-muted-foreground leading-relaxed">{selectedNeed1618Details.solution}</p>
+                          </div>
+                          <div className="rounded-xl border border-border/60 bg-white/75 p-4 sm:p-5 space-y-4">
+                            <div>
+                              <p className="text-sm font-semibold text-foreground mb-2">Tips to work on it</p>
+                              <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
+                                {selectedNeed1618Details.tips?.map((tip) => (
+                                  <li key={tip}>{tip}</li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div>
+                              <p className="text-sm font-semibold text-foreground mb-2">Reminder</p>
+                              <p className="text-sm text-muted-foreground leading-relaxed">{selectedNeed1618Details.reminder}</p>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                         <h3 className="mb-5">
                           <LetterSwapForward label="Quick Resets (Try Now)" className="text-2xl font-display font-semibold text-primary/85" />
                         </h3>
@@ -683,7 +1003,7 @@ const TeenToolkit = () => {
                         </div>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                         <h3 className="mb-5">
                           <LetterSwapForward label="Build Discipline + Consistency" className="text-2xl font-display font-semibold text-primary/85" />
                         </h3>
@@ -700,7 +1020,7 @@ const TeenToolkit = () => {
                         </div>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                         <h3 className="mb-5">
                           <LetterSwapForward label="Mind + Emotion Tools" className="text-2xl font-display font-semibold text-primary/85" />
                         </h3>
@@ -717,7 +1037,7 @@ const TeenToolkit = () => {
                         </div>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                         <h3 className="mb-5">
                           <LetterSwapForward label="Body + Energy + Control" className="text-2xl font-display font-semibold text-primary/85" />
                         </h3>
@@ -734,7 +1054,7 @@ const TeenToolkit = () => {
                         </div>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                         <h3 className="mb-5">
                           <LetterSwapForward label="Real-Life Support" className="text-2xl font-display font-semibold text-primary/85" />
                         </h3>
@@ -749,7 +1069,7 @@ const TeenToolkit = () => {
                         </ClipPathInfoCard>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                         <h3 className="mb-3">
                           <LetterSwapForward
                             label="You don't need more content. You need a system."
@@ -762,19 +1082,15 @@ const TeenToolkit = () => {
                         <p className="text-sm font-semibold text-foreground mb-3">What this is:</p>
                         <p className="text-sm text-muted-foreground mb-3">A 90-day guided challenge to help you:</p>
                         <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build consistency</li>
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve focus</li>
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">manage distractions</li>
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">strengthen emotional control</li>
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">move toward purpose</li>
+                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build consistency</li>
+                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve focus</li>
+                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">manage distractions</li>
+                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">strengthen emotional control</li>
+                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">move toward purpose</li>
                         </ul>
-                        <div className="mt-6 flex flex-wrap gap-3">
-                          <button type="button" className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium">Explore the 90-Day Challenge</button>
-                          <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Share This With My Parent</button>
-                        </div>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                         <h3 className="mb-4">
                           <LetterSwapForward label="How to Talk at Home" className="text-2xl font-display font-semibold text-primary/85" />
                         </h3>
@@ -782,7 +1098,7 @@ const TeenToolkit = () => {
                           {supportParentScripts1618.map((line) => (
                             <li
                               key={line}
-                              className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-[hsl(195_25%_96%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                              className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-[hsl(42_38%_88%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
                             >
                               "{line}"
                             </li>
@@ -790,20 +1106,6 @@ const TeenToolkit = () => {
                         </ul>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
-                        <h3 className="mb-3">
-                          <LetterSwapForward
-                            label="You don't have to stay stuck in the same patterns."
-                            className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
-                          />
-                        </h3>
-                        <p className="text-muted-foreground mb-2">Small tools can start change.</p>
-                        <p className="text-muted-foreground mb-5">The right system can transform it.</p>
-                        <div className="flex flex-wrap gap-3">
-                          <button type="button" className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium">Explore the 90-Day Challenge</button>
-                          <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Share This With My Parent</button>
-                        </div>
-                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>

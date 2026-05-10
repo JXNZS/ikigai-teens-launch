@@ -634,10 +634,10 @@ const KnowYourself = () => {
                       onMouseMove={handleCardMouseMove}
                       onMouseLeave={handleCardMouseLeave}
                       onClick={() => selectAge(category.id)}
-                      className={`relative p-5 sm:p-8 rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden hover:border-primary/80 hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_28px_hsl(var(--primary)/0.5)] ${
+                      className={`relative p-5 sm:p-8 rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden hover:border-border/60 hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_28px_rgba(44,66,63,0.5)] ${
                         selectedAge === category.id
-                          ? "border-primary/60 bg-[hsl(195_25%_96%_/_0.8)]"
-                          : "border-border hover:border-primary/40 bg-[hsl(195_25%_96%_/_0.7)] hover:bg-[hsl(195_25%_96%_/_0.82)]"
+                          ? "border-primary/60 bg-[hsl(42_38%_88%_/_0.8)]"
+                          : "border-border hover:border-primary/40 bg-[hsl(42_38%_88%_/_0.7)] hover:bg-[hsl(42_38%_88%_/_0.82)]"
                       }`}
                       style={{
                         transformStyle: "preserve-3d",
@@ -649,7 +649,7 @@ const KnowYourself = () => {
                         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                         style={{
                           background:
-                            "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(52, 211, 153, 0.24), rgba(16, 185, 129, 0.1) 35%, rgba(0, 0, 0, 0) 70%)",
+                            "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(44,66,63,0.24), rgba(44,66,63,0.1) 35%, rgba(0, 0, 0, 0) 70%)",
                         }}
                       />
 
@@ -697,7 +697,7 @@ const KnowYourself = () => {
                 </button>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.7)] p-6 md:p-8">
+              <div className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.7)] p-6 md:p-8">
                 <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2 md:mb-3">Know Yourself (Age 13-15)</p>
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary/85 mb-3 md:mb-4">
                   You are not just going through stuff. You are becoming a person.
@@ -707,7 +707,7 @@ const KnowYourself = () => {
                 </p>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="Quick relatable cards"
@@ -726,7 +726,7 @@ const KnowYourself = () => {
                 <p className="mt-5 text-foreground font-medium">Do you feel like <span className="text-primary">"This is literally me."</span> Take the small test below</p>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-2">
                   <LetterSwapForward
                     label="What's affecting you most right now?"
@@ -742,7 +742,7 @@ const KnowYourself = () => {
                         key={prompt.label}
                         onMouseMove={handleCardMouseMove}
                         onMouseLeave={handleCardMouseLeave}
-                        className="group relative overflow-hidden rounded-lg border border-border/70 p-4 transition-[transform,border-color,box-shadow] duration-300 hover:border-primary/80 hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_22px_hsl(var(--primary)/0.42)]"
+                        className="group relative overflow-hidden rounded-lg border border-border/70 p-4 transition-[transform,border-color,box-shadow] duration-300 hover:border-border/60 hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_22px_rgba(44,66,63,0.42)]"
                         style={{
                           transformStyle: "preserve-3d",
                           transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
@@ -752,7 +752,7 @@ const KnowYourself = () => {
                           className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                           style={{
                             background:
-                              "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(52, 211, 153, 0.2), rgba(16, 185, 129, 0.08) 35%, rgba(0, 0, 0, 0) 70%)",
+                              "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(44,66,63,0.2), rgba(44,66,63,0.08) 35%, rgba(0, 0, 0, 0) 70%)",
                           }}
                         />
                         <div className="relative z-10">
@@ -782,7 +782,7 @@ const KnowYourself = () => {
                   })}
                 </div>
 
-                <div className="mt-8 rounded-xl border border-primary/30 bg-[hsl(195_25%_96%_/_0.85)] p-5">
+                <div className="mt-8 rounded-xl border border-primary/30 bg-[hsl(42_38%_88%_/_0.85)] p-5">
                   {humanResult ? (
                     <>
                       <p className="text-sm text-muted-foreground mb-2">Right now, you may be dealing most with:</p>
@@ -799,7 +799,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="The 8 things quietly building your identity"
@@ -821,7 +821,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="What might be getting in your way"
@@ -847,7 +847,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="No one told you this... but it matters"
@@ -862,14 +862,14 @@ const KnowYourself = () => {
                       <ClipPathInfoCard
                         key={`qt-${idx}`}
                         body={truth}
-                        className="border-primary/30 bg-[hsl(195_25%_96%_/_0.8)]"
+                        className="border-primary/30 bg-[hsl(42_38%_88%_/_0.8)]"
                       />
                     )
                   ))}
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-6">
                   <LetterSwapForward
                     label="Try this today"
@@ -889,7 +889,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-3">
                   <LetterSwapForward
                     label="Quick understanding helps. But stronger growth needs more than one page."
@@ -901,11 +901,11 @@ const KnowYourself = () => {
                 </p>
                 <p className="text-sm font-semibold text-foreground mb-3">What Ikigai Teen offers:</p>
                 <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">understand yourself better</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build stronger habits</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">handle emotions better</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve confidence and discipline</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">become more grounded and responsible</li>
+                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">understand yourself better</li>
+                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build stronger habits</li>
+                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">handle emotions better</li>
+                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve confidence and discipline</li>
+                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">become more grounded and responsible</li>
                 </ul>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <button type="button" className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium">See What This Could Help With</button>
@@ -913,7 +913,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-4">
                   <LetterSwapForward
                     label="How to ask at home"
@@ -925,7 +925,7 @@ const KnowYourself = () => {
                   {parentScripts.map((line) => (
                     <li
                       key={line}
-                      className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-[hsl(195_25%_96%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                      className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-[hsl(42_38%_88%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
                     >
                       "{line}"
                     </li>
@@ -933,7 +933,7 @@ const KnowYourself = () => {
                 </ul>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-3">
                   <LetterSwapForward
                     label="Understanding yourself is the beginning. Building yourself is the next step."
@@ -980,7 +980,7 @@ const KnowYourself = () => {
                 </button>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.7)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.7)] p-5 sm:p-8">
                 <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Know Yourself (Age 16-18)</p>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-primary/85 mb-4">
                   You are not just managing school, screens, and stress. You are shaping your identity.
@@ -990,7 +990,7 @@ const KnowYourself = () => {
                 </p>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward label="Quick relatable cards" className="text-2xl font-display font-semibold text-primary/85" />
                 </h3>
@@ -1006,7 +1006,7 @@ const KnowYourself = () => {
                 <p className="mt-5 text-foreground font-medium">Do you feel like <span className="text-primary">"This site actually gets it."</span> Take the small test below</p>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-2">
                   <LetterSwapForward
                     label="What's Quietly Affecting You Most Right Now?"
@@ -1022,7 +1022,7 @@ const KnowYourself = () => {
                         key={prompt.label}
                         onMouseMove={handleCardMouseMove}
                         onMouseLeave={handleCardMouseLeave}
-                        className="group relative overflow-hidden rounded-lg border border-border/70 p-4 transition-[transform,border-color,box-shadow] duration-300 hover:border-primary/80 hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_22px_hsl(var(--primary)/0.42)]"
+                        className="group relative overflow-hidden rounded-lg border border-border/70 p-4 transition-[transform,border-color,box-shadow] duration-300 hover:border-border/60 hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_22px_rgba(44,66,63,0.42)]"
                         style={{
                           transformStyle: "preserve-3d",
                           transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
@@ -1032,7 +1032,7 @@ const KnowYourself = () => {
                           className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                           style={{
                             background:
-                              "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(52, 211, 153, 0.2), rgba(16, 185, 129, 0.08) 35%, rgba(0, 0, 0, 0) 70%)",
+                              "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(44,66,63,0.2), rgba(44,66,63,0.08) 35%, rgba(0, 0, 0, 0) 70%)",
                           }}
                         />
                         <div className="relative z-10">
@@ -1062,7 +1062,7 @@ const KnowYourself = () => {
                   })}
                 </div>
 
-                <div className="mt-8 rounded-xl border border-primary/30 bg-[hsl(195_25%_96%_/_0.85)] p-5">
+                <div className="mt-8 rounded-xl border border-primary/30 bg-[hsl(42_38%_88%_/_0.85)] p-5">
                   {humanResult1618 ? (
                     <>
                       <p className="text-sm text-muted-foreground mb-2">Right now, your biggest growth areas may be:</p>
@@ -1088,7 +1088,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="The 8 Forces Quietly Building the Person You're Becoming"
@@ -1108,7 +1108,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="What May Be Getting in Your Way"
@@ -1134,7 +1134,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-5">
                   <LetterSwapForward
                     label="Things You Need to Hear Clearly"
@@ -1143,12 +1143,12 @@ const KnowYourself = () => {
                 </h3>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {quickTruths1618.map((truth) => (
-                    <ClipPathInfoCard key={truth} body={truth} className="border-primary/30 bg-[hsl(195_25%_96%_/_0.8)]" />
+                    <ClipPathInfoCard key={truth} body={truth} className="border-primary/30 bg-[hsl(42_38%_88%_/_0.8)]" />
                   ))}
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-6">
                   <LetterSwapForward label="Do This Today" className="text-2xl font-display font-semibold text-primary/85" />
                 </h3>
@@ -1165,7 +1165,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-3">
                   <LetterSwapForward
                     label="You don't need more random content. You need a stronger inner system."
@@ -1177,12 +1177,12 @@ const KnowYourself = () => {
                 </p>
                 <p className="text-sm font-semibold text-foreground mb-3">What Ikigai Teen offers:</p>
                 <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">understand your patterns</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve self-control</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">reduce distraction</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build confidence and consistency</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">strengthen emotional steadiness</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(195_25%_96%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">move toward purpose and direction</li>
+                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">understand your patterns</li>
+                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve self-control</li>
+                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">reduce distraction</li>
+                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build confidence and consistency</li>
+                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">strengthen emotional steadiness</li>
+                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">move toward purpose and direction</li>
                 </ul>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <button type="button" className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium">See What This Could Help With</button>
@@ -1190,7 +1190,7 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-4">
                   <LetterSwapForward
                     label="If you want to explore this with your parent"
@@ -1202,7 +1202,7 @@ const KnowYourself = () => {
                   {parentScripts1618.map((line) => (
                     <li
                       key={line}
-                      className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-[hsl(195_25%_96%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                      className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-[hsl(42_38%_88%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
                     >
                       "{line}"
                     </li>
@@ -1210,7 +1210,7 @@ const KnowYourself = () => {
                 </ul>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(195_25%_96%_/_0.8)] p-5 sm:p-8">
+              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-3">
                   <LetterSwapForward
                     label="Understanding yourself is the beginning. Building yourself is the next step."

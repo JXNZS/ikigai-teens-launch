@@ -73,11 +73,11 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                   {s.path ? (
                     <Link to={s.path} className="block">
                       <motion.div
-                        className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 group cursor-pointer hover:border-primary/40 transition-colors"
+                        className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 group cursor-pointer hover:border-primary/40 transition-colors"
                         whileHover={{
-                          y: -6,
-                          boxShadow: "0 20px 40px -15px hsl(152 60% 45% / 0.15)",
-                          transition: { duration: 0.3 },
+                            y: -6,
+                            boxShadow: "0 20px 40px -15px rgba(44,66,63,0.15)",
+                            transition: { duration: 0.3 },
                         }}
                       >
                         <motion.div
@@ -106,11 +106,11 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                     </Link>
                   ) : (
                     <motion.div
-                      className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 group"
+                      className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 group"
                       whileHover={{
-                        y: -6,
-                        boxShadow: "0 20px 40px -15px hsl(152 60% 45% / 0.15)",
-                        transition: { duration: 0.3 },
+                          y: -6,
+                          boxShadow: "0 20px 40px -15px rgba(44,66,63,0.15)",
+                          transition: { duration: 0.3 },
                       }}
                     >
                       <motion.div

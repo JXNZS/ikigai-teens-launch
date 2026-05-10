@@ -51,7 +51,8 @@ function NavHeader({ items, activeItem, onItemClick }: NavHeaderProps) {
   return (
     <ul
       ref={listRef}
-      className="relative mx-auto flex w-fit rounded-full border border-border bg-card p-1"
+      className="relative mx-auto flex w-fit rounded-full border border-[rgba(44,66,63,0.35)] p-1"
+      style={{ backgroundColor: "#2C423F" }}
       onMouseLeave={() => {
         if (!activeItem) {
           setPosition((pv) => ({ ...pv, opacity: 0 }));
@@ -89,7 +90,7 @@ const Tab = ({ label, setPosition, onClick }: TabProps) => {
         });
       }}
       onClick={() => onClick(label)}
-      className="relative z-10 block cursor-pointer select-none px-3 py-1.5 text-xs font-body uppercase tracking-wide text-foreground mix-blend-difference md:px-5 md:py-2 md:text-sm"
+      className="relative z-10 block cursor-pointer select-none px-3 py-1.5 text-xs font-body uppercase tracking-wide text-white mix-blend-lighten md:px-5 md:py-2 md:text-sm"
     >
       {label}
     </li>
@@ -97,7 +98,7 @@ const Tab = ({ label, setPosition, onClick }: TabProps) => {
 };
 
 const Cursor = ({ position }: { position: CursorPosition }) => {
-  return <motion.li animate={position} className="absolute z-0 h-7 rounded-full bg-foreground md:h-9" />;
+  return <motion.li animate={position} className="absolute z-0 h-7 rounded-full md:h-9" style={{ backgroundColor: "rgba(255,255,255,0.2)" }} />;
 };
 
 export default NavHeader;

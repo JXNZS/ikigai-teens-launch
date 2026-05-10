@@ -185,9 +185,9 @@ const PixelRunnerGame = () => {
       const crownX = obstacle.x - Math.floor((crownW - obstacle.w) / 2);
       const crownY = GROUND_Y - obstacle.h;
 
-      context.fillStyle = "hsl(152 20% 34%)";
+      context.fillStyle = "#2C423F";
       context.fillRect(crownX, crownY + 6, crownW, Math.max(8, crownH - 6));
-      context.fillStyle = "hsl(152 24% 40%)";
+      context.fillStyle = "#2C423F";
       context.fillRect(crownX + 4, crownY, Math.max(8, crownW - 8), Math.max(6, crownH - 6));
 
       context.fillStyle = "hsl(195 14% 48%)";
@@ -218,7 +218,7 @@ const PixelRunnerGame = () => {
       const segments = 12;
       const phase = t * 0.35 + seed;
 
-      context.strokeStyle = "hsla(152, 90%, 52%, 0.92)";
+      context.strokeStyle = "rgba(44,66,63,0.92)";
       context.lineWidth = 2.4;
       context.beginPath();
       context.moveTo(startX, startY);
@@ -239,7 +239,7 @@ const PixelRunnerGame = () => {
 
       if (progress >= 1) {
         const pulse = 0.3 + Math.abs(Math.sin(t * 0.42)) * 0.35;
-        context.fillStyle = `hsla(152, 95%, 55%, ${pulse.toFixed(3)})`;
+        context.fillStyle = `rgba(44,66,63, ${pulse.toFixed(3)})`;
         context.fillRect(endX - 10, endY - 8, 20, 12);
       }
     };
@@ -492,7 +492,7 @@ const IkigaiTeenApp = () => {
 
         <section className="footer-theme-legacy py-12">
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] p-8 md:p-10 text-center">
+            <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-8 md:p-10 text-center">
               <PixelRunnerGame />
             </div>
           </div>

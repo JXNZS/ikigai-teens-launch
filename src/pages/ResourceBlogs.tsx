@@ -56,7 +56,7 @@ const ResourceBlogs = () => {
                   to={`/resources/blog/${article.slug}`}
                   onMouseMove={handleCardMouseMove}
                   onMouseLeave={handleCardMouseLeave}
-                  className="group relative overflow-hidden rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 transition-[transform,border-color,box-shadow] duration-300 hover:border-primary/80 hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_28px_hsl(var(--primary)/0.5)]"
+                  className="group relative overflow-hidden rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 transition-[transform,border-color,box-shadow] duration-300 hover:border-border/60 hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_28px_rgba(44,66,63,0.5)]"
                   style={{
                     transformStyle: "preserve-3d",
                     transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
@@ -66,7 +66,7 @@ const ResourceBlogs = () => {
                     className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                     style={{
                       background:
-                        "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(52, 211, 153, 0.22), rgba(16, 185, 129, 0.1) 35%, rgba(0, 0, 0, 0) 70%)",
+                        "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(44,66,63,0.22), rgba(44,66,63,0.1) 35%, rgba(0, 0, 0, 0) 70%)",
                     }}
                   />
                   <div className="relative z-10">

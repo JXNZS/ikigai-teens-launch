@@ -261,7 +261,7 @@ const Journey = () => {
 
         <section className="py-14 bg-background">
           <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8">
+            <article className="rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8">
               <div ref={stripRef} className="space-y-5 border-t border-border/50 pt-6">
                 <h2>
                   <LetterSwapForward
@@ -397,7 +397,7 @@ const Journey = () => {
 
         <section className="pb-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
+            <article className="rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
                 <div className="flex-shrink-0">
                   <CircleProfilePhoto src={irene1Photo} alt="Irene Arathi Pais" />
@@ -462,7 +462,7 @@ const Journey = () => {
 
         <section className="pb-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
+            <article className="rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
               <h2>
                 <LetterSwapForward
                   label="The Teen Reality Today"
