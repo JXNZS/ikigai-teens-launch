@@ -10,7 +10,7 @@ import { ClipPathInfoCard } from "@/components/ui/clip-path-links";
 const beOurInternsGuestsCards = [
   { id: "who-this-is-for", title: "Who This Is For", description: "Students, young professionals, creators, and communicators who want to contribute meaningfully to youth development." },
   { id: "interns-what-you-do", title: "Interns — What You Do", description: "Support programs, assist in content or operations, work on specific projects, and learn how structured teen development works." },
-  { id: "guests-how-you-contribute", title: "Guests — How You Can Contribute", description: "Share insights, conduct focused sessions, or bring unique real-world perspectives teens can learn from." },
+  { id: "volunteers-how-you-contribute", title: "Volunteers — How You Can Contribute", description: "Share insights, conduct focused sessions, or bring unique real-world perspectives teens can learn from." },
   { id: "what-you-will-experience", title: "What You Will Experience", description: "A structured, purpose-driven environment with real interaction with teen programs and learning beyond theory." },
   { id: "what-makes-different", title: "What Makes This Different", description: "Meaningful contribution with real learning — not routine internship work or surface-level guest talks." },
   { id: "who-this-may-not-be-for", title: "Who This May Not Be For", description: "Those seeking casual or low-commitment work, purely theoretical involvement, or those who struggle with consistency." },
@@ -39,12 +39,14 @@ const beOurInternsGuestsDetails = [
     ],
   },
   {
-    id: "guests-how-you-contribute",
-    title: "Guests — How You Can Contribute",
+    id: "volunteers-how-you-contribute",
+    title: "Volunteers — How You Can Contribute",
     bullets: [
-      "share insights or real-world experiences",
-      "conduct focused sessions or conversations",
-      "bring unique perspectives teens can learn from",
+      "support teen activities and initiatives",
+      "assist in events, engagement, or outreach",
+      "contribute your time, skills, or ideas",
+      "help create a positive impact for teens",
+      "be part of a purpose-driven community",
     ],
   },
   {
@@ -165,7 +167,7 @@ const BeOurInternsGuests = () => {
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h1>
               <LetterSwapForward
-                label="Be Our Interns / Guests"
+                label="Be Our Intern / Volunteer"
                 className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
               />
             </h1>
@@ -184,9 +186,6 @@ const BeOurInternsGuests = () => {
                   <LetterSwapForward label="Ikigai Teen invites individuals who want to experience," className="justify-center" />
                   <LetterSwapForward label="contribute, and grow in a real teen development environment." className="justify-center" />
                 </h3>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body max-w-3xl mx-auto">
-                  Contribute. Learn. Be part of something meaningful.
-                </p>
               </section>
 
               {renderCardGrid(beOurInternsGuestsCards)}
@@ -208,24 +207,14 @@ const BeOurInternsGuests = () => {
               </section>
 
               <div className="flex flex-wrap justify-center gap-4 pt-6 border-t border-border/50">
-                <Link
-                  to="/#contact"
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLScNcKye3m-tOX4M8ZW0PzRlmYJ5j0Gm-E_5N3PKOOeJawNhvQ/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6"
                 >
-                  Apply as an Intern
-                </Link>
-                <Link
-                  to="/#contact"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-primary/35 text-primary bg-background hover:bg-primary/10 h-11 py-2 px-6"
-                >
-                  Join as a Guest Contributor
-                </Link>
-                <Link
-                  to="/get-involved"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 py-2 px-6"
-                >
-                  Explore Other Roles
-                </Link>
+                  Apply as an Intern/Volunteer
+                </a>
               </div>
 
             </article>

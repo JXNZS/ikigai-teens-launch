@@ -34,7 +34,7 @@ export const navItems = [
   {
     label: "Get Involved",
     path: "/get-involved",
-    children: ["Be Our Experts", "Be Our Collaborators", "Be Our Trainee Coaches", "Be Our Interns/Guests", "Be Our Patrons", "IkigaiTeen Patrons"],
+    children: ["Be Our Expert/Guest Speaker", "Be Our Service Collaborator", "Be Our Trainee Coach", "Be Our Intern/Volunteer", "Be Our Patron/Sponserer"],
   },
 ];
 
@@ -230,28 +230,24 @@ const Navbar = () => {
       return "/resources/upcoming-events";
     }
 
-    if (parentLabel === "Get Involved" && childLabel === "Be Our Experts") {
+    if (parentLabel === "Get Involved" && childLabel === "Be Our Expert/Guest Speaker") {
       return "/get-involved/be-our-experts";
     }
 
-    if (parentLabel === "Get Involved" && childLabel === "Be Our Collaborators") {
+    if (parentLabel === "Get Involved" && childLabel === "Be Our Service Collaborator") {
       return "/get-involved/be-our-collaborators";
     }
 
-    if (parentLabel === "Get Involved" && childLabel === "Be Our Trainee Coaches") {
+    if (parentLabel === "Get Involved" && childLabel === "Be Our Trainee Coach") {
       return "/get-involved/be-our-trainee-coaches";
     }
 
-    if (parentLabel === "Get Involved" && childLabel === "Be Our Interns/Guests") {
+    if (parentLabel === "Get Involved" && childLabel === "Be Our Intern/Volunteer") {
       return "/get-involved/be-our-interns-guests";
     }
 
-    if (parentLabel === "Get Involved" && childLabel === "Be Our Patrons") {
+    if (parentLabel === "Get Involved" && childLabel === "Be Our Patron/Sponserer") {
       return "/get-involved/be-our-patrons";
-    }
-
-    if (parentLabel === "Get Involved" && childLabel === "IkigaiTeen Patrons") {
-      return "/get-involved/ikigaiteen-patrons";
     }
 
     return fallbackPath;

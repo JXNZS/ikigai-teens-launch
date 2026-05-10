@@ -42,9 +42,9 @@ const beOurPatronsDetails = [
     title: "What Your Support Creates",
     bullets: [
       "more teens receiving structured guidance",
-      "better habits, discipline, and direction",
-      "reduced confusion and negative patterns",
-      "stronger individuals for families and society",
+      "you help expand Ikigai Teen's reach",
+      "your contributions help in shaping today's teens into tomorrow's better youth",
+      "you will participate in nation building through teen development",
     ],
   },
   {
@@ -53,6 +53,7 @@ const beOurPatronsDetails = [
     opening: "This is not:",
     bullets: [
       "one-time charity",
+      "This is investing in long-term teen development and contribute to nation building",
     ],
     closing: "This is investing in long-term teen development.",
   },
@@ -61,9 +62,9 @@ const beOurPatronsDetails = [
     title: "Transparency & Intent",
     opening: "Your support is directed toward:",
     bullets: [
-      "structured programs",
-      "teen development initiatives",
-      "expanding reach responsibly",
+      "structured programs outreach to larger teen populations",
+      "hybrid teen development initiatives",
+      "expanding collective community accountability through youth participation responsibly",
     ],
   },
   {
@@ -164,7 +165,7 @@ const BeOurPatrons = () => {
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h1>
               <LetterSwapForward
-                label="Be Our Patrons"
+                label="Be Our Patron/Sponserer"
                 className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
               />
             </h1>
@@ -207,24 +208,14 @@ const BeOurPatrons = () => {
               </section>
 
               <div className="flex flex-wrap justify-center gap-4 pt-6 border-t border-border/50">
-                <Link
-                  to="/#contact"
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSc7U_hhRKlsy4oVl0tRrD2Q1dNUEYdMn1SZkGOZYYlYNTu8Pw/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6"
                 >
-                  Become a Patron
-                </Link>
-                <Link
-                  to="/#contact"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-primary/35 text-primary bg-background hover:bg-primary/10 h-11 py-2 px-6"
-                >
-                  Sponsor a Teen
-                </Link>
-                <Link
-                  to="/#contact"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 py-2 px-6"
-                >
-                  Support the Initiative
-                </Link>
+                  Become a Patron/Sponserer
+                </a>
               </div>
 
             </article>

@@ -170,7 +170,7 @@ const BeOurCollaborators = () => {
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h1>
               <LetterSwapForward
-                label="Be Our Collaborators"
+                label="Be Our Service Collaborator"
                 className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
               />
             </h1>
@@ -189,12 +189,105 @@ const BeOurCollaborators = () => {
                   <LetterSwapForward label="Ikigai Teen works with partners who want to support" className="justify-center" />
                   <LetterSwapForward label="teens in becoming more aware, disciplined, and purpose-driven." className="justify-center" />
                 </h3>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body max-w-3xl mx-auto">
-                  Stronger ecosystems build stronger teens.
-                </p>
               </section>
 
               {renderCardGrid(beOurCollaboratorsCards)}
+            </article>
+          </div>
+        </section>
+
+        {/* Box 2: Service Collaborations */}
+        <section className="py-12 bg-background">
+          <div className="container mx-auto px-6 max-w-5xl">
+            <article className="rounded-xl border border-border/60 bg-[hsl(195_25%_96%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
+              <section className="space-y-4 text-center">
+                <h3 className="text-xl md:text-2xl font-display font-semibold text-primary flex justify-center">
+                  <LetterSwapForward label="We Are Exploring Collaborations With Following Services" className="justify-center" />
+                </h3>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body max-w-3xl mx-auto">
+                  Any collaboration will be based on completing a basic service audit
+                </p>
+              </section>
+
+              <div className="space-y-6 pt-6 border-t border-border/50">
+                {/* Category A */}
+                <div className="space-y-3">
+                  <h4 className="text-base md:text-lg font-display font-semibold text-primary">A. Mental & Emotional Wellness</h4>
+                  <ul className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
+                    {["Psychologists", "Teen counselors", "Child psychiatrists", "De-addiction support", "ADHD/autism specialists", "Family therapists", "Grief counselors", "Art/music therapy", "Mindfulness trainers", "Crisis helplines"].map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Category B */}
+                <div className="space-y-3">
+                  <h4 className="text-base md:text-lg font-display font-semibold text-primary">B. Physical Wellness</h4>
+                  <ul className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
+                    {["Nutritionists", "Sports coaches", "Yoga instructors", "Martial arts centers", "Fitness trainers", "Sleep specialists"].map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Category C */}
+                <div className="space-y-3">
+                  <h4 className="text-base md:text-lg font-display font-semibold text-primary">C. Creativity & Hobbies</h4>
+                  <ul className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
+                    {["Dance", "Music", "Theatre", "Animation", "Gaming design", "Robotics", "Photography", "Creative writing", "Coding clubs", "Nature clubs"].map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Category D */}
+                <div className="space-y-3">
+                  <h4 className="text-base md:text-lg font-display font-semibold text-primary">D. Career & Skill Exploration</h4>
+                  <ul className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
+                    {["Internship platforms", "Design studios", "Entrepreneurs", "Makerspaces", "Public speaking trainers", "Financial literacy mentors"].map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Category E */}
+                <div className="space-y-3">
+                  <h4 className="text-base md:text-lg font-display font-semibold text-primary">E. Digital & Life Challenges</h4>
+                  <ul className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
+                    {["Cyber safety educators", "Screen addiction specialists", "Parenting coaches", "Social media literacy experts"].map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Category F */}
+                <div className="space-y-3">
+                  <h4 className="text-base md:text-lg font-display font-semibold text-primary">F. Spiritual / Reflective / Healing Spaces <span className="text-xs text-muted-foreground font-body">(subject to detailed audited vetting)</span></h4>
+                  <ul className="grid md:grid-cols-2 gap-2 text-sm text-muted-foreground">
+                    {["Meditation spaces", "Nature healing programs", "Reflective retreats", "Holistic wellness practitioners"].map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" aria-hidden="true" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </article>
           </div>
         </section>
@@ -213,24 +306,14 @@ const BeOurCollaborators = () => {
               </section>
 
               <div className="flex flex-wrap justify-center gap-4 pt-6 border-t border-border/50">
-                <Link
-                  to="/#contact"
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSeDdq-b3PoH69uUyLKTzpPm8H_tSCuSX6-wC-OMe9IfLf1low/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6"
                 >
-                  Partner With Us
-                </Link>
-                <Link
-                  to="/#contact"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-primary/35 text-primary bg-background hover:bg-primary/10 h-11 py-2 px-6"
-                >
-                  Explore Collaboration Options
-                </Link>
-                <Link
-                  to="/get-involved"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 py-2 px-6"
-                >
-                  Explore Other Roles
-                </Link>
+                  Collaborate with Us
+                </a>
               </div>
 
             </article>

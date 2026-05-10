@@ -49,7 +49,9 @@ const beOurExpertsDetails = [
       "Confidence & self-respect",
       "Communication & decision-making",
       "Digital balance",
-      "Purpose & direction"
+      "Purpose & direction",
+      "Health & wellness",
+      "Power of Habits"
     ]
   },
   {
@@ -170,7 +172,7 @@ const BeOurExperts = () => {
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h1>
               <LetterSwapForward
-                label="Be Our Experts"
+                label="Be Our Expert/Guest Speaker"
                 className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
               />
             </h1>
@@ -213,24 +215,14 @@ const BeOurExperts = () => {
               </section>
 
               <div className="flex flex-wrap justify-center gap-4 pt-6 border-t border-border/50">
-                <Link
-                  to="/#contact"
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSca5iG2xUvrJ9cyLAdMKtO5Dspc3YMIke8piqtozxhbV597GA/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6"
                 >
-                  Apply as an Expert
-                </Link>
-                <Link
-                  to="/#contact"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-primary/35 text-primary bg-background hover:bg-primary/10 h-11 py-2 px-6"
-                >
-                  Share Your Profile
-                </Link>
-                <Link
-                  to="/get-involved"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 py-2 px-6"
-                >
-                  Explore Other Roles
-                </Link>
+                  Apply as an Expert/Guest Speaker
+                </a>
               </div>
 
             </article>

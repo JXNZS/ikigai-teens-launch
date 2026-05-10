@@ -152,28 +152,24 @@ const Footer = () => {
       return "/resources/upcoming-events";
     }
 
-    if (groupLabel === "Get Involved" && childLabel === "Be Our Experts") {
+    if (groupLabel === "Get Involved" && childLabel === "Be Our Expert/Guest Speaker") {
       return "/get-involved/be-our-experts";
     }
 
-    if (groupLabel === "Get Involved" && childLabel === "Be Our Collaborators") {
+    if (groupLabel === "Get Involved" && childLabel === "Be Our Service Collaborator") {
       return "/get-involved/be-our-collaborators";
     }
 
-    if (groupLabel === "Get Involved" && childLabel === "Be Our Trainee Coaches") {
+    if (groupLabel === "Get Involved" && childLabel === "Be Our Trainee Coach") {
       return "/get-involved/be-our-trainee-coaches";
     }
 
-    if (groupLabel === "Get Involved" && childLabel === "Be Our Interns/Guests") {
+    if (groupLabel === "Get Involved" && childLabel === "Be Our Intern/Volunteer") {
       return "/get-involved/be-our-interns-guests";
     }
 
-    if (groupLabel === "Get Involved" && childLabel === "Be Our Patrons") {
+    if (groupLabel === "Get Involved" && childLabel === "Be Our Patron/Sponserer") {
       return "/get-involved/be-our-patrons";
-    }
-
-    if (groupLabel === "Get Involved" && childLabel === "IkigaiTeen Patrons") {
-      return "/get-involved/ikigaiteen-patrons";
     }
 
     return fallbackPath;

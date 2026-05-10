@@ -169,7 +169,7 @@ const BeOurTraineeCoaches = () => {
           <div className="container mx-auto px-6 max-w-4xl text-center">
             <h1>
               <LetterSwapForward
-                label="Be Our Trainee Coaches"
+                label="Be Our Trainee Coach"
                 className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
               />
             </h1>
@@ -188,9 +188,6 @@ const BeOurTraineeCoaches = () => {
                   <LetterSwapForward label="Ikigai Teen is building a pool of young individuals who can" className="justify-center" />
                   <LetterSwapForward label="support teen growth with clarity, structure, and responsibility." className="justify-center" />
                 </h3>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body max-w-3xl mx-auto">
-                  Learn to guide teens. Not just advise them.
-                </p>
               </section>
 
               {renderCardGrid(beOurTraineeCoachesCards)}
@@ -212,24 +209,14 @@ const BeOurTraineeCoaches = () => {
               </section>
 
               <div className="flex flex-wrap justify-center gap-4 pt-6 border-t border-border/50">
-                <Link
-                  to="/#contact"
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdiEsUDJcMoDjO4TA0-4XK9HOkrOEdznmmIQUPtlnEwxxmW0Q/viewform"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6"
                 >
                   Apply as a Trainee Coach
-                </Link>
-                <Link
-                  to="/#contact"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-primary/35 text-primary bg-background hover:bg-primary/10 h-11 py-2 px-6"
-                >
-                  Start Your Journey
-                </Link>
-                <Link
-                  to="/get-involved"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 py-2 px-6"
-                >
-                  Explore Other Roles
-                </Link>
+                </a>
               </div>
 
             </article>

@@ -8,7 +8,7 @@ import zubaidaPhoto from "@/assets/Zubaida.jpeg";
 import barakatPhoto from "@/assets/Barakat.jpg";
 import poorviPhoto from "@/assets/Poorvi.jpeg";
 import jeevanPhoto from "@/assets/Jeevan.PNG";
-import jiyaPhoto from "@/assets/Jiya.jpeg";
+import jiyaPhoto from "@/assets/Jiya.jpg";
 
 type TeamMember = {
 	name: string;
@@ -95,8 +95,9 @@ const teamMembers: TeamMember[] = [
 		name: "Jiya Giri",
 		role: "Networking & Business Coordination",
 		region: "India",
-		image: "",
-		imageClassName: "object-[68%_12%]",
+		image: jiyaPhoto,
+		imageClassName: "object-center",
+		imageStyle: { objectPosition: "50% 70%", transform: "translateX(0%) translateY(0%) scale(1.2)", transformOrigin: "center center" },
 		quote: "Grace, responsibility, and sincerity in small actions often build the strongest foundations.",
 		bio: [
 			"Jiya Giri is a young and thoughtful contributor from Dharwad, a student of German language and literature with a strong interest in healthcare, emotional well-being, and meaningful human connection. Currently pursuing her studies in science, she brings a calm, responsible, and people-centred approach to the work she takes on. Known for being polished, sincere, and meticulous, Jiya has a natural ability to communicate with warmth, attentiveness, and care.",

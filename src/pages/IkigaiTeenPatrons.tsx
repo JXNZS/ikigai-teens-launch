@@ -1,6 +1,5 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { GhostComingSoon } from "@/components/ui/ghost-coming-soon";
 
 const IkigaiTeenPatrons = () => {
   return (
@@ -19,14 +18,15 @@ const IkigaiTeenPatrons = () => {
           </div>
         </section>
 
-        {/* Ghost coming-soon content */}
         <section className="flex-1 flex items-center justify-center py-20 px-6 bg-background">
-          <GhostComingSoon
-            heading="Coming Soon!"
-            subheading="The IkigaiTeen Patrons page is currently being built. Check back soon to meet the incredible supporters behind this mission."
-            ctaLabel="Explore Get Involved"
-            ctaTo="/get-involved"
-          />
+          <div className="max-w-2xl text-center space-y-4">
+            <h2 className="text-2xl md:text-3xl font-display font-semibold text-primary">
+              Coming Soon!
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground font-body">
+              The IkigaiTeen Patrons page is currently being built. Check back soon to meet the incredible supporters behind this mission.
+            </p>
+          </div>
         </section>
       </main>
       <Footer />
