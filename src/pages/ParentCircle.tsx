@@ -224,7 +224,7 @@ const ParentCircle = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">
+            <p className="text-lg text-white font-body">
               You do not have to navigate this alone
             </p>
           </div>

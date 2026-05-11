@@ -230,7 +230,7 @@ const ParentChallenges = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">
+            <p className="text-lg text-white font-body">
               You’re trying to guide your teen. But the environment has changed.
             </p>
           </div>

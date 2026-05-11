@@ -174,7 +174,7 @@ const BeOurTraineeCoaches = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">
+            <p className="text-lg text-white font-body">
               Learn to guide teens. Not just advise them.
             </p>
           </div>

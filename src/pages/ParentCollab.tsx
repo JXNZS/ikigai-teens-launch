@@ -222,7 +222,7 @@ const ParentCollab = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">
+            <p className="text-lg text-white font-body">
               Your teen does not need more pressure. They need aligned guidance.
             </p>
           </div>

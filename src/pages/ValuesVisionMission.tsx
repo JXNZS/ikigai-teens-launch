@@ -91,7 +91,7 @@ const ValuesVisionMission = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">Our shared foundation for raising grounded, responsible, and purposeful young individuals.</p>
+            <p className="text-lg text-white font-body">Our shared foundation for raising grounded, responsible, and purposeful young individuals.</p>
           </div>
         </section>
 

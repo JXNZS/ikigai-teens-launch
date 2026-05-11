@@ -177,7 +177,7 @@ const BeOurExperts = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">
+            <p className="text-lg text-white font-body">
               If you can guide a teen, you can shape a life.
             </p>
           </div>

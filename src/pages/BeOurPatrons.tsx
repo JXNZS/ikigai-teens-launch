@@ -170,7 +170,7 @@ const BeOurPatrons = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">
+            <p className="text-lg text-white font-body">
               Support the making of stronger, more grounded teens.
             </p>
           </div>

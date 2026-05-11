@@ -171,15 +171,13 @@ const BeOurCollaborators = () => {
             <h1>
               <LetterSwapForward
                 label="Be Our Service Collaborator"
-                className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
+                className="justify-center text-4xl md:text-5xl font-display font-bold mb-4"
+                style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">
+            <p className="text-lg text-white font-body">
               Stronger ecosystems build stronger teens.
-                  className="justify-center text-4xl md:text-5xl font-display font-bold mb-4"
-                  style={{ color: '#FCEADE' }}
-                />
-                </h1>
+            </p>
           </div>
         </section>
 

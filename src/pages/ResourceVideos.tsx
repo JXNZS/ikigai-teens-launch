@@ -18,7 +18,7 @@ const ResourceVideos = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">Browse all uploaded episodes and open them directly on YouTube.</p>
+            <p className="text-lg text-white font-body">Browse all uploaded episodes and open them directly on YouTube.</p>
           </div>
         </section>
 

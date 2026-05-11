@@ -12,7 +12,7 @@ const IkigaiTeenPatrons = () => {
             <h1 className="text-4xl md:text-5xl font-display font-bold mb-4" style={{ color: '#FCEADE' }}>
               IkigaiTeen Patrons
             </h1>
-            <p className="text-lg text-muted-foreground font-body">
+            <p className="text-lg text-white font-body">
               Meet the people who make this mission possible.
             </p>
           </div>

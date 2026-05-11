@@ -44,7 +44,7 @@ const ResourceBlogs = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">Browse all published blogs in sequence.</p>
+            <p className="text-lg text-white font-body">Browse all published blogs in sequence.</p>
           </div>
         </section>
 

@@ -137,7 +137,7 @@ const GroundingPhilosophy = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">The ideas that shape how Ikigai Teen supports purposeful growth.</p>
+            <p className="text-lg text-white font-body">The ideas that shape how Ikigai Teen supports purposeful growth.</p>
           </div>
         </section>
 

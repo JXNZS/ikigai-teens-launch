@@ -172,7 +172,7 @@ const BeOurInternsGuests = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">
+            <p className="text-lg text-white font-body">
               Contribute. Learn. Be part of something meaningful.
             </p>
           </div>

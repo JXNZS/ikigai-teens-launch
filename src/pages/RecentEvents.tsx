@@ -29,7 +29,7 @@ const RecentEvents = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">Catch up on the latest community events and open them directly on YouTube.</p>
+            <p className="text-lg text-white font-body">Catch up on the latest community events and open them directly on YouTube.</p>
           </div>
         </section>
 

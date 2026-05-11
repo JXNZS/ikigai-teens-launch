@@ -231,7 +231,7 @@ const ParentRole = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">
+            <p className="text-lg text-white font-body">
               Your role has not become easier. It has become more important.
             </p>
           </div>

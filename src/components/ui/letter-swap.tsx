@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from "react"
+import { useState, type CSSProperties } from "react"
 import {
-  DynamicAnimationOptions,
+  AnimationOptions,
   motion,
   stagger,
   useAnimate,
@@ -12,10 +12,11 @@ import { debounce } from "lodash"
 interface TextProps {
   label: string
   reverse?: boolean
-  transition?: DynamicAnimationOptions
+  transition?: AnimationOptions
   staggerDuration?: number
   staggerFrom?: "first" | "last" | "center" | number
   className?: string
+  style?: CSSProperties
   onClick?: () => void
 }
 
@@ -42,7 +43,7 @@ export function LetterSwapForward({
 
     setBlocked(true)
 
-    const mergeTransition = (baseTransition: DynamicAnimationOptions) => ({
+    const mergeTransition = (baseTransition: AnimationOptions) => ({
       ...baseTransition,
       delay: stagger(staggerDuration, {
         from: staggerFrom,

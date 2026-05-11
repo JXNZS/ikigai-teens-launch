@@ -148,7 +148,7 @@ const FounderTeam = () => {
 								style={{ color: '#FCEADE' }}
 							/>
 						</h1>
-						<p className="text-lg text-muted-foreground font-body">Meet the people shaping Ikigai Teen.</p>
+						<p className="text-lg text-white font-body">Meet the people shaping Ikigai Teen.</p>
 					</div>
 				</section>
 

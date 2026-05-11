@@ -480,10 +480,10 @@ const IkigaiTeenApp = () => {
               <h1 className="text-4xl md:text-5xl font-display font-bold mb-4" style={{ color: '#FCEADE' }}>
                 <LetterSwapForward label="IkigaiTeen App" className="justify-center" />
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground font-medium">
+              <p className="text-lg md:text-xl text-white font-medium">
                 Under construction
               </p> 
-              <p className="text-lg md:text-xl text-muted-foreground font-medium">
+              <p className="text-lg md:text-xl text-white font-medium">
                 While we're working on the app, you can work on a new high score.
               </p>
             </div>

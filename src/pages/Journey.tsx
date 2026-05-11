@@ -253,7 +253,7 @@ const Journey = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-muted-foreground font-body">
+            <p className="text-lg text-white font-body">
               Every teenager carries a spark of purpose – Their IKIGAI
             </p>
           </div>
