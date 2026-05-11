@@ -15,7 +15,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 195 26% 16%;
 
-    --primary: 117 12% 67%;
+    --primary: 144 19% 42%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 152 35% 96%;
@@ -24,7 +24,7 @@
     --muted: 152 20% 96%;
     --muted-foreground: 195 16% 42%;
 
-    --accent: 117 12% 67%;
+    --accent: 144 19% 42%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,18 +32,18 @@
 
     --border: 152 20% 86%;
     --input: 152 20% 86%;
-    --ring: 117 12% 67%;
+    --ring: 144 19% 42%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 42 38% 88%;
     --sidebar-foreground: 195 26% 16%;
-    --sidebar-primary: 117 12% 67%;
+    --sidebar-primary: 144 19% 42%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 152 35% 96%;
     --sidebar-accent-foreground: 195 26% 16%;
     --sidebar-border: 152 20% 86%;
-    --sidebar-ring: 117 12% 67%;
+    --sidebar-ring: 144 19% 42%;
 
     --font-display: 'Playfair Display', serif;
     --font-body: 'Raleway', sans-serif;
@@ -132,6 +132,16 @@
 
   .cta-button {
     @apply inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6;
+  }
+
+  /* Parent-specific CTA: beige background, black text, same sizing/layout as .cta-button */
+  .parent-cta {
+    background-color: #ECE5D5 !important;
+    color: #000 !important;
+  }
+
+  .parent-cta:hover {
+    filter: brightness(0.96);
   }
 
   .cta-card :is(h1, h2, h3, h4, h5, h6, .text-primary) {

@@ -71,7 +71,7 @@ const CTASection = () => {
                   setActiveButton("parents");
                   openNavbarDropdown("Parent Hub");
                 }}
-                className={`cta-button font-body text-xs md:text-sm transition-all duration-300 ${
+                className={`cta-button parent-cta font-body text-xs md:text-sm transition-all duration-300 ${
                   activeButton === "parents" ? "ring-2 ring-primary/50" : "opacity-80"
                 }`}
               >

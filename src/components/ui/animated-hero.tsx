@@ -2,11 +2,11 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
 const localizedGlowMask = "radial-gradient(var(--hero-glow-radius, 140px) var(--hero-glow-radius, 140px) at var(--hero-glow-x, 50%) var(--hero-glow-y, 50%), rgba(0,0,0,1) 20%, rgba(0,0,0,0) 76%)";
-const heroAccentColor = "hsl(117 12% 67%)"; // sage primary (#588068)
+  const heroAccentColor = "hsl(144 19% 42%)"; // sage primary (#588068)
 const localizedGlowStyle = {
   WebkitMaskImage: localizedGlowMask,
   maskImage: localizedGlowMask,
-  textShadow: "0 0 24px hsl(117 12% 67% / 0.9), 0 0 10px hsl(0 0% 100% / 0.8)",
+  textShadow: "0 0 24px hsl(144 19% 42% / 0.9), 0 0 10px hsl(0 0% 100% / 0.8)",
   opacity: "var(--hero-glow-opacity, 0)",
 } as const;
 
@@ -34,9 +34,13 @@ function Hero() {
         <div className="flex gap-6 md:gap-8 py-12 md:py-20 lg:py-28 items-start justify-center flex-col">
           <div data-hero-glow-target className="flex gap-3 md:gap-4 flex-col">
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl tracking-tighter text-left font-regular text-foreground leading-tight">
-              <span className="relative inline-block" style={{ color: heroAccentColor }}>
+              <span className="relative inline-block" style={{ color: '#ECE5D5' }}>
                 Empowering Teens to
-                <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={localizedGlowStyle}>
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0"
+                  style={{ ...localizedGlowStyle, color: '#ECE5D5' }}
+                >
                   Empowering Teens to
                 </span>
               </span>
