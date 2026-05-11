@@ -133,7 +133,7 @@ export function LetterSwapPingPong({
   const [scope, animate] = useAnimate()
   const [isHovered, setIsHovered] = useState(false)
 
-  const mergeTransition = (baseTransition: DynamicAnimationOptions) => ({
+  const mergeTransition = (baseTransition: AnimationOptions) => ({
     ...baseTransition,
     delay: stagger(staggerDuration, {
       from: staggerFrom,
