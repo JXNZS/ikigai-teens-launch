@@ -273,7 +273,7 @@ const ParentCollab = () => {
         {/* Box 3: Next Step + Final Thoughts + Buttons */}
         <section className="py-12 pb-20 bg-background">
           <div className="container mx-auto px-6 max-w-4xl">
-            <article className="rounded-xl border border-primary/20 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8 text-center">
+            <article className="cta-card rounded-xl border border-primary/20 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8 text-center">
               <section className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary flex justify-center">
                   <LetterSwapForward label="Next Step" className="justify-center" />
@@ -293,25 +293,25 @@ const ParentCollab = () => {
               <div className="flex flex-wrap justify-center gap-4 pt-6">
                 <Link
                   to="/parent-hub/parent-role"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6"
+                  className="cta-button"
                 >
                   Understand My Role Better
                 </Link>
                 <Link
                   to="/teenzone/ikigai-teen-club"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-primary/35 text-primary bg-background hover:bg-primary/10 h-11 py-2 px-6"
+                  className="cta-button"
                 >
                   See How Ikigai Teen Helps
                 </Link>
                 <Link
                   to="/teenzone"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background border border-primary/35 text-primary bg-background hover:bg-primary/10 h-11 py-2 px-6"
+                  className="cta-button"
                 >
                   Explore the Program
                 </Link>
                 <Link
                   to="/get-involved"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-secondary text-secondary-foreground hover:bg-secondary/80 h-11 py-2 px-6"
+                  className="cta-button"
                 >
                   Join a Parent Intro Session
                 </Link>

@@ -14,7 +14,6 @@ const CTASection = () => {
 
   const textY = useTransform(scrollYProgress, [0, 0.5], [40, 0]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.4], [0, 1]);
-  const headingColor = useTransform(scrollYProgress, [0, 0.45], ["hsl(195 10% 70%)", "hsl(var(--foreground))"]);
 
   const openNavbarDropdown = (label: "Teen Zone" | "Parent Hub") => {
     window.dispatchEvent(new CustomEvent(NAVBAR_OPEN_EVENT, { detail: { label } }));
@@ -24,16 +23,16 @@ const CTASection = () => {
     <section ref={ref} className="relative pt-6 pb-12 md:pt-10 md:pb-20 bg-[hsl(42_38%_88%_/_0.8)] overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
-          className="max-w-3xl mx-auto text-center rounded-lg md:rounded-2xl border border-border/60 bg-background p-6 md:p-10"
-          style={{ y: textY, opacity: textOpacity }}
+          className="cta-card max-w-3xl mx-auto text-center rounded-lg md:rounded-2xl border border-border/60 p-6 md:p-10"
+          style={{ y: textY, opacity: textOpacity, backgroundColor: '#2C423F' }}
         >
-          <motion.h2 style={{ color: headingColor }}>
+          <motion.h2 style={{ color: '#A2B5A1' }}>
             <LetterSwapForward
               label="Ready to Start Your Journey?"
               className="justify-center text-2xl sm:text-3xl md:text-4xl font-display font-bold text-current mb-3 md:mb-4"
             />
           </motion.h2>
-          <p className="text-muted-foreground font-body mb-6 md:mb-8 leading-relaxed text-sm md:text-base px-2">
+          <p className="text-white font-body mb-6 md:mb-8 leading-relaxed text-sm md:text-base px-2">
             Whether you're a teen looking for guidance or a parent seeking support, we're here for you.
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4" onMouseLeave={() => setActiveButton(null)}>
@@ -51,7 +50,7 @@ const CTASection = () => {
                   setActiveButton("teens");
                   openNavbarDropdown("Teen Zone");
                 }}
-                className={`inline-flex px-6 md:px-8 py-2.5 md:py-3.5 bg-primary text-primary-foreground rounded-full font-body font-semibold text-xs md:text-sm transition-all duration-300 ${
+                className={`cta-button font-body text-xs md:text-sm transition-all duration-300 ${
                   activeButton === "teens" ? "ring-2 ring-primary/50" : "opacity-80"
                 }`}
               >
@@ -72,7 +71,7 @@ const CTASection = () => {
                   setActiveButton("parents");
                   openNavbarDropdown("Parent Hub");
                 }}
-                className={`inline-flex px-6 md:px-8 py-2.5 md:py-3.5 bg-primary text-primary-foreground rounded-full font-body font-semibold text-xs md:text-sm transition-all duration-300 ${
+                className={`cta-button font-body text-xs md:text-sm transition-all duration-300 ${
                   activeButton === "parents" ? "ring-2 ring-primary/50" : "opacity-80"
                 }`}
               >

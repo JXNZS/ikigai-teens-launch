@@ -369,7 +369,7 @@ const IkigaiTeenClub = () => {
 
         <section className="pb-12 md:pb-20 bg-background">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-4xl mx-auto rounded-lg md:rounded-2xl border border-primary/20 bg-[hsl(42_38%_88%_/_0.8)] p-6 md:p-8 text-center">
+            <div className="cta-card max-w-4xl mx-auto rounded-lg md:rounded-2xl border border-primary/20 bg-[hsl(42_38%_88%_/_0.8)] p-6 md:p-8 text-center">
               <p className="text-sm md:text-base lg:text-lg text-foreground/90 leading-relaxed mb-6 md:mb-8 px-2">
 
                 Inside Ikigai Teen Club, growth does not feel heavy. It feels meaningful. It feels exciting. It feels
@@ -378,19 +378,19 @@ const IkigaiTeenClub = () => {
               <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
                 <Link
                   to="/#contact"
-                  className="inline-flex items-center justify-center px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-primary text-primary-foreground text-xs md:text-sm font-semibold\"
+                  className="cta-button text-xs md:text-sm"
                 >
                   Join the Club
                 </Link>
                 <a
                   href="#identity-confidence"
-                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-primary/35 text-primary text-sm font-semibold"
+                  className="cta-button text-sm"
                 >
                   Explore Member Benefits
                 </a>
                 <Link
                   to="/parent-hub"
-                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-full border border-primary/35 text-primary text-sm font-semibold"
+                  className="cta-button text-sm"
                 >
                   For Parents
                 </Link>

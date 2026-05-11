@@ -197,7 +197,7 @@ const BeOurPatrons = () => {
         {/* Box 2: CTA Buttons */}
         <section className="py-12 pb-20 bg-background">
           <div className="container mx-auto px-6 max-w-4xl">
-            <article className="rounded-xl border border-primary/20 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8 text-center">
+            <article className="cta-card rounded-xl border border-primary/20 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8 text-center">
               <section className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary flex justify-center">
                   <LetterSwapForward label="Be Part of This Journey" className="justify-center" />
@@ -212,7 +212,7 @@ const BeOurPatrons = () => {
                   href="https://docs.google.com/forms/d/e/1FAIpQLSc7U_hhRKlsy4oVl0tRrD2Q1dNUEYdMn1SZkGOZYYlYNTu8Pw/viewform"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6"
+                  className="cta-button"
                 >
                   Become a Patron/Sponserer
                 </a>

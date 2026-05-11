@@ -908,8 +908,8 @@ const KnowYourself = () => {
                   <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">become more grounded and responsible</li>
                 </ul>
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <button type="button" className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium">See What This Could Help With</button>
-                  <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Show This to My Parent</button>
+                  <button type="button" className="cta-button">See What This Could Help With</button>
+                  <button type="button" className="cta-button">Show This to My Parent</button>
                 </div>
               </div>
 
@@ -933,7 +933,7 @@ const KnowYourself = () => {
                 </ul>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+              <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-3">
                   <LetterSwapForward
                     label="Understanding yourself is the beginning. Building yourself is the next step."
@@ -947,12 +947,12 @@ const KnowYourself = () => {
                 <div className="flex flex-wrap gap-3">
                   <Link
                     to="/teenzone/teen-toolkit?age=13-15"
-                    className="inline-flex items-center px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium"
+                    className="cta-button"
                   >
                     Go to Teen Toolkit
                   </Link>
-                  <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">See What Ikigai Teen Offers</button>
-                  <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Show This to My Parent</button>
+                  <button type="button" className="cta-button">See What Ikigai Teen Offers</button>
+                  <button type="button" className="cta-button">Show This to My Parent</button>
                 </div>
               </div>
             </div>
@@ -1075,7 +1075,7 @@ const KnowYourself = () => {
                         This is not your final identity. It is simply a reflection of what may need strengthening right now.
                       </p>
                       <div className="mt-4 flex flex-wrap gap-3">
-                        <button type="button" className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium">Help Me Understand This Better</button>
+                        <button type="button" className="cta-button">Help Me Understand This Better</button>
                         <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Show Me Tools That Can Help</button>
                       </div>
                     </>
@@ -1185,7 +1185,7 @@ const KnowYourself = () => {
                   <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">move toward purpose and direction</li>
                 </ul>
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <button type="button" className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium">See What This Could Help With</button>
+                  <button type="button" className="cta-button">See What This Could Help With</button>
                   <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Show This to My Parent</button>
                 </div>
               </div>
@@ -1224,12 +1224,12 @@ const KnowYourself = () => {
                 <div className="flex flex-wrap gap-3">
                   <Link
                     to="/teenzone/teen-toolkit?age=16-18"
-                    className="inline-flex items-center px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium"
+                    className="cta-button"
                   >
                     Go to Teen Toolkit
                   </Link>
-                  <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">See What Ikigai Teen Offers</button>
-                  <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Show This to My Parent</button>
+                  <button type="button" className="cta-button">See What Ikigai Teen Offers</button>
+                  <button type="button" className="cta-button">Show This to My Parent</button>
                 </div>
               </div>
             </div>
