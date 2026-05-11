@@ -124,9 +124,8 @@ const CircleProfilePhoto = ({ src, alt, imageClassName, imageStyle }: { src: str
 			<img
 				src={src}
 				alt={alt}
-				className={`w-full h-full object-cover ${imageClassName ?? "object-center"}`}
+				className={`h-full w-full object-cover object-top ${imageClassName ?? ""}`}
 				style={imageStyle}
-				loading="lazy"
 				onError={() => setFailed(true)}
 			/>
 		</div>
@@ -145,7 +144,8 @@ const FounderTeam = () => {
 						<h1>
 							<LetterSwapForward
 								label="Founder & Team"
-								className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
+								className="justify-center text-4xl md:text-5xl font-display font-bold mb-4"
+								style={{ color: '#FCEADE' }}
 							/>
 						</h1>
 						<p className="text-lg text-muted-foreground font-body">Meet the people shaping Ikigai Teen.</p>

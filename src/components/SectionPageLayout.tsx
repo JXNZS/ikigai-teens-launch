@@ -43,7 +43,8 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
               className="max-w-3xl mx-auto text-center"
             >
               <motion.h1
-                className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-3 md:mb-4"
+                className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-3 md:mb-4"
+                style={{ color: '#FCEADE' }}
                 initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
@@ -73,7 +74,7 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                   {s.path ? (
                     <Link to={s.path} className="block">
                       <motion.div
-                        className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 group cursor-pointer hover:border-primary/40 transition-colors"
+                        className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(25_83%_93%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 group cursor-pointer hover:border-primary/40 transition-colors"
                         whileHover={{
                             y: -6,
                             boxShadow: "0 20px 40px -15px rgba(44,66,63,0.15)",
@@ -106,7 +107,7 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
                     </Link>
                   ) : (
                     <motion.div
-                      className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 group"
+                      className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(25_83%_93%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 group"
                       whileHover={{
                           y: -6,
                           boxShadow: "0 20px 40px -15px rgba(44,66,63,0.15)",

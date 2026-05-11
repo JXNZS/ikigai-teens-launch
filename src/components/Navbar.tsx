@@ -271,7 +271,7 @@ const Navbar = () => {
   };
 
   const navbarThemeClass = useLightNavbarSurface
-    ? "bg-[hsl(42_38%_88%_/_0.92)] border-[rgba(44,66,63,0.7)]"
+    ? "bg-[hsl(25_83%_93%_/_0.92)] border-[rgba(44,66,63,0.7)]"
     : "footer-theme-legacy bg-card border-border/50";
 
   const logoClass = useLightNavbarSurface
@@ -340,7 +340,7 @@ const Navbar = () => {
               onClick={handleLanguageClick}
               aria-label="Switch language"
               className="relative inline-flex h-9 w-[132px] items-center overflow-hidden rounded-full border border-[rgba(44,66,63,0.35)] text-[13px] font-semibold transition-colors"
-              style={{ backgroundColor: "#ECE5D5" }}
+              style={{ backgroundColor: "#FCEADE" }}
             >
               <span
                 className="absolute inset-y-0 left-0 w-1/2 z-0 transition-colors"
@@ -436,7 +436,7 @@ const Navbar = () => {
                     onClick={handleLanguageClick}
                     aria-label="Switch language"
                     className="relative inline-flex h-9 w-[132px] items-center overflow-hidden rounded-full border border-[rgba(44,66,63,0.35)] text-[13px] font-semibold transition-colors"
-                    style={{ backgroundColor: "#ECE5D5" }}
+                    style={{ backgroundColor: "#FCEADE" }}
                   >
                     <span
                       className="absolute inset-y-0 left-0 w-1/2 z-0 transition-colors"

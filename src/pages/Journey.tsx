@@ -25,16 +25,15 @@ const CircleProfilePhoto = ({ src, alt, imageClassName, imageStyle }: { src: str
 
 	return (
 		<div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-border/70 shrink-0">
-			<img
-				src={src}
-				alt={alt}
-				className={`w-full h-full object-cover ${imageClassName ?? "object-center"}`}
-				style={imageStyle}
-				loading="lazy"
-				onError={() => setFailed(true)}
-			/>
-		</div>
-	);
+      <img
+        src={src}
+        alt={alt}
+        className={`h-full w-full object-cover ${imageClassName ?? ""}`}
+        style={imageStyle}
+        onError={() => setFailed(true)}
+      />
+    </div>
+  );
 };
 
 type CredibilityStat = {
@@ -250,7 +249,8 @@ const Journey = () => {
             <h1>
               <LetterSwapForward
                 label="The Journey"
-                className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
+                className="justify-center text-4xl md:text-5xl font-display font-bold mb-4"
+                style={{ color: '#FCEADE' }}
               />
             </h1>
             <p className="text-lg text-muted-foreground font-body">

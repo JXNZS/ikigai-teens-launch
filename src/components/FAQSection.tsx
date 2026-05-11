@@ -431,7 +431,7 @@ const FAQSection = () => {
   const headingColor = useTransform(scrollYProgress, [0, 0.45], ["hsl(195 10% 70%)", "hsl(var(--foreground))"]);
 
   return (
-    <section ref={ref} className="py-6 md:py-10 bg-[hsl(42_38%_88%_/_0.8)]">
+    <section ref={ref} className="py-6 md:py-10 bg-[hsl(25_83%_93%_/_0.8)]">  
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           className="max-w-5xl mx-auto"

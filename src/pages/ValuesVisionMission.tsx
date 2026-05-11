@@ -24,10 +24,10 @@ const sections = [
         <span className="font-semibold text-primary">Integrity</span> - Doing what is right even when it is difficult or when no one is watching.
       </>,
       <>
-        <span className="font-semibold text-primary">Self-Awareness</span> - Understanding one's thoughts, emotions, strengths, and limitations.
+        <span className="font-semibold text-primary">Authenticity</span> - Being honest about who you are, what you feel, and what you stand for.
       </>,
       <>
-        <span className="font-semibold text-primary">Courage</span> - The willingness to face challenges, admit mistakes, and stand up for what matters.
+        <span className="font-semibold text-primary">Self-Respect</span> - Valuing your own dignity, worth, and boundaries.
       </>,
     ],
   },
@@ -87,7 +87,8 @@ const ValuesVisionMission = () => {
             <h1>
               <LetterSwapForward
                 label="Vision, Mission & Values"
-                className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
+                className="justify-center text-4xl md:text-5xl font-display font-bold mb-4"
+                style={{ color: '#FCEADE' }}
               />
             </h1>
             <p className="text-lg text-muted-foreground font-body">Our shared foundation for raising grounded, responsible, and purposeful young individuals.</p>

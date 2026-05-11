@@ -30,7 +30,7 @@ const ResourceArticle = () => {
               {article.audience}
             </span>
 
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-display font-semibold tracking-tight text-primary leading-tight max-w-4xl mb-4 md:mb-5">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-display font-semibold tracking-tight leading-tight max-w-4xl mb-4 md:mb-5" style={{ color: '#FCEADE' }}>
               {article.title}
             </h1>
 

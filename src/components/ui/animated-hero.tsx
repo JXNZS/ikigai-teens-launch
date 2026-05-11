@@ -34,12 +34,12 @@ function Hero() {
         <div className="flex gap-6 md:gap-8 py-12 md:py-20 lg:py-28 items-start justify-center flex-col">
           <div data-hero-glow-target className="flex gap-3 md:gap-4 flex-col">
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl max-w-4xl tracking-tighter text-left font-regular text-foreground leading-tight">
-              <span className="relative inline-block" style={{ color: '#ECE5D5' }}>
+              <span className="relative inline-block" style={{ color: '#FCEADE' }}>
                 Empowering Teens to
                 <span
                   aria-hidden="true"
                   className="pointer-events-none absolute inset-0"
-                  style={{ ...localizedGlowStyle, color: '#ECE5D5' }}
+                  style={{ ...localizedGlowStyle, color: '#FCEADE' }}
                 >
                   Empowering Teens to
                 </span>

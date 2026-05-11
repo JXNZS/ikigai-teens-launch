@@ -211,7 +211,8 @@ const IkigaiTeenClub = () => {
             <motion.div className="max-w-3xl mx-auto text-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
 
               <motion.h1
-                className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-4 md:mb-6"
+                className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 md:mb-6"
+                style={{ color: '#FCEADE' }}
                 initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}

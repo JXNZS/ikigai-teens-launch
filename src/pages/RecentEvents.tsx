@@ -25,7 +25,8 @@ const RecentEvents = () => {
             <h1>
               <LetterSwapForward
                 label="Recent Events"
-                className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
+                className="justify-center text-4xl md:text-5xl font-display font-bold mb-4"
+                style={{ color: '#FCEADE' }}
               />
             </h1>
             <p className="text-lg text-muted-foreground font-body">Catch up on the latest community events and open them directly on YouTube.</p>

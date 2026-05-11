@@ -836,7 +836,7 @@ const KnowYourself = () => {
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
               >
-                <LetterSwapForward label="Know Yourself" />
+                <LetterSwapForward label="Know Yourself" style={{ color: '#FCEADE' }} />
               </motion.h1>
 
               <motion.div className="space-y-4" variants={itemVariants}>

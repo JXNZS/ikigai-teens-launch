@@ -20,16 +20,17 @@ const CTASection = () => {
   };
 
   return (
-    <section ref={ref} className="relative pt-6 pb-12 md:pt-10 md:pb-20 bg-[hsl(42_38%_88%_/_0.8)] overflow-hidden">
+    <section ref={ref} className="relative pt-6 pb-12 md:pt-10 md:pb-20 bg-[hsl(25_83%_93%_/_0.8)] overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
           className="cta-card max-w-3xl mx-auto text-center rounded-lg md:rounded-2xl border border-border/60 p-6 md:p-10"
           style={{ y: textY, opacity: textOpacity, backgroundColor: '#2C423F' }}
         >
-          <motion.h2 style={{ color: '#588068' }}>
+          <motion.h2>
             <LetterSwapForward
               label="Ready to Start Your Journey?"
               className="justify-center text-2xl sm:text-3xl md:text-4xl font-display font-bold text-current mb-3 md:mb-4"
+              style={{ color: '#FCEADE' }}
             />
           </motion.h2>
           <p className="text-white font-body mb-6 md:mb-8 leading-relaxed text-sm md:text-base px-2">
@@ -50,7 +51,7 @@ const CTASection = () => {
                   setActiveButton("teens");
                   openNavbarDropdown("Teen Zone");
                 }}
-                className={`cta-button font-body text-xs md:text-sm transition-all duration-300 ${
+                className={`cta-button parent-cta font-body text-xs md:text-sm transition-all duration-300 ${
                   activeButton === "teens" ? "ring-2 ring-primary/50" : "opacity-80"
                 }`}
               >

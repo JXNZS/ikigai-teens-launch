@@ -477,7 +477,7 @@ const IkigaiTeenApp = () => {
         <section className="footer-theme-legacy py-12 md:py-20 bg-card border-b border-border/50 overflow-hidden">
           <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
+              <h1 className="text-4xl md:text-5xl font-display font-bold mb-4" style={{ color: '#FCEADE' }}>
                 <LetterSwapForward label="IkigaiTeen App" className="justify-center" />
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground font-medium">

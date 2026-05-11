@@ -9,7 +9,7 @@ const IkigaiTeenPatrons = () => {
         {/* Hero banner matching other Get Involved pages */}
         <section className="footer-theme-legacy py-20 bg-card border-b border-border/50">
           <div className="container mx-auto px-6 max-w-4xl text-center">
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
+            <h1 className="text-4xl md:text-5xl font-display font-bold mb-4" style={{ color: '#FCEADE' }}>
               IkigaiTeen Patrons
             </h1>
             <p className="text-lg text-muted-foreground font-body">

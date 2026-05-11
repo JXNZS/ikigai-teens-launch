@@ -173,7 +173,8 @@ const BeOurExperts = () => {
             <h1>
               <LetterSwapForward
                 label="Be Our Expert/Guest Speaker"
-                className="justify-center text-4xl md:text-5xl font-display font-bold text-primary mb-4"
+                className="justify-center text-4xl md:text-5xl font-display font-bold mb-4"
+                style={{ color: '#FCEADE' }}
               />
             </h1>
             <p className="text-lg text-muted-foreground font-body">
