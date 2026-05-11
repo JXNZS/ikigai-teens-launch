@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type MouseEvent } from "react";
+﻿import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -134,19 +134,163 @@ const shapingTiles = [
   },
 ];
 
-const challengeCards = [
-  ["Comparison", "You keep checking if you are enough by looking at others."],
-  ["Wanting to Fit In", "You don't want to feel left out, so you sometimes ignore your own values."],
-  ["Low Confidence", "You doubt yourself more than people realise."],
-  ["Phone Distraction", "You waste time and then feel bad about it."],
-  ["Friendship Drama", "Small social things can feel huge and exhausting."],
-  ["Body Image Worries", "You become more aware of how you look and whether you measure up."],
-  ["Mood Swings / Emotional Overload", "Your feelings can feel bigger than your ability to handle them."],
-  ["Crushes / Attraction / Confusion", "You may feel drawn to someone and not always know what to do with those feelings."],
-  ["People Pleasing", "You say yes or go along even when it doesn't feel right."],
-  ["Procrastination", "You know what you should do but still don't do it."],
-  ["Pressure", "From school, adults, expectations, or just trying to keep up."],
-  ["Feeling Off", "Sometimes you don't know what's wrong - you just don't feel like yourself."],
+const teenStruggles1315 = [
+  {
+    title: "1. Feeling Behind Everyone Else",
+    whatItFeelsLike:
+      "You constantly compare your life, achievements, appearance, friendships, or success to other people. Social media makes it seem like everyone else already has life figured out while you are still trying to keep up.",
+    identify: [
+      "You compare your progress to others daily.",
+      "Other people's success makes you feel worse about yourself.",
+      "You feel like you are already late in life.",
+      "You constantly think you are not doing enough.",
+    ],
+    redFlag: "You measure your worth based on how your life looks compared to everyone else.",
+    greenFlag: "You focus on your own growth and understand that everyone moves at a different pace.",
+  },
+  {
+    title: "2. Overthinking Everything",
+    whatItFeelsLike:
+      "Your mind keeps replaying conversations, mistakes, awkward moments, and what-if scenarios until small situations start feeling huge.",
+    identify: [
+      "You replay conversations repeatedly.",
+      "Small mistakes stay in your mind for days.",
+      "Your thoughts race constantly.",
+      "Relaxing feels difficult because your brain never fully switches off.",
+    ],
+    redFlag: "You allow overthinking to destroy your confidence, mood, or peace.",
+    greenFlag: "You reflect on situations, learn from them, and move forward without staying stuck mentally.",
+  },
+  {
+    title: "3. Living Through Your Phone",
+    whatItFeelsLike:
+      "You automatically open apps whenever you are bored, stressed, lonely, or uncomfortable. Hours disappear scrolling, but you rarely feel happier afterward.",
+    identify: [
+      "You reach for your phone without thinking.",
+      "Scrolling makes you lose track of time.",
+      "Being offline feels uncomfortable.",
+      "Your mood depends heavily on notifications or social media.",
+    ],
+    redFlag: "You use your phone as an escape from real emotions, responsibilities, or life.",
+    greenFlag: "You enjoy social media while still being present in real life and knowing when to disconnect.",
+  },
+  {
+    title: "4. Trying Too Hard To Fit In",
+    whatItFeelsLike:
+      "You hide parts of yourself to avoid judgment, rejection, or exclusion. You change your personality depending on who you are around.",
+    identify: [
+      "You act differently around different people.",
+      "You hide opinions or interests.",
+      "You fear being judged for being yourself.",
+      "Being accepted feels more important than being authentic.",
+    ],
+    redFlag: "You lose your real identity trying to please everyone around you.",
+    greenFlag: "You feel comfortable being yourself even if not everyone understands or agrees with you.",
+  },
+  {
+    title: "5. Feeling Too Much At Once",
+    whatItFeelsLike:
+      "Your emotions become so overwhelming that even small problems feel impossible to handle.",
+    identify: [
+      "Small situations feel emotionally huge.",
+      "Your mood changes quickly.",
+      "You feel mentally exhausted often.",
+      "Stress builds up faster than you can process it.",
+    ],
+    redFlag: "You ignore your emotions until everything explodes at once.",
+    greenFlag: "You allow yourself to feel emotions while learning healthy ways to calm, process, and express them.",
+  },
+  {
+    title: "6. Friendship Stress",
+    whatItFeelsLike:
+      "Replies, group chats, attention, and social situations affect your mood more than they should.",
+    identify: [
+      "Delayed replies upset you deeply.",
+      "You overanalyze friendships constantly.",
+      "Feeling left out ruins your mood.",
+      "Your self-worth depends on being included.",
+    ],
+    redFlag: "Your happiness completely depends on other people's attention or validation.",
+    greenFlag: "You value friendships without letting every small social situation control your emotions.",
+  },
+  {
+    title: "7. Not Feeling Good Enough",
+    whatItFeelsLike:
+      "No matter what you achieve, you still focus more on your flaws, mistakes, or what you lack.",
+    identify: [
+      "Compliments feel hard to believe.",
+      "You focus mostly on your weaknesses.",
+      "You constantly feel the need to prove yourself.",
+      "Perfection feels like the only way to feel worthy.",
+    ],
+    redFlag: "You believe your value depends on being perfect, successful, attractive, or talented.",
+    greenFlag: "You recognize your strengths and allow yourself to grow without expecting perfection.",
+  },
+  {
+    title: "8. Caring Too Much About What People Think",
+    whatItFeelsLike:
+      "Fear of judgment controls your choices, confidence, appearance, or personality.",
+    identify: [
+      "Your decisions depend heavily on others' opinions.",
+      "Criticism affects you deeply.",
+      "You avoid situations because of embarrassment.",
+      "You constantly worry about how people see you.",
+    ],
+    redFlag: "You stop living authentically because you are afraid of being judged.",
+    greenFlag: "You care about feedback without letting it completely define who you are.",
+  },
+  {
+    title: "9. Pressure To Have Life Figured Out",
+    whatItFeelsLike:
+      "You feel pressure to know your future, career, purpose, and success plan far earlier than anyone realistically can.",
+    identify: [
+      "Thinking about the future makes you anxious.",
+      "You feel pressure to succeed quickly.",
+      "You constantly fear falling behind.",
+      "You believe you should already have everything planned.",
+    ],
+    redFlag: "You think not having all the answers means you are failing.",
+    greenFlag: "You understand that growth takes time and life is something people figure out gradually.",
+  },
+  {
+    title: "10. Avoiding Things Until They Become Bigger",
+    whatItFeelsLike:
+      "You avoid responsibilities, difficult conversations, or stressful tasks until the pressure becomes overwhelming.",
+    identify: [
+      "You delay important tasks repeatedly.",
+      "Starting feels harder than doing the task itself.",
+      "You feel guilty for procrastinating.",
+      "Problems grow because they stay unaddressed.",
+    ],
+    redFlag: "Avoidance creates even more stress, pressure, and anxiety over time.",
+    greenFlag: "You deal with problems early instead of letting fear or procrastination control you.",
+  },
+  {
+    title: "11. Feeling Alone Even Around People",
+    whatItFeelsLike:
+      "You feel emotionally disconnected even when surrounded by friends, classmates, family, or online interactions.",
+    identify: [
+      "You struggle feeling truly understood.",
+      "You feel lonely even while socializing.",
+      "Conversations feel surface-level.",
+      "You hide how you actually feel.",
+    ],
+    redFlag: "You keep pretending everything is fine while feeling emotionally isolated.",
+    greenFlag: "You build honest relationships where you feel safe being yourself emotionally.",
+  },
+  {
+    title: "12. Not Feeling Like Yourself Lately",
+    whatItFeelsLike:
+      "You feel emotionally different, mentally exhausted, disconnected, or unlike the version of yourself you used to recognize.",
+    identify: [
+      "Things that once mattered feel exhausting.",
+      "You feel emotionally numb or mentally drained.",
+      "You feel off more often than present.",
+      "You struggle explaining what is wrong.",
+    ],
+    redFlag: "You ignore emotional exhaustion and pretend everything is completely fine.",
+    greenFlag: "You notice changes in yourself and give yourself permission to slow down, reflect, and ask for support when needed.",
+  },
 ] as const;
 
 const quickTruths = [
@@ -458,6 +602,7 @@ const getHumanResult1618 = (responses: Record<string, number>): TestResult | nul
 
 const KnowYourself = () => {
   const [selectedAge, setSelectedAge] = useState<string | null>(null);
+  const [expandedStruggle1315, setExpandedStruggle1315] = useState<string | null>(null);
   const [selectedChecks, setSelectedChecks] = useState<Record<string, number>>({});
   const [selectedChecks1618, setSelectedChecks1618] = useState<Record<string, number>>({});
   const [isChallengeGridHovered, setIsChallengeGridHovered] = useState(false);
@@ -799,97 +944,95 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
-                <h3 className="mb-5">
-                  <LetterSwapForward
-                    label="The 8 things quietly building your identity"
-                    className="text-2xl font-display font-semibold text-primary/85"
-                  />
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8 space-y-6">
+                <h3 className="text-2xl font-display font-semibold text-primary/85">
+                  12 Teen Struggles Almost Everyone Faces
                 </h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {shapingTiles.map((tile) => {
-                    return (
-                      <HolographicCard
-                        key={tile.title}
-                        title={tile.title}
-                        summary={tile.summary}
-                        redFlag={tile.redFlag}
-                        growthSign={tile.growthSign}
-                      />
-                    );
-                  })}
-                </div>
-              </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
-                <h3 className="mb-5">
-                  <LetterSwapForward
-                    label="What might be getting in your way"
-                    className="text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <p className="text-muted-foreground mb-5">Common things teens this age deal with</p>
-                <div
-                  onMouseEnter={() => setIsChallengeGridHovered(true)}
-                  onMouseLeave={() => setIsChallengeGridHovered(false)}
-                  className={`grid md:grid-cols-2 lg:grid-cols-3 transition-[gap] duration-300 ${
-                    isChallengeGridHovered ? "gap-2" : "gap-4"
-                  }`}
-                >
-                  {challengeCards.map(([title, body]) => (
-                    <ClipPathInfoCard
-                      key={title}
-                      title={title}
-                      body={body}
-                      className={`transition-transform duration-300 ${isChallengeGridHovered ? "scale-[1.01]" : "scale-100"}`}
-                    />
+                <div className="grid md:grid-cols-2 gap-4 pt-2">
+                  {teenStruggles1315.map((item, index) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, y: 18 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.35, delay: index * 0.02 }}
+                      className="h-full"
+                    >
+                      <AnimatePresence mode="wait" initial={false}>
+                        {expandedStruggle1315 === item.title ? (
+                          <motion.article
+                            key={`${item.title}-expanded`}
+                            className="rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.85)] p-4 md:p-5 space-y-3 h-full"
+                            initial={{ opacity: 0, y: 10, scale: 0.995 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 8, scale: 0.995 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <button
+                              type="button"
+                              onClick={() => setExpandedStruggle1315(null)}
+                              className="mb-1 inline-flex self-start items-center gap-1 rounded-md border border-primary/35 px-2 py-1 text-xs font-semibold text-primary hover:bg-primary/10 transition-colors"
+                            >
+                              Back
+                            </button>
+
+                            <h4 className="text-lg md:text-xl font-display font-semibold text-primary">{item.title}</h4>
+
+                            <div className="space-y-2">
+                              <p className="text-sm md:text-base font-semibold text-foreground">What It Feels Like</p>
+                              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{item.whatItFeelsLike}</p>
+                            </div>
+
+                            <div className="space-y-2">
+                              <p className="text-sm md:text-base font-semibold text-foreground">How To Identify It</p>
+                              <ul className="list-disc pl-5 space-y-1 text-sm md:text-base text-muted-foreground">
+                                {item.identify.map((point) => (
+                                  <li key={point}>{point}</li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                              <span className="font-semibold text-foreground">Red Flag:</span> {item.redFlag}
+                            </p>
+                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                              <span className="font-semibold text-foreground">Green Flag:</span> {item.greenFlag}
+                            </p>
+                          </motion.article>
+                        ) : (
+                          <motion.div
+                            key={`${item.title}-collapsed`}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.15 }}
+                            className="h-full"
+                          >
+                            <button
+                              type="button"
+                              onClick={() => setExpandedStruggle1315(item.title)}
+                              className="block w-full h-full text-left"
+                              aria-label={`Open details for ${item.title}`}
+                            >
+                              <ClipPathInfoCard
+                                title={item.title}
+                                body={item.whatItFeelsLike}
+                                className="h-full rounded-xl bg-[hsl(42_38%_88%_/_0.85)] p-5"
+                              >
+                                <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary/90">Open details</p>
+                              </ClipPathInfoCard>
+                            </button>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
                   ))}
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
-                <h3 className="mb-5">
-                  <LetterSwapForward
-                    label="No one told you this... but it matters"
-                    className="text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {arrangedQuickTruths.map((truth, idx) => (
-                    truth === "__SPACER__" ? (
-                      <div key={`qt-spacer-${idx}`} className="lg:block hidden" aria-hidden />
-                    ) : (
-                      <ClipPathInfoCard
-                        key={`qt-${idx}`}
-                        body={truth}
-                        className="border-primary/30 bg-[hsl(42_38%_88%_/_0.8)]"
-                      />
-                    )
-                  ))}
-                </div>
-              </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
-                <h3 className="mb-6">
-                  <LetterSwapForward
-                    label="Try this today"
-                    className="text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {microActions.map((action) => (
-                    <ClipPathInfoCard key={action.title} title={action.title}>
-                      <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
-                        {action.steps.map((step) => (
-                          <li key={step}>{step}</li>
-                        ))}
-                      </ul>
-                    </ClipPathInfoCard>
-                  ))}
-                </div>
-              </div>
-
-              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+              <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-3">
                   <LetterSwapForward
                     label="Quick understanding helps. But stronger growth needs more than one page."
@@ -907,10 +1050,6 @@ const KnowYourself = () => {
                   <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve confidence and discipline</li>
                   <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">become more grounded and responsible</li>
                 </ul>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <button type="button" className="cta-button">See What This Could Help With</button>
-                  <button type="button" className="cta-button">Show This to My Parent</button>
-                </div>
               </div>
 
               <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
@@ -951,8 +1090,6 @@ const KnowYourself = () => {
                   >
                     Go to Teen Toolkit
                   </Link>
-                  <button type="button" className="cta-button">See What Ikigai Teen Offers</button>
-                  <button type="button" className="cta-button">Show This to My Parent</button>
                 </div>
               </div>
             </div>
@@ -1134,38 +1271,8 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
-                <h3 className="mb-5">
-                  <LetterSwapForward
-                    label="Things You Need to Hear Clearly"
-                    className="text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {quickTruths1618.map((truth) => (
-                    <ClipPathInfoCard key={truth} body={truth} className="border-primary/30 bg-[hsl(42_38%_88%_/_0.8)]" />
-                  ))}
-                </div>
-              </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
-                <h3 className="mb-6">
-                  <LetterSwapForward label="Do This Today" className="text-2xl font-display font-semibold text-primary/85" />
-                </h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {microActions1618.map((action) => (
-                    <ClipPathInfoCard key={action.title} title={action.title}>
-                      <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
-                        {action.steps.map((step) => (
-                          <li key={step}>{step}</li>
-                        ))}
-                      </ul>
-                    </ClipPathInfoCard>
-                  ))}
-                </div>
-              </div>
-
-              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+              <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-3">
                   <LetterSwapForward
                     label="You don't need more random content. You need a stronger inner system."
@@ -1184,10 +1291,6 @@ const KnowYourself = () => {
                   <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">strengthen emotional steadiness</li>
                   <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">move toward purpose and direction</li>
                 </ul>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <button type="button" className="cta-button">See What This Could Help With</button>
-                  <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Show This to My Parent</button>
-                </div>
               </div>
 
               <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
@@ -1210,7 +1313,7 @@ const KnowYourself = () => {
                 </ul>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+              <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                 <h3 className="mb-3">
                   <LetterSwapForward
                     label="Understanding yourself is the beginning. Building yourself is the next step."
@@ -1228,8 +1331,6 @@ const KnowYourself = () => {
                   >
                     Go to Teen Toolkit
                   </Link>
-                  <button type="button" className="cta-button">See What Ikigai Teen Offers</button>
-                  <button type="button" className="cta-button">Show This to My Parent</button>
                 </div>
               </div>
             </div>
@@ -1243,3 +1344,4 @@ const KnowYourself = () => {
 };
 
 export default KnowYourself;
+
