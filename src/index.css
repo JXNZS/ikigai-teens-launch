@@ -135,7 +135,7 @@
   }
 
   .cta-card :is(h1, h2, h3, h4, h5, h6, .text-primary) {
-    color: #A2B5A1 !important;
+    color: #588068 !important;
   }
 
   .cta-card :is(p, li, .text-muted-foreground, .text-foreground, .text-foreground\/90) {

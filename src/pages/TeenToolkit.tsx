@@ -822,7 +822,7 @@ const TeenToolkit = () => {
                   </ClipPathInfoCard>
                 </div>
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                   <h3 className="mb-3">
                     <LetterSwapForward
                       label="Quick tools help. But stronger change needs training."
@@ -1069,7 +1069,7 @@ const TeenToolkit = () => {
                         </ClipPathInfoCard>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                      <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
                         <h3 className="mb-3">
                           <LetterSwapForward
                             label="You don't need more content. You need a system."

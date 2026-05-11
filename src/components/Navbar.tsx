@@ -29,7 +29,7 @@ export const navItems = [
   {
     label: "Resources",
     path: "/resources/blogs",
-    children: ["Blog/Articles", "Video/Podcast Links", "Recent Events", "Upcoming Events", "IkigaiTeen Facts & Stats"],
+    children: ["Blog/Articles", "Video/Podcast Links", "Ready to Use Tools", "Recent Events", "Upcoming Events"],
   },
   {
     label: "Get Involved",

@@ -371,30 +371,9 @@ const IkigaiTeenClub = () => {
           <div className="container mx-auto px-4 md:px-6">
             <div className="cta-card max-w-4xl mx-auto rounded-lg md:rounded-2xl border border-primary/20 bg-[hsl(42_38%_88%_/_0.8)] p-6 md:p-8 text-center">
               <p className="text-sm md:text-base lg:text-lg text-foreground/90 leading-relaxed mb-6 md:mb-8 px-2">
-
                 Inside Ikigai Teen Club, growth does not feel heavy. It feels meaningful. It feels exciting. It feels
                 real. Most of all, it feels like a space where teens can become more of who they are meant to be.
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3">
-                <Link
-                  to="/#contact"
-                  className="cta-button text-xs md:text-sm"
-                >
-                  Join the Club
-                </Link>
-                <a
-                  href="#identity-confidence"
-                  className="cta-button text-sm"
-                >
-                  Explore Member Benefits
-                </a>
-                <Link
-                  to="/parent-hub"
-                  className="cta-button text-sm"
-                >
-                  For Parents
-                </Link>
-              </div>
             </div>
           </div>
         </section>

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 
 const localizedGlowMask = "radial-gradient(var(--hero-glow-radius, 140px) var(--hero-glow-radius, 140px) at var(--hero-glow-x, 50%) var(--hero-glow-y, 50%), rgba(0,0,0,1) 20%, rgba(0,0,0,0) 76%)";
-const heroAccentColor = "hsl(117 12% 67%)"; // sage primary (#A2B5A1)
+const heroAccentColor = "hsl(117 12% 67%)"; // sage primary (#588068)
 const localizedGlowStyle = {
   WebkitMaskImage: localizedGlowMask,
   maskImage: localizedGlowMask,

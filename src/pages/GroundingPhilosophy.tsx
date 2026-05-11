@@ -47,7 +47,7 @@ interface CircleButtonProps {
   descriptionPosition?: 'top' | 'bottom';
 }
 
-const HoverGreenColor = "#A2B5A1"; // Sage primary for circle border and text
+const HoverGreenColor = "#588068"; // Sage primary for circle border and text
 const CircleAccent = HoverGreenColor; // Accent color for circle border and text
 
 const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPosition = 'bottom' }: CircleButtonProps) => {

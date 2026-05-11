@@ -26,7 +26,7 @@ const CTASection = () => {
           className="cta-card max-w-3xl mx-auto text-center rounded-lg md:rounded-2xl border border-border/60 p-6 md:p-10"
           style={{ y: textY, opacity: textOpacity, backgroundColor: '#2C423F' }}
         >
-          <motion.h2 style={{ color: '#A2B5A1' }}>
+          <motion.h2 style={{ color: '#588068' }}>
             <LetterSwapForward
               label="Ready to Start Your Journey?"
               className="justify-center text-2xl sm:text-3xl md:text-4xl font-display font-bold text-current mb-3 md:mb-4"

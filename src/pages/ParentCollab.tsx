@@ -290,32 +290,7 @@ const ParentCollab = () => {
                 </p>
               </section>
 
-              <div className="flex flex-wrap justify-center gap-4 pt-6">
-                <Link
-                  to="/parent-hub/parent-role"
-                  className="cta-button"
-                >
-                  Understand My Role Better
-                </Link>
-                <Link
-                  to="/teenzone/ikigai-teen-club"
-                  className="cta-button"
-                >
-                  See How Ikigai Teen Helps
-                </Link>
-                <Link
-                  to="/teenzone"
-                  className="cta-button"
-                >
-                  Explore the Program
-                </Link>
-                <Link
-                  to="/get-involved"
-                  className="cta-button"
-                >
-                  Join a Parent Intro Session
-                </Link>
-              </div>
+              
 
             </article>
           </div>

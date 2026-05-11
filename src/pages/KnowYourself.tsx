@@ -390,56 +390,152 @@ const resultProfiles1618 = [
   },
 ] as const;
 
-const shapingTiles1618 = [
+const teenStruggles1618 = [
   {
-    title: "Attention",
-    summary: "Where your mind goes, your life often follows.",
-    redFlag: "You are mentally scattered most of the time.",
-    growthSign: "You can direct your focus on purpose.",
+    title: "Feeling Pressure To Have Your Future Figured Out",
+    whatItFeelsLike: "You feel pressure to already know what career, college, goals, or 'life plan' you want — even though you're still discovering yourself.",
+    identify: [
+      "Thinking about the future makes you anxious.",
+      "You constantly compare your progress to others.",
+      "You feel behind when people seem more successful or prepared.",
+      "You believe one wrong decision could ruin your future.",
+    ],
+    redFlag: "You believe your entire future depends on having everything figured out right now.",
+    greenFlag: "You understand that most people figure life out gradually through experience, mistakes, and growth.",
   },
   {
-    title: "Habits",
-    summary: "Your routine reveals your real direction more than your intentions do.",
-    redFlag: "You keep repeating what weakens your future.",
-    growthSign: "You are building actions you can respect.",
+    title: "Academic Pressure & Burnout",
+    whatItFeelsLike: "School, exams, grades, assignments, and expectations start feeling mentally exhausting instead of motivating.",
+    identify: [
+      "You constantly feel tired or mentally drained.",
+      "Rest makes you feel guilty.",
+      "Your motivation disappears even when you care about your goals.",
+      "Small academic setbacks affect your self-worth.",
+    ],
+    redFlag: "You tie your entire value and identity to grades or achievements.",
+    greenFlag: "You work hard while still understanding that your mental health matters too.",
   },
   {
-    title: "Self-Respect",
-    summary: "The way you treat yourself sets the tone for your whole life.",
-    redFlag: "You betray your own standards too often.",
-    growthSign: "You begin living in a way you trust.",
+    title: "Comparing Yourself To Everyone Online",
+    whatItFeelsLike: "Social media makes it seem like everyone else is more attractive, successful, confident, talented, or happier than you.",
+    identify: [
+      "You compare your appearance or life daily.",
+      "Other people's success lowers your confidence.",
+      "You feel pressure to constantly improve yourself.",
+      "You overthink how your life looks online.",
+    ],
+    redFlag: "You measure your worth based on likes, attention, appearance, or online validation.",
+    greenFlag: "You use social media for connection and entertainment without letting it define your self-worth.",
   },
   {
-    title: "Emotional Regulation",
-    summary: "Emotions are part of life - but they should not drive every choice.",
-    redFlag: "You act from impulse, overwhelm, or emotional confusion.",
-    growthSign: "You can pause and choose more wisely.",
+    title: "Overthinking Every Conversation",
+    whatItFeelsLike: "Your brain constantly replays conversations, awkward moments, mistakes, and 'what if' situations.",
+    identify: [
+      "You replay small interactions for hours.",
+      "You assume people are judging you.",
+      "Tiny mistakes feel huge in your mind.",
+      "Relaxing feels difficult because your thoughts never slow down.",
+    ],
+    redFlag: "You let overthinking destroy your confidence or peace of mind.",
+    greenFlag: "You reflect, learn from situations, and move forward instead of staying mentally stuck.",
   },
   {
-    title: "Relationships",
-    summary: "Who you allow close to you shapes your peace, choices, and identity.",
-    redFlag: "You get pulled by attention, attachment, or unhealthy dynamics.",
-    growthSign: "You choose connection without losing yourself.",
+    title: "Struggling With Identity & Authenticity",
+    whatItFeelsLike: "You feel pressure to fit in while also trying to discover who you genuinely are.",
+    identify: [
+      "You act differently depending on who you're around.",
+      "You hide interests or opinions to avoid judgment.",
+      "You fear being 'different.'",
+      "Being accepted feels more important than being yourself.",
+    ],
+    redFlag: "You lose your identity trying to please everyone around you.",
+    greenFlag: "You become more comfortable expressing who you really are, even if not everyone understands you.",
   },
   {
-    title: "Screen / Digital Influence",
-    summary: "Your digital life is not neutral. It affects desire, comparison, attention, and self-worth.",
-    redFlag: "You feel more drained, distracted, or insecure after scrolling.",
-    growthSign: "You are using tech without letting it shape you blindly.",
+    title: "Friendship & Relationship Stress",
+    whatItFeelsLike: "Friendships, group chats, dating, attention, replies, and social situations affect your emotions more than they should.",
+    identify: [
+      "Delayed replies ruin your mood.",
+      "You constantly overanalyze friendships or relationships.",
+      "Feeling excluded affects your confidence deeply.",
+      "You depend heavily on attention or validation.",
+    ],
+    redFlag: "Your happiness completely depends on other people's attention, approval, or presence.",
+    greenFlag: "You value relationships while still maintaining emotional independence and self-respect.",
   },
   {
-    title: "Values",
-    summary: "Your values are your internal direction when external noise gets loud.",
-    redFlag: "You keep acting against what you know is right.",
-    growthSign: "You begin choosing based on principle, not pressure.",
+    title: "Feeling Like You're Never Good Enough",
+    whatItFeelsLike: "No matter what you accomplish, your flaws, mistakes, or insecurities still feel louder than your strengths.",
+    identify: [
+      "Compliments feel hard to believe.",
+      "You constantly criticize yourself.",
+      "You feel pressure to prove yourself.",
+      "Perfection feels necessary to feel worthy.",
+    ],
+    redFlag: "You believe your value depends on being perfect, attractive, successful, or talented.",
+    greenFlag: "You recognize your strengths while allowing yourself to grow imperfectly.",
   },
   {
-    title: "Direction",
-    summary: "You do not need your whole life figured out. But drifting without reflection has a cost.",
-    redFlag: "You keep reacting to life instead of shaping it.",
-    growthSign: "You are becoming more intentional.",
+    title: "Living Through Your Phone",
+    whatItFeelsLike: "Your phone becomes your escape whenever you feel bored, stressed, lonely, anxious, or uncomfortable.",
+    identify: [
+      "You automatically open apps without thinking.",
+      "Hours disappear scrolling.",
+      "Being offline feels uncomfortable.",
+      "Your mood depends heavily on notifications or attention online.",
+    ],
+    redFlag: "You use your phone to avoid emotions, responsibilities, or real-life problems.",
+    greenFlag: "You enjoy social media while still staying present in real life.",
   },
-];
+  {
+    title: "Emotional Overload",
+    whatItFeelsLike: "Stress, pressure, emotions, and responsibilities build up until even small situations feel overwhelming.",
+    identify: [
+      "Small problems feel emotionally huge.",
+      "Your mood changes quickly.",
+      "You feel mentally exhausted often.",
+      "You struggle expressing what you feel.",
+    ],
+    redFlag: "You bottle everything up until you emotionally explode or completely shut down.",
+    greenFlag: "You allow yourself to process emotions in healthy ways instead of ignoring them.",
+  },
+  {
+    title: "Procrastination & Avoidance",
+    whatItFeelsLike: "You avoid difficult tasks, responsibilities, or conversations until the stress becomes worse.",
+    identify: [
+      "You delay important tasks repeatedly.",
+      "Starting feels harder than actually doing the task.",
+      "You feel guilty for procrastinating.",
+      "Problems grow because they stay unaddressed.",
+    ],
+    redFlag: "Avoidance creates more stress, anxiety, and pressure over time.",
+    greenFlag: "You take small steps toward problems instead of avoiding them completely.",
+  },
+  {
+    title: "Feeling Alone Even Around People",
+    whatItFeelsLike: "You feel emotionally disconnected even while surrounded by classmates, friends, family, or social media.",
+    identify: [
+      "You feel misunderstood often.",
+      "Conversations feel surface-level.",
+      "You hide how you truly feel.",
+      "You feel lonely even when socializing.",
+    ],
+    redFlag: "You pretend everything is fine while feeling emotionally isolated.",
+    greenFlag: "You build honest relationships where you feel emotionally safe being yourself.",
+  },
+  {
+    title: "Not Feeling Like Yourself Lately",
+    whatItFeelsLike: "You feel emotionally exhausted, disconnected, numb, or unlike the version of yourself you used to recognize.",
+    identify: [
+      "Things that once mattered now feel exhausting.",
+      "You feel emotionally drained often.",
+      "You struggle explaining what feels wrong.",
+      "You feel 'off' more often than fully present.",
+    ],
+    redFlag: "You ignore emotional exhaustion and force yourself to pretend everything is okay.",
+    greenFlag: "You notice changes in yourself and allow yourself to slow down, reflect, and ask for support.",
+  },
+] as const;
 
 const challengeCards1618 = [
   ["Validation-Seeking", "You know you shouldn't depend on attention, but part of you still does."],
@@ -603,6 +699,7 @@ const getHumanResult1618 = (responses: Record<string, number>): TestResult | nul
 const KnowYourself = () => {
   const [selectedAge, setSelectedAge] = useState<string | null>(null);
   const [expandedStruggle1315, setExpandedStruggle1315] = useState<string | null>(null);
+  const [expandedStruggle1618, setExpandedStruggle1618] = useState<string | null>(null);
   const [selectedChecks, setSelectedChecks] = useState<Record<string, number>>({});
   const [selectedChecks1618, setSelectedChecks1618] = useState<Record<string, number>>({});
   const [isChallengeGridHovered, setIsChallengeGridHovered] = useState(false);
@@ -1225,22 +1322,91 @@ const KnowYourself = () => {
                 </div>
               </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
-                <h3 className="mb-5">
-                  <LetterSwapForward
-                    label="The 8 Forces Quietly Building the Person You're Becoming"
-                    className="text-2xl font-display font-semibold text-primary/85"
-                  />
+              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8 space-y-6">
+                <h3 className="text-2xl font-display font-semibold text-primary/85">
+                  12 Real Struggles You Might Be Facing
                 </h3>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {shapingTiles1618.map((tile) => (
-                    <HolographicCard
-                      key={tile.title}
-                      title={tile.title}
-                      summary={tile.summary}
-                      redFlag={tile.redFlag}
-                      growthSign={tile.growthSign}
-                    />
+
+                <div className="grid md:grid-cols-2 gap-4 pt-2">
+                  {teenStruggles1618.map((item, index) => (
+                    <motion.div
+                      key={item.title}
+                      initial={{ opacity: 0, y: 18 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.2 }}
+                      transition={{ duration: 0.35, delay: index * 0.02 }}
+                      className="h-full"
+                    >
+                      <AnimatePresence mode="wait" initial={false}>
+                        {expandedStruggle1618 === item.title ? (
+                          <motion.article
+                            key={`${item.title}-expanded`}
+                            className="rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.85)] p-4 md:p-5 space-y-3 h-full"
+                            initial={{ opacity: 0, y: 10, scale: 0.995 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 8, scale: 0.995 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <button
+                              type="button"
+                              onClick={() => setExpandedStruggle1618(null)}
+                              className="mb-1 inline-flex self-start items-center gap-1 rounded-md border border-primary/35 px-2 py-1 text-xs font-semibold text-primary hover:bg-primary/10 transition-colors"
+                            >
+                              Back
+                            </button>
+
+                            <h4 className="text-lg md:text-xl font-display font-semibold text-primary">
+                              {index + 1}. {item.title}
+                            </h4>
+
+                            <div className="space-y-2">
+                              <p className="text-sm md:text-base font-semibold text-foreground">What It Feels Like</p>
+                              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{item.whatItFeelsLike}</p>
+                            </div>
+
+                            <div className="space-y-2">
+                              <p className="text-sm md:text-base font-semibold text-foreground">How To Identify It</p>
+                              <ul className="list-disc pl-5 space-y-1 text-sm md:text-base text-muted-foreground">
+                                {item.identify.map((point) => (
+                                  <li key={point}>{point}</li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                              <span className="font-semibold text-foreground">Red Flag:</span> {item.redFlag}
+                            </p>
+                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                              <span className="font-semibold text-foreground">Green Flag:</span> {item.greenFlag}
+                            </p>
+                          </motion.article>
+                        ) : (
+                          <motion.div
+                            key={`${item.title}-collapsed`}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            transition={{ duration: 0.15 }}
+                            className="h-full"
+                          >
+                            <button
+                              type="button"
+                              onClick={() => setExpandedStruggle1618(item.title)}
+                              className="block w-full h-full text-left"
+                              aria-label={`Open details for ${item.title}`}
+                            >
+                              <ClipPathInfoCard
+                                title={`${index + 1}. ${item.title}`}
+                                body={item.whatItFeelsLike}
+                                className="h-full rounded-xl bg-[hsl(42_38%_88%_/_0.85)] p-5"
+                              >
+                                <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary/90">Open details</p>
+                              </ClipPathInfoCard>
+                            </button>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
                   ))}
                 </div>
               </div>
