@@ -149,11 +149,10 @@ const HeroSlideshow = () => {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 rounded-full transition-all duration-300 shadow-sm ${
-                index === currentIndex
+              className={`w-2 h-2 rounded-full transition-all duration-300 shadow-sm ${index === currentIndex
                   ? "bg-white scale-125"
                   : "bg-white/40 hover:bg-white/60"
-              }`}
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
@@ -163,10 +162,10 @@ const HeroSlideshow = () => {
       {/* Video Section */}
       <div className="w-full max-w-[340px] md:max-w-[380px] mx-auto lg:ml-auto lg:mr-0 flex flex-col gap-3 md:gap-4 mt-2 md:mt-0">
         <h3 className="text-[#FCEADE] font-display font-semibold text-lg md:text-xl text-center drop-shadow-md">
-          Why IkigaiTeen Was Formed?
+          Why IkigaiTeen?
         </h3>
         <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-black group z-20">
-          
+
           {/* 
             By positioning the iframe absolutely and scaling its width/height to 150%, 
             we push all of YouTube's native UI (title at the top, YouTube logo at the bottom) 
@@ -177,19 +176,19 @@ const HeroSlideshow = () => {
               ref={iframeRef}
               src="https://www.youtube.com/embed/EFeykHZoAv0?autoplay=1&mute=1&loop=1&playlist=EFeykHZoAv0&enablejsapi=1&controls=0&disablekb=1&fs=0&modestbranding=1&playsinline=1"
               title="Ikigai Teen YouTube video"
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%]" 
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%]"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
           </div>
 
           {/* Cover thumbnail to hide YouTube's initial loading UI (fades out after 2.5s) */}
-          <div 
+          <div
             className={`absolute inset-0 z-0 bg-black transition-opacity duration-1000 pointer-events-none ${isVideoLoaded ? 'opacity-0' : 'opacity-100'}`}
           >
-            <img 
-              src="https://img.youtube.com/vi/EFeykHZoAv0/maxresdefault.jpg" 
-              alt="Video thumbnail" 
+            <img
+              src="https://img.youtube.com/vi/EFeykHZoAv0/maxresdefault.jpg"
+              alt="Video thumbnail"
               className="w-full h-full object-cover"
             />
           </div>
