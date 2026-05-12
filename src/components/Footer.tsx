@@ -190,7 +190,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="text-xs md:text-sm text-muted-foreground font-body leading-relaxed">
+            <div className="text-xs md:text-sm text-white font-body leading-relaxed">
               <p>Empowering teens to discover purpose.</p>
               <p>Building a meaningful future through identity.</p>
               <p>Growing with guidance, confidence, and community.</p>
