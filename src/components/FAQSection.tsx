@@ -44,7 +44,7 @@ const renderNumberText = (text: string): ReactNode => {
 
 const faqItems: FAQItem[] = [
   {
-    question: "what",
+    question: "What makes Ikigai Teen different?",
     points: [
       {
         title: "Focus on the Teen Mindset, Not Just Marks",

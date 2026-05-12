@@ -43,7 +43,7 @@ const HeroSection = () => {
         <div className="flex-1 flex flex-col gap-6 w-full text-center lg:text-left justify-center pt-8 md:pt-0 z-20">
           <Hero />
         </div>
-        <div className="flex-shrink-0 w-full lg:w-auto z-10">
+        <div className="flex-shrink-0 w-full lg:w-[460px] z-10">
           <HeroSlideshow />
         </div>
       </motion.div>

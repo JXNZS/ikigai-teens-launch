@@ -114,9 +114,9 @@ const HeroSlideshow = () => {
   };
 
   return (
-    <div className="relative w-full flex flex-col items-center lg:items-end justify-center pt-8 lg:pt-0 gap-4 md:gap-6">
+    <div className="relative flex flex-col items-center lg:items-end justify-center pt-8 lg:pt-0 gap-4 md:gap-6 w-full">
       {/* Slideshow container */}
-      <div className="relative w-full h-[260px] md:h-[300px] lg:h-[320px] max-w-[340px] md:max-w-[380px] mx-auto lg:ml-auto lg:mr-0">
+      <div className="relative w-full h-[310px] md:h-[350px] lg:h-[370px] max-w-[280px] md:max-w-[320px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -131,7 +131,7 @@ const HeroSlideshow = () => {
                 {tiles[currentIndex].content}
               </p>
               {tiles[currentIndex].image && (
-                <div className="flex-shrink-0 w-full max-w-[200px] mx-auto mt-2">
+                <div className="flex-shrink-0 w-full max-w-[160px] mx-auto mt-2">
                   <img
                     src={tiles[currentIndex].image}
                     alt="Tile graphic"
@@ -160,7 +160,7 @@ const HeroSlideshow = () => {
       </div>
 
       {/* Video Section */}
-      <div className="w-full max-w-[340px] md:max-w-[380px] mx-auto lg:ml-auto lg:mr-0 flex flex-col gap-3 md:gap-4 mt-2 md:mt-0">
+      <div className="w-full max-w-[280px] md:max-w-[320px] mx-auto lg:ml-auto lg:mr-0 flex flex-col gap-3 md:gap-4 mt-2 md:mt-0">
         <h3 className="text-[#FCEADE] font-display font-semibold text-lg md:text-xl text-center drop-shadow-md">
           Why IkigaiTeen?
         </h3>

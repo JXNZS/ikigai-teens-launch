@@ -46,6 +46,7 @@ const Navbar = () => {
   const [selectedLanguage, setSelectedLanguage] = useState<'english' | 'kannada'>('english');
   const desktopNavRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const normalizeHeaderLabel = (label?: string | null) => {
     if (label === "Teenzone") {
@@ -305,7 +306,17 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div ref={desktopNavRef} className="hidden lg:flex relative">
-          <NavHeader items={navItems.map((item) => item.label)} activeItem={openDropdown} onItemClick={handleDesktopHeaderClick} />
+          <NavHeader 
+            items={!isHomePage ? ["Home", ...navItems.map((item) => item.label)] : navItems.map((item) => item.label)} 
+            activeItem={openDropdown} 
+            onItemClick={(label) => {
+              if (label === "Home") {
+                window.location.href = "/";
+              } else {
+                handleDesktopHeaderClick(label);
+              }
+            }} 
+          />
 
           <AnimatePresence mode="wait">
             {activeDesktopItem && dropdownAnchorX !== null && (
@@ -402,6 +413,15 @@ const Navbar = () => {
             className="lg:hidden overflow-hidden bg-card border-t border-border max-h-[80vh] overflow-y-auto"
           >
             <div className="px-4 md:px-6 py-4 space-y-1">
+              {!isHomePage && (
+                <Link
+                  to="/"
+                  className="block py-2.5 px-2 text-foreground/80 font-body text-xs md:text-sm uppercase tracking-wide hover:bg-secondary/50 rounded transition-colors font-semibold border-b border-[rgba(0,0,0,0.1)] mb-2"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  Home
+                </Link>
+              )}
               {navItems.map((item) => (
                 <div key={item.label}>
                   <button
