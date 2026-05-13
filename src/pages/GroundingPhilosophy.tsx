@@ -56,12 +56,37 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
   const isHovered = hovered === index;
   const isMobile = useIsMobile();
   
-  // Determine if this is a side circle (not the center Ikigai)
-  // Side circles: 4 (Kintsugi-left), 1 (Kaizen-right), 2 (Shoshin-left), 3 (Hansei-right)
-  // Center circle: 0 (Ikigai)
-  const isSideCircle = index !== 0;
-  const isLeftSide = index === 4 || index === 2;
-  const isRightSide = index === 1 || index === 3;
+  // Determine circle position: 0=center, 4,2=left, 1,3=right
+  const isLeftColumn = index === 4 || index === 2;
+  const isRightColumn = index === 1 || index === 3;
+  const isCenterCircle = index === 0;
+  
+  // On mobile, expanded side circles should be repositioned to stay fully visible
+  const getMobileExpandedStyles = () => {
+    if (!isHovered || !isMobile || isCenterCircle) return {};
+    
+    // Position expanded card based on circle's column, expanding inward
+    if (isLeftColumn) {
+      return {
+        position: 'fixed' as const,
+        left: '16px',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        maxWidth: 'calc(100vw - 32px)',
+        maxHeight: 'calc(100vh - 120px)',
+      };
+    } else if (isRightColumn) {
+      return {
+        position: 'fixed' as const,
+        right: '16px',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        maxWidth: 'calc(100vw - 32px)',
+        maxHeight: 'calc(100vh - 120px)',
+      };
+    }
+    return {};
+  };
   
   return (
     <motion.div
@@ -92,7 +117,7 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
         className="relative flex items-center justify-center cursor-pointer bg-white border-4 font-display font-bold text-xl md:text-2xl text-center select-none overflow-visible"
         style={{
           borderColor: CircleAccent,
-          position: isHovered && isMobile && isSideCircle ? 'fixed' : 'relative',
+          position: 'relative',
           zIndex: isHovered ? 2147483647 : 1,
           backgroundColor: '#ffffff',
           opacity: 1,
@@ -101,13 +126,7 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
           WebkitBackdropFilter: 'none',
           mixBlendMode: 'normal',
           isolation: 'isolate',
-          ...(isHovered && isMobile && isSideCircle ? {
-            left: isLeftSide ? 'auto' : '50%',
-            right: isLeftSide ? 'auto' : 'auto',
-            top: '50%',
-            transform: isLeftSide ? 'translateY(-50%)' : 'translate(-50%, -50%)',
-            marginLeft: isLeftSide ? '12px' : '0',
-          } : {}),
+          ...getMobileExpandedStyles(),
         }}
       >
         <motion.div
@@ -188,7 +207,7 @@ const GroundingPhilosophy = () => {
             </article>
 
             {/* Right: Expandable Circles */}
-            <div className="flex-1 flex flex-col justify-center overflow-visible">
+            <div className="flex-1 flex flex-col justify-center overflow-visible" onClick={() => isMobile && hovered !== null && setHovered(null)}>
               <div className="grid grid-rows-3 grid-cols-2 gap-8 h-full place-items-center relative overflow-visible" style={{minHeight:'500px'}}>
                 {/* Row 1: Kintsugi (index 4), Kaizen (index 1) */}
                 <CircleButton index={4} principleData={principleData} hovered={hovered} setHovered={setHovered} />
