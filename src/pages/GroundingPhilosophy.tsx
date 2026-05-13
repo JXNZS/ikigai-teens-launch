@@ -74,7 +74,7 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
       return {
         position: 'fixed' as const,
         left: '16px',
-        top: isTopRow ? '16px' : isBottomRow ? 'auto' : '50%',
+        top: isTopRow ? 'calc(30% - 80px)' : isBottomRow ? 'auto' : '50%',
         bottom: isBottomRow ? '16px' : 'auto',
         transform: isTopRow || isBottomRow ? 'none' : 'translateY(-50%)',
         maxWidth: 'calc(100vw - 32px)',
@@ -84,7 +84,7 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
       return {
         position: 'fixed' as const,
         right: '16px',
-        top: isTopRow ? '16px' : isBottomRow ? 'auto' : '50%',
+        top: isTopRow ? 'calc(30% - 80px)' : isBottomRow ? 'auto' : '50%',
         bottom: isBottomRow ? '16px' : 'auto',
         transform: isTopRow || isBottomRow ? 'none' : 'translateY(-50%)',
         maxWidth: 'calc(100vw - 32px)',
