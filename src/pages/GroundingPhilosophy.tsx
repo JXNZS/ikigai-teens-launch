@@ -65,13 +65,17 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
   const getMobileExpandedStyles = () => {
     if (!isHovered || !isMobile || isCenterCircle) return {};
     
+    // Determine if circle is in bottom row (Shoshin and Hansei)
+    const isBottomRow = index === 2 || index === 3;
+    
     // Position expanded card based on circle's column, expanding inward
     if (isLeftColumn) {
       return {
         position: 'fixed' as const,
         left: '16px',
-        top: '50%',
-        transform: 'translateY(-50%)',
+        top: isBottomRow ? 'auto' : '50%',
+        bottom: isBottomRow ? '16px' : 'auto',
+        transform: isBottomRow ? 'none' : 'translateY(-50%)',
         maxWidth: 'calc(100vw - 32px)',
         maxHeight: 'calc(100vh - 120px)',
       };
@@ -79,8 +83,9 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
       return {
         position: 'fixed' as const,
         right: '16px',
-        top: '50%',
-        transform: 'translateY(-50%)',
+        top: isBottomRow ? 'auto' : '50%',
+        bottom: isBottomRow ? '16px' : 'auto',
+        transform: isBottomRow ? 'none' : 'translateY(-50%)',
         maxWidth: 'calc(100vw - 32px)',
         maxHeight: 'calc(100vh - 120px)',
       };
