@@ -114,9 +114,9 @@ const HeroSlideshow = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center lg:items-end justify-center pt-8 lg:pt-0 gap-4 md:gap-6 w-full">
+    <div className="relative flex flex-col items-center lg:items-end justify-center pt-4 lg:pt-0 gap-3 md:gap-6 w-full">
       {/* Slideshow container */}
-      <div className="relative w-full h-[310px] md:h-[350px] lg:h-[370px] max-w-[280px] md:max-w-[320px]">
+      <div className="relative w-full h-[240px] sm:h-[270px] md:h-[350px] lg:h-[370px] max-w-[280px] md:max-w-[320px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -124,7 +124,7 @@ const HeroSlideshow = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="absolute inset-0 flex flex-col px-10 pt-5 pb-10 md:pt-6 md:pb-12 bg-white/10 backdrop-blur-md rounded-2xl border border-[#FCEADE]/50 shadow-xl"
+            className="absolute inset-0 flex flex-col px-6 pt-4 pb-8 sm:px-8 sm:pt-5 sm:pb-10 md:px-10 md:pt-6 md:pb-12 bg-white/10 backdrop-blur-md rounded-2xl border border-[#FCEADE]/50 shadow-xl"
           >
             <div className="w-full h-full flex flex-col justify-start items-center overflow-y-auto no-scrollbar gap-3 text-center">
               <p className="text-[13px] md:text-sm text-white/95 font-medium leading-relaxed font-body">
@@ -160,8 +160,8 @@ const HeroSlideshow = () => {
       </div>
 
       {/* Video Section */}
-      <div className="w-full max-w-[280px] md:max-w-[320px] mx-auto lg:ml-auto lg:mr-0 flex flex-col gap-3 md:gap-4 mt-2 md:mt-0">
-        <h3 className="text-[#FCEADE] font-display font-semibold text-lg md:text-xl text-center drop-shadow-md">
+      <div className="w-full max-w-[280px] md:max-w-[320px] mx-auto lg:ml-auto lg:mr-0 flex flex-col gap-2 md:gap-4 mt-1 md:mt-0">
+        <h3 className="text-[#FCEADE] font-display font-semibold text-base md:text-xl text-center drop-shadow-md">
           Why IkigaiTeen?
         </h3>
         <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-black group z-20">
@@ -174,9 +174,9 @@ const HeroSlideshow = () => {
           <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
             <iframe
               ref={iframeRef}
-              src="https://www.youtube.com/embed/EFeykHZoAv0?autoplay=1&mute=1&loop=1&playlist=EFeykHZoAv0&enablejsapi=1&controls=0&disablekb=1&fs=0&modestbranding=1&playsinline=1"
+              src="https://www.youtube.com/embed/EFeykHZoAv0?autoplay=1&mute=1&loop=1&playlist=EFeykHZoAv0&enablejsapi=1&controls=0&disablekb=1&fs=0&modestbranding=1&playsinline=1&rel=0&iv_load_policy=3&cc_load_policy=0"
               title="Ikigai Teen YouTube video"
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%]"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260%] h-[150%]"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             ></iframe>
