@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as pdfjsLib from "pdfjs-dist";
 import pdfWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 
@@ -13,10 +13,30 @@ const PdfInlineViewer = ({ fileUrl, className }: PdfInlineViewerProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [pageImages, setPageImages] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [containerWidth, setContainerWidth] = useState(900);
 
-  const containerWidth = useMemo(() => {
-    if (!containerRef.current) return 900;
-    return Math.max(360, containerRef.current.clientWidth);
+  useEffect(() => {
+    const element = containerRef.current;
+    if (!element) return;
+
+    const updateWidth = () => {
+      setContainerWidth(Math.max(320, Math.floor(element.clientWidth || window.innerWidth || 900)));
+    };
+
+    updateWidth();
+
+    const resizeObserver = new ResizeObserver(() => {
+      updateWidth();
+    });
+
+    resizeObserver.observe(element);
+
+    window.addEventListener("orientationchange", updateWidth);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("orientationchange", updateWidth);
+    };
   }, []);
 
   useEffect(() => {
@@ -77,22 +97,22 @@ const PdfInlineViewer = ({ fileUrl, className }: PdfInlineViewerProps) => {
   }, [fileUrl, containerWidth]);
 
   return (
-    <div ref={containerRef} className={className}>
+    <div ref={containerRef} className={`w-full max-w-full overflow-hidden ${className ?? ""}`}>
       {isLoading && (
-        <div className="py-10 text-center text-sm text-muted-foreground">Loading article pages...</div>
+        <div className="py-10 text-center text-sm text-muted-foreground">Loading PDF preview...</div>
       )}
 
       {!isLoading && pageImages.length === 0 && (
-        <div className="py-10 text-center text-sm text-muted-foreground">Unable to preview this article.</div>
+        <div className="py-10 text-center text-sm text-muted-foreground">Unable to preview this PDF.</div>
       )}
 
-      <div className="space-y-3">
+      <div className="space-y-3 md:space-y-4">
         {pageImages.map((image, index) => (
           <img
             key={`page-${index + 1}`}
             src={image}
             alt={`Article page ${index + 1}`}
-            className="w-full h-auto rounded-md border border-border/40 bg-card"
+            className="block w-full h-auto rounded-md border border-border/40 bg-card"
             loading="lazy"
           />
         ))}
