@@ -355,22 +355,22 @@ const Navbar = () => {
               onClick={handleLanguageClick}
               aria-label="Switch language"
               className="relative inline-flex h-9 w-[132px] items-center overflow-hidden rounded-full border border-[rgba(44,66,63,0.35)] text-[13px] font-semibold transition-colors"
-              style={{ backgroundColor: "#2C423F" }}
+              style={{ backgroundColor: "#FCEADE" }}
             >
               <span
                 className="absolute inset-y-0 left-0 w-1/2 z-0 transition-colors"
-                style={{ backgroundColor: '#FCEADE' }}
+                style={{ backgroundColor: '#2C423F' }}
               />
-              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-6 w-px z-10" style={{ backgroundColor: '#FCEADE' }} />
+              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-6 w-px z-10" style={{ backgroundColor: '#2C423F' }} />
               <span 
                 className="relative z-20 w-1/2 text-center font-semibold transition-colors"
-                style={{ color: '#2C423F' }}
+                style={{ color: '#FCEADE' }}
               >
                 English
               </span>
               <span 
                 className="relative z-20 w-1/2 text-center font-semibold transition-colors"
-                style={{ color: '#FCEADE' }}
+                style={{ color: '#2C423F' }}
               >
                 ಕನ್ನಡ
               </span>
@@ -469,7 +469,7 @@ const Navbar = () => {
                     <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-6 w-px z-10" style={{ backgroundColor: '#2C423F' }} />
                     <span 
                       className="relative z-20 w-1/2 text-center font-semibold transition-colors"
-                      style={{ color: '#ffffff' }}
+                      style={{ color: '#FCEADE' }}
                     >
                       English
                     </span>

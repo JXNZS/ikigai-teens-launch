@@ -59,7 +59,7 @@ const teamMembers: TeamMember[] = [
 		role: "Digital Media & Design Support",
 		region: "Iraq",
 		image: barakatPhoto,
-		imageClassName: "object-[60%_50%] scale-150",
+		imageClassName: "object-[60%_60%] scale-150",
 		quote: "Design has the power to turn ideas into experiences that inspire people to think differently.",
 		bio: [
 			"Barakat Mohammed is a digital designer based in Erbil, Iraq, with a strong interest in youth engagement, visual storytelling, and educational media. A graduate of Lebanese French University (2024), he combines creative design skills with an understanding of how digital platforms influence the way young audiences learn and interact.",
@@ -185,21 +185,29 @@ const FounderTeam = () => {
 																			{" "}
 																			<button
 																				type="button"
-																					onClick={() => setShowFullFounderBio((previous) => !previous)}
-																					className="ml-1 inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
-																				>
-																					{showFullFounderBio ? "Show less" : "Read more"}
-																				</button>
-																			</>
-																		) : null}
+																				onClick={() => setShowFullFounderBio((previous) => !previous)}
+																				className="ml-1 inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
+																			>
+																				{showFullFounderBio ? "Show less" : "Read more"}
+																			</button>
+																			<a
+																				href="https://www.youtube.com/watch?v=EFeykHZoAv0&t=154s"
+																				target="_blank"
+																				rel="noopener noreferrer"
+																				className="ml-2 inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
+																			>
+																				Video Bio
+																			</a>
+																		</>
+																	) : null}
 																</p>
 															))}
 														</>
 													) : (
 														member.bio.map((paragraph, idx) => (
-														<p key={`${member.name}-bio-${idx}`} className="text-sm md:text-base text-muted-foreground leading-relaxed">
-															{paragraph}
-														</p>
+															<p key={`${member.name}-bio-${idx}`} className="text-sm md:text-base text-muted-foreground leading-relaxed">
+																{paragraph}
+															</p>
 														))
 													)}
 

@@ -222,6 +222,28 @@ const Journey = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (!activeMilestoneLabel || !isMobile) return;
+    
+    const handleScroll = () => {
+      closeMilestonePopup();
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    const timelineElement = timelineScrollRef.current;
+    if (timelineElement) {
+      timelineElement.addEventListener('scroll', handleScroll, { passive: true });
+    }
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timelineElement) {
+        timelineElement.removeEventListener('scroll', handleScroll);
+      }
+    };
+  }, [activeMilestoneLabel, isMobile]);
+
   const scrollTimeline = (direction: -1 | 1) => {
     const element = timelineScrollRef.current;
     if (!element) {
@@ -396,11 +418,9 @@ const Journey = () => {
                     width: "min(24rem, calc(100vw - 2rem))",
                     maxHeight: isMobile ? "calc(100vh - 4rem)" : undefined,
                     overflowY: isMobile ? "auto" : undefined,
-                    left: isMobile ? "50%" : desktopLeft,
-                    top: isMobile ? "50%" : isTop ? activeMilestoneRect.top - 16 : activeMilestoneRect.bottom + 16,
-                    transform: isMobile
-                      ? "translate(-50%, -50%)"
-                      : isTop
+                    left: desktopLeft,
+                    top: isTop ? activeMilestoneRect.top - 16 : activeMilestoneRect.bottom + 16,
+                    transform: isTop
                         ? "translate(-50%, -100%)"
                         : "translate(-50%, 0)",
                   }}
