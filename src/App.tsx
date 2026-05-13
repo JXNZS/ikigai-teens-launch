@@ -21,6 +21,8 @@ import ResourceBlogs from "./pages/ResourceBlogs.tsx";
 import ResourceVideos from "./pages/ResourceVideos.tsx";
 import RecentEvents from "./pages/RecentEvents.tsx";
 import UpcomingEvents from "./pages/UpcomingEvents.tsx";
+import ReadyToUseTools from "./pages/ReadyToUseTools.tsx";
+import PDFViewer from "./pages/PDFViewer.tsx";
 import GetInvolved from "./pages/GetInvolved.tsx";
 import BeOurExperts from "./pages/BeOurExperts.tsx";
 import BeOurCollaborators from "./pages/BeOurCollaborators.tsx";
@@ -96,6 +98,8 @@ const App = () => (
           <Route path="/resources" element={<Navigate to="/resources/blogs" replace />} />
           <Route path="/resources/blogs" element={<ResourceBlogs />} />
           <Route path="/resources/videos" element={<ResourceVideos />} />
+          <Route path="/resources/ready-to-use-tools" element={<ReadyToUseTools />} />
+          <Route path="/resources/pdf/:id" element={<PDFViewer />} />
           <Route path="/resources/recent-events" element={<RecentEvents />} />
           <Route path="/resources/upcoming-events" element={<UpcomingEvents />} />
           <Route path="/resources/blog/:slug" element={<ResourceArticle />} />

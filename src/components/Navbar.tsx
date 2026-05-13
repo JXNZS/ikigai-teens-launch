@@ -200,6 +200,10 @@ const Navbar = () => {
       return "/resources/videos";
     }
 
+    if (parentLabel === "Resources" && childLabel === "Ready to Use Tools") {
+      return "/resources/ready-to-use-tools";
+    }
+
     if (parentLabel === "Resources" && childLabel === "Recent Events") {
       return "/resources/recent-events";
     }
