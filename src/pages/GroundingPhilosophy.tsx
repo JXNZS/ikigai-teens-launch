@@ -65,17 +65,18 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
   const getMobileExpandedStyles = () => {
     if (!isHovered || !isMobile || isCenterCircle) return {};
     
-    // Determine if circle is in bottom row (Shoshin and Hansei)
+    // Determine if circle is in bottom row (Shoshin and Hansei) or top row (Kintsugi and Kaizen)
     const isBottomRow = index === 2 || index === 3;
+    const isTopRow = index === 4 || index === 1;
     
     // Position expanded card based on circle's column, expanding inward
     if (isLeftColumn) {
       return {
         position: 'fixed' as const,
         left: '16px',
-        top: isBottomRow ? 'auto' : '50%',
+        top: isTopRow ? '16px' : isBottomRow ? 'auto' : '50%',
         bottom: isBottomRow ? '16px' : 'auto',
-        transform: isBottomRow ? 'none' : 'translateY(-50%)',
+        transform: isTopRow || isBottomRow ? 'none' : 'translateY(-50%)',
         maxWidth: 'calc(100vw - 32px)',
         maxHeight: 'calc(100vh - 120px)',
       };
@@ -83,9 +84,9 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
       return {
         position: 'fixed' as const,
         right: '16px',
-        top: isBottomRow ? 'auto' : '50%',
+        top: isTopRow ? '16px' : isBottomRow ? 'auto' : '50%',
         bottom: isBottomRow ? '16px' : 'auto',
-        transform: isBottomRow ? 'none' : 'translateY(-50%)',
+        transform: isTopRow || isBottomRow ? 'none' : 'translateY(-50%)',
         maxWidth: 'calc(100vw - 32px)',
         maxHeight: 'calc(100vh - 120px)',
       };
