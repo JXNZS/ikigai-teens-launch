@@ -73,34 +73,20 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isHovered, isMobile, setHovered]);
   
-  // On mobile, expanded side circles should be repositioned to stay fully visible
+  // On mobile, keep expanded side cards anchored to their circles and shift inward.
   const getMobileExpandedStyles = () => {
     if (!isHovered || !isMobile || isCenterCircle) return {};
-    
-    // Determine if circle is in bottom row (Shoshin and Hansei) or top row (Kintsugi and Kaizen)
-    const isBottomRow = index === 2 || index === 3;
-    const isTopRow = index === 4 || index === 1;
-    
-    // Position expanded card based on circle's column, expanding inward
+
+    // 160 -> 280 means +120 width, so shift by half (60px) to expand inward.
     if (isLeftColumn) {
       return {
-        position: 'absolute' as const,
-        left: '16px',
-        top: isTopRow ? 'calc(30% - 80px)' : isBottomRow ? 'auto' : '50%',
-        bottom: isBottomRow ? '16px' : 'auto',
-        transform: isTopRow || isBottomRow ? 'none' : 'translateY(-50%)',
+        transform: 'translateX(60px)',
         maxWidth: 'calc(100vw - 32px)',
-        maxHeight: 'calc(100vh - 120px)',
       };
     } else if (isRightColumn) {
       return {
-        position: 'absolute' as const,
-        right: '16px',
-        top: isTopRow ? 'calc(30% - 80px)' : isBottomRow ? 'auto' : '50%',
-        bottom: isBottomRow ? '16px' : 'auto',
-        transform: isTopRow || isBottomRow ? 'none' : 'translateY(-50%)',
+        transform: 'translateX(-60px)',
         maxWidth: 'calc(100vw - 32px)',
-        maxHeight: 'calc(100vh - 120px)',
       };
     }
     return {};

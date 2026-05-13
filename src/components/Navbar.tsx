@@ -444,7 +444,7 @@ const Navbar = () => {
                         className="overflow-hidden pl-4"
                       >
                         {item.children.map((child) => (
-                          <Link key={child} to={getChildPath(item.label, child, item.path)} className="block py-1.5 px-2 text-xs md:text-sm text-muted-foreground hover:text-primary font-body rounded transition-colors" onClick={() => setMobileOpen(false)}>
+                          <Link key={child} to={getChildPath(item.label, child, item.path)} className="block py-1.5 px-2 text-xs md:text-sm text-[#FCEADE] hover:text-[#FCEADE] font-body rounded transition-colors" onClick={() => setMobileOpen(false)}>
                             {child}
                           </Link>
                         ))}

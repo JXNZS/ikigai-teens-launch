@@ -393,7 +393,7 @@ const resultProfiles1618 = [
 const teenStruggles1618 = [
   {
     title: "Feeling Pressure To Have Your Future Figured Out",
-    whatItFeelsLike: "You feel pressure to already know what career, college, goals, or 'life plan' you want — even though you're still discovering yourself.",
+    whatItFeelsLike: "You feel pressure to already know what career, college, goals, or 'life plan' you want ï¿½ even though you're still discovering yourself.",
     identify: [
       "Thinking about the future makes you anxious.",
       "You constantly compare your progress to others.",
@@ -840,7 +840,7 @@ const KnowYourself = () => {
               </motion.h1>
 
               <motion.div className="space-y-4" variants={itemVariants}>
-                <p className="text-xl md:text-2xl text-white font-medium leading-relaxed whitespace-nowrap">
+                <p className="text-lg sm:text-xl md:text-2xl text-white font-medium leading-relaxed whitespace-normal md:whitespace-nowrap">
                   You can't grow well if you don't understand what's going on inside YOU.
                 </p>
                 <p className="text-base md:text-lg text-white leading-relaxed">
@@ -970,9 +970,12 @@ const KnowYourself = () => {
 
               <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                 <h3 className="mb-2">
+                  <span className="block md:hidden text-xl font-display font-semibold text-primary/85 leading-tight">
+                    What's affecting you most right now?
+                  </span>
                   <LetterSwapForward
                     label="What's affecting you most right now?"
-                    className="text-2xl font-display font-semibold text-primary/85"
+                    className="hidden md:flex text-2xl font-display font-semibold text-primary/85"
                   />
                 </h3>
                 <p className="text-muted-foreground mb-6">Mini identity check</p>

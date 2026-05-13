@@ -1,13 +1,7 @@
 'use client'
 
-import { useState, type CSSProperties } from "react"
-import {
-  AnimationOptions,
-  motion,
-  stagger,
-  useAnimate,
-} from "framer-motion"
-import { debounce } from "lodash"
+import { type CSSProperties } from "react"
+import { type AnimationOptions } from "framer-motion"
 
 interface TextProps {
   label: string
@@ -20,200 +14,54 @@ interface TextProps {
   onClick?: () => void
 }
 
-const HIDDEN_OFFSET = "115%"
-
 export function LetterSwapForward({
   label,
-  reverse = true,
-  transition = {
+  reverse: _reverse = true,
+  transition: _transition = {
     type: "spring",
     duration: 0.7,
   },
-  staggerDuration = 0.03,
-  staggerFrom = "first",
+  staggerDuration: _staggerDuration = 0.03,
+  staggerFrom: _staggerFrom = "first",
   className,
   onClick,
   ...props
 }: TextProps) {
-  const [scope, animate] = useAnimate()
-  const [blocked, setBlocked] = useState(false)
-
-  const hoverStart = () => {
-    if (blocked) return
-
-    setBlocked(true)
-
-    const mergeTransition = (baseTransition: AnimationOptions) => ({
-      ...baseTransition,
-      delay: stagger(staggerDuration, {
-        from: staggerFrom,
-      }),
-    })
-
-    animate(
-      ".letter",
-      { y: reverse ? "100%" : "-100%" },
-      mergeTransition(transition)
-    ).then(() => {
-      animate(
-        ".letter",
-        {
-          y: 0,
-        },
-        {
-          duration: 0,
-        }
-      ).then(() => {
-        setBlocked(false)
-      })
-    })
-
-    animate(
-      ".letter-secondary",
-      {
-        top: "0%",
-      },
-      mergeTransition(transition)
-    ).then(() => {
-      animate(
-        ".letter-secondary",
-        {
-          top: reverse ? `-${HIDDEN_OFFSET}` : HIDDEN_OFFSET,
-        },
-        {
-          duration: 0,
-        }
-      )
-    })
-  }
-
   return (
     <span
-      className={`flex justify-center items-center relative overflow-hidden leading-none ${className ?? ""}`}
-      onMouseEnter={hoverStart}
+      className={`flex justify-center items-center relative leading-none ${className ?? ""}`}
       onClick={onClick}
-      ref={scope}
       {...props}
     >
-      <span className="sr-only">{label}</span>
-
-      {label.split("").map((letter: string, i: number) => {
-        return (
-          <span className="whitespace-pre relative flex leading-none" key={i}>
-            <motion.span className="relative letter" style={{ top: 0 }}>
-              {letter}
-            </motion.span>
-            <motion.span
-              className="absolute letter-secondary"
-              aria-hidden={true}
-              style={{ top: reverse ? `-${HIDDEN_OFFSET}` : HIDDEN_OFFSET }}
-            >
-              {letter}
-            </motion.span>
-          </span>
-        )
-      })}
+      <span className="max-w-full whitespace-normal break-words text-center leading-none md:whitespace-pre">
+        {label}
+      </span>
     </span>
   )
 }
 
 export function LetterSwapPingPong({
   label,
-  reverse = true,
-  transition = {
+  reverse: _reverse = true,
+  transition: _transition = {
     type: "spring",
     duration: 0.7,
   },
-  staggerDuration = 0.03,
-  staggerFrom = "first",
+  staggerDuration: _staggerDuration = 0.03,
+  staggerFrom: _staggerFrom = "first",
   className,
   onClick,
   ...props
 }: TextProps) {
-  const [scope, animate] = useAnimate()
-  const [isHovered, setIsHovered] = useState(false)
-
-  const mergeTransition = (baseTransition: AnimationOptions) => ({
-    ...baseTransition,
-    delay: stagger(staggerDuration, {
-      from: staggerFrom,
-    }),
-  })
-
-  const hoverStart = debounce(
-    () => {
-      if (isHovered) return
-      setIsHovered(true)
-
-      animate(
-        ".letter",
-        { y: reverse ? "100%" : "-100%" },
-        mergeTransition(transition)
-      )
-
-      animate(
-        ".letter-secondary",
-        {
-          top: "0%",
-        },
-        mergeTransition(transition)
-      )
-    },
-    100,
-    { leading: true, trailing: true }
-  )
-
-  const hoverEnd = debounce(
-    () => {
-      setIsHovered(false)
-
-      animate(
-        ".letter",
-        {
-          y: 0,
-        },
-        mergeTransition(transition)
-      )
-
-      animate(
-        ".letter-secondary",
-        {
-          top: reverse ? `-${HIDDEN_OFFSET}` : HIDDEN_OFFSET,
-        },
-        mergeTransition(transition)
-      )
-    },
-    100,
-    { leading: true, trailing: true }
-  )
-
   return (
-    <motion.span
-      className={`flex justify-center items-center relative overflow-hidden leading-none ${className ?? ""}`}
-      onHoverStart={hoverStart}
-      onHoverEnd={hoverEnd}
+    <span
+      className={`flex justify-center items-center relative leading-none ${className ?? ""}`}
       onClick={onClick}
-      ref={scope}
       {...props}
     >
-      <span className="sr-only">{label}</span>
-
-      {label.split("").map((letter: string, i: number) => {
-        return (
-          <span className="whitespace-pre relative flex leading-none" key={i}>
-            <motion.span className="relative letter" style={{ top: 0 }}>
-              {letter}
-            </motion.span>
-            <motion.span
-              className="absolute letter-secondary"
-              aria-hidden={true}
-              style={{ top: reverse ? `-${HIDDEN_OFFSET}` : HIDDEN_OFFSET }}
-            >
-              {letter}
-            </motion.span>
-          </span>
-        )
-      })}
-    </motion.span>
+      <span className="max-w-full whitespace-normal break-words text-center leading-none md:whitespace-pre">
+        {label}
+      </span>
+    </span>
   )
 }

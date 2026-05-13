@@ -61,13 +61,13 @@ function AnimatedDigit({ value }: { value: number }) {
 function TimeUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center gap-2">
-      <div className="relative flex items-center justify-center bg-secondary/50 backdrop-blur-sm border border-border/50 rounded-xl px-6 py-4 md:px-8 md:py-6 min-w-[120px] md:min-w-[160px] shadow-sm overflow-hidden group">
+      <div className="relative flex items-center justify-center bg-secondary/50 backdrop-blur-sm border border-border/50 rounded-xl px-3 py-3 md:px-8 md:py-6 min-w-[88px] md:min-w-[160px] shadow-sm overflow-hidden group">
         <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-        <span className="font-mono text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground">
+        <span className="font-mono text-3xl md:text-5xl lg:text-6xl font-medium tracking-tight text-foreground">
           <AnimatedDigit value={value} />
         </span>
       </div>
-      <span className="text-[10px] md:text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">{label}</span>
+      <span className="text-[10px] md:text-xs font-medium uppercase tracking-[0.14em] md:tracking-[0.2em] text-muted-foreground">{label}</span>
     </div>
   );
 }
@@ -127,13 +127,13 @@ export default function UpcomingEvents() {
                 <h3 className="text-2xl md:text-2xl lg:text-3xl font-semibold tracking-tight text-balance text-primary">Grand Launch — June 15</h3>
                 <p className="text-muted-foreground text-base md:text-lg max-w-xl leading-relaxed">Join us for the official launch of the Ikigai Teen Initiative in Schools. Be among the first to experience our new programs, workshops, and community offerings.</p>
 
-                <div className="flex items-center gap-2 md:gap-4 relative z-10">
+                <div className="grid grid-cols-3 gap-2 md:flex md:items-center md:gap-4 relative z-10 w-full md:w-auto">
                   <TimeUnit value={time?.hours ?? 0} label="Hours" />
-                  <div className="flex flex-col items-center justify-center pb-6">
+                  <div className="hidden md:flex flex-col items-center justify-center pb-6">
                     <span className="text-2xl md:text-4xl font-light text-muted-foreground/50 animate-pulse">:</span>
                   </div>
                   <TimeUnit value={time?.minutes ?? 0} label="Minutes" />
-                  <div className="flex flex-col items-center justify-center pb-6">
+                  <div className="hidden md:flex flex-col items-center justify-center pb-6">
                     <span className="text-2xl md:text-4xl font-light text-muted-foreground/50 animate-pulse">:</span>
                   </div>
                   <TimeUnit value={time?.seconds ?? 0} label="Seconds" />
@@ -152,13 +152,13 @@ export default function UpcomingEvents() {
                 <h3 className="text-2xl md:text-2xl lg:text-3xl font-semibold tracking-tight text-balance text-primary">Releases — June 5</h3>
                 <p className="text-muted-foreground text-base md:text-lg max-w-xl leading-relaxed">A new season of podcasts releasing on June 5 — conversations with teens, coaches, and educators offering practical insights and stories.</p>
 
-                <div className="flex items-center gap-2 md:gap-4 relative z-10">
+                <div className="grid grid-cols-3 gap-2 md:flex md:items-center md:gap-4 relative z-10 w-full md:w-auto">
                   <TimeUnit value={timeSeason2?.hours ?? 0} label="Hours" />
-                  <div className="flex flex-col items-center justify-center pb-6">
+                  <div className="hidden md:flex flex-col items-center justify-center pb-6">
                     <span className="text-2xl md:text-4xl font-light text-muted-foreground/50 animate-pulse">:</span>
                   </div>
                   <TimeUnit value={timeSeason2?.minutes ?? 0} label="Minutes" />
-                  <div className="flex flex-col items-center justify-center pb-6">
+                  <div className="hidden md:flex flex-col items-center justify-center pb-6">
                     <span className="text-2xl md:text-4xl font-light text-muted-foreground/50 animate-pulse">:</span>
                   </div>
                   <TimeUnit value={timeSeason2?.seconds ?? 0} label="Seconds" />

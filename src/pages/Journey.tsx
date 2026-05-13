@@ -450,7 +450,7 @@ const Journey = () => {
                   <h2>
                     <LetterSwapForward
                       label="Why Irene Started Ikigai Teen"
-                      className="text-2xl md:text-3xl font-display font-semibold text-primary"
+                      className="justify-center md:justify-start text-center md:text-left text-2xl md:text-3xl font-display font-semibold text-primary"
                     />
                   </h2>
 
