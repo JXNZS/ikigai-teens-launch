@@ -2,6 +2,7 @@ import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
+import { useIsMobile } from "@/hooks/use-mobile";
 import TeenRealityCards from "@/components/TeenRealityCards";
 import {
   MorphingPopover,
@@ -218,6 +219,7 @@ const Journey = () => {
   const [stripVisible, setStripVisible] = useState(false);
   const [activeMilestoneLabel, setActiveMilestoneLabel] = useState<string | null>(null);
   const [showWhyReadMore, setShowWhyReadMore] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const element = stripRef.current;
@@ -286,7 +288,7 @@ const Journey = () => {
         </section>
 
         <section
-          className="pb-16 bg-background overflow-x-clip"
+          className="pb-16 bg-background overflow-visible"
           onMouseLeave={() => setActiveMilestoneLabel(null)}
         >
           <div className="px-6 md:px-10 lg:px-14">
@@ -295,9 +297,9 @@ const Journey = () => {
             </h2>
           </div>
           <div className="relative mt-6 w-full px-4 sm:px-6 md:px-10 lg:px-14">
-            <div className="relative py-10">
-              <div className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-primary/70" aria-hidden="true" />
-              <ol className="relative flex items-center justify-between gap-1 sm:gap-2 md:gap-3">
+            <div className="relative py-10 overflow-x-auto no-scrollbar">
+              <div className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-primary/70 z-0" aria-hidden="true" />
+              <ol className="relative flex items-center gap-2 sm:gap-4 md:gap-6 px-2 min-w-max md:justify-between" role="list">
                 {milestones.map((milestone, index) => {
                   const isTop = index % 2 === 0;
                   const isActive = activeMilestoneLabel === milestone.label;
@@ -310,7 +312,7 @@ const Journey = () => {
                       : "left-1/2 -translate-x-1/2";
 
                   return (
-                    <li key={milestone.label} className="relative flex-1">
+                    <li key={milestone.label} className="relative flex-shrink-0 min-w-[140px] sm:min-w-[160px] md:flex-1">
                       <MorphingPopover
                         className="w-full"
                         variants={milestonePopoverVariants}
@@ -352,8 +354,8 @@ const Journey = () => {
                         </MorphingPopoverTrigger>
 
                         <MorphingPopoverContent
-                          className={`${horizontalAnchorClass} w-[min(24rem,calc(100vw-2rem))] rounded-lg border p-4 text-left ${
-                            isTop ? "bottom-[calc(100%+1rem)]" : "top-[calc(100%+1rem)]"
+                          className={`${isMobile ? "fixed left-1/2 top-1/2" : `absolute ${horizontalAnchorClass}`} rounded-lg border p-4 text-left ${
+                            !isMobile && (isTop ? "bottom-[calc(100%+1rem)]" : "top-[calc(100%+1rem)]")
                           }`}
                           style={{
                             backgroundColor: '#ffffff',
@@ -365,6 +367,13 @@ const Journey = () => {
                             zIndex: 2147483647,
                             WebkitBackdropFilter: 'none',
                             backdropFilter: 'none',
+                            ...(isMobile && { 
+                              width: 'min(24rem, calc(100vw - 2rem))',
+                              maxHeight: 'calc(100vh - 4rem)',
+                              transform: 'translate(-50%, -50%)',
+                              overflowY: 'auto',
+                            }),
+                            ...(!isMobile && { width: 'min(24rem,calc(100vw-2rem))' }),
                           }}
                         >
                           <p className="font-display text-sm font-semibold text-primary">{milestone.label}</p>

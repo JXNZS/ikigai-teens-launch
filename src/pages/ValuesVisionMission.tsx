@@ -87,7 +87,7 @@ const ValuesVisionMission = () => {
             <h1>
               <LetterSwapForward
                 label="Vision, Mission & Values"
-                className="justify-center text-4xl md:text-5xl font-display font-bold mb-4"
+                className="justify-center text-2xl sm:text-4xl md:text-5xl font-display font-bold mb-4 leading-tight"
                 style={{ color: '#FCEADE' }}
               />
             </h1>

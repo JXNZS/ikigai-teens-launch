@@ -29,7 +29,7 @@ const CTASection = () => {
           <motion.h2>
             <LetterSwapForward
               label="Ready to Start Your Journey?"
-              className="justify-center text-2xl sm:text-3xl md:text-4xl font-display font-bold text-current mb-3 md:mb-4"
+              className="justify-center text-xl sm:text-2xl md:text-3xl font-display font-bold text-current mb-3 md:mb-4"
               style={{ color: '#FCEADE' }}
             />
           </motion.h2>
