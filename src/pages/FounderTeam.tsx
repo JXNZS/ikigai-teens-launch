@@ -59,7 +59,7 @@ const teamMembers: TeamMember[] = [
 		role: "Digital Media & Design Support",
 		region: "Iraq",
 		image: barakatPhoto,
-		imageClassName: "object-[44%_50%] scale-150",
+		imageClassName: "object-[60%_50%] scale-150",
 		quote: "Design has the power to turn ideas into experiences that inspire people to think differently.",
 		bio: [
 			"Barakat Mohammed is a digital designer based in Erbil, Iraq, with a strong interest in youth engagement, visual storytelling, and educational media. A graduate of Lebanese French University (2024), he combines creative design skills with an understanding of how digital platforms influence the way young audiences learn and interact.",

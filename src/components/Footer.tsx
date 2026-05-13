@@ -212,7 +212,7 @@ const Footer = () => {
                         <Link
                           key={child}
                           to={getChildPath(group.label, child, group.path)}
-                          className="block text-xs font-body text-muted-foreground hover:text-primary transition-colors"
+                          className="block text-xs font-body text-[#FCEADE] hover:text-[#FCEADE] transition-colors"
                         >
                           {child}
                         </Link>
@@ -226,16 +226,16 @@ const Footer = () => {
 
           <div className="space-y-3 md:space-y-4 lg:pl-4 md:pl-0">
             <h3>
-              <LetterSwapForward label="Contact Us" className="justify-start font-display text-base md:text-lg font-semibold text-foreground" />
+              <LetterSwapForward label="Contact Us" className="justify-start font-display text-base md:text-lg font-semibold text-white" />
             </h3>
-            <div className="space-y-1.5 md:space-y-2.5 text-xs md:text-sm font-body text-foreground/85">
+            <div className="space-y-1.5 md:space-y-2.5 text-xs md:text-sm font-body text-white">
               <p className="grid grid-cols-[70px_1fr] md:grid-cols-[78px_1fr] items-baseline gap-2">
-                <span className="text-foreground font-semibold">Email:</span>
-                <span className="text-foreground/80 break-all">ikigaiteenhub@gmail.com</span>
+                <span className="text-white font-semibold">Email:</span>
+                <span className="text-white break-all">ikigaiteenhub@gmail.com</span>
               </p>
               <p className="grid grid-cols-[70px_1fr] md:grid-cols-[78px_1fr] items-baseline gap-2">
-                <span className="text-foreground font-semibold">Phone:</span>
-                <span className="text-foreground/80">{renderNumberText("+91 89713 91101")}</span>
+                <span className="text-white font-semibold">Phone:</span>
+                <span className="text-white">{renderNumberText("+91 89713 91101")}</span>
               </p>
             </div>
             <TiltedDock className="pt-4 md:pt-6 justify-start" items={contactDockItems} />
