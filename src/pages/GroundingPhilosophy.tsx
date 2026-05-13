@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -61,6 +61,18 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
   const isRightColumn = index === 1 || index === 3;
   const isCenterCircle = index === 0;
   
+  // Close expanded card on scroll
+  useEffect(() => {
+    if (!isHovered || !isMobile) return;
+    
+    const handleScroll = () => {
+      setHovered(null);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isHovered, isMobile, setHovered]);
+  
   // On mobile, expanded side circles should be repositioned to stay fully visible
   const getMobileExpandedStyles = () => {
     if (!isHovered || !isMobile || isCenterCircle) return {};
@@ -72,7 +84,7 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
     // Position expanded card based on circle's column, expanding inward
     if (isLeftColumn) {
       return {
-        position: 'fixed' as const,
+        position: 'absolute' as const,
         left: '16px',
         top: isTopRow ? 'calc(30% - 80px)' : isBottomRow ? 'auto' : '50%',
         bottom: isBottomRow ? '16px' : 'auto',
@@ -82,7 +94,7 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
       };
     } else if (isRightColumn) {
       return {
-        position: 'fixed' as const,
+        position: 'absolute' as const,
         right: '16px',
         top: isTopRow ? 'calc(30% - 80px)' : isBottomRow ? 'auto' : '50%',
         bottom: isBottomRow ? '16px' : 'auto',
@@ -214,7 +226,7 @@ const GroundingPhilosophy = () => {
 
             {/* Right: Expandable Circles */}
             <div className="flex-1 flex flex-col justify-center overflow-visible" onClick={() => isMobile && hovered !== null && setHovered(null)}>
-              <div className="grid grid-rows-3 grid-cols-2 gap-8 h-full place-items-center relative overflow-visible" style={{minHeight:'500px'}}>
+              <div className="grid grid-rows-3 grid-cols-2 gap-8 h-full place-items-center relative overflow-visible" style={{minHeight:'500px', position: 'relative'}}>
                 {/* Row 1: Kintsugi (index 4), Kaizen (index 1) */}
                 <CircleButton index={4} principleData={principleData} hovered={hovered} setHovered={setHovered} />
                 <CircleButton index={1} principleData={principleData} hovered={hovered} setHovered={setHovered} />
