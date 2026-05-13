@@ -4,11 +4,6 @@ import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { useIsMobile } from "@/hooks/use-mobile";
 import TeenRealityCards from "@/components/TeenRealityCards";
-import {
-  MorphingPopover,
-  MorphingPopoverContent,
-  MorphingPopoverTrigger,
-} from "@/components/ui/morphing-popover";
 import irene1Photo from "@/assets/Irene 1.jpeg";
 
 const CircleProfilePhoto = ({ src, alt, imageClassName, imageStyle }: { src: string; alt: string; imageClassName?: string; imageStyle?: CSSProperties }) => {
@@ -134,24 +129,6 @@ const milestones: Milestone[] = [
   },
 ];
 
-const milestonePopoverVariants = {
-  initial: {
-    opacity: 0,
-    scale: 0.94,
-    y: 8,
-  },
-  animate: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-  },
-  exit: {
-    opacity: 0,
-    scale: 0.96,
-    y: 6,
-  },
-};
-
 const whyIkigaiSummary = "Ikigai Teen was founded after Irene Arathi Pais observed dramatic changes in teen behaviour following the widespread adoption of smartphones during the COVID era for education purposes among teens. Conversations with parents, educators, teenagers and government officials revealed rising digital dependency, declining focus, and emotional strain. Ikigai Teen helps teens develop awareness, resilience, and purpose so they can navigate the digital world wisely and grow into responsible future leaders";
 
 const whyIkigaiExpanded = [
@@ -216,8 +193,10 @@ const CredibilityCounter = ({ value, suffix, label, shouldAnimate }: Credibility
 
 const Journey = () => {
   const stripRef = useRef<HTMLDivElement>(null);
+  const timelineScrollRef = useRef<HTMLDivElement>(null);
   const [stripVisible, setStripVisible] = useState(false);
   const [activeMilestoneLabel, setActiveMilestoneLabel] = useState<string | null>(null);
+  const [activeMilestoneRect, setActiveMilestoneRect] = useState<DOMRect | null>(null);
   const [showWhyReadMore, setShowWhyReadMore] = useState(false);
   const isMobile = useIsMobile();
 
@@ -241,6 +220,26 @@ const Journey = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  const scrollTimeline = (direction: -1 | 1) => {
+    const element = timelineScrollRef.current;
+    if (!element) {
+      return;
+    }
+
+    const scrollAmount = Math.min(element.clientWidth * 0.7, 360);
+    element.scrollBy({ left: direction * scrollAmount, behavior: "smooth" });
+  };
+
+  const openMilestonePopup = (milestoneLabel: string, rect: DOMRect) => {
+    setActiveMilestoneLabel(milestoneLabel);
+    setActiveMilestoneRect(rect);
+  };
+
+  const closeMilestonePopup = () => {
+    setActiveMilestoneLabel(null);
+    setActiveMilestoneRect(null);
+  };
 
   return (
     <>
@@ -289,118 +288,143 @@ const Journey = () => {
 
         <section
           className="pb-16 bg-background overflow-visible"
-          onMouseLeave={() => setActiveMilestoneLabel(null)}
+          onMouseLeave={closeMilestonePopup}
         >
           <div className="px-6 md:px-10 lg:px-14">
             <h2 className="text-2xl md:text-3xl font-display font-semibold text-primary text-center">
               Founder Milestones - Irene Arathi
             </h2>
           </div>
-          <div className="relative mt-6 w-full px-4 sm:px-6 md:px-10 lg:px-14">
-            <div className="relative py-10 overflow-x-auto no-scrollbar">
-              <div className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2 bg-primary/70 z-0" aria-hidden="true" />
+          <div className="relative mt-6 w-full px-4 sm:px-6 md:px-10 lg:px-14 group/timeline">
+            <div className="pointer-events-none absolute left-4 right-4 top-[50%] z-0 h-px -translate-y-1/2 bg-primary/70" aria-hidden="true" />
+            <div
+              className="absolute left-4 right-4 top-1/2 z-20 flex -translate-y-1/2 items-center justify-between pointer-events-none"
+              aria-hidden="true"
+            >
+              <button
+                type="button"
+                onClick={() => scrollTimeline(-1)}
+                className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-white/90 text-primary shadow-md opacity-100 transition-opacity duration-200 md:opacity-0 md:group-hover/timeline:opacity-100"
+                aria-label="Scroll milestones left"
+              >
+                ‹
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollTimeline(1)}
+                className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-white/90 text-primary shadow-md opacity-100 transition-opacity duration-200 md:opacity-0 md:group-hover/timeline:opacity-100"
+                aria-label="Scroll milestones right"
+              >
+                ›
+              </button>
+            </div>
+
+            <div ref={timelineScrollRef} className="relative z-10 py-10 overflow-x-auto no-scrollbar scroll-smooth">
               <ol className="relative flex items-center gap-2 sm:gap-4 md:gap-6 px-2 min-w-max md:justify-between" role="list">
                 {milestones.map((milestone, index) => {
                   const isTop = index % 2 === 0;
                   const isActive = activeMilestoneLabel === milestone.label;
-                  const isNearLeftEdge = index <= 1;
-                  const isNearRightEdge = index >= milestones.length - 2;
-                  const horizontalAnchorClass = isNearRightEdge
-                    ? "right-0 translate-x-0"
-                    : isNearLeftEdge
-                      ? "left-0 translate-x-0"
-                      : "left-1/2 -translate-x-1/2";
 
                   return (
                     <li key={milestone.label} className="relative flex-shrink-0 min-w-[140px] sm:min-w-[160px] md:flex-1">
-                      <MorphingPopover
-                        className="w-full"
-                        variants={milestonePopoverVariants}
-                        open={isActive}
-                        onOpenChange={(nextOpen) => {
-                          setActiveMilestoneLabel((current) => {
-                            if (nextOpen) {
-                              return milestone.label;
-                            }
-
-                            return current === milestone.label ? null : current;
-                          });
+                      <button
+                        type="button"
+                        onMouseEnter={(event) => openMilestonePopup(milestone.label, event.currentTarget.getBoundingClientRect())}
+                        onMouseMove={(event) => {
+                          if (activeMilestoneLabel === milestone.label) {
+                            setActiveMilestoneRect(event.currentTarget.getBoundingClientRect());
+                          }
                         }}
+                        onClick={(event) => {
+                          const rect = event.currentTarget.getBoundingClientRect();
+                          setActiveMilestoneLabel((current) => (current === milestone.label ? null : milestone.label));
+                          setActiveMilestoneRect(rect);
+                        }}
+                        onFocus={(event) => openMilestonePopup(milestone.label, event.currentTarget.getBoundingClientRect())}
+                        className="flex w-full flex-col items-center text-center"
+                        aria-expanded={isActive}
+                        aria-label={`Show details for ${milestone.label}`}
                       >
-                        <MorphingPopoverTrigger asChild>
-                          <button
-                            type="button"
-                            onMouseEnter={() => setActiveMilestoneLabel(milestone.label)}
-                            onFocus={() => setActiveMilestoneLabel(milestone.label)}
-                            className="flex w-full flex-col items-center text-center"
-                            aria-expanded={isActive}
-                            aria-label={`Show details for ${milestone.label}`}
-                          >
-                            {isTop ? (
-                              <span className="mb-6 whitespace-nowrap font-sans text-xs sm:text-sm md:text-base font-medium tracking-wide text-foreground/90">{milestone.label}</span>
-                            ) : (
-                              <span className="mb-6 h-[1.1rem] sm:h-[1.25rem]" aria-hidden="true" />
-                            )}
-                            <span
-                              className="h-3.5 w-3.5 rounded-full border-2 border-primary bg-primary"
-                              aria-hidden="true"
-                            />
-                            {isTop ? (
-                              <span className="mt-6 h-[1.1rem] sm:h-[1.25rem]" aria-hidden="true" />
-                            ) : (
-                              <span className="mt-6 whitespace-nowrap font-sans text-xs sm:text-sm md:text-base font-medium tracking-wide text-foreground/90">{milestone.label}</span>
-                            )}
-                          </button>
-                        </MorphingPopoverTrigger>
-
-                        <MorphingPopoverContent
-                          className={`${isMobile ? "fixed left-1/2 top-1/2" : `absolute ${horizontalAnchorClass}`} rounded-lg border p-4 text-left ${
-                            !isMobile && (isTop ? "bottom-[calc(100%+1rem)]" : "top-[calc(100%+1rem)]")
-                          }`}
-                          style={{
-                            backgroundColor: '#ffffff',
-                            opacity: 1,
-                            borderColor: 'rgba(46,194,126,0.15)',
-                            boxShadow: '0 16px 40px rgba(0,0,0,0.08)',
-                            mixBlendMode: 'normal',
-                            isolation: 'isolate',
-                            zIndex: 2147483647,
-                            WebkitBackdropFilter: 'none',
-                            backdropFilter: 'none',
-                            ...(isMobile && { 
-                              width: 'min(24rem, calc(100vw - 2rem))',
-                              maxHeight: 'calc(100vh - 4rem)',
-                              transform: 'translate(-50%, -50%)',
-                              overflowY: 'auto',
-                            }),
-                            ...(!isMobile && { width: 'min(24rem,calc(100vw-2rem))' }),
-                          }}
-                        >
-                          <p className="font-display text-sm font-semibold text-primary">{milestone.label}</p>
-                          <p className="mt-1 font-body text-base font-medium text-foreground">{milestone.title}</p>
-                          <div className="mt-3 space-y-2">
-                            {milestone.details.map((line) => (
-                              <p key={line} className="font-body text-sm leading-relaxed text-muted-foreground">
-                                {line}
-                              </p>
-                            ))}
-                            {milestone.bullets ? (
-                              <ul className="space-y-1">
-                                {milestone.bullets.map((item) => (
-                                  <li key={item} className="font-body text-sm leading-relaxed text-muted-foreground">
-                                    • {item}
-                                  </li>
-                                ))}
-                              </ul>
-                            ) : null}
-                          </div>
-                        </MorphingPopoverContent>
-                      </MorphingPopover>
+                        {isTop ? (
+                          <span className="mb-6 whitespace-nowrap font-sans text-xs sm:text-sm md:text-base font-medium tracking-wide text-foreground/90">{milestone.label}</span>
+                        ) : (
+                          <span className="mb-6 h-[1.1rem] sm:h-[1.25rem]" aria-hidden="true" />
+                        )}
+                        <span
+                          className="h-3.5 w-3.5 rounded-full border-2 border-primary bg-primary"
+                          aria-hidden="true"
+                        />
+                        {isTop ? (
+                          <span className="mt-6 h-[1.1rem] sm:h-[1.25rem]" aria-hidden="true" />
+                        ) : (
+                          <span className="mt-6 whitespace-nowrap font-sans text-xs sm:text-sm md:text-base font-medium tracking-wide text-foreground/90">{milestone.label}</span>
+                        )}
+                      </button>
                     </li>
                   );
                 })}
               </ol>
             </div>
+
+            {activeMilestoneLabel && activeMilestoneRect ? (() => {
+              const milestoneIndex = milestones.findIndex((item) => item.label === activeMilestoneLabel);
+              const milestone = milestones[milestoneIndex];
+              const isTop = milestoneIndex % 2 === 0;
+              const popupWidth = Math.min(384, window.innerWidth - 32);
+              const popupHalfWidth = popupWidth / 2;
+              const popupCenterX = activeMilestoneRect.left + activeMilestoneRect.width / 2;
+              const desktopLeft = Math.min(
+                Math.max(popupCenterX, popupHalfWidth + 16),
+                window.innerWidth - popupHalfWidth - 16,
+              );
+
+              return (
+                <div
+                  className="fixed z-[2147483647] rounded-lg border p-4 text-left"
+                  onMouseEnter={() => setActiveMilestoneLabel(milestone.label)}
+                  onMouseLeave={closeMilestonePopup}
+                  style={{
+                    backgroundColor: "#ffffff",
+                    opacity: 1,
+                    borderColor: "rgba(46,194,126,0.15)",
+                    boxShadow: "0 16px 40px rgba(0,0,0,0.08)",
+                    mixBlendMode: "normal",
+                    isolation: "isolate",
+                    WebkitBackdropFilter: "none",
+                    backdropFilter: "none",
+                    width: "min(24rem, calc(100vw - 2rem))",
+                    maxHeight: isMobile ? "calc(100vh - 4rem)" : undefined,
+                    overflowY: isMobile ? "auto" : undefined,
+                    left: isMobile ? "50%" : desktopLeft,
+                    top: isMobile ? "50%" : isTop ? activeMilestoneRect.top - 16 : activeMilestoneRect.bottom + 16,
+                    transform: isMobile
+                      ? "translate(-50%, -50%)"
+                      : isTop
+                        ? "translate(-50%, -100%)"
+                        : "translate(-50%, 0)",
+                  }}
+                >
+                  <p className="font-display text-sm font-semibold text-primary">{milestone.label}</p>
+                  <p className="mt-1 font-body text-base font-medium text-foreground">{milestone.title}</p>
+                  <div className="mt-3 space-y-2">
+                    {milestone.details.map((line) => (
+                      <p key={line} className="font-body text-sm leading-relaxed text-muted-foreground">
+                        {line}
+                      </p>
+                    ))}
+                    {milestone.bullets ? (
+                      <ul className="space-y-1">
+                        {milestone.bullets.map((item) => (
+                          <li key={item} className="font-body text-sm leading-relaxed text-muted-foreground">
+                            • {item}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
+                </div>
+              );
+            })() : null}
           </div>
         </section>
 
