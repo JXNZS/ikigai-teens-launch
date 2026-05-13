@@ -131,7 +131,9 @@
   }
 
   .cta-button {
-    @apply inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background bg-primary text-primary-foreground hover:bg-primary/90 h-11 py-2 px-6;
+    @apply inline-flex items-center justify-center rounded-full text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 ring-offset-background h-11 py-2 px-6;
+    background-color: #FCEADE;
+    color: #000;
   }
 
   /* Parent-specific CTA: beige background, black text, same sizing/layout as .cta-button */
@@ -144,8 +146,12 @@
     filter: brightness(0.96);
   }
 
-  .cta-card :is(h1, h2, h3, h4, h5, h6, .text-primary) {
-    color: #588068 !important;
+  .cta-button:hover {
+    filter: brightness(0.96);
+  }
+
+  .cta-card :is(h1, h2, h3, h4, h5, h6, .text-primary, .text-primary\/60, .text-primary\/70, .text-primary\/80, .text-primary\/85, .text-primary\/90) {
+    color: #FCEADE !important;
   }
 
   .cta-card :is(p, li, .text-muted-foreground, .text-foreground, .text-foreground\/90) {

@@ -355,22 +355,22 @@ const Navbar = () => {
               onClick={handleLanguageClick}
               aria-label="Switch language"
               className="relative inline-flex h-9 w-[132px] items-center overflow-hidden rounded-full border border-[rgba(44,66,63,0.35)] text-[13px] font-semibold transition-colors"
-              style={{ backgroundColor: "#FCEADE" }}
+              style={{ backgroundColor: "#2C423F" }}
             >
               <span
                 className="absolute inset-y-0 left-0 w-1/2 z-0 transition-colors"
-                style={{ backgroundColor: '#2C423F' }}
+                style={{ backgroundColor: '#FCEADE' }}
               />
-              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-6 w-px z-10" style={{ backgroundColor: '#2C423F' }} />
+              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-6 w-px z-10" style={{ backgroundColor: '#FCEADE' }} />
               <span 
                 className="relative z-20 w-1/2 text-center font-semibold transition-colors"
-                style={{ color: '#ffffff' }}
+                style={{ color: '#2C423F' }}
               >
                 English
               </span>
               <span 
                 className="relative z-20 w-1/2 text-center font-semibold transition-colors"
-                style={{ color: '#2C423F' }}
+                style={{ color: '#FCEADE' }}
               >
                 ಕನ್ನಡ
               </span>
@@ -394,7 +394,7 @@ const Navbar = () => {
               className={`inline-flex px-5 py-2 rounded-full text-sm font-semibold font-body transition-all duration-300 ${
                 contactActive ? "ring-2 ring-[rgba(44,66,63,0.5)]" : ""
               }`}
-              style={{ backgroundColor: "#2C423F", color: "#ffffff" }}
+              style={{ backgroundColor: "#2C423F", color: "#FCEADE" }}
             >
               <LetterSwapPingPong label="Contact Us" className="justify-center" />
             </Link>
@@ -487,7 +487,7 @@ const Navbar = () => {
                   </div>
                 </div>
 
-                <Link to="/#contact" className="block text-center px-4 py-2 rounded-full text-xs md:text-sm font-semibold font-body" style={{ backgroundColor: "#2C423F", color: "#ffffff" }} onClick={() => setMobileOpen(false)}>
+                <Link to="/#contact" className="block text-center px-4 py-2 rounded-full text-xs md:text-sm font-semibold font-body" style={{ backgroundColor: "#FCEADE", color: "#000000" }} onClick={() => setMobileOpen(false)}>
                   <LetterSwapPingPong label="Contact Us" className="justify-center" />
                 </Link>
               </div>
