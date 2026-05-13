@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { X } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const philosophyParagraphs = [
   "At Ikigai Teen, our philosophy is inspired by timeless Japanese principles that emphasize purposeful living, steady growth, and mindful action. These ideas are simple yet powerful - and when applied early in life, they help young people build strong foundations for the future.",
@@ -52,12 +54,21 @@ const CircleAccent = HoverGreenColor; // Accent color for circle border and text
 
 const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPosition = 'bottom' }: CircleButtonProps) => {
   const isHovered = hovered === index;
+  const isMobile = useIsMobile();
+  
+  // Determine if this is a side circle (not the center Ikigai)
+  // Side circles: 4 (Kintsugi-left), 1 (Kaizen-right), 2 (Shoshin-left), 3 (Hansei-right)
+  // Center circle: 0 (Ikigai)
+  const isSideCircle = index !== 0;
+  const isLeftSide = index === 4 || index === 2;
+  const isRightSide = index === 1 || index === 3;
   
   return (
     <motion.div
       className="relative flex flex-col items-center justify-center"
-      onMouseEnter={() => setHovered(index)}
-      onMouseLeave={() => setHovered(null)}
+      onMouseEnter={() => !isMobile && setHovered(index)}
+      onMouseLeave={() => !isMobile && setHovered(null)}
+      onClick={() => isMobile && setHovered(isHovered ? null : index)}
       style={{ position: 'relative', zIndex: isHovered ? 2147483647 : 1 }}
     >
       {/* Animated circle/rectangle container */}
@@ -78,10 +89,10 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
               }
         }
         transition={{ type: "spring", stiffness: 320, damping: 30, mass: 0.8 }}
-        className="relative flex items-center justify-center cursor-pointer bg-white border-4 font-display font-bold text-xl md:text-2xl text-center select-none overflow-hidden"
+        className="relative flex items-center justify-center cursor-pointer bg-white border-4 font-display font-bold text-xl md:text-2xl text-center select-none overflow-visible"
         style={{
           borderColor: CircleAccent,
-          position: 'relative',
+          position: isHovered && isMobile && isSideCircle ? 'fixed' : 'relative',
           zIndex: isHovered ? 2147483647 : 1,
           backgroundColor: '#ffffff',
           opacity: 1,
@@ -90,6 +101,13 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
           WebkitBackdropFilter: 'none',
           mixBlendMode: 'normal',
           isolation: 'isolate',
+          ...(isHovered && isMobile && isSideCircle ? {
+            left: isLeftSide ? 'auto' : '50%',
+            right: isLeftSide ? 'auto' : 'auto',
+            top: '50%',
+            transform: isLeftSide ? 'translateY(-50%)' : 'translate(-50%, -50%)',
+            marginLeft: isLeftSide ? '12px' : '0',
+          } : {}),
         }}
       >
         <motion.div
@@ -99,10 +117,23 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
         >
           {isHovered ? (
             <div className="space-y-2 text-left w-full">
-                <h3 
-                  className="text-sm font-display font-bold"
-                  style={{ color: CircleAccent }}
+              {isMobile ? (
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setHovered(null);
+                  }}
+                  aria-label="Close philosophy card"
+                  className="absolute right-2 top-2 inline-flex h-6 w-6 items-center justify-center rounded-full border border-border/60 bg-white text-primary shadow-sm"
                 >
+                  <X className="h-3.5 w-3.5" />
+                </button>
+              ) : null}
+              <h3 
+                className="text-sm font-display font-bold"
+                style={{ color: CircleAccent }}
+              >
                 {principleData[index].title}
               </h3>
               <p 
@@ -124,6 +155,7 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
 
 const GroundingPhilosophy = () => {
   const [hovered, setHovered] = useState<number | null>(null);
+  const isMobile = useIsMobile();
   return (
     <>
       <Navbar />
