@@ -131,18 +131,18 @@ const TestimonialCarousel = () => {
             }}
           >
             {testimonials.map((t, i) => (
-              <div key={i} className="min-w-full flex-shrink-0 flex justify-center px-4">
-                <article className="w-full max-w-2xl bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-[#2C423F]/30 min-h-[160px]">
+              <div key={i} className="min-w-full flex-shrink-0 flex justify-center px-1.5 sm:px-3 md:px-4">
+                <article className="w-full max-w-[calc(100vw-3.5rem)] sm:max-w-[calc(100vw-1.5rem)] md:max-w-2xl bg-white rounded-2xl shadow-lg p-3 sm:p-5 md:p-8 border border-[#2C423F]/30 min-h-[280px] sm:min-h-[160px]">
                   <div
-                    className={`flex flex-col md:flex-row items-start gap-4 ${
+                    className={`flex flex-col md:flex-row items-start gap-2.5 md:gap-4 ${
                       t.imgAlign === "right" ? "md:flex-row-reverse" : ""
                     }`}
                   >
-                    <div className="flex-shrink-0" style={{ width: "96px", height: "96px" }}>
+                    <div className="flex-shrink-0" style={{ width: "64px", height: "64px" }}>
                       <img
                         src={t.img}
                         alt={t.name}
-                        className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover"
+                        className="w-18 h-18 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-full object-cover"
                         style={{
                           objectPosition: t.imgPosition ?? "50% 30%",
                           transform: `scale(${t.imgScale ?? 1})`,
@@ -152,8 +152,8 @@ const TestimonialCarousel = () => {
                         }}
                       />
                     </div>
-                    <div className="text-sm md:text-base">
-                      <p className="text-foreground mb-3">“{t.quote}”</p>
+                    <div className="text-[11px] sm:text-sm md:text-base leading-relaxed">
+                      <p className="text-foreground mb-1.5 md:mb-3">“{t.quote}”</p>
                       <p className="font-semibold">{t.name}</p>
                       {t.title && <p className="text-sm text-muted-foreground">{t.title}</p>}
                     </div>
