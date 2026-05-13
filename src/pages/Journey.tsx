@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { useIsMobile } from "@/hooks/use-mobile";
 import TeenRealityCards from "@/components/TeenRealityCards";
+import { X } from "lucide-react";
 import irene1Photo from "@/assets/Irene 1.jpeg";
 
 const CircleProfilePhoto = ({ src, alt, imageClassName, imageStyle }: { src: string; alt: string; imageClassName?: string; imageStyle?: CSSProperties }) => {
@@ -404,6 +405,16 @@ const Journey = () => {
                         : "translate(-50%, 0)",
                   }}
                 >
+                  {isMobile ? (
+                    <button
+                      type="button"
+                      onClick={closeMilestonePopup}
+                      aria-label="Close milestone details"
+                      className="absolute right-2 top-2 inline-flex h-7 w-7 items-center justify-center rounded-full border border-border/60 bg-white text-primary shadow-sm"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+                  ) : null}
                   <p className="font-display text-sm font-semibold text-primary">{milestone.label}</p>
                   <p className="mt-1 font-body text-base font-medium text-foreground">{milestone.title}</p>
                   <div className="mt-3 space-y-2">
