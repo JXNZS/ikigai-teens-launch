@@ -1,5 +1,4 @@
 import { Download, FileText } from "lucide-react";
-import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
@@ -111,7 +110,7 @@ const ReadyToUseTools = () => {
               {readyToUseTools.map((tool) => (
                 <div
                   key={tool.id}
-                  className="rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 hover:border-primary/40 transition-colors"
+                  className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 hover:border-primary/40 transition-colors"
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                     <div className="flex-1">
@@ -122,13 +121,6 @@ const ReadyToUseTools = () => {
                       <p className="text-muted-foreground font-body text-sm md:text-base leading-relaxed">{tool.description}</p>
                     </div>
                     <div className="flex gap-2 flex-shrink-0">
-                      <Link
-                        to={`/resources/pdf/${tool.id}`}
-                        className="inline-flex items-center gap-1.5 rounded-lg bg-primary text-white px-3 py-2 md:px-4 md:py-2.5 text-xs md:text-sm font-semibold hover:bg-primary/90 transition-colors"
-                      >
-                        <FileText className="h-4 w-4" />
-                        <span>View</span>
-                      </Link>
                       <button
                         onClick={() => handleDownload(tool.pdf, `${tool.heading}.pdf`)}
                         className="inline-flex items-center gap-1.5 rounded-lg border border-primary bg-transparent text-primary px-3 py-2 md:px-4 md:py-2.5 text-xs md:text-sm font-semibold hover:bg-primary/10 transition-colors"
@@ -150,3 +142,4 @@ const ReadyToUseTools = () => {
 };
 
 export default ReadyToUseTools;
+

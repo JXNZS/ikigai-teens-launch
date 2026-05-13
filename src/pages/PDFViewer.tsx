@@ -3,7 +3,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Download, ChevronLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import PdfInlineViewer from "@/components/ui/pdf-inline-viewer";
 
 import pdf1 from "@/assets/PDF 1.pdf";
 import pdf2 from "@/assets/PDF 2.pdf";
@@ -162,8 +161,17 @@ const PDFViewer = () => {
               </button>
             </div>
 
-            <div className="rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-2 sm:p-3 md:p-4">
-              <PdfInlineViewer fileUrl={pdfData.url} className="w-full" />
+            <div className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-2 sm:p-3 md:p-4">
+              <div className="rounded-lg overflow-hidden bg-white border border-border/40">
+                <iframe
+                  src={pdfData.url}
+                  title={pdfData.title}
+                  className="block w-full h-[78vh] min-h-[560px] md:h-[82vh] border-none"
+                />
+              </div>
+              <p className="mt-3 text-xs sm:text-sm text-muted-foreground font-body text-center">
+                If the PDF does not display properly on your device, use the download button above.
+              </p>
             </div>
           </div>
         </section>

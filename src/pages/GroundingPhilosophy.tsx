@@ -144,7 +144,7 @@ const GroundingPhilosophy = () => {
         <section className="py-14 bg-background overflow-hidden">
           <div className="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row gap-10 md:gap-16 items-stretch">
             {/* Left: Philosophy Box */}
-            <article className="flex-1 rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-6 flex flex-col justify-center min-w-[320px] max-w-xl">
+            <article className="flex-1 rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-6 flex flex-col justify-center min-w-[320px] max-w-xl">
               <div className="space-y-3">
                 <h2 className="text-2xl md:text-3xl font-display font-semibold text-primary">Philosophy</h2>
                 <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed font-body">
@@ -181,3 +181,4 @@ const GroundingPhilosophy = () => {
 };
 
 export default GroundingPhilosophy;
+

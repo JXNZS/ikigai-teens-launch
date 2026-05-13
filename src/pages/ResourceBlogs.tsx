@@ -57,7 +57,7 @@ const ResourceBlogs = () => {
                   to={`/resources/blog/${article.slug}`}
                   onMouseMove={handleCardMouseMove}
                   onMouseLeave={handleCardMouseLeave}
-                  className="group relative overflow-hidden rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 transition-[transform,border-color,box-shadow] duration-300 hover:border-border/60 hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_28px_rgba(44,66,63,0.5)]"
+                  className="group relative overflow-hidden rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 transition-[transform,border-color,box-shadow] duration-300 hover:border-border/60 hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_28px_rgba(44,66,63,0.5)]"
                   style={{
                     transformStyle: "preserve-3d",
                     transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
@@ -104,3 +104,4 @@ const ResourceBlogs = () => {
 };
 
 export default ResourceBlogs;
+

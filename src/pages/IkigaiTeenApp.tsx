@@ -492,7 +492,7 @@ const IkigaiTeenApp = () => {
 
         <section className="footer-theme-legacy py-12">
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-8 md:p-10 text-center">
+            <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-8 md:p-10 text-center">
               <PixelRunnerGame />
             </div>
           </div>
@@ -504,3 +504,4 @@ const IkigaiTeenApp = () => {
 };
 
 export default IkigaiTeenApp;
+

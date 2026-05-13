@@ -244,7 +244,7 @@ const IkigaiTeenClub = () => {
 
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-6xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-6 md:p-8 lg:p-10">
+            <div className="max-w-6xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-white p-6 md:p-8 lg:p-10">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-semibold text-primary text-center mb-3 md:mb-4">
 
                 <LetterSwapForward label="What Members Unlock" className="justify-center" />
@@ -305,7 +305,7 @@ const IkigaiTeenClub = () => {
                             <ClipPathInfoCard
                               title={card.title}
                               body={card.description}
-                              className="rounded-xl bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6"
+                              className="rounded-xl bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6"
                             >
                               <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary/90">Open details</p>
                             </ClipPathInfoCard>
@@ -323,7 +323,7 @@ const IkigaiTeenClub = () => {
 
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-6 md:p-8 lg:p-10\">
+            <div className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-white p-6 md:p-8 lg:p-10\">
               <div className="grid md:grid-cols-2 gap-4 md:gap-6">
 
                 <motion.div
@@ -332,7 +332,7 @@ const IkigaiTeenClub = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                 >
-                  <ClipPathInfoCard className="h-full rounded-xl bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-7">
+                  <ClipPathInfoCard className="h-full rounded-xl bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-7">
                     <h2 className="text-2xl font-display font-semibold text-primary mb-3">
                       <LetterSwapForward label="Why teens love it" className="justify-start" />
                     </h2>
@@ -351,7 +351,7 @@ const IkigaiTeenClub = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                 >
-                  <ClipPathInfoCard className="h-full rounded-xl bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-7">
+                  <ClipPathInfoCard className="h-full rounded-xl bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-7">
                     <h2 className="text-2xl font-display font-semibold text-primary mb-3">
                       <LetterSwapForward label="Why parents value it" className="justify-start" />
                     </h2>
@@ -370,7 +370,7 @@ const IkigaiTeenClub = () => {
 
         <section className="pb-12 md:pb-20 bg-background">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="cta-card max-w-4xl mx-auto rounded-lg md:rounded-2xl border border-primary/20 bg-[hsl(42_38%_88%_/_0.8)] p-6 md:p-8 text-center">
+            <div className="cta-card max-w-4xl mx-auto rounded-lg md:rounded-2xl border border-primary/20 bg-white p-6 md:p-8 text-center">
               <p className="text-sm md:text-base lg:text-lg text-foreground/90 leading-relaxed mb-6 md:mb-8 px-2">
                 Inside Ikigai Teen Club, growth does not feel heavy. It feels meaningful. It feels exciting. It feels
                 real. Most of all, it feels like a space where teens can become more of who they are meant to be.
@@ -385,3 +385,4 @@ const IkigaiTeenClub = () => {
 };
 
 export default IkigaiTeenClub;
+

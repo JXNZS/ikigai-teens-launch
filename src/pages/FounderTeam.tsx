@@ -97,7 +97,7 @@ const teamMembers: TeamMember[] = [
 		region: "India",
 		image: jiyaPhoto,
 		imageClassName: "object-center",
-		imageStyle: { objectPosition: "50% 70%", transform: "translateX(0%) translateY(0%) scale(1.2)", transformOrigin: "center center" },
+		imageStyle: { objectPosition: "50% 90%", transform: "translateX(0%) translateY(0%) scale(1.0)", transformOrigin: "center center" },
 		quote: "Grace, responsibility, and sincerity in small actions often build the strongest foundations.",
 		bio: [
 			"Jiya Giri is a young and thoughtful contributor from Dharwad, a student of German language and literature with a strong interest in healthcare, emotional well-being, and meaningful human connection. Currently pursuing her studies in science, she brings a calm, responsible, and people-centred approach to the work she takes on. Known for being polished, sincere, and meticulous, Jiya has a natural ability to communicate with warmth, attentiveness, and care.",
@@ -155,7 +155,7 @@ const FounderTeam = () => {
 				<section className="py-10 md:py-14 bg-background">
 					<div className="container mx-auto px-4 sm:px-6 max-w-6xl space-y-8">
 						<section className="space-y-5">
-							<div className="rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
+							<div className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
 								<h2 className="text-2xl md:text-3xl font-display font-semibold text-primary">Team</h2>
 								<p className="text-sm md:text-base text-muted-foreground leading-relaxed">
 									Ikigai Teen is powered by a young, global team that believes meaningful change begins with awareness,
@@ -164,7 +164,7 @@ const FounderTeam = () => {
 								</p>
 								<div className="space-y-5">
 									{teamMembers.map((member) => (
-										<article key={member.name} className="rounded-xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20 hover:border-primary/40">
+										<article key={member.name} className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20 hover:border-primary/40">
 											<div className="mb-3">
 												<header>
 													<h3 className="text-xl md:text-2xl font-display font-semibold text-primary">{member.name}</h3>
@@ -220,3 +220,4 @@ const FounderTeam = () => {
 };
 
 export default FounderTeam;
+

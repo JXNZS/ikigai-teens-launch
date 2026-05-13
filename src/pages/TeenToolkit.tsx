@@ -591,7 +591,7 @@ const TeenToolkit = () => {
                         onMouseMove={handleCardMouseMove}
                         onMouseLeave={handleCardMouseLeave}
                         onClick={() => selectAge(category.id)}
-                        className="relative p-6 md:p-8 rounded-lg md:rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden border-border hover:border-border/60 bg-[hsl(42_38%_88%_/_0.7)] hover:bg-[hsl(42_38%_88%_/_0.82)] hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_28px_rgba(44,66,63,0.5)]"
+                        className="relative p-6 md:p-8 rounded-lg md:rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden border-border hover:border-border/60 bg-white hover:bg-white hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_28px_rgba(44,66,63,0.5)]"
                         style={{
                           transformStyle: "preserve-3d",
                           transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
@@ -649,7 +649,7 @@ const TeenToolkit = () => {
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
                   transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.7)] p-5 sm:p-8"
+                  className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8"
                 >
                   <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Teen Toolkit (Age 13-15)</p>
                   <h2 className="w-full leading-tight text-3xl md:text-4xl font-display font-bold text-primary/85 mb-4">
@@ -667,8 +667,8 @@ const TeenToolkit = () => {
                         onClick={() => setSelectedNeed1315(need.label)}
                         className={`text-left rounded-xl border p-5 transition-[transform,border-color,box-shadow,background-color,color] duration-300 ${
                           selectedNeed1315 === need.label
-                            ? "border-primary/80 bg-[hsl(42_38%_88%_/_0.95)] text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
-                            : "border-border/60 bg-card text-muted-foreground hover:border-primary/60 hover:bg-[hsl(42_38%_88%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
+                            ? "border-primary/80 bg-white text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                            : "border-border/60 bg-card text-muted-foreground hover:border-primary/60 hover:bg-white hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
                         }`}
                       >
                         {need.label}
@@ -714,7 +714,7 @@ const TeenToolkit = () => {
                     className="space-y-16"
                   >
                 {selectedNeed1315Details && (
-                  <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.88)] p-5 sm:p-8 space-y-5">
+                  <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8 space-y-5">
                     <div>
                       <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Your selected challenge</p>
                       <h3 className="text-2xl md:text-3xl font-display font-bold text-primary/85">{selectedNeed1315Details.label}</h3>
@@ -740,7 +740,7 @@ const TeenToolkit = () => {
                   </div>
                 )}
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                   <h3 className="mb-5">
                     <LetterSwapForward label="Quick Resets (Try Now)" className="text-2xl font-display font-semibold text-primary/85" />
                   </h3>
@@ -757,7 +757,7 @@ const TeenToolkit = () => {
                   </div>
                 </div>
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                   <h3 className="mb-5">
                     <LetterSwapForward label="Build Better Habits" className="text-2xl font-display font-semibold text-primary/85" />
                   </h3>
@@ -774,7 +774,7 @@ const TeenToolkit = () => {
                   </div>
                 </div>
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                   <h3 className="mb-5">
                     <LetterSwapForward label="Mind + Emotion Tools" className="text-2xl font-display font-semibold text-primary/85" />
                   </h3>
@@ -791,7 +791,7 @@ const TeenToolkit = () => {
                   </div>
                 </div>
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                   <h3 className="mb-5">
                     <LetterSwapForward label="Body + Energy Basics" className="text-2xl font-display font-semibold text-primary/85" />
                   </h3>
@@ -808,7 +808,7 @@ const TeenToolkit = () => {
                   </div>
                 </div>
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                   <h3 className="mb-5">
                     <LetterSwapForward label="Get Support" className="text-2xl font-display font-semibold text-primary/85" />
                   </h3>
@@ -823,7 +823,7 @@ const TeenToolkit = () => {
                   </ClipPathInfoCard>
                 </div>
 
-                <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8">
                   <h3 className="mb-3">
                     <LetterSwapForward
                       label="Quick tools help. But stronger change needs training."
@@ -836,15 +836,15 @@ const TeenToolkit = () => {
                   <p className="text-sm font-semibold text-foreground mb-3">What this is:</p>
                   <p className="text-sm text-muted-foreground mb-3">A 90-day guided challenge to help you:</p>
                   <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">focus better</li>
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build discipline</li>
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">feel more confident</li>
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">manage emotions</li>
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">become more responsible</li>
+                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">focus better</li>
+                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build discipline</li>
+                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">feel more confident</li>
+                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">manage emotions</li>
+                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">become more responsible</li>
                   </ul>
                 </div>
 
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                   <h3 className="mb-4">
                     <LetterSwapForward label="How to Ask Your Parent" className="text-2xl font-display font-semibold text-primary/85" />
                   </h3>
@@ -853,7 +853,7 @@ const TeenToolkit = () => {
                     {supportParentScripts1315.map((line) => (
                       <li
                         key={line}
-                        className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-[hsl(42_38%_88%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                        className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-white hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
                       >
                         "{line}"
                       </li>
@@ -896,7 +896,7 @@ const TeenToolkit = () => {
                       animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                       exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                      className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.7)] p-6 md:p-8"
+                      className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-white p-6 md:p-8"
                     >
                       <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2 md:mb-3">Teen Toolkit (Age 16-18)</p>
                       <h2 className="w-full leading-tight text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary/85 mb-3 md:mb-4">
@@ -914,8 +914,8 @@ const TeenToolkit = () => {
                             onClick={() => setSelectedNeed1618(need.label)}
                             className={`text-left rounded-lg md:rounded-xl border p-3 md:p-5 transition-[transform,border-color,box-shadow,background-color,color] duration-300 text-xs md:text-sm ${
                               selectedNeed1618 === need.label
-                                ? "border-primary/80 bg-[hsl(42_38%_88%_/_0.95)] text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
-                                : "border-border/60 bg-card text-muted-foreground hover:border-primary/60 hover:bg-[hsl(42_38%_88%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
+                                ? "border-primary/80 bg-white text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                                : "border-border/60 bg-card text-muted-foreground hover:border-primary/60 hover:bg-white hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
                             }`}
                           >
                             {need.label}
@@ -961,7 +961,7 @@ const TeenToolkit = () => {
                       className="space-y-16"
                     >
                       {selectedNeed1618Details && (
-                        <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.88)] p-5 sm:p-8 space-y-4">
+                        <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8 space-y-4">
                           <div>
                             <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Your selected challenge</p>
                             <h3 className="text-2xl md:text-3xl font-display font-bold text-primary/85">{selectedNeed1618Details.label}</h3>
@@ -987,7 +987,7 @@ const TeenToolkit = () => {
                         </div>
                       )}
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                         <h3 className="mb-5">
                           <LetterSwapForward label="Quick Resets (Try Now)" className="text-2xl font-display font-semibold text-primary/85" />
                         </h3>
@@ -1004,7 +1004,7 @@ const TeenToolkit = () => {
                         </div>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                         <h3 className="mb-5">
                           <LetterSwapForward label="Build Discipline + Consistency" className="text-2xl font-display font-semibold text-primary/85" />
                         </h3>
@@ -1021,7 +1021,7 @@ const TeenToolkit = () => {
                         </div>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                         <h3 className="mb-5">
                           <LetterSwapForward label="Mind + Emotion Tools" className="text-2xl font-display font-semibold text-primary/85" />
                         </h3>
@@ -1038,7 +1038,7 @@ const TeenToolkit = () => {
                         </div>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                         <h3 className="mb-5">
                           <LetterSwapForward label="Body + Energy + Control" className="text-2xl font-display font-semibold text-primary/85" />
                         </h3>
@@ -1055,7 +1055,7 @@ const TeenToolkit = () => {
                         </div>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                         <h3 className="mb-5">
                           <LetterSwapForward label="Real-Life Support" className="text-2xl font-display font-semibold text-primary/85" />
                         </h3>
@@ -1070,7 +1070,7 @@ const TeenToolkit = () => {
                         </ClipPathInfoCard>
                       </div>
 
-                      <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                      <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8">
                         <h3 className="mb-3">
                           <LetterSwapForward
                             label="You don't need more content. You need a system."
@@ -1083,15 +1083,15 @@ const TeenToolkit = () => {
                         <p className="text-sm font-semibold text-foreground mb-3">What this is:</p>
                         <p className="text-sm text-muted-foreground mb-3">A 90-day guided challenge to help you:</p>
                         <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build consistency</li>
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve focus</li>
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">manage distractions</li>
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">strengthen emotional control</li>
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-[hsl(42_38%_88%_/_0.95)] hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">move toward purpose</li>
+                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build consistency</li>
+                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve focus</li>
+                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">manage distractions</li>
+                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">strengthen emotional control</li>
+                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">move toward purpose</li>
                         </ul>
                       </div>
 
-                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[hsl(42_38%_88%_/_0.8)] p-5 sm:p-8">
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
                         <h3 className="mb-4">
                           <LetterSwapForward label="How to Talk at Home" className="text-2xl font-display font-semibold text-primary/85" />
                         </h3>
@@ -1099,7 +1099,7 @@ const TeenToolkit = () => {
                           {supportParentScripts1618.map((line) => (
                             <li
                               key={line}
-                              className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-[hsl(42_38%_88%_/_0.95)] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                              className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-white hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
                             >
                               "{line}"
                             </li>
@@ -1121,3 +1121,4 @@ const TeenToolkit = () => {
 };
 
 export default TeenToolkit;
+
