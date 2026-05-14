@@ -155,16 +155,16 @@ const FounderTeam = () => {
 				<section className="py-10 md:py-14 bg-background">
 					<div className="container mx-auto px-4 sm:px-6 max-w-6xl space-y-8">
 						<section className="space-y-5">
-							<div className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
-								<h2 className="text-2xl md:text-3xl font-display font-semibold text-primary">Team</h2>
-								<p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+							<div className="rounded-xl border border-border/60 bg-[#2C423F] p-6 md:p-8 space-y-5">
+								<h2 className="text-2xl md:text-3xl font-display font-semibold text-[#FCEADE]">The Team</h2>
+								<p className="text-sm md:text-base text-white/90 leading-relaxed">
 									Ikigai Teen is powered by a young, global team that believes meaningful change begins with awareness,
 									courage, and collaboration. Together, we bring research, design, technology, youth perspective and participation to
 									build a platform that helps teens navigate life with clarity and purpose.
 								</p>
 								<div className="space-y-5">
 									{teamMembers.map((member) => (
-										<article key={member.name} className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/20 hover:border-primary/40">
+										<article key={member.name} className="rounded-xl border border-border/60 bg-white p-5 md:p-6 transition-all duration-300">
 											<div className="mb-3">
 												<header>
 													<h3 className="text-xl md:text-2xl font-display font-semibold text-primary">{member.name}</h3>

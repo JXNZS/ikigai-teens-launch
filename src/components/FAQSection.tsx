@@ -374,26 +374,7 @@ const faqItems: FAQItem[] = [
       "Instead, it offers a growth-focused bridge that helps teens build stronger habits, steadier emotions, wiser choices, and a deeper sense of identity and purpose.",
     ],
   },
-  {
-    question: "What is the deeper philosophy behind Ikigai Teen?",
-    intro: [
-      "At the heart of Ikigai Teen is this belief:",
-      "A teenager is not just someone to be corrected.",
-      "A teenager is someone becoming.",
-      "That means our work is not only about stopping bad habits or solving surface issues.",
-      "It is about helping teens become more:",
-    ],
-    points: [
-      { title: "Reliable" },
-      { title: "Authentic" },
-      { title: "Disciplined" },
-      { title: "Emotionally aware" },
-      { title: "Purpose-driven" },
-      { title: "Grounded" },
-      { title: "Considerate toward family, society, and the world" },
-    ],
-    closing: ["That is the spirit behind Ikigai Teen."],
-  },
+
 ];
 
 const FAQSection = () => {
@@ -468,7 +449,7 @@ const FAQSection = () => {
                   }}
                   className="border-border/60 group px-3 md:px-4 data-[state=open]:bg-card data-[state=open]:rounded-lg md:data-[state=open]:rounded-xl transition-all duration-300"
                 >
-                  <AccordionTrigger data-faq-trigger="true" className="text-left text-sm md:text-lg font-display font-semibold text-[#2C423F] hover:text-[#2C423F] hover:drop-shadow-[0_0_12px_rgba(44,66,63,0.45)] data-[state=open]:text-[#2C423F] hover:no-underline transition-all duration-300">
+                  <AccordionTrigger data-faq-trigger="true" className="text-left text-sm md:text-lg font-display font-semibold text-[#2C423F] hover:text-[#2C423F] data-[state=open]:text-[#2C423F] hover:no-underline transition-all duration-300">
                     {item.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-primary font-body">

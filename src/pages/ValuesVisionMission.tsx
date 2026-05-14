@@ -111,27 +111,27 @@ const ValuesVisionMission = () => {
 
               <section className="space-y-4 border-t border-border/50 pt-6">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary">Values</h3>
-              <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed font-body">
-                {introParagraphs.map((paragraph, paragraphIndex) => (
-                  <p key={paragraphIndex}>{paragraph}</p>
-                ))}
-              </div>
+                <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed font-body">
+                  {introParagraphs.map((paragraph, paragraphIndex) => (
+                    <p key={paragraphIndex}>{paragraph}</p>
+                  ))}
+                </div>
 
-              <div className="space-y-8">
-                {sections.map((section) => (
-                  <section key={section.title} className="space-y-4 border-t border-border/50 pt-6">
-                    <h3 className="text-xl md:text-2xl font-display font-semibold text-primary">{section.title}</h3>
-                    <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body">{section.subtitle}</p>
-                    <div className="space-y-3">
-                      {section.values.map((value, valueIndex) => (
-                        <p key={valueIndex} className="text-sm md:text-base text-muted-foreground leading-relaxed font-body">
-                          {value}
-                        </p>
-                      ))}
-                    </div>
-                  </section>
-                ))}
-              </div>
+                <div className="space-y-8">
+                  {sections.map((section) => (
+                    <section key={section.title} className="space-y-4 border-t border-border/50 pt-6">
+                      <h3 className="text-xl md:text-2xl font-display font-semibold text-primary">{section.title}</h3>
+                      <p className="text-sm md:text-base text-muted-foreground leading-relaxed font-body">{section.subtitle}</p>
+                      <div className="space-y-3">
+                        {section.values.map((value, valueIndex) => (
+                          <p key={valueIndex} className="text-sm md:text-base text-muted-foreground leading-relaxed font-body">
+                            {value}
+                          </p>
+                        ))}
+                      </div>
+                    </section>
+                  ))}
+                </div>
               </section>
 
               <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed font-body border-t border-border/50 pt-6">

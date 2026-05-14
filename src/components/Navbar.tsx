@@ -337,7 +337,7 @@ const Navbar = () => {
                   <motion.div key={child} variants={dropdownItemVariants}>
                     <Link
                       to={getChildPath(activeDesktopItem.label, child, activeDesktopItem.path)}
-                      className="block px-4 py-2.5 text-sm font-body text-foreground/70 hover:text-[#588068] hover:bg-secondary/50 transition-colors"
+                      className="block px-4 py-2.5 text-sm font-body text-[#FCEADE] hover:text-[#FCEADE]/80 hover:bg-secondary/50 transition-colors"
                     >
                       {child}
                     </Link>

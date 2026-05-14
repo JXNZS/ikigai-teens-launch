@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
@@ -433,7 +433,22 @@ const TeenToolkit = () => {
   const [hasContinued1315, setHasContinued1315] = useState(false);
   const [selectedNeed1618, setSelectedNeed1618] = useState<string | null>(null);
   const [hasContinued1618, setHasContinued1618] = useState(false);
+  const location = useLocation();
   const selectedSectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    // Reset selection when navigating to this page (e.g. clicking the navbar link)
+    // but only if there are no search params (otherwise we'd overwrite the linked age)
+    if (!searchParams.get("age")) {
+      setSelectedAge(null);
+      setSelectedNeed1315(null);
+      setHasContinued1315(false);
+      setSelectedNeed1618(null);
+      setHasContinued1618(false);
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location.key, searchParams]);
+
   const continuedContentRef = useRef<HTMLDivElement | null>(null);
   const continuedContentRef1618 = useRef<HTMLDivElement | null>(null);
 
@@ -464,12 +479,12 @@ const TeenToolkit = () => {
   const ageCategories = [
     {
       id: "13-15",
-       label: "13-15 years",
+      label: "13-15 years",
       description: "Early teen years - practical tools for identity, habits, and confidence.",
     },
     {
       id: "16-18",
-       label: "16-18 years",
+      label: "16-18 years",
       description: "Late teen years - deeper tools for clarity, discipline, and direction.",
     },
   ];
@@ -591,7 +606,7 @@ const TeenToolkit = () => {
                         onMouseMove={handleCardMouseMove}
                         onMouseLeave={handleCardMouseLeave}
                         onClick={() => selectAge(category.id)}
-                        className="relative p-6 md:p-8 rounded-lg md:rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden border-border hover:border-border/60 bg-white hover:bg-white hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_28px_rgba(44,66,63,0.5)]"
+                        className="relative p-6 md:p-8 rounded-lg md:rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden border-border bg-white"
                         style={{
                           transformStyle: "preserve-3d",
                           transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
@@ -642,226 +657,236 @@ const TeenToolkit = () => {
                 </div>
 
                 <AnimatePresence mode="wait" initial={false}>
-                {!hasContinued1315 && (
-                <motion.div
-                  key="toolkit-needs-selector"
-                  initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
-                  transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                  className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8"
-                >
-                  <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Teen Toolkit (Age 13-15)</p>
-                  <h2 className="w-full leading-tight text-3xl md:text-4xl font-display font-bold text-primary/85 mb-4">
-                    You Don't Need Another Lecture. You Need Tools That Actually Help.
-                  </h2>
-                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                    Not everything needs a big solution. Sometimes you just need the right reset at the right time.
-                  </p>
-                  <p className="mt-5 text-foreground font-medium mb-3">Choose what you need right now:</p>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                    {arrangedToolkitNeeds1315.map((need) => (
-                      <button
-                        key={need.label}
-                        type="button"
-                        onClick={() => setSelectedNeed1315(need.label)}
-                        className={`text-left rounded-xl border p-5 transition-[transform,border-color,box-shadow,background-color,color] duration-300 ${
-                          selectedNeed1315 === need.label
-                            ? "border-primary/80 bg-white text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
-                            : "border-border/60 bg-card text-muted-foreground hover:border-primary/60 hover:bg-white hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
-                        }`}
-                      >
-                        {need.label}
-                      </button>
-                    ))}
-                  </div>
-                  {selectedNeed1315Details && (
+                  {!hasContinued1315 && (
                     <motion.div
-                      key={selectedNeed1315Details.label}
-                      initial={{ opacity: 0, y: 8 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.25, ease: "easeOut" }}
-                      className="mt-5 rounded-xl border border-primary/20 bg-white/70 p-4 text-sm text-foreground/80 leading-relaxed"
+                      key="toolkit-needs-selector"
+                      initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
+                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, y: -14, filter: "blur(6px)" }}
+                      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+                      className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8"
                     >
-                      {selectedNeed1315Details.solution}
+                      <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Teen Toolkit (Age 13-15)</p>
+                      <h2 className="w-full leading-tight text-3xl md:text-4xl font-display font-bold text-primary/85 mb-4">
+                        You Don't Need Another Lecture. You Need Tools That Actually Help.
+                      </h2>
+                      <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                        Not everything needs a big solution. Sometimes you just need the right reset at the right time.
+                      </p>
+                      <p className="mt-5 text-foreground font-medium mb-3">Choose what you feel right now:</p>
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        {arrangedToolkitNeeds1315.map((need) => (
+                          <button
+                            key={need.label}
+                            type="button"
+                            onClick={() => setSelectedNeed1315(need.label)}
+                            className={`text-left rounded-xl border p-5 transition-[transform,border-color,box-shadow,background-color,color] duration-300 ${selectedNeed1315 === need.label
+                              ? "border-primary/80 bg-[#FCEADE] text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                              : "border-border/60 bg-[#FCEADE]/50 text-muted-foreground hover:border-primary/60 hover:bg-[#FCEADE] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
+                              }`}
+                          >
+                            {need.label}
+                          </button>
+                        ))}
+                      </div>
+                      {selectedNeed1315Details && (
+                        <motion.div
+                          key={selectedNeed1315Details.label}
+                          initial={{ opacity: 0, y: 8 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.25, ease: "easeOut" }}
+                          className="mt-5 rounded-xl border border-primary/20 bg-[#2C423F] p-4 text-sm text-white leading-relaxed"
+                        >
+                          {selectedNeed1315Details.solution}
+                        </motion.div>
+                      )}
+                      <div className="mt-6 flex justify-end">
+                        <button
+                          type="button"
+                          onClick={() => setHasContinued1315(true)}
+                          disabled={!selectedNeed1315}
+                          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${selectedNeed1315
+                            ? "bg-[#2C423F] text-[#FCEADE] hover:brightness-110 shadow-md"
+                            : "bg-[#2C423F]/40 text-[#FCEADE]/60 cursor-not-allowed"
+                            }`}
+                        >
+                          Continue
+                        </button>
+                      </div>
                     </motion.div>
                   )}
-                  <div className="mt-6 flex justify-end">
-                    <button
-                      type="button"
-                      onClick={() => setHasContinued1315(true)}
-                      disabled={!selectedNeed1315}
-                      className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                        selectedNeed1315
-                          ? "bg-primary text-primary-foreground hover:brightness-105"
-                          : "bg-primary/40 text-primary-foreground/70 cursor-not-allowed"
-                      }`}
+
+                  {hasContinued1315 && (
+                    <motion.div
+                      key="toolkit-content-reveal"
+                      ref={continuedContentRef}
+                      initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
+                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                      exit={{ opacity: 0, y: -12, filter: "blur(6px)" }}
+                      transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                      className="space-y-16"
                     >
-                      Continue
-                    </button>
-                  </div>
-                </motion.div>
-                )}
+                      {selectedNeed1315Details && (
+                        <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8 space-y-5">
+                          <div>
+                            <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Your selected challenge</p>
+                            <h3 className="text-2xl md:text-3xl font-display font-bold text-primary/85">{selectedNeed1315Details.label}</h3>
+                          </div>
+                          <div className="rounded-xl border border-border/60 bg-[#FCEADE] p-4 sm:p-5 space-y-4">
+                            <div>
+                              <p className="text-sm font-semibold text-foreground mb-2">Solution</p>
+                              <p className="text-sm text-muted-foreground leading-relaxed">{selectedNeed1315Details.solution}</p>
+                            </div>
+                            <div>
+                              <p className="text-sm font-semibold text-foreground mb-2">Tips to work on it</p>
+                              <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
+                                {selectedNeed1315Details.tips?.map((tip) => (
+                                  <li key={tip}>{tip}</li>
+                                ))}
+                              </ul>
+                            </div>
+                            <div>
+                              <p className="text-sm font-semibold text-foreground mb-2">Reminder</p>
+                              <p className="text-sm text-muted-foreground leading-relaxed">{selectedNeed1315Details.reminder}</p>
+                            </div>
+                          </div>
+                          <div className="flex justify-end pt-2">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setHasContinued1315(false);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                              }}
+                              className="px-4 py-2 rounded-md bg-[#2C423F] text-[#FCEADE] text-xs font-semibold hover:brightness-110 shadow-md transition-all"
+                            >
+                              Want to select another option?
+                            </button>
+                          </div>
+                        </div>
+                      )}
 
-                {hasContinued1315 && (
-                  <motion.div
-                    key="toolkit-content-reveal"
-                    ref={continuedContentRef}
-                    initial={{ opacity: 0, y: 24, filter: "blur(8px)" }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, y: -12, filter: "blur(6px)" }}
-                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                    className="space-y-16"
-                  >
-                {selectedNeed1315Details && (
-                  <div className="max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8 space-y-5">
-                    <div>
-                      <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Your selected challenge</p>
-                      <h3 className="text-2xl md:text-3xl font-display font-bold text-primary/85">{selectedNeed1315Details.label}</h3>
-                    </div>
-                    <div className="rounded-xl border border-border/60 bg-white/75 p-4 sm:p-5 space-y-4">
-                      <div>
-                        <p className="text-sm font-semibold text-foreground mb-2">Solution</p>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{selectedNeed1315Details.solution}</p>
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                        <h3 className="mb-5">
+                          <LetterSwapForward label="Quick Resets (Try Now)" className="text-2xl font-display font-semibold text-primary/85" />
+                        </h3>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          {quickResetTools.map((tool) => (
+                            <ClipPathInfoCard key={tool.title} title={tool.title}>
+                              <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
+                                {tool.steps.map((step) => (
+                                  <li key={step}>{step}</li>
+                                ))}
+                              </ul>
+                            </ClipPathInfoCard>
+                          ))}
+                        </div>
                       </div>
-                      <div>
-                        <p className="text-sm font-semibold text-foreground mb-2">Tips to work on it</p>
+
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                        <h3 className="mb-5">
+                          <LetterSwapForward label="Build Better Habits" className="text-2xl font-display font-semibold text-primary/85" />
+                        </h3>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          {habitTools.map((tool) => (
+                            <ClipPathInfoCard key={tool.title} title={tool.title}>
+                              <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
+                                {tool.steps.map((step) => (
+                                  <li key={step}>{step}</li>
+                                ))}
+                              </ul>
+                            </ClipPathInfoCard>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                        <h3 className="mb-5">
+                          <LetterSwapForward label="Mind + Emotion Tools" className="text-2xl font-display font-semibold text-primary/85" />
+                        </h3>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          {mindEmotionTools.map((tool) => (
+                            <ClipPathInfoCard key={tool.title} title={tool.title}>
+                              <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
+                                {tool.steps.map((step) => (
+                                  <li key={step}>{step}</li>
+                                ))}
+                              </ul>
+                            </ClipPathInfoCard>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                        <h3 className="mb-5">
+                          <LetterSwapForward label="Body + Energy Basics" className="text-2xl font-display font-semibold text-primary/85" />
+                        </h3>
+                        <div className="grid md:grid-cols-2 gap-4">
+                          {bodyEnergyTools.map((tool) => (
+                            <ClipPathInfoCard key={tool.title} title={tool.title}>
+                              <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
+                                {tool.steps.map((step) => (
+                                  <li key={step}>{step}</li>
+                                ))}
+                              </ul>
+                            </ClipPathInfoCard>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                        <h3 className="mb-5">
+                          <LetterSwapForward label="Get Support" className="text-2xl font-display font-semibold text-primary/85" />
+                        </h3>
+                        <ClipPathInfoCard title="When to Talk to Someone">
+                          <p className="text-sm text-muted-foreground mb-3">If you feel stuck for many days, very low, confused, or unable to handle things.</p>
+                          <p className="text-sm font-semibold text-foreground mb-2">Talk to:</p>
+                          <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
+                            <li>parent</li>
+                            <li>teacher</li>
+                            <li>trusted adult</li>
+                          </ul>
+                        </ClipPathInfoCard>
+                      </div>
+
+                      <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[#FCEADE] p-5 sm:p-8">
+                        <h3 className="mb-3">
+                          <LetterSwapForward
+                            label="Quick tools help. But stronger change needs training."
+                            className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
+                          />
+                        </h3>
+                        <p className="text-muted-foreground mb-5">
+                          If you keep facing the same problems - distraction, inconsistency, confusion - you may need more than tips.
+                        </p>
+                        <p className="text-sm font-semibold text-foreground mb-3">What this is:</p>
+                        <p className="text-sm text-muted-foreground mb-3">A 90-day guided challenge to help you:</p>
                         <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                          {selectedNeed1315Details.tips?.map((tip) => (
-                            <li key={tip}>{tip}</li>
+                          <li className="rounded-md px-2 py-1">focus better</li>
+                          <li className="rounded-md px-2 py-1">build discipline</li>
+                          <li className="rounded-md px-2 py-1">feel more confident</li>
+                          <li className="rounded-md px-2 py-1">manage emotions</li>
+                          <li className="rounded-md px-2 py-1">become more responsible</li>
+                        </ul>
+                      </div>
+
+                      <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                        <h3 className="mb-4">
+                          <LetterSwapForward label="How to Ask Your Parent" className="text-2xl font-display font-semibold text-primary/85" />
+                        </h3>
+                        <p className="text-muted-foreground mb-4">Not sure how to say it? You can try:</p>
+                        <ul className="space-y-3 text-sm text-muted-foreground">
+                          {supportParentScripts1315.map((line) => (
+                            <li
+                              key={line}
+                              className="rounded-lg border border-border/60 p-3"
+                            >
+                              "{line}"
+                            </li>
                           ))}
                         </ul>
                       </div>
-                      <div>
-                        <p className="text-sm font-semibold text-foreground mb-2">Reminder</p>
-                        <p className="text-sm text-muted-foreground leading-relaxed">{selectedNeed1315Details.reminder}</p>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                  <h3 className="mb-5">
-                    <LetterSwapForward label="Quick Resets (Try Now)" className="text-2xl font-display font-semibold text-primary/85" />
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {quickResetTools.map((tool) => (
-                      <ClipPathInfoCard key={tool.title} title={tool.title}>
-                        <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
-                          {tool.steps.map((step) => (
-                            <li key={step}>{step}</li>
-                          ))}
-                        </ul>
-                      </ClipPathInfoCard>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                  <h3 className="mb-5">
-                    <LetterSwapForward label="Build Better Habits" className="text-2xl font-display font-semibold text-primary/85" />
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {habitTools.map((tool) => (
-                      <ClipPathInfoCard key={tool.title} title={tool.title}>
-                        <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
-                          {tool.steps.map((step) => (
-                            <li key={step}>{step}</li>
-                          ))}
-                        </ul>
-                      </ClipPathInfoCard>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                  <h3 className="mb-5">
-                    <LetterSwapForward label="Mind + Emotion Tools" className="text-2xl font-display font-semibold text-primary/85" />
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {mindEmotionTools.map((tool) => (
-                      <ClipPathInfoCard key={tool.title} title={tool.title}>
-                        <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
-                          {tool.steps.map((step) => (
-                            <li key={step}>{step}</li>
-                          ))}
-                        </ul>
-                      </ClipPathInfoCard>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                  <h3 className="mb-5">
-                    <LetterSwapForward label="Body + Energy Basics" className="text-2xl font-display font-semibold text-primary/85" />
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {bodyEnergyTools.map((tool) => (
-                      <ClipPathInfoCard key={tool.title} title={tool.title}>
-                        <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
-                          {tool.steps.map((step) => (
-                            <li key={step}>{step}</li>
-                          ))}
-                        </ul>
-                      </ClipPathInfoCard>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                  <h3 className="mb-5">
-                    <LetterSwapForward label="Get Support" className="text-2xl font-display font-semibold text-primary/85" />
-                  </h3>
-                  <ClipPathInfoCard title="When to Talk to Someone">
-                    <p className="text-sm text-muted-foreground mb-3">If you feel stuck for many days, very low, confused, or unable to handle things.</p>
-                    <p className="text-sm font-semibold text-foreground mb-2">Talk to:</p>
-                    <ul className="list-disc pl-5 space-y-1 text-sm text-muted-foreground">
-                      <li>parent</li>
-                      <li>teacher</li>
-                      <li>trusted adult</li>
-                    </ul>
-                  </ClipPathInfoCard>
-                </div>
-
-                <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8">
-                  <h3 className="mb-3">
-                    <LetterSwapForward
-                      label="Quick tools help. But stronger change needs training."
-                      className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
-                    />
-                  </h3>
-                  <p className="text-muted-foreground mb-5">
-                    If you keep facing the same problems - distraction, inconsistency, confusion - you may need more than tips.
-                  </p>
-                  <p className="text-sm font-semibold text-foreground mb-3">What this is:</p>
-                  <p className="text-sm text-muted-foreground mb-3">A 90-day guided challenge to help you:</p>
-                  <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">focus better</li>
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build discipline</li>
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">feel more confident</li>
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">manage emotions</li>
-                    <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">become more responsible</li>
-                  </ul>
-                </div>
-
-                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                  <h3 className="mb-4">
-                    <LetterSwapForward label="How to Ask Your Parent" className="text-2xl font-display font-semibold text-primary/85" />
-                  </h3>
-                  <p className="text-muted-foreground mb-4">Not sure how to say it? You can try:</p>
-                  <ul className="space-y-3 text-sm text-muted-foreground">
-                    {supportParentScripts1315.map((line) => (
-                      <li
-                        key={line}
-                        className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-white hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
-                      >
-                        "{line}"
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                  </motion.div>
-                )}
+                    </motion.div>
+                  )}
                 </AnimatePresence>
               </div>
             </motion.section>
@@ -905,18 +930,17 @@ const TeenToolkit = () => {
                       <p className="text-sm md:text-lg text-muted-foreground leading-relaxed">
                         Not everything needs a big solution. Sometimes you just need the right reset at the right time.
                       </p>
-                      <p className="mt-4 md:mt-5 text-foreground font-medium mb-2 md:mb-3 text-sm md:text-base">Choose what you need right now:</p>
+                      <p className="mt-4 md:mt-5 text-foreground font-medium mb-2 md:mb-3 text-sm md:text-base">Choose what you feel right now:</p>
                       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
                         {arrangedToolkitNeeds1618.map((need) => (
                           <button
                             key={need.label}
                             type="button"
                             onClick={() => setSelectedNeed1618(need.label)}
-                            className={`text-left rounded-lg md:rounded-xl border p-3 md:p-5 transition-[transform,border-color,box-shadow,background-color,color] duration-300 text-xs md:text-sm ${
-                              selectedNeed1618 === need.label
-                                ? "border-primary/80 bg-white text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
-                                : "border-border/60 bg-card text-muted-foreground hover:border-primary/60 hover:bg-white hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
-                            }`}
+                            className={`text-left rounded-lg md:rounded-xl border p-3 md:p-5 transition-[transform,border-color,box-shadow,background-color,color] duration-300 text-xs md:text-sm ${selectedNeed1618 === need.label
+                              ? "border-primary/80 bg-[#FCEADE] text-foreground shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                              : "border-border/60 bg-[#FCEADE]/50 text-muted-foreground hover:border-primary/60 hover:bg-[#FCEADE] hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.3),0_0_16px_hsl(var(--primary)/0.25)]"
+                              }`}
                           >
                             {need.label}
                           </button>
@@ -928,7 +952,7 @@ const TeenToolkit = () => {
                           initial={{ opacity: 0, y: 8 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.25, ease: "easeOut" }}
-                          className="mt-5 rounded-xl border border-primary/20 bg-white/70 p-4 text-sm text-foreground/80 leading-relaxed"
+                          className="mt-5 rounded-xl border border-primary/20 bg-[#2C423F] p-4 text-sm text-white leading-relaxed"
                         >
                           {selectedNeed1618Details.solution}
                         </motion.div>
@@ -938,11 +962,10 @@ const TeenToolkit = () => {
                           type="button"
                           onClick={() => setHasContinued1618(true)}
                           disabled={!selectedNeed1618}
-                          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                            selectedNeed1618
-                              ? "bg-primary text-primary-foreground hover:brightness-105"
-                              : "bg-primary/40 text-primary-foreground/70 cursor-not-allowed"
-                          }`}
+                          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${selectedNeed1618
+                            ? "bg-[#2C423F] text-[#FCEADE] hover:brightness-110 shadow-md"
+                            : "bg-[#2C423F]/40 text-[#FCEADE]/60 cursor-not-allowed"
+                            }`}
                         >
                           Continue
                         </button>
@@ -966,11 +989,11 @@ const TeenToolkit = () => {
                             <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Your selected challenge</p>
                             <h3 className="text-2xl md:text-3xl font-display font-bold text-primary/85">{selectedNeed1618Details.label}</h3>
                           </div>
-                          <div className="rounded-xl border border-border/60 bg-white/75 p-4 sm:p-5">
+                          <div className="rounded-xl border border-border/60 bg-[#FCEADE] p-4 sm:p-5">
                             <p className="text-sm font-semibold text-foreground mb-2">Solution</p>
                             <p className="text-sm text-muted-foreground leading-relaxed">{selectedNeed1618Details.solution}</p>
                           </div>
-                          <div className="rounded-xl border border-border/60 bg-white/75 p-4 sm:p-5 space-y-4">
+                          <div className="rounded-xl border border-border/60 bg-[#FCEADE] p-4 sm:p-5 space-y-4">
                             <div>
                               <p className="text-sm font-semibold text-foreground mb-2">Tips to work on it</p>
                               <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
@@ -983,6 +1006,18 @@ const TeenToolkit = () => {
                               <p className="text-sm font-semibold text-foreground mb-2">Reminder</p>
                               <p className="text-sm text-muted-foreground leading-relaxed">{selectedNeed1618Details.reminder}</p>
                             </div>
+                          </div>
+                          <div className="flex justify-end pt-2">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                setHasContinued1618(false);
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                              }}
+                              className="px-4 py-2 rounded-md bg-[#2C423F] text-[#FCEADE] text-xs font-semibold hover:brightness-110 shadow-md transition-all"
+                            >
+                              Want to select another option?
+                            </button>
                           </div>
                         </div>
                       )}
@@ -1070,7 +1105,7 @@ const TeenToolkit = () => {
                         </ClipPathInfoCard>
                       </div>
 
-                      <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8">
+                      <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[#FCEADE] p-5 sm:p-8">
                         <h3 className="mb-3">
                           <LetterSwapForward
                             label="You don't need more content. You need a system."
@@ -1083,11 +1118,11 @@ const TeenToolkit = () => {
                         <p className="text-sm font-semibold text-foreground mb-3">What this is:</p>
                         <p className="text-sm text-muted-foreground mb-3">A 90-day guided challenge to help you:</p>
                         <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build consistency</li>
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve focus</li>
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">manage distractions</li>
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">strengthen emotional control</li>
-                          <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">move toward purpose</li>
+                          <li className="rounded-md px-2 py-1">build consistency</li>
+                          <li className="rounded-md px-2 py-1">improve focus</li>
+                          <li className="rounded-md px-2 py-1">manage distractions</li>
+                          <li className="rounded-md px-2 py-1">strengthen emotional control</li>
+                          <li className="rounded-md px-2 py-1">move toward purpose</li>
                         </ul>
                       </div>
 
@@ -1099,7 +1134,7 @@ const TeenToolkit = () => {
                           {supportParentScripts1618.map((line) => (
                             <li
                               key={line}
-                              className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-white hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                              className="rounded-lg border border-border/60 p-3"
                             >
                               "{line}"
                             </li>

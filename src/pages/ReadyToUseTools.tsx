@@ -107,7 +107,7 @@ const ReadyToUseTools = () => {
                 style={{ color: '#FCEADE' }}
               />
             </h1>
-            <p className="text-lg text-white font-body">Practical guides and workbooks to support your teen's growth and strengthen your connection.</p>
+            <p className="text-lg text-white font-body">Practical application tools to support your teen's growth and strengthen your parent-teen relationship.</p>
           </div>
         </section>
 
@@ -117,7 +117,7 @@ const ReadyToUseTools = () => {
               {readyToUseTools.map((tool) => (
                 <div
                   key={tool.id}
-                  className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 hover:border-primary/40 transition-colors"
+                  className="rounded-xl border border-border/60 bg-[#FCEADE] [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 hover:border-primary/40 transition-colors"
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                     <div className="flex-1">

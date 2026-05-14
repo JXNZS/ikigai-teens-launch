@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -195,6 +195,14 @@ const detailSections = [
 
 const IkigaiTeenClub = () => {
   const [expandedCardId, setExpandedCardId] = useState<string | null>(null);
+  const location = useLocation();
+
+  useEffect(() => {
+    // Reset selection when navigating to this page (e.g. clicking the navbar link)
+    setExpandedCardId(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location.key]);
+
 
   const detailsById = detailSections.reduce<Record<string, (typeof detailSections)[number]>>((acc, section) => {
     acc[section.id] = section;
@@ -305,7 +313,7 @@ const IkigaiTeenClub = () => {
                             <ClipPathInfoCard
                               title={card.title}
                               body={card.description}
-                              className="rounded-xl bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6"
+                              className="rounded-xl bg-[#FCEADE] [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6"
                             >
                               <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary/90">Open details</p>
                             </ClipPathInfoCard>
@@ -332,7 +340,7 @@ const IkigaiTeenClub = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                 >
-                  <ClipPathInfoCard className="h-full rounded-xl bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-7">
+                  <ClipPathInfoCard className="h-full rounded-xl bg-[#FCEADE] [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-7">
                     <h2 className="text-2xl font-display font-semibold text-primary mb-3">
                       <LetterSwapForward label="Why teens love it" className="justify-start" />
                     </h2>
@@ -351,15 +359,14 @@ const IkigaiTeenClub = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                 >
-                  <ClipPathInfoCard className="h-full rounded-xl bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-7">
+                  <ClipPathInfoCard className="h-full rounded-xl bg-[#FCEADE] [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-7">
                     <h2 className="text-2xl font-display font-semibold text-primary mb-3">
                       <LetterSwapForward label="Why parents value it" className="justify-start" />
                     </h2>
-                    <p className="text-muted-foreground leading-relaxed">
-                      Ikigai Teen Club offers teens a positive, enriching, and well-curated ecosystem that supports
-                      identity, confidence, emotional wellbeing, life skills, healthy engagement, and access to credible
-                      guidance, all within a safe and growth-oriented framework.
+                    <p className="text-muted-foreground leading-relaxed mb-4">
+                      Ikigai Teen Club offers teens a positive, enriching, and well-curated ecosystem to support identity, confidence, emotional wellbeing, life skills & access to credible guidance, all within a safe and growth-oriented framework.
                     </p>
+                    <p className="text-foreground font-medium">It offers a worry-free & reliable option.</p>
                   </ClipPathInfoCard>
                 </motion.div>
               </div>

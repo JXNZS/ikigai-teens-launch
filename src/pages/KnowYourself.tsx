@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
@@ -303,7 +303,7 @@ const quickTruths = [
   "Feelings are real, but they are not always wise leaders.",
 ];
 
-  const arrangedQuickTruths = quickTruths;
+const arrangedQuickTruths = quickTruths;
 
 const microActions = [
   {
@@ -341,7 +341,7 @@ const relatableQuestions1618 = [
   "Why do I care so much what people think?",
   "Why do I feel emotionally messy and mentally tired?",
   "Why do I feel pressure without clarity?",
- "Why do I feel distant from my parents?",
+  "Why do I feel distant from my parents?",
 ];
 
 const selfCheckPrompts1618: SelfCheckPrompt[] = [
@@ -705,7 +705,15 @@ const KnowYourself = () => {
   const [isChallengeGridHovered, setIsChallengeGridHovered] = useState(false);
   const [isChallengeGridHovered1618, setIsChallengeGridHovered1618] = useState(false);
   const [transitionDirection, setTransitionDirection] = useState(1);
+  const location = useLocation();
   const selectedSectionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    // Reset selection when navigating to this page (e.g. clicking the navbar link)
+    setSelectedAge(null);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location.key]);
+
 
   const handleCardMouseMove = (e: MouseEvent<HTMLElement>) => {
     const card = e.currentTarget;
@@ -734,16 +742,16 @@ const KnowYourself = () => {
   const ageCategories = [
     {
       id: "13-15",
-       label: "13-15 years",
+      label: "13-15 years",
       description: "Early teen years - discovering who you are and finding your voice.",
     },
     {
       id: "16-18",
-       label: "16-18 years",
+      label: "16-18 years",
       description: "Late teen years - deepening self-understanding and planning your future.",
     },
   ];
- 
+
   const arrangedRelatableQuestions = [
     relatableQuestions[0],
     relatableQuestions[1],
@@ -752,8 +760,8 @@ const KnowYourself = () => {
     relatableQuestions[4],
     relatableQuestions[3],
   ];
- 
-   const arrangedRelatableQuestions1618 = relatableQuestions1618;
+
+  const arrangedRelatableQuestions1618 = relatableQuestions1618;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -853,658 +861,666 @@ const KnowYourself = () => {
 
         <AnimatePresence mode="wait" initial={false}>
           {selectedAge === null && (
-          <motion.section
-            key="choose-age"
-            className="py-12 md:py-20 bg-background"
-            initial={{ opacity: 0, x: 56 * transitionDirection, scale: 0.985, filter: "blur(8px)" }}
-            animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
-            transition={pageTransition}
-          >
-            <div className="container mx-auto px-4 md:px-6">
-              <motion.div className="max-w-3xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
-                <motion.h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-primary/85 mb-8 md:mb-12 text-center" variants={itemVariants}>
-                  <LetterSwapForward label="Choose your age" />
-                </motion.h2>
+            <motion.section
+              key="choose-age"
+              className="py-12 md:py-20 bg-background"
+              initial={{ opacity: 0, x: 56 * transitionDirection, scale: 0.985, filter: "blur(8px)" }}
+              animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
+              transition={pageTransition}
+            >
+              <div className="container mx-auto px-4 md:px-6">
+                <motion.div className="max-w-3xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
+                  <motion.h2 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-primary/85 mb-8 md:mb-12 text-center" variants={itemVariants}>
+                    <LetterSwapForward label="Choose your age" />
+                  </motion.h2>
 
-                <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" variants={containerVariants}>
-                  {ageCategories.map((category) => (
-                    <motion.button
-                      key={category.id}
-                      variants={cardVariants}
-                      whileHover="hover"
-                      onMouseMove={handleCardMouseMove}
-                      onMouseLeave={handleCardMouseLeave}
-                      onClick={() => selectAge(category.id)}
-                      className={`relative p-5 sm:p-8 rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden hover:border-border/60 hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_28px_rgba(44,66,63,0.5)] ${
-                        selectedAge === category.id
+                  <motion.div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" variants={containerVariants}>
+                    {ageCategories.map((category) => (
+                      <motion.button
+                        key={category.id}
+                        variants={cardVariants}
+                        whileHover="hover"
+                        onMouseMove={handleCardMouseMove}
+                        onMouseLeave={handleCardMouseLeave}
+                        onClick={() => selectAge(category.id)}
+                        className={`relative p-5 sm:p-8 rounded-xl border-2 transition-[transform,border-color,box-shadow,background-color] duration-300 text-left group overflow-hidden ${selectedAge === category.id
                           ? "border-primary/60 bg-white"
                           : "border-border hover:border-primary/40 bg-white hover:bg-white"
-                      }`}
-                      style={{
-                        transformStyle: "preserve-3d",
-                        transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
-                      }}
-                    >
-                      {selectedAge === category.id && <div className="absolute inset-0 opacity-20 blur-xl bg-primary pointer-events-none" />}
-                      <div
-                        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                          }`}
                         style={{
-                          background:
-                            "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(44,66,63,0.24), rgba(44,66,63,0.1) 35%, rgba(0, 0, 0, 0) 70%)",
+                          transformStyle: "preserve-3d",
+                          transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
                         }}
-                      />
+                      >
+                        {selectedAge === category.id && <div className="absolute inset-0 opacity-20 blur-xl bg-primary pointer-events-none" />}
+                        <div
+                          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                          style={{
+                            background:
+                              "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(44,66,63,0.24), rgba(44,66,63,0.1) 35%, rgba(0, 0, 0, 0) 70%)",
+                          }}
+                        />
 
-                      <div className="relative z-10">
-                        <div className="flex items-center justify-between mb-4">
-                          <h3 className="text-3xl md:text-4xl number-font font-bold text-primary tracking-tight">{category.label}</h3>
-                          <motion.div
-                            animate={{
-                              opacity: selectedAge === category.id ? 1 : 0.3,
-                              x: selectedAge === category.id ? 0 : -10,
-                            }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            <ArrowRight className="w-6 h-6 text-primary" />
-                          </motion.div>
+                        <div className="relative z-10">
+                          <div className="flex items-center justify-between mb-4">
+                            <h3 className="text-3xl md:text-4xl number-font font-bold text-primary tracking-tight">{category.label}</h3>
+                            <motion.div
+                              animate={{
+                                opacity: selectedAge === category.id ? 1 : 0.3,
+                                x: selectedAge === category.id ? 0 : -10,
+                              }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <ArrowRight className="w-6 h-6 text-primary" />
+                            </motion.div>
+                          </div>
+                          <p className="text-foreground/75 text-sm md:text-base leading-relaxed">{category.description}</p>
                         </div>
-                        <p className="text-foreground/75 text-sm md:text-base leading-relaxed">{category.description}</p>
-                      </div>
-                    </motion.button>
-                  ))}
+                      </motion.button>
+                    ))}
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            </div>
-          </motion.section>
-        )}
-
-        {selectedAge === "13-15" && (
-          <motion.section
-            key="age-13-15"
-            ref={selectedSectionRef}
-            className="py-12 md:py-16 lg:py-20 bg-background"
-            initial={{ opacity: 0, x: 56 * transitionDirection, scale: 0.985, filter: "blur(8px)" }}
-            animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
-            transition={pageTransition}
-          >
-            <div className="container mx-auto px-4 md:px-6 space-y-12 md:space-y-16">
-              <div className="max-w-5xl mx-auto">
-                <button
-                  type="button"
-                  onClick={returnToAgeSelection}
-                  className="inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
-                >
-                  Choose a different age
-                </button>
               </div>
+            </motion.section>
+          )}
 
-              <div className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-white p-6 md:p-8">
-                <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2 md:mb-3">Know Yourself (Age 13-15)</p>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary/85 mb-3 md:mb-4">
-                  You are not just going through stuff. You are becoming a person.
-                </h2>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  What you repeat in your thoughts, habits, friendships, emotions, and screen life quietly shapes who you are becoming.
-                </p>
-              </div>
-
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                <h3 className="mb-5">
-                  <LetterSwapForward
-                    label="Quick relatable cards"
-                    className="text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {arrangedRelatableQuestions.map((question, idx) => (
-                    question === "__SPACER__" ? (
-                      <div key={`spacer-1315-${idx}`} className="lg:block hidden" aria-hidden />
-                    ) : (
-                      <ClipPathInfoCard key={`rel-${idx}`} body={question} />
-                    )
-                  ))}
-                </div>
-                <p className="mt-5 text-foreground font-medium">Do you feel like <span className="text-primary">"This is literally me."</span> Take the small test below</p>
-              </div>
-
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                <h3 className="mb-2">
-                  <span className="block md:hidden text-xl font-display font-semibold text-primary/85 leading-tight">
-                    What's affecting you most right now?
-                  </span>
-                  <LetterSwapForward
-                    label="What's affecting you most right now?"
-                    className="hidden md:flex text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <p className="text-muted-foreground mb-6">Mini identity check</p>
-                <div className="grid md:grid-cols-2 gap-3">
-                  {selfCheckPrompts.map((prompt) => {
-                    const selectedValue = selectedChecks[prompt.label];
-                    return (
-                      <div
-                        key={prompt.label}
-                        onMouseMove={handleCardMouseMove}
-                        onMouseLeave={handleCardMouseLeave}
-                        className="group relative overflow-hidden rounded-lg border border-border/70 p-4 transition-[transform,border-color,box-shadow] duration-300 hover:border-border/60 hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_22px_rgba(44,66,63,0.42)]"
-                        style={{
-                          transformStyle: "preserve-3d",
-                          transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
-                        }}
-                      >
-                        <div
-                          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                          style={{
-                            background:
-                              "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(44,66,63,0.2), rgba(44,66,63,0.08) 35%, rgba(0, 0, 0, 0) 70%)",
-                          }}
-                        />
-                        <div className="relative z-10">
-                          <p className="text-sm text-foreground mb-3">{prompt.label}</p>
-                          <div className="flex flex-wrap gap-2">
-                            {responseScale.map((option) => {
-                              const isActive = selectedValue === option.value;
-                              return (
-                                <button
-                                  type="button"
-                                  key={option.label}
-                                  onClick={() => updateCheckResponse(prompt.label, option.value)}
-                                  className={`rounded-md border px-3 py-1.5 text-xs transition-colors ${
-                                    isActive
-                                      ? "border-primary/60 bg-primary/10 text-primary"
-                                      : "border-border/70 text-muted-foreground hover:border-primary/40"
-                                  }`}
-                                >
-                                  {option.label}
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-
-                <div className="mt-8 rounded-xl border border-primary/30 bg-white p-5">
-                  {humanResult ? (
-                    <>
-                      <p className="text-sm text-muted-foreground mb-2">Right now, you may be dealing most with:</p>
-                      <p className="text-xl font-display font-semibold text-primary">{humanResult.primary}</p>
-                      {humanResult.secondary && <p className="mt-1 text-sm text-muted-foreground">Also showing up: {humanResult.secondary}</p>}
-                      <p className="mt-3 text-sm text-muted-foreground">{humanResult.summary}</p>
-                    </>
-                  ) : (
-                    <>
-                      <p className="text-sm text-primary/80 mb-2">Answer all 8 questions to see your result.</p>
-                      <p className="text-base text-foreground/80">Your result will be based on the pattern of your responses, not just one answer.</p>
-                    </>
-                  )}
-                </div>
-              </div>
-
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8 space-y-6">
-                <h3 className="text-2xl font-display font-semibold text-primary/85">
-                  12 Teen Struggles Almost Everyone Faces
-                </h3>
-
-                <div className="grid md:grid-cols-2 gap-4 pt-2">
-                  {teenStruggles1315.map((item, index) => (
-                    <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, y: 18 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.2 }}
-                      transition={{ duration: 0.35, delay: index * 0.02 }}
-                      className="h-full"
-                    >
-                      <AnimatePresence mode="wait" initial={false}>
-                        {expandedStruggle1315 === item.title ? (
-                          <motion.article
-                            key={`${item.title}-expanded`}
-                            className="rounded-xl border border-border/60 bg-white p-4 md:p-5 space-y-3 h-full"
-                            initial={{ opacity: 0, y: 10, scale: 0.995 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 8, scale: 0.995 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <button
-                              type="button"
-                              onClick={() => setExpandedStruggle1315(null)}
-                              className="mb-1 inline-flex self-start items-center gap-1 rounded-md border border-primary/35 px-2 py-1 text-xs font-semibold text-primary hover:bg-primary/10 transition-colors"
-                            >
-                              Back
-                            </button>
-
-                            <h4 className="text-lg md:text-xl font-display font-semibold text-primary">{item.title}</h4>
-
-                            <div className="space-y-2">
-                              <p className="text-sm md:text-base font-semibold text-foreground">What It Feels Like</p>
-                              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{item.whatItFeelsLike}</p>
-                            </div>
-
-                            <div className="space-y-2">
-                              <p className="text-sm md:text-base font-semibold text-foreground">How To Identify It</p>
-                              <ul className="list-disc pl-5 space-y-1 text-sm md:text-base text-muted-foreground">
-                                {item.identify.map((point) => (
-                                  <li key={point}>{point}</li>
-                                ))}
-                              </ul>
-                            </div>
-
-                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                              <span className="font-semibold text-foreground">Red Flag:</span> {item.redFlag}
-                            </p>
-                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                              <span className="font-semibold text-foreground">Green Flag:</span> {item.greenFlag}
-                            </p>
-                          </motion.article>
-                        ) : (
-                          <motion.div
-                            key={`${item.title}-collapsed`}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.15 }}
-                            className="h-full"
-                          >
-                            <button
-                              type="button"
-                              onClick={() => setExpandedStruggle1315(item.title)}
-                              className="block w-full h-full text-left"
-                              aria-label={`Open details for ${item.title}`}
-                            >
-                              <ClipPathInfoCard
-                                title={item.title}
-                                body={item.whatItFeelsLike}
-                                className="h-full rounded-xl bg-white p-5"
-                              >
-                                <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary/90">Open details</p>
-                              </ClipPathInfoCard>
-                            </button>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-
-              <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8">
-                <h3 className="mb-3">
-                  <LetterSwapForward
-                    label="Quick understanding helps. But stronger growth needs more than one page."
-                    className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <p className="text-muted-foreground mb-5">
-                  If you want to become more focused, confident, disciplined, emotionally steady, and more sure of yourself, you may need more than random tips.
-                </p>
-                <p className="text-sm font-semibold text-foreground mb-3">What Ikigai Teen offers:</p>
-                <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">understand yourself better</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build stronger habits</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">handle emotions better</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve confidence and discipline</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">become more grounded and responsible</li>
-                </ul>
-              </div>
-
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                <h3 className="mb-4">
-                  <LetterSwapForward
-                    label="How to ask at home"
-                    className="text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <p className="text-muted-foreground mb-4">Want to explore this with your parent? You can say:</p>
-                <ul className="space-y-3 text-sm text-muted-foreground">
-                  {parentScripts.map((line) => (
-                    <li
-                      key={line}
-                      className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-white hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
-                    >
-                      "{line}"
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8">
-                <h3 className="mb-3">
-                  <LetterSwapForward
-                    label="Understanding yourself is the beginning. Building yourself is the next step."
-                    className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <p className="text-muted-foreground mb-5">
-                  If this page made you realise something about yourself, don't stop there.
-                </p>
-                <p className="text-sm font-semibold text-foreground mb-3">Next Step Options</p>
-                <div className="flex flex-wrap gap-3">
-                  <Link
-                    to="/teenzone/teen-toolkit?age=13-15"
-                    className="cta-button"
+          {selectedAge === "13-15" && (
+            <motion.section
+              key="age-13-15"
+              ref={selectedSectionRef}
+              className="py-12 md:py-16 lg:py-20 bg-background"
+              initial={{ opacity: 0, x: 56 * transitionDirection, scale: 0.985, filter: "blur(8px)" }}
+              animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
+              transition={pageTransition}
+            >
+              <div className="container mx-auto px-4 md:px-6 space-y-12 md:space-y-16">
+                <div className="max-w-5xl mx-auto">
+                  <button
+                    type="button"
+                    onClick={returnToAgeSelection}
+                    className="inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
                   >
-                    Go to Teen Toolkit
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </motion.section>
-        )}
-
-        {selectedAge === "16-18" && (
-          <motion.section
-            key="age-16-18"
-            ref={selectedSectionRef}
-            className="py-16 md:py-20 bg-background"
-            initial={{ opacity: 0, x: 56 * transitionDirection, scale: 0.985, filter: "blur(8px)" }}
-            animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
-            transition={pageTransition}
-          >
-            <div className="container mx-auto px-4 sm:px-6 space-y-16">
-              <div className="max-w-5xl mx-auto">
-                <button
-                  type="button"
-                  onClick={returnToAgeSelection}
-                  className="inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
-                >
-                  Choose a different age
-                </button>
-              </div>
-
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Know Yourself (Age 16-18)</p>
-                <h2 className="text-3xl md:text-4xl font-display font-bold text-primary/85 mb-4">
-                  You are not just managing school, screens, and stress. You are shaping your identity.
-                </h2>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-                  The way you handle attention, emotions, attraction, friendships, self-respect, pressure, choices, and habits is shaping who you are becoming.
-                </p>
-              </div>
-
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                <h3 className="mb-5">
-                  <LetterSwapForward label="Quick relatable cards" className="text-2xl font-display font-semibold text-primary/85" />
-                </h3>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                   {arrangedRelatableQuestions1618.map((question, idx) => (
-                     question === "__SPACER__" ? (
-                       <div key={`spacer-1618-${idx}`} className="lg:block hidden" aria-hidden />
-                     ) : (
-                       <ClipPathInfoCard key={`rel-1618-${idx}`} body={question} />
-                     )
-                  ))}
-                </div>
-                <p className="mt-5 text-foreground font-medium">Do you feel like <span className="text-primary">"This site actually gets it."</span> Take the small test below</p>
-              </div>
-
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                <h3 className="mb-2">
-                  <LetterSwapForward
-                    label="What's Quietly Affecting You Most Right Now?"
-                    className="text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <p className="text-muted-foreground mb-6">Mini Identity + Challenge Check</p>
-                <div className="grid md:grid-cols-2 gap-3">
-                  {selfCheckPrompts1618.map((prompt) => {
-                    const selectedValue = selectedChecks1618[prompt.label];
-                    return (
-                      <div
-                        key={prompt.label}
-                        onMouseMove={handleCardMouseMove}
-                        onMouseLeave={handleCardMouseLeave}
-                        className="group relative overflow-hidden rounded-lg border border-border/70 p-4 transition-[transform,border-color,box-shadow] duration-300 hover:border-border/60 hover:shadow-[0_0_0_1px_rgba(44,66,63,0.45),0_0_22px_rgba(44,66,63,0.42)]"
-                        style={{
-                          transformStyle: "preserve-3d",
-                          transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
-                        }}
-                      >
-                        <div
-                          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-                          style={{
-                            background:
-                              "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(44,66,63,0.2), rgba(44,66,63,0.08) 35%, rgba(0, 0, 0, 0) 70%)",
-                          }}
-                        />
-                        <div className="relative z-10">
-                          <p className="text-sm text-foreground mb-3">{prompt.label}</p>
-                          <div className="flex flex-wrap gap-2">
-                            {responseScale.map((option) => {
-                              const isActive = selectedValue === option.value;
-                              return (
-                                <button
-                                  type="button"
-                                  key={option.label}
-                                  onClick={() => updateCheckResponse1618(prompt.label, option.value)}
-                                  className={`rounded-md border px-3 py-1.5 text-xs transition-colors ${
-                                    isActive
-                                      ? "border-primary/60 bg-primary/10 text-primary"
-                                      : "border-border/70 text-muted-foreground hover:border-primary/40"
-                                  }`}
-                                >
-                                  {option.label}
-                                </button>
-                              );
-                            })}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
+                    Choose a different age
+                  </button>
                 </div>
 
-                <div className="mt-8 rounded-xl border border-primary/30 bg-white p-5">
-                  {humanResult1618 ? (
-                    <>
-                      <p className="text-sm text-muted-foreground mb-2">Right now, your biggest growth areas may be:</p>
-                      <ul className="list-disc pl-5 space-y-1 text-sm text-primary font-semibold">
-                        <li>{humanResult1618.primary}</li>
-                        {humanResult1618.secondary && <li>{humanResult1618.secondary}</li>}
-                      </ul>
-                      <p className="mt-3 text-sm text-muted-foreground">{humanResult1618.summary}</p>
-                      <p className="mt-3 text-sm text-muted-foreground">
-                        This is not your final identity. It is simply a reflection of what may need strengthening right now.
-                      </p>
-                      <div className="mt-4 flex flex-wrap gap-3">
-                        <button type="button" className="cta-button">Help Me Understand This Better</button>
-                        <button type="button" className="px-4 py-2 rounded-md border border-primary/40 text-primary text-sm font-medium">Show Me Tools That Can Help</button>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <p className="text-sm text-primary/80 mb-2">Answer all 10 prompts to view your growth result.</p>
-                      <p className="text-base text-foreground/80">This reflection helps you notice patterns that may need strengthening right now.</p>
-                    </>
-                  )}
+                <div className="max-w-5xl mx-auto rounded-lg md:rounded-2xl border border-border/60 bg-white p-6 md:p-8">
+                  <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2 md:mb-3">Know Yourself (Age 13-15)</p>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-primary/85 mb-3 md:mb-4">
+                    You are not just going through stuff. You are becoming a person.
+                  </h2>
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                    What you repeat in your thoughts, habits, friendships, emotions, and screen life quietly shapes who you are becoming.
+                  </p>
                 </div>
-              </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8 space-y-6">
-                <h3 className="text-2xl font-display font-semibold text-primary/85">
-                  12 Real Struggles You Might Be Facing
-                </h3>
-
-                <div className="grid md:grid-cols-2 gap-4 pt-2">
-                  {teenStruggles1618.map((item, index) => (
-                    <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, y: 18 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.2 }}
-                      transition={{ duration: 0.35, delay: index * 0.02 }}
-                      className="h-full"
-                    >
-                      <AnimatePresence mode="wait" initial={false}>
-                        {expandedStruggle1618 === item.title ? (
-                          <motion.article
-                            key={`${item.title}-expanded`}
-                            className="rounded-xl border border-border/60 bg-white p-4 md:p-5 space-y-3 h-full"
-                            initial={{ opacity: 0, y: 10, scale: 0.995 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: 8, scale: 0.995 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <button
-                              type="button"
-                              onClick={() => setExpandedStruggle1618(null)}
-                              className="mb-1 inline-flex self-start items-center gap-1 rounded-md border border-primary/35 px-2 py-1 text-xs font-semibold text-primary hover:bg-primary/10 transition-colors"
-                            >
-                              Back
-                            </button>
-
-                            <h4 className="text-lg md:text-xl font-display font-semibold text-primary">
-                              {index + 1}. {item.title}
-                            </h4>
-
-                            <div className="space-y-2">
-                              <p className="text-sm md:text-base font-semibold text-foreground">What It Feels Like</p>
-                              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{item.whatItFeelsLike}</p>
-                            </div>
-
-                            <div className="space-y-2">
-                              <p className="text-sm md:text-base font-semibold text-foreground">How To Identify It</p>
-                              <ul className="list-disc pl-5 space-y-1 text-sm md:text-base text-muted-foreground">
-                                {item.identify.map((point) => (
-                                  <li key={point}>{point}</li>
-                                ))}
-                              </ul>
-                            </div>
-
-                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                              <span className="font-semibold text-foreground">Red Flag:</span> {item.redFlag}
-                            </p>
-                            <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
-                              <span className="font-semibold text-foreground">Green Flag:</span> {item.greenFlag}
-                            </p>
-                          </motion.article>
-                        ) : (
-                          <motion.div
-                            key={`${item.title}-collapsed`}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            transition={{ duration: 0.15 }}
-                            className="h-full"
-                          >
-                            <button
-                              type="button"
-                              onClick={() => setExpandedStruggle1618(item.title)}
-                              className="block w-full h-full text-left"
-                              aria-label={`Open details for ${item.title}`}
-                            >
-                              <ClipPathInfoCard
-                                title={`${index + 1}. ${item.title}`}
-                                body={item.whatItFeelsLike}
-                                className="h-full rounded-xl bg-white p-5"
-                              >
-                                <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary/90">Open details</p>
-                              </ClipPathInfoCard>
-                            </button>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                <h3 className="mb-5">
-                  <LetterSwapForward
-                    label="What May Be Getting in Your Way"
-                    className="text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <p className="text-muted-foreground mb-5">Real things many teens this age quietly struggle with</p>
-                <div
-                  onMouseEnter={() => setIsChallengeGridHovered1618(true)}
-                  onMouseLeave={() => setIsChallengeGridHovered1618(false)}
-                  className={`grid md:grid-cols-2 lg:grid-cols-3 transition-[gap] duration-300 ${
-                    isChallengeGridHovered1618 ? "gap-2" : "gap-4"
-                  }`}
-                >
-                  {challengeCards1618.map(([title, body]) => (
-                    <ClipPathInfoCard
-                      key={title}
-                      title={title}
-                      body={body}
-                      className={`transition-transform duration-300 ${isChallengeGridHovered1618 ? "scale-[1.01]" : "scale-100"}`}
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                  <h3 className="mb-5">
+                    <LetterSwapForward
+                      label="Quick relatable cards"
+                      className="text-2xl font-display font-semibold text-primary/85"
                     />
-                  ))}
+                  </h3>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {arrangedRelatableQuestions.map((question, idx) => (
+                      question === "__SPACER__" ? (
+                        <div key={`spacer-1315-${idx}`} className="lg:block hidden" aria-hidden />
+                      ) : (
+                        <ClipPathInfoCard key={`rel-${idx}`} body={question} />
+                      )
+                    ))}
+                  </div>
+                  <p className="mt-5 text-foreground font-medium">Do you feel like <span className="text-primary">"This is literally me."</span> Take the small quiz below</p>
                 </div>
-              </div>
+
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                  <h3 className="mb-2">
+                    <span className="block md:hidden text-xl font-display font-semibold text-primary/85 leading-tight">
+                      What's affecting you most right now?
+                    </span>
+                    <LetterSwapForward
+                      label="What's affecting you most right now?"
+                      className="hidden md:flex text-2xl font-display font-semibold text-primary/85"
+                    />
+                  </h3>
+                  <p className="text-muted-foreground mb-6">Mini identity quiz</p>
+                  <div className="grid md:grid-cols-2 gap-3">
+                    {selfCheckPrompts.map((prompt) => {
+                      const selectedValue = selectedChecks[prompt.label];
+                      return (
+                        <div
+                          key={prompt.label}
+                          onMouseMove={handleCardMouseMove}
+                          onMouseLeave={handleCardMouseLeave}
+                          className="group relative overflow-hidden rounded-lg border border-border/70 bg-[#FCEADE] p-4 transition-[transform,border-color,box-shadow] duration-300"
+                          style={{
+                            transformStyle: "preserve-3d",
+                            transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
+                          }}
+                        >
+                          <div
+                            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                            style={{
+                              background:
+                                "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(44,66,63,0.2), rgba(44,66,63,0.08) 35%, rgba(0, 0, 0, 0) 70%)",
+                            }}
+                          />
+                          <div className="relative z-10">
+                            <p className="text-sm text-foreground mb-3">{prompt.label}</p>
+                            <div className="flex flex-wrap gap-2">
+                              {responseScale.map((option) => {
+                                const isActive = selectedValue === option.value;
+                                return (
+                                  <button
+                                    type="button"
+                                    key={option.label}
+                                    onClick={() => updateCheckResponse(prompt.label, option.value)}
+                                    className={`rounded-md border px-3 py-1.5 text-xs transition-colors ${isActive
+                                      ? "border-[#2C423F] bg-[#2C423F] text-white"
+                                      : "border-border/70 bg-white text-muted-foreground hover:border-primary/40"
+                                      }`}
+                                  >
+                                    {option.label}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className={`mt-8 rounded-xl border border-primary/30 p-5 transition-colors duration-500 ${humanResult ? "bg-[#2C423F] text-white" : "bg-white text-foreground"}`}>
+                    {humanResult ? (
+                      <>
+                        <p className="text-sm text-white/70 mb-2">Right now, you may be dealing most with:</p>
+                        <p className="text-xl font-display font-semibold text-[#FCEADE]">{humanResult.primary}</p>
+                        {humanResult.secondary && <p className="mt-1 text-sm text-white/70">Also showing up: {humanResult.secondary}</p>}
+                        <p className="mt-3 text-sm text-white/80">{humanResult.summary}</p>
+                        <div className="mt-4">
+                          <Link
+                            to="/teenzone/teen-toolkit?age=13-15"
+                            className="cta-button inline-block bg-[#FCEADE] text-[#2C423F] hover:bg-white transition-colors"
+                          >
+                            Show Me Tools That Can Help
+                          </Link>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-sm text-primary/80 mb-2">Answer all 8 questions to see your result.</p>
+                        <p className="text-base text-foreground/80">Your result will be based on the pattern of your responses, not just one answer.</p>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8 space-y-6">
+                  <h3 className="text-2xl font-display font-semibold text-primary/85">
+                    12 Teen Struggles Almost Everyone Faces
+                  </h3>
+
+                  <div className="grid md:grid-cols-2 gap-4 pt-2">
+                    {teenStruggles1315.map((item, index) => (
+                      <motion.div
+                        key={item.title}
+                        initial={{ opacity: 0, y: 18 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.35, delay: index * 0.02 }}
+                        className="h-full"
+                      >
+                        <AnimatePresence mode="wait" initial={false}>
+                          {expandedStruggle1315 === item.title ? (
+                            <motion.article
+                              key={`${item.title}-expanded`}
+                              className="rounded-xl border border-border/60 bg-[#FCEADE] p-4 md:p-5 space-y-3 h-full"
+                              initial={{ opacity: 0, y: 10, scale: 0.995 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 8, scale: 0.995 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <button
+                                type="button"
+                                onClick={() => setExpandedStruggle1315(null)}
+                                className="mb-1 inline-flex self-start items-center gap-1 rounded-md border border-primary/35 px-2 py-1 text-xs font-semibold text-primary hover:bg-primary/10 transition-colors"
+                              >
+                                Back
+                              </button>
+
+                              <h4 className="text-lg md:text-xl font-display font-semibold text-primary">{item.title}</h4>
+
+                              <div className="space-y-2">
+                                <p className="text-sm md:text-base font-semibold text-foreground">What It Feels Like</p>
+                                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{item.whatItFeelsLike}</p>
+                              </div>
+
+                              <div className="space-y-2">
+                                <p className="text-sm md:text-base font-semibold text-foreground">How To Identify It</p>
+                                <ul className="list-disc pl-5 space-y-1 text-sm md:text-base text-muted-foreground">
+                                  {item.identify.map((point) => (
+                                    <li key={point}>{point}</li>
+                                  ))}
+                                </ul>
+                              </div>
+
+                              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                                <span className="font-semibold text-foreground">Red Flag:</span> {item.redFlag}
+                              </p>
+                              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                                <span className="font-semibold text-foreground">Green Flag:</span> {item.greenFlag}
+                              </p>
+                            </motion.article>
+                          ) : (
+                            <motion.div
+                              key={`${item.title}-collapsed`}
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ duration: 0.15 }}
+                              className="h-full"
+                            >
+                              <button
+                                type="button"
+                                onClick={() => setExpandedStruggle1315(item.title)}
+                                className="block w-full h-full text-left"
+                                aria-label={`Open details for ${item.title}`}
+                              >
+                                <ClipPathInfoCard
+                                  title={item.title}
+                                  body={item.whatItFeelsLike}
+                                  className="h-full rounded-xl bg-[#FCEADE] p-5"
+                                >
+                                  <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary/90">Open details</p>
+                                </ClipPathInfoCard>
+                              </button>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
 
 
-              <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8">
-                <h3 className="mb-3">
-                  <LetterSwapForward
-                    label="You don't need more random content. You need a stronger inner system."
-                    className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <p className="text-muted-foreground mb-5">
-                  If you are serious about becoming focused, emotionally steady, disciplined, self-respecting, and clear about who you are becoming, growth needs structure.
-                </p>
-                <p className="text-sm font-semibold text-foreground mb-3">What Ikigai Teen offers:</p>
-                <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">understand your patterns</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">improve self-control</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">reduce distraction</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">build confidence and consistency</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">strengthen emotional steadiness</li>
-                  <li className="rounded-md px-2 py-1 transition-[transform,box-shadow,background-color,color] duration-300 hover:scale-[1.015] hover:bg-white hover:text-foreground hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.35),0_0_18px_hsl(var(--primary)/0.3)]">move toward purpose and direction</li>
-                </ul>
-              </div>
+                <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[#FCEADE] p-5 sm:p-8">
+                  <h3 className="mb-3">
+                    <LetterSwapForward
+                      label="Quick understanding helps. But stronger growth needs more than one page."
+                      className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
+                    />
+                  </h3>
+                  <p className="text-muted-foreground mb-5">
+                    If you want to become more focused, confident, disciplined, emotionally steady, and more sure of yourself, you may need more than random tips.
+                  </p>
+                  <p className="text-sm font-semibold text-foreground mb-3">What Ikigai Teen offers:</p>
+                  <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
+                    <li className="rounded-md px-2 py-1">understand yourself better</li>
+                    <li className="rounded-md px-2 py-1">build stronger habits</li>
+                    <li className="rounded-md px-2 py-1">handle emotions better</li>
+                    <li className="rounded-md px-2 py-1">improve confidence and discipline</li>
+                    <li className="rounded-md px-2 py-1">become more grounded and responsible</li>
+                  </ul>
+                </div>
 
-              <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
-                <h3 className="mb-4">
-                  <LetterSwapForward
-                    label="If you want to explore this with your parent"
-                    className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <p className="text-muted-foreground mb-4">You can say:</p>
-                <ul className="space-y-3 text-sm text-muted-foreground">
-                  {parentScripts1618.map((line) => (
-                    <li
-                      key={line}
-                      className="rounded-lg border border-border/60 p-3 transition-[transform,border-color,box-shadow,background-color] duration-300 hover:scale-[1.015] hover:border-primary/60 hover:bg-white hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.4),0_0_20px_hsl(var(--primary)/0.35)]"
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                  <h3 className="mb-4">
+                    <LetterSwapForward
+                      label="How to ask at home"
+                      className="text-2xl font-display font-semibold text-primary/85"
+                    />
+                  </h3>
+                  <p className="text-muted-foreground mb-4">Want to explore this with your parent? You can say:</p>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    {parentScripts.map((line) => (
+                      <li
+                        key={line}
+                        className="rounded-lg border border-border/60 p-3"
+                      >
+                        "{line}"
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[#FCEADE] p-5 sm:p-8">
+                  <h3 className="mb-3">
+                    <LetterSwapForward
+                      label="Understanding yourself is the beginning. Building yourself is the next step."
+                      className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
+                    />
+                  </h3>
+                  <p className="text-muted-foreground mb-5">
+                    If this page made you realise something about yourself, don't stop there.
+                  </p>
+                  <p className="text-sm font-semibold text-foreground mb-3">Next Step Options</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      to="/teenzone/teen-toolkit?age=13-15"
+                      className="cta-button"
                     >
-                      "{line}"
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8">
-                <h3 className="mb-3">
-                  <LetterSwapForward
-                    label="Understanding yourself is the beginning. Building yourself is the next step."
-                    className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
-                  />
-                </h3>
-                <p className="text-muted-foreground mb-5">
-                  If this page made you realise something about yourself, don't stop there.
-                </p>
-                <p className="text-sm font-semibold text-foreground mb-3">Next Step Options</p>
-                <div className="flex flex-wrap gap-3">
-                  <Link
-                    to="/teenzone/teen-toolkit?age=16-18"
-                    className="cta-button"
-                  >
-                    Go to Teen Toolkit
-                  </Link>
+                      Go to Teen Toolkit
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.section>
-        )}
+            </motion.section>
+          )}
+
+          {selectedAge === "16-18" && (
+            <motion.section
+              key="age-16-18"
+              ref={selectedSectionRef}
+              className="py-16 md:py-20 bg-background"
+              initial={{ opacity: 0, x: 56 * transitionDirection, scale: 0.985, filter: "blur(8px)" }}
+              animate={{ opacity: 1, x: 0, scale: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, x: -48 * transitionDirection, scale: 0.99, filter: "blur(6px)" }}
+              transition={pageTransition}
+            >
+              <div className="container mx-auto px-4 sm:px-6 space-y-16">
+                <div className="max-w-5xl mx-auto">
+                  <button
+                    type="button"
+                    onClick={returnToAgeSelection}
+                    className="inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
+                  >
+                    Choose a different age
+                  </button>
+                </div>
+
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                  <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-3">Know Yourself (Age 16-18)</p>
+                  <h2 className="text-3xl md:text-4xl font-display font-bold text-primary/85 mb-4">
+                    You are not just managing school, screens, and stress. You are shaping your identity.
+                  </h2>
+                  <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                    The way you handle attention, emotions, attraction, friendships, self-respect, pressure, choices, and habits is shaping who you are becoming.
+                  </p>
+                </div>
+
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                  <h3 className="mb-5">
+                    <LetterSwapForward label="Quick relatable cards" className="text-2xl font-display font-semibold text-primary/85" />
+                  </h3>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {arrangedRelatableQuestions1618.map((question, idx) => (
+                      question === "__SPACER__" ? (
+                        <div key={`spacer-1618-${idx}`} className="lg:block hidden" aria-hidden />
+                      ) : (
+                        <ClipPathInfoCard key={`rel-1618-${idx}`} body={question} />
+                      )
+                    ))}
+                  </div>
+                  <p className="mt-5 text-foreground font-medium">Do you feel like <span className="text-primary">"This site actually gets it."</span> Take the small quiz below</p>
+                </div>
+
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                  <h3 className="mb-2">
+                    <LetterSwapForward
+                      label="What's Quietly Affecting You Most Right Now?"
+                      className="text-2xl font-display font-semibold text-primary/85"
+                    />
+                  </h3>
+                  <p className="text-muted-foreground mb-6">Mini Identity + Challenge Quiz</p>
+                  <div className="grid md:grid-cols-2 gap-3">
+                    {selfCheckPrompts1618.map((prompt) => {
+                      const selectedValue = selectedChecks1618[prompt.label];
+                      return (
+                        <div
+                          key={prompt.label}
+                          onMouseMove={handleCardMouseMove}
+                          onMouseLeave={handleCardMouseLeave}
+                          className="group relative overflow-hidden rounded-lg border border-border/70 bg-[#FCEADE] p-4 transition-[transform,border-color,box-shadow] duration-300"
+                          style={{
+                            transformStyle: "preserve-3d",
+                            transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)",
+                          }}
+                        >
+                          <div
+                            className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                            style={{
+                              background:
+                                "radial-gradient(circle at var(--bg-x, 50%) var(--bg-y, 50%), rgba(44,66,63,0.2), rgba(44,66,63,0.08) 35%, rgba(0, 0, 0, 0) 70%)",
+                            }}
+                          />
+                          <div className="relative z-10">
+                            <p className="text-sm text-foreground mb-3">{prompt.label}</p>
+                            <div className="flex flex-wrap gap-2">
+                              {responseScale.map((option) => {
+                                const isActive = selectedValue === option.value;
+                                return (
+                                  <button
+                                    type="button"
+                                    key={option.label}
+                                    onClick={() => updateCheckResponse1618(prompt.label, option.value)}
+                                    className={`rounded-md border px-3 py-1.5 text-xs transition-colors ${isActive
+                                      ? "border-[#2C423F] bg-[#2C423F] text-white"
+                                      : "border-border/70 bg-white text-muted-foreground hover:border-primary/40"
+                                      }`}
+                                  >
+                                    {option.label}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className={`mt-8 rounded-xl border border-primary/30 p-5 transition-colors duration-500 ${humanResult1618 ? "bg-[#2C423F] text-white" : "bg-white text-foreground"}`}>
+                    {humanResult1618 ? (
+                      <>
+                        <p className="text-sm text-white/70 mb-2">Right now, your biggest growth areas may be:</p>
+                        <ul className="list-disc pl-5 space-y-1 text-sm text-[#FCEADE] font-semibold">
+                          <li>{humanResult1618.primary}</li>
+                          {humanResult1618.secondary && <li>{humanResult1618.secondary}</li>}
+                        </ul>
+                        <p className="mt-3 text-sm text-white/80">{humanResult1618.summary}</p>
+                        <p className="mt-3 text-sm text-white/70">
+                          This is not your final identity. It is simply a reflection of what may need strengthening right now.
+                        </p>
+                        <div className="mt-4">
+                          <Link
+                            to="/teenzone/teen-toolkit?age=16-18"
+                            className="cta-button inline-block bg-[#FCEADE] text-[#2C423F] hover:bg-white transition-colors"
+                          >
+                            Show Me Tools That Can Help
+                          </Link>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <p className="text-sm text-primary/80 mb-2">Answer all 10 prompts to view your growth result.</p>
+                        <p className="text-base text-foreground/80">This reflection helps you notice patterns that may need strengthening right now.</p>
+                      </>
+                    )}
+                  </div>
+                </div>
+
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8 space-y-6">
+                  <h3 className="text-2xl font-display font-semibold text-primary/85">
+                    12 Real Struggles You Might Be Facing
+                  </h3>
+
+                  <div className="grid md:grid-cols-2 gap-4 pt-2">
+                    {teenStruggles1618.map((item, index) => (
+                      <motion.div
+                        key={item.title}
+                        initial={{ opacity: 0, y: 18 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.35, delay: index * 0.02 }}
+                        className="h-full"
+                      >
+                        <AnimatePresence mode="wait" initial={false}>
+                          {expandedStruggle1618 === item.title ? (
+                            <motion.article
+                              key={`${item.title}-expanded`}
+                              className="rounded-xl border border-border/60 bg-[#FCEADE] p-4 md:p-5 space-y-3 h-full"
+                              initial={{ opacity: 0, y: 10, scale: 0.995 }}
+                              animate={{ opacity: 1, y: 0, scale: 1 }}
+                              exit={{ opacity: 0, y: 8, scale: 0.995 }}
+                              transition={{ duration: 0.2 }}
+                            >
+                              <button
+                                type="button"
+                                onClick={() => setExpandedStruggle1618(null)}
+                                className="mb-1 inline-flex self-start items-center gap-1 rounded-md border border-primary/35 px-2 py-1 text-xs font-semibold text-primary hover:bg-primary/10 transition-colors"
+                              >
+                                Back
+                              </button>
+
+                              <h4 className="text-lg md:text-xl font-display font-semibold text-primary">
+                                {index + 1}. {item.title}
+                              </h4>
+
+                              <div className="space-y-2">
+                                <p className="text-sm md:text-base font-semibold text-foreground">What It Feels Like</p>
+                                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{item.whatItFeelsLike}</p>
+                              </div>
+
+                              <div className="space-y-2">
+                                <p className="text-sm md:text-base font-semibold text-foreground">How To Identify It</p>
+                                <ul className="list-disc pl-5 space-y-1 text-sm md:text-base text-muted-foreground">
+                                  {item.identify.map((point) => (
+                                    <li key={point}>{point}</li>
+                                  ))}
+                                </ul>
+                              </div>
+
+                              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                                <span className="font-semibold text-foreground">Red Flag:</span> {item.redFlag}
+                              </p>
+                              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                                <span className="font-semibold text-foreground">Green Flag:</span> {item.greenFlag}
+                              </p>
+                            </motion.article>
+                          ) : (
+                            <motion.div
+                              key={`${item.title}-collapsed`}
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              exit={{ opacity: 0 }}
+                              transition={{ duration: 0.15 }}
+                              className="h-full"
+                            >
+                              <button
+                                type="button"
+                                onClick={() => setExpandedStruggle1618(item.title)}
+                                className="block w-full h-full text-left"
+                                aria-label={`Open details for ${item.title}`}
+                              >
+                                <ClipPathInfoCard
+                                  title={`${index + 1}. ${item.title}`}
+                                  body={item.whatItFeelsLike}
+                                  className="h-full rounded-xl bg-[#FCEADE] p-5"
+                                >
+                                  <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary/90">Open details</p>
+                                </ClipPathInfoCard>
+                              </button>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                  <h3 className="mb-5">
+                    <LetterSwapForward
+                      label="What May Be Getting in Your Way"
+                      className="text-2xl font-display font-semibold text-primary/85"
+                    />
+                  </h3>
+                  <p className="text-muted-foreground mb-5">Real things many teens this age quietly struggle with</p>
+                  <div
+                    onMouseEnter={() => setIsChallengeGridHovered1618(true)}
+                    onMouseLeave={() => setIsChallengeGridHovered1618(false)}
+                    className={`grid md:grid-cols-2 lg:grid-cols-3 transition-[gap] duration-300 ${isChallengeGridHovered1618 ? "gap-2" : "gap-4"
+                      }`}
+                  >
+                    {challengeCards1618.map(([title, body]) => (
+                      <ClipPathInfoCard
+                        key={title}
+                        title={title}
+                        body={body}
+                        className={`transition-transform duration-300 ${isChallengeGridHovered1618 ? "scale-[1.01]" : "scale-100"}`}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+
+                <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-[#FCEADE] p-5 sm:p-8">
+                  <h3 className="mb-3">
+                    <LetterSwapForward
+                      label="You don't need more random content. You need a stronger inner system."
+                      className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
+                    />
+                  </h3>
+                  <p className="text-muted-foreground mb-5">
+                    If you are serious about becoming focused, emotionally steady, disciplined, self-respecting, and clear about who you are becoming, growth needs structure.
+                  </p>
+                  <p className="text-sm font-semibold text-foreground mb-3">What Ikigai Teen offers:</p>
+                  <ul className="list-disc pl-5 space-y-2 text-sm text-muted-foreground">
+                    <li className="rounded-md px-2 py-1">understand your patterns</li>
+                    <li className="rounded-md px-2 py-1">improve self-control</li>
+                    <li className="rounded-md px-2 py-1">reduce distraction</li>
+                    <li className="rounded-md px-2 py-1">build confidence and consistency</li>
+                    <li className="rounded-md px-2 py-1">strengthen emotional steadiness</li>
+                    <li className="rounded-md px-2 py-1">move toward purpose and direction</li>
+                  </ul>
+                </div>
+
+                <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-5 sm:p-8">
+                  <h3 className="mb-4">
+                    <LetterSwapForward
+                      label="If you want to explore this with your parent"
+                      className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
+                    />
+                  </h3>
+                  <p className="text-muted-foreground mb-4">You can say:</p>
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    {parentScripts1618.map((line) => (
+                      <li
+                        key={line}
+                        className="rounded-lg border border-border/60 p-3"
+                      >
+                        "{line}"
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="cta-card max-w-5xl mx-auto rounded-2xl border border-primary/35 bg-white p-5 sm:p-8">
+                  <h3 className="mb-3">
+                    <LetterSwapForward
+                      label="Understanding yourself is the beginning. Building yourself is the next step."
+                      className="w-full flex-wrap justify-start items-start leading-tight text-2xl font-display font-semibold text-primary/85"
+                    />
+                  </h3>
+                  <p className="text-muted-foreground mb-5">
+                    If this page made you realise something about yourself, don't stop there.
+                  </p>
+                  <p className="text-sm font-semibold text-foreground mb-3">Next Step Options</p>
+                  <div className="flex flex-wrap gap-3">
+                    <Link
+                      to="/teenzone/teen-toolkit?age=16-18"
+                      className="cta-button"
+                    >
+                      Go to Teen Toolkit
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </motion.section>
+          )}
         </AnimatePresence>
       </main>
       <Footer />

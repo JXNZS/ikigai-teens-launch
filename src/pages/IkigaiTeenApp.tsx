@@ -457,10 +457,10 @@ const PixelRunnerGame = () => {
         </p>
       ) : (
         <>
-          <p className="mt-3 text-xs text-muted-foreground text-center">
+          <p className="mt-3 text-xs text-white/70 text-center">
             Tap the game area or press Space/Arrow Up to play.
           </p>
-          <p className="mt-1 text-xs text-muted-foreground text-center">
+          <p className="mt-1 text-xs text-white/70 text-center">
             Latest run: {lastScore} | Best: {bestScore}
           </p>
         </>
@@ -492,7 +492,7 @@ const IkigaiTeenApp = () => {
 
         <section className="footer-theme-legacy py-12">
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-white p-8 md:p-10 text-center">
+            <div className="max-w-5xl mx-auto rounded-2xl border border-border/60 bg-[#2C423F] p-8 md:p-10 text-center">
               <PixelRunnerGame />
             </div>
           </div>

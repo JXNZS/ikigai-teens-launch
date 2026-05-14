@@ -289,7 +289,7 @@ const Journey = () => {
               <div ref={stripRef} className="space-y-5 border-t border-border/50 pt-6">
                 <h2>
                   <LetterSwapForward
-                    label="Credibility Strip"
+                    label="Founder's Credibility Strip"
                     className="text-2xl md:text-3xl font-display font-semibold text-primary"
                   />
                 </h2>
@@ -534,7 +534,7 @@ const Journey = () => {
             <article className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
               <h2>
                 <LetterSwapForward
-                  label="The Teen Reality Today"
+                  label="Today's Teen Reality"
                   className="text-2xl md:text-3xl font-display font-semibold text-primary"
                 />
               </h2>

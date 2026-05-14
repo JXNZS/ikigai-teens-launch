@@ -125,7 +125,7 @@ export const ClipPathInfoCard = ({ title, body, className = "", children }: Clip
     <div
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`group relative overflow-hidden rounded-xl border border-border/60 bg-card p-5 transition-[transform,border-color,box-shadow] duration-300 hover:border-primary/80 hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_24px_hsl(var(--primary)/0.45)] ${className}`}
+      className={`group relative overflow-hidden rounded-xl border border-border/60 bg-[#FCEADE] p-5 transition-[transform,border-color,box-shadow] duration-300 ${className}`}
     >
       <div className="relative z-10">
         {title && <h4 className="text-base font-semibold text-foreground mb-2">{title}</h4>}

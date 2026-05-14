@@ -3,16 +3,28 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const teenRealityData = [
   {
-    title: "95%",
-    summary: "Over 95% of young people aged 15-29 in India who own a mobile phone now use a smartphone...",
+    title: "83% - 95%",
+    summary: "While 83% of Indian children (10-16) use smartphones, 95% of young adults own one...",
     content:
-      "Over 95% of young people aged 15-29 in India who own a mobile phone now use a smartphone, giving widespread access to the internet and social media.",
+      "While 83% of Indian children in the 10-16 age group use smartphones, 95% of young adults upto 29 yrs own a smartphone. Early usage has been reported in infants as young as 6 months, with usage patterns increasing significantly by age two. (NCRB)",
   },
   {
-    title: "23%",
-    summary: "Studies estimate that around 23% of Indian school children may experience mental health challenges...",
+    title: "76% Social Media usage",
+    summary: "Majority of children (14-16) use phones for social media (76%) rather than education (57%)...",
     content:
-      "Studies estimate that around 23% of Indian school children may experience mental health challenges, including anxiety, behavioural issues, or emotional distress.",
+      "The majority of children aged 14-16 use phones for social media (76%) rather than education (57%). This reflects the impressions left on growing minds as they shape into young adult phase (NCRB)",
+  },
+  {
+    title: "86% anxiety",
+    summary: "Studies in Chandigarh indicate severe mental health burdens among students...",
+    content:
+      "Studies in Chandigarh indicate severe mental health burdens, with 59.2% prevalence of depression, 86.5% anxiety, and 52.7% stress among university students. Among 13- 34 year olds up to 78.86% of young females reported depressive tendencies and 65–86% showed depression, anxiety, stress (DAS) – (NIH)",
+  },
+  {
+    title: "Crime in India (2024)",
+    summary: "NCRB reports a 17.9% surge in cybercrimes, with 77.7% of juvenile offenders aged 16-18...",
+    content:
+      "The NCRB \"Crime in India 2024\" report (released May 2026) highlights a 17.9% surge in cybercrimes, with 77.7% of juvenile offenders falling in the 16-18 age bracket, indicating increased exposure to digital devices at that age",
   },
   {
     title: "Economic Survey",
@@ -63,7 +75,7 @@ export default function TeenRealityCards() {
           layout
           initial={{ borderRadius: 16 }}
           transition={{ type: "spring", stiffness: 280, damping: 28, mass: 0.9 }}
-          className={`relative bg-white border border-border rounded-xl shadow-md p-5 cursor-pointer will-change-transform ${openIndex === idx ? "ring-2 ring-primary/40" : "hover:shadow-lg"}`}
+          className={`relative bg-[#FCEADE] border border-border rounded-xl shadow-md p-5 cursor-pointer will-change-transform ${openIndex === idx ? "ring-2 ring-primary/40" : "hover:shadow-lg"}`}
           onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
           onMouseEnter={() => setOpenIndex(idx)}
           onMouseLeave={() => setOpenIndex(null)}

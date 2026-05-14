@@ -57,7 +57,7 @@ const HolographicCard = ({
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-xl border border-border/60 bg-card p-5 text-left transition-[transform,border-color,box-shadow] duration-300 hover:border-primary/80 hover:shadow-[0_0_0_1px_hsl(var(--primary)/0.45),0_0_26px_hsl(var(--primary)/0.5)] ${className}`}
+      className={`group relative overflow-hidden rounded-xl border border-border/60 bg-card p-5 text-left transition-[transform,border-color,box-shadow] duration-300 ${className}`}
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
