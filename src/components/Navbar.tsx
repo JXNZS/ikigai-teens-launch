@@ -14,7 +14,7 @@ export const navItems = [
   {
     label: "About",
     path: "/about",
-    children: ["Vision, Mission & Values", "Grounding Philosophy", "The Journey", "Founder & Team"],
+    children: ["Vision, Mission & Values", "Grounding Philosophy", "The Journey", "Architects of IkigaiTeen"],
   },
   {
     label: "Teen Zone",
@@ -144,7 +144,7 @@ const Navbar = () => {
   };
 
   const getChildPath = (parentLabel: string, childLabel: string, fallbackPath: string) => {
-    if (parentLabel === "About" && childLabel === "Founder & Team") {
+    if (parentLabel === "About" && childLabel === "Architects of IkigaiTeen") {
       return "/about/founder-team";
     }
 

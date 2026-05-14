@@ -88,7 +88,7 @@ const Footer = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const getChildPath = (groupLabel: string, childLabel: string, fallbackPath: string) => {
-    if (groupLabel === "About" && childLabel === "Founder & Team") {
+    if (groupLabel === "About" && childLabel === "Architects of IkigaiTeen") {
       return "/about/founder-team";
     }
 
