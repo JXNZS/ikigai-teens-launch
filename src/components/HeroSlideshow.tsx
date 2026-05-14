@@ -6,28 +6,32 @@ import tile1Image from "@/assets/Tile 1 image.png";
 const tiles = [
   {
     id: 1,
-    content: "Ikigai Teen is a youth resilience and identity initiative focused on helping teenagers navigate the growing challenges of modern adolescence in a hyper-digital world. We work at the intersection of the following:",
+    content: "Ikigai Teen works at the intersection of the following:",
     image: tile1Image,
   },
   {
     id: 2,
-    content: "Across India and globally, young people today are growing up in an environment of constant stimulation, fragmented attention and increasing emotional overload. While technology has created unprecedented access and opportunity, it has also introduced new challenges related to mental wellbeing, identity formation, digital dependency, loneliness, anxiety and social pressure. Ikigai Teen was created in response to this reality.",
+    content: "Ikigai Teen is a youth resilience and identity initiative helping teenagers navigate modern adolescence in a hyper-digital world. We support young people facing distraction, emotional pressure, social influence and identity confusion through meaningful conversations, reflective experiences and practical guidance that encourage awareness, responsibility, balance and inner strength.",
   },
   {
     id: 3,
-    content: "Rather than focusing only on academic achievement or performance, we aim to support the development of the whole individual. Our programs and conversations encourage teens to cultivate emotional intelligence, self-regulation, critical thinking, communication skills, healthy digital habits, purpose discovery and values-based leadership.",
+    content: "Across India and globally, teenagers are growing up amid constant stimulation, fragmented attention and emotional overload. While technology offers opportunity and connection, it has also intensified challenges linked to anxiety, loneliness, digital dependency, identity formation and social pressure. Ikigai Teen was created to respond thoughtfully to this evolving reality.",
   },
   {
     id: 4,
-    content: "We believe the future requires more than technical competence. It requires young people who can think independently, act ethically, manage emotions wisely and contribute positively to families, communities and society.",
+    content: "Rather than focusing only on academic performance, Ikigai Teen supports the development of the whole individual. Our programs encourage emotional intelligence, self-regulation, communication skills, critical thinking, healthy digital habits, purpose discovery and values-based leadership so teenagers can navigate life with greater maturity, confidence, resilience and awareness.",
   },
   {
     id: 5,
-    content: "We believe sustainable youth development requires a collaborative ecosystem rather than isolated interventions. Therefore. Ikigai Teen also seeks to build meaningful dialogue between teens, parents, educators, mental health professionals, storytellers, media creators and ethical technology thinkers.",
+    content: "We believe the future requires more than technical competence alone. Young people must also learn to think independently, act ethically, manage emotions wisely and contribute positively to society. Ikigai Teen therefore encourages clarity, responsibility, grounded values and thoughtful decision-making to help teenagers become balanced and socially conscious individuals.",
   },
   {
     id: 6,
-    content: "Through podcasts, workshops, surveys, mentorship programs, creative projects, internships, digital content and community initiatives, we aim to create spaces where young people feel seen, heard, guided and empowered. Our long-term vision is to contribute toward a generation of emotionally healthy, socially responsible and purpose-driven young leaders for tomorrow.",
+    content: "Sustainable youth development requires a collaborative ecosystem rather than isolated interventions. Thus we encourage meaningful dialogue between teenagers, parents, educators, mental health professionals, storytellers, media creators and ethical technology thinkers. Youth development becomes stronger when families, communities & institutions work together.",
+  },
+  {
+    id: 7,
+    content: "Through podcasts, workshops, mentorship programs, creative projects, internships, digital content and community initiatives, Ikigai Teen aims to create spaces where young people feel seen, heard, guided and empowered. Our long-term vision is to nurture emotionally healthy, socially responsible and purpose-driven young leaders equipped for tomorrow’s world.",
   },
 ];
 
@@ -114,9 +118,9 @@ const HeroSlideshow = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center lg:items-end justify-center pt-4 lg:pt-0 gap-3 md:gap-6 w-full">
+    <div className="relative flex flex-col items-center lg:items-end justify-center pt-2 lg:pt-0 gap-3 md:gap-6 w-full">
       {/* Slideshow container */}
-      <div className="relative w-full h-[240px] sm:h-[270px] md:h-[350px] lg:h-[370px] max-w-[280px] md:max-w-[320px] mx-auto lg:mr-0">
+      <div className="relative w-full h-[320px] sm:h-[340px] md:h-[350px] lg:h-[370px] max-w-[280px] md:max-w-[320px] mx-auto lg:mr-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
@@ -131,11 +135,11 @@ const HeroSlideshow = () => {
                 {tiles[currentIndex].content}
               </p>
               {tiles[currentIndex].image && (
-                <div className="flex-shrink-0 w-full max-w-[160px] mx-auto mt-2">
+                <div className="flex-shrink-0 w-full max-w-[180px] md:max-w-[230px] mx-auto mt-2">
                   <img
                     src={tiles[currentIndex].image}
                     alt="Tile graphic"
-                    className="w-full h-auto object-contain"
+                    className="w-full h-auto object-contain rounded-lg"
                   />
                 </div>
               )}
@@ -243,6 +247,15 @@ const HeroSlideshow = () => {
             </a>
           </div>
         </div>
+      </div>
+      {/* Quote for Mobile - Below Video Window */}
+      <div className="lg:hidden w-full max-w-[280px] sm:max-w-[320px] mt-6 px-1 text-center">
+        <p className="text-white italic text-[13px] sm:text-sm leading-relaxed opacity-90">
+          "Teen years are the foundation of a nation's future - what we guide today becomes the character of society tomorrow."
+        </p>
+        <p className="text-[#FCEADE] font-semibold mt-2 text-[13px] sm:text-sm">
+          - Irene Arathi Pais
+        </p>
       </div>
     </div>
   );

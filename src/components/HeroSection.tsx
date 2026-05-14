@@ -20,7 +20,7 @@ const HeroSection = () => {
     <section
       ref={ref}
       data-home-hero
-      className="hero-theme-legacy relative min-h-screen flex items-center overflow-hidden bg-[#2C423F] py-20"
+      className="hero-theme-legacy relative min-h-screen flex items-start overflow-hidden bg-[#2C423F] py-8 md:py-16"
     >
       <motion.img
         src={logo}
@@ -43,7 +43,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-[#2C423F]/80" />
 
       <motion.div
-        className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:pl-0 lg:pr-6 flex flex-col lg:flex-row gap-8 items-center justify-between h-full pt-20 pb-12"
+        className="relative z-10 w-full max-w-7xl mx-auto px-6 lg:pl-0 lg:pr-6 flex flex-col lg:flex-row gap-8 items-start justify-between h-full pt-16 md:pt-20 pb-12"
         style={isMobile ? undefined : { y: textY, opacity }}
       >
         <div className="flex-1 flex flex-col gap-6 w-full text-center lg:text-left justify-center pt-8 md:pt-0 z-20">
