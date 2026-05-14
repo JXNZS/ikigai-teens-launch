@@ -468,7 +468,7 @@ const FAQSection = () => {
                   }}
                   className="border-border/60 group px-3 md:px-4 data-[state=open]:bg-card data-[state=open]:rounded-lg md:data-[state=open]:rounded-xl transition-all duration-300"
                 >
-                  <AccordionTrigger data-faq-trigger="true" className="text-left text-sm md:text-lg font-display font-semibold text-foreground hover:text-[#2C423F] hover:drop-shadow-[0_0_12px_rgba(44,66,63,0.45)] data-[state=open]:text-foreground hover:no-underline transition-all duration-300">
+                  <AccordionTrigger data-faq-trigger="true" className="text-left text-sm md:text-lg font-display font-semibold text-[#2C423F] hover:text-[#2C423F] hover:drop-shadow-[0_0_12px_rgba(44,66,63,0.45)] data-[state=open]:text-[#2C423F] hover:no-underline transition-all duration-300">
                     {item.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-primary font-body">

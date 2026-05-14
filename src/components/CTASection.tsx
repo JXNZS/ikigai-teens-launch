@@ -52,7 +52,7 @@ const CTASection = () => {
                   openNavbarDropdown("Teen Zone");
                 }}
                 className={`cta-button parent-cta font-body text-xs md:text-sm transition-all duration-300 ${
-                  activeButton === "teens" ? "ring-2 ring-primary/50" : "opacity-80"
+                  activeButton === "teens" ? "ring-2 ring-primary/50" : "opacity-100"
                 }`}
               >
                 For Teens
@@ -73,7 +73,7 @@ const CTASection = () => {
                   openNavbarDropdown("Parent Hub");
                 }}
                 className={`cta-button parent-cta font-body text-xs md:text-sm transition-all duration-300 ${
-                  activeButton === "parents" ? "ring-2 ring-primary/50" : "opacity-80"
+                  activeButton === "parents" ? "ring-2 ring-primary/50" : "opacity-100"
                 }`}
               >
                 For Parents

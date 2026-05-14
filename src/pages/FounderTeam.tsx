@@ -196,7 +196,7 @@ const FounderTeam = () => {
 																				rel="noopener noreferrer"
 																				className="ml-2 inline-flex items-center rounded-md bg-primary/15 px-2 py-0.5 text-xs md:text-sm font-semibold text-primary hover:bg-primary/20 transition-colors"
 																			>
-																				Video Bio
+																				Watch Video
 																			</a>
 																		</>
 																	) : null}

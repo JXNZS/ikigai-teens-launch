@@ -7,21 +7,21 @@ import TeenRealityCards from "@/components/TeenRealityCards";
 import { X } from "lucide-react";
 import irene1Photo from "@/assets/Irene 1.jpeg";
 
-const CircleProfilePhoto = ({ src, alt, imageClassName, imageStyle }: { src: string; alt: string; imageClassName?: string; imageStyle?: CSSProperties }) => {
-	const [failed, setFailed] = useState(false);
+const CircleProfilePhoto = ({ src, alt, imageClassName, imageStyle, containerClassName }: { src: string; alt: string; imageClassName?: string; imageStyle?: CSSProperties; containerClassName?: string }) => {
+  const [failed, setFailed] = useState(false);
 
-	if (failed || !src) {
-		return (
-			<div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-border/70 shrink-0">
-				<div className="w-full h-full bg-secondary flex items-center justify-center text-xs font-semibold text-muted-foreground px-3 text-center">
-					{alt}
-				</div>
-			</div>
-		);
-	}
+  if (failed || !src) {
+    return (
+      <div className={`w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border border-border/70 shrink-0 ${containerClassName ?? ""}`}>
+        <div className="w-full h-full bg-secondary flex items-center justify-center text-xs font-semibold text-muted-foreground px-3 text-center">
+          {alt}
+        </div>
+      </div>
+    );
+  }
 
-	return (
-		<div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border border-border/70 shrink-0">
+  return (
+    <div className={`w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border border-border/70 shrink-0 ${containerClassName ?? ""}`}>
       <img
         src={src}
         alt={alt}
@@ -224,18 +224,18 @@ const Journey = () => {
 
   useEffect(() => {
     if (!activeMilestoneLabel || !isMobile) return;
-    
+
     const handleScroll = () => {
       closeMilestonePopup();
     };
-    
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     const timelineElement = timelineScrollRef.current;
     if (timelineElement) {
       timelineElement.addEventListener('scroll', handleScroll, { passive: true });
     }
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       if (timelineElement) {
@@ -422,8 +422,8 @@ const Journey = () => {
                     left: desktopLeft,
                     top: isTop ? activeMilestoneRect.top - 16 : activeMilestoneRect.bottom + 16,
                     transform: isTop
-                        ? "translate(-50%, -100%)"
-                        : "translate(-50%, 0)",
+                      ? "translate(-50%, -100%)"
+                      : "translate(-50%, 0)",
                   }}
                 >
                   {isMobile ? (
@@ -465,7 +465,11 @@ const Journey = () => {
             <article className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
                 <div className="flex-shrink-0">
-                  <CircleProfilePhoto src={irene1Photo} alt="Irene Arathi Pais" />
+                  <CircleProfilePhoto
+                    src={irene1Photo}
+                    alt="Irene Arathi Pais"
+                    imageStyle={{ transform: 'scale(1.5)', transformOrigin: 'center 35%' }}
+                  />
                 </div>
                 <div className="space-y-4 flex-1">
                   <h2>
