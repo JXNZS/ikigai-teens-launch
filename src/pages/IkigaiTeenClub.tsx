@@ -305,7 +305,7 @@ const IkigaiTeenClub = () => {
                             <ClipPathInfoCard
                               title={card.title}
                               body={card.description}
-                              className="rounded-xl bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6"
+                              className="rounded-xl bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6"
                             >
                               <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary/90">Open details</p>
                             </ClipPathInfoCard>
@@ -332,7 +332,7 @@ const IkigaiTeenClub = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                 >
-                  <ClipPathInfoCard className="h-full rounded-xl bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-7">
+                  <ClipPathInfoCard className="h-full rounded-xl bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-7">
                     <h2 className="text-2xl font-display font-semibold text-primary mb-3">
                       <LetterSwapForward label="Why teens love it" className="justify-start" />
                     </h2>
@@ -351,7 +351,7 @@ const IkigaiTeenClub = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true, amount: 0.2 }}
                 >
-                  <ClipPathInfoCard className="h-full rounded-xl bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-7">
+                  <ClipPathInfoCard className="h-full rounded-xl bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-7">
                     <h2 className="text-2xl font-display font-semibold text-primary mb-3">
                       <LetterSwapForward label="Why parents value it" className="justify-start" />
                     </h2>

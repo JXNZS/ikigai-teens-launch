@@ -285,7 +285,7 @@ const Journey = () => {
 
         <section className="py-14 bg-background">
           <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <article className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8">
+            <article className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-8">
               <div ref={stripRef} className="space-y-5 border-t border-border/50 pt-6">
                 <h2>
                   <LetterSwapForward
@@ -319,7 +319,7 @@ const Journey = () => {
             </h2>
           </div>
           <div className="relative mt-6 w-full px-4 sm:px-6 md:px-10 lg:px-14 group/timeline">
-            <div className="pointer-events-none absolute left-4 right-4 top-[50%] z-0 h-px -translate-y-1/2 bg-primary/70" aria-hidden="true" />
+            <div className="pointer-events-none absolute left-4 right-4 top-[50%] z-0 h-px -translate-y-1/2" style={{ backgroundColor: 'rgba(88,128,104,0.7)' }} aria-hidden="true" />
             <div
               className="absolute left-4 right-4 top-1/2 z-20 flex -translate-y-1/2 items-center justify-between pointer-events-none"
               aria-hidden="true"
@@ -374,7 +374,8 @@ const Journey = () => {
                           <span className="mb-6 h-[1.1rem] sm:h-[1.25rem]" aria-hidden="true" />
                         )}
                         <span
-                          className="h-3.5 w-3.5 rounded-full border-2 border-primary bg-primary"
+                          className="h-3.5 w-3.5 rounded-full border-2"
+                          style={{ borderColor: '#588068', backgroundColor: '#588068' }}
                           aria-hidden="true"
                         />
                         {isTop ? (
@@ -461,7 +462,7 @@ const Journey = () => {
 
         <section className="pb-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <article className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
+            <article className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
                 <div className="flex-shrink-0">
                   <CircleProfilePhoto src={irene1Photo} alt="Irene Arathi Pais" />
@@ -526,7 +527,7 @@ const Journey = () => {
 
         <section className="pb-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <article className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
+            <article className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
               <h2>
                 <LetterSwapForward
                   label="The Teen Reality Today"

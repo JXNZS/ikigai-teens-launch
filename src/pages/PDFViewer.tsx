@@ -161,7 +161,7 @@ const PDFViewer = () => {
               </button>
             </div>
 
-            <div className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-2 sm:p-3 md:p-4">
+            <div className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-2 sm:p-3 md:p-4">
               <div className="rounded-lg overflow-hidden bg-white border border-border/40">
                 <iframe
                   src={pdfData.url}

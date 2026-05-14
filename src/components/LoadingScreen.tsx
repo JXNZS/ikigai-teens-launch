@@ -34,7 +34,8 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
               }}
             />
             <motion.div
-              className="h-0.5 bg-primary rounded-full"
+              className="h-0.5 rounded-full"
+              style={{ backgroundColor: '#FCEADE' }}
               initial={{ width: 0 }}
               animate={{ width: 120 }}
               transition={{ duration: 1.2, ease: "easeInOut", delay: 0.3 }}

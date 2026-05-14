@@ -205,7 +205,7 @@ const Footer = () => {
                 <div key={group.label}>
                   <button
                     onClick={() => setOpenDropdown(openDropdown === group.label ? null : group.label)}
-                    className="w-full flex items-center justify-between max-w-xs font-display text-sm md:text-base font-semibold text-foreground hover:text-primary transition-colors"
+                    className="w-full flex items-center justify-between max-w-xs font-display text-sm md:text-base font-semibold text-foreground hover:text-[#FCEADE] transition-colors"
                   >
                     <span>{group.label}</span>
                     <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === group.label ? "rotate-180" : ""}`} />

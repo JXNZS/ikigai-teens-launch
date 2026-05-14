@@ -205,7 +205,7 @@ const ParentRole = () => {
                   <ClipPathInfoCard
                     title={card.title}
                     body={card.description}
-                    className="h-full rounded-xl bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6"
+                    className="h-full rounded-xl bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6"
                   >
                     <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary/90">Open details</p>
                   </ClipPathInfoCard>
@@ -240,7 +240,7 @@ const ParentRole = () => {
         {/* Box 1: Intro + 6 Cards */}
         <section className="py-12 bg-background">
           <div className="container mx-auto px-6 max-w-5xl">
-            <article className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
+            <article className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
               <section className="space-y-4 text-center">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary">
                   <LetterSwapForward label="You’re not just raising a child. You’re shaping who they become." className="justify-center" />
@@ -258,7 +258,7 @@ const ParentRole = () => {
         {/* Box 2: The Shift That Matters + 4 Cards */}
         <section className="py-6 bg-background">
           <div className="container mx-auto px-6 max-w-5xl">
-            <article className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
+            <article className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 lg:p-10 space-y-8">
               <section className="space-y-6 text-center">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary text-center">
                   <LetterSwapForward label="The Shift That Matters" className="justify-center" />
@@ -283,7 +283,7 @@ const ParentRole = () => {
         {/* Box 3: Next Step + Final Thoughts + Buttons */}
         <section className="py-12 pb-20 bg-background">
           <div className="container mx-auto px-6 max-w-4xl">
-            <article className="cta-card rounded-xl border border-primary/20 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 space-y-8 text-center">
+            <article className="cta-card rounded-xl border border-primary/20 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-8 text-center">
               <section className="space-y-4">
                 <h3 className="text-xl md:text-2xl font-display font-semibold text-primary flex justify-center">
                   <LetterSwapForward label="Next Step" className="justify-center" />

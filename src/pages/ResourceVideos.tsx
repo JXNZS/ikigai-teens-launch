@@ -31,7 +31,7 @@ const ResourceVideos = () => {
                   href={video.youtubeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] overflow-hidden hover:border-primary/40 transition-colors"
+                  className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] overflow-hidden hover:border-primary/40 transition-colors"
                 >
                   <div className="aspect-video bg-secondary/40">
                     <img

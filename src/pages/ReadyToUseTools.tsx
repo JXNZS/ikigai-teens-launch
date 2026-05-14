@@ -110,7 +110,7 @@ const ReadyToUseTools = () => {
               {readyToUseTools.map((tool) => (
                 <div
                   key={tool.id}
-                  className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 hover:border-primary/40 transition-colors"
+                  className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 hover:border-primary/40 transition-colors"
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
                     <div className="flex-1">

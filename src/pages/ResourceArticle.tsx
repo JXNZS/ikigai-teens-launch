@@ -54,7 +54,7 @@ const ResourceArticle = () => {
         <section className="py-10 md:py-12 lg:py-14 bg-background">
           <div className="container mx-auto px-4 md:px-6 max-w-5xl">
             {article.content && article.content.length > 0 ? (
-              <article className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-6 md:p-8 mb-14 space-y-5">
+              <article className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 mb-14 space-y-5">
                 {article.content.map((block, index) => {
                   const key = `${block.type}-${index}`;
 
@@ -112,7 +112,7 @@ const ResourceArticle = () => {
                   <Link
                     key={item.slug}
                     to={`/resources/blog/${item.slug}`}
-                    className="rounded-xl border border-border/60 bg-white [--foreground:195_26%_16%] [--muted-foreground:195_16%_42%] [--border:152_20%_86%] p-5 hover:border-primary/40 transition-colors"
+                    className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-5 hover:border-primary/40 transition-colors"
                   >
                     <p className="text-xs font-semibold text-primary mb-1.5">{item.audience}</p>
                     <h3 className="text-lg font-semibold text-primary mb-2">{item.title}</h3>

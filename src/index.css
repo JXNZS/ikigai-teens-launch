@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,24 +7,24 @@
 @layer base {
   :root {
     --background: 25 83% 93%;
-    --foreground: 195 26% 16%;
+    --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
-    --card-foreground: 195 26% 16%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 195 26% 16%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 144 19% 42%;
+    --primary: 0 0% 0%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 152 35% 96%;
-    --secondary-foreground: 195 26% 16%;
+    --secondary-foreground: 0 0% 0%;
 
     --muted: 152 20% 96%;
-    --muted-foreground: 195 16% 42%;
+    --muted-foreground: 0 0% 0%;
 
-    --accent: 144 19% 42%;
+    --accent: 0 0% 0%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,21 +32,21 @@
 
     --border: 152 20% 86%;
     --input: 152 20% 86%;
-    --ring: 144 19% 42%;
+    --ring: 0 0% 0%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 25 83% 93%;
-    --sidebar-foreground: 195 26% 16%;
-    --sidebar-primary: 144 19% 42%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 152 35% 96%;
-    --sidebar-accent-foreground: 195 26% 16%;
+    --sidebar-accent-foreground: 0 0% 0%;
     --sidebar-border: 152 20% 86%;
-    --sidebar-ring: 144 19% 42%;
+    --sidebar-ring: 0 0% 0%;
 
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'Raleway', sans-serif;
+    --font-display: 'Poppins', sans-serif;
+    --font-body: 'Poppins', sans-serif;
   }
 }
 
@@ -60,21 +60,30 @@
     font-family: var(--font-body);
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
   }
 }
 
 @layer components {
+
   .navbar-theme-legacy,
   .hero-theme-legacy,
   .content-theme-legacy,
   .footer-theme-legacy {
-    --background: 172 20% 22%; /* #2C423F */
+    --background: 172 20% 22%;
+    /* #2C423F */
     --foreground: 0 0% 95%;
-    --card: 172 20% 22%; /* #2C423F */
+    --card: 172 20% 22%;
+    /* #2C423F */
     --card-foreground: 0 0% 95%;
-    --popover: 172 20% 22%; /* #2C423F */
+    --popover: 172 20% 22%;
+    /* #2C423F */
     --popover-foreground: 0 0% 95%;
     --secondary: 172 20% 22%;
     --secondary-foreground: 0 0% 95%;
@@ -160,19 +169,42 @@
 }
 
 @keyframes logo-pulse {
-  0% { transform: scale(0.8); opacity: 0; }
-  50% { transform: scale(1.05); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes logo-draw {
-  0% { stroke-dashoffset: 1000; }
-  100% { stroke-dashoffset: 0; }
+  0% {
+    stroke-dashoffset: 1000;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes fade-up {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-logo-pulse {

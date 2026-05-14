@@ -53,7 +53,7 @@ const FeaturesSection = () => {
               className="justify-center text-2xl sm:text-3xl md:text-4xl font-display font-bold text-current mb-2 md:mb-3"
             />
           </motion.h2>
-          <p className="text-base sm:text-lg md:text-xl font-display text-[#2C423F] mb-4 md:mb-6 px-2">{renderNumberText("From Humanitarian Field Work to a Teen Mindset Movement")}</p>
+          <p className="text-base sm:text-lg md:text-xl font-display text-black mb-4 md:mb-6 px-2">{renderNumberText("From Humanitarian Field Work to a Teen Mindset Movement")}</p>
           <div className="space-y-3 md:space-y-4 text-xs sm:text-sm md:text-base text-muted-foreground font-body leading-relaxed text-left md:text-center px-2 md:px-0">
             <p>
               After two decades of working with children through humanitarian programs, education initiatives, and youth
