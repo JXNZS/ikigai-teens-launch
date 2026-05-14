@@ -105,7 +105,7 @@ const BeOurCollaborators = () => {
             {expandedCardId === card.id ? (
               <motion.article
                 key={`${card.id}-expanded`}
-                className="rounded-xl border border-border/60 bg-card p-6 h-full flex flex-col"
+                className="rounded-xl border border-border/60 bg-[#FCEADE] p-6 h-full flex flex-col"
                 initial={{ opacity: 0, y: 12, scale: 0.99 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 8, scale: 0.99 }}
@@ -149,7 +149,7 @@ const BeOurCollaborators = () => {
                   <ClipPathInfoCard
                     title={card.title}
                     body={card.description}
-                    className="h-full rounded-xl bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6"
+                    className="h-full rounded-xl bg-[#FCEADE] [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6"
                   >
                     <p className="mt-4 text-xs uppercase tracking-wide font-semibold text-primary/90">Open details</p>
                   </ClipPathInfoCard>

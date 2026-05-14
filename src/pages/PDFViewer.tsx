@@ -4,77 +4,84 @@ import { Download, ChevronLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-import pdf1 from "@/assets/PDF 1.pdf";
-import pdf2 from "@/assets/PDF 2.pdf";
-import pdf3 from "@/assets/PDF 3.pdf";
-import pdf4 from "@/assets/PDF 4.pdf";
-import pdf5 from "@/assets/PDF 5.pdf";
-import pdf6 from "@/assets/PDF 6.pdf";
-import pdf7 from "@/assets/PDF 7.pdf";
-import pdf8 from "@/assets/PDF 8.pdf";
-import pdf9 from "@/assets/PDF 9.pdf";
-import pdf10 from "@/assets/PDF 10.pdf";
+import ep1 from "@/assets/Parent resources Ep 1.pdf";
+import ep2 from "@/assets/Parent resources Ep 2.pdf";
+import ep3 from "@/assets/Parent resources Ep 3.pdf";
+import ep4 from "@/assets/Parent resources Ep 4.pdf";
+import ep5 from "@/assets/Parent resources Ep 5.pdf";
+import ep6 from "@/assets/Parent resources Ep 6.pdf";
+import ep7 from "@/assets/Parent resources Ep 7.pdf";
+import ep8 from "@/assets/Parent resources Ep 8.pdf";
+import ep9 from "@/assets/Parent resources Ep 9.pdf";
+import ep10 from "@/assets/Parent resources Ep 10.pdf";
+import ep11 from "@/assets/Parent resources Ep 11.pdf";
 
 const pdfMap: Record<string, { url: string; title: string; description: string }> = {
   1: {
-    url: pdf1,
+    url: ep1,
     title: "Your 3R Family Connection Planner",
     description:
       "A simple planner built around three powerful habits — Reflection, Realignment, and Ritual. It helps you notice your emotional patterns, align your family around shared values, and build weekly routines that bring you closer to your teen. Small, steady actions that add up.",
   },
   2: {
-    url: pdf2,
+    url: ep2,
     title: "The Self-Aware Parent Journal",
     description:
       "A journaling guide that helps you look inward before looking at your teen. It offers honest reflection prompts and a 5-day practice to shift from reacting on impulse to responding with intention. Because how you show up shapes how your teen learns to handle life.",
   },
   3: {
-    url: pdf3,
+    url: ep3,
     title: "Raising an Unshakeable Teen",
     description:
       "A guide to building real confidence in your teen — not through praise, but through allowing them to face and recover from challenges. It walks you through five pillars that grow resilience in ordinary, everyday moments.",
   },
   4: {
-    url: pdf4,
+    url: ep4,
     title: "The Courage to Try Again Guide",
     description:
       "A reflection guide that helps you rethink how you respond when your teen makes mistakes. It introduces the 4A Model — Acknowledge, Ask, Align, Act — so that failure becomes a doorway to trust rather than shame.",
   },
   5: {
-    url: pdf5,
+    url: ep5,
     title: "The 5-Day Listening Habit",
     description:
       "A short, daily practice to help you slow down and truly hear your teen. Each day focuses on a different listening skill — from pausing before speaking to celebrating the small moments they open up. Connection begins with attention.",
   },
   6: {
-    url: pdf6,
+    url: ep6,
     title: "Belonging Begins at Home",
     description:
       "A guide to understanding why your teen craves belonging and how your home can be their safest anchor. It offers practical tools — from the Check-In Circle to the Peer Pressure Playbook — to build identity and self-worth from the inside out.",
   },
   7: {
-    url: pdf7,
+    url: ep7,
     title: "The Calm Connection Workbook",
     description:
       "A 5-step evening workbook to help you support a teen dealing with anxiety, stress, or low self-esteem. It helps you recognize the signs, listen without lecturing, and respond in ways that build emotional safety — one quiet evening at a time.",
   },
   8: {
-    url: pdf8,
+    url: ep8,
     title: "The Family Digital Reset Guide",
     description:
       "A practical reset plan to help your family build healthier boundaries around screens — together, not as punishment. It moves through four steps: Reflect, Reset, Reconnect, and Reinforce, making tech a tool rather than a tension point at home.",
   },
   9: {
-    url: pdf9,
+    url: ep9,
     title: "Understanding Your Teen's Mind",
     description:
       "A science-backed guide that explains why your teen thinks, feels, and reacts the way they do — and it's not defiance, it's brain development. It gives you a simple weekly action plan to co-regulate emotions and become the calm your teen needs.",
   },
   10: {
-    url: pdf10,
+    url: ep10,
     title: "The Teen Transition Years Toolkit",
     description:
       "A three-part guide — Reflect, Relate, Reframe — designed for parents navigating the shift from caregiver to mentor. It helps you understand what your teen is going through, strengthen your connection with the 3Cs, and adjust your own responses with honesty and care.",
+  },
+  11: {
+    url: ep11,
+    title: "Identify and Adjust Your Parenting Style",
+    description:
+      "A practical toolkit that helps you observe your current parenting patterns, spot the gaps, and make small but meaningful adjustments. It includes tips for building open communication, encouraging independence, and creating a home where your teen doesn't just survive — they thrive.",
   },
 };
 

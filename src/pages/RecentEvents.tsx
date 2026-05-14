@@ -13,6 +13,10 @@ const recentEvents = [
     title: "Peepal TV Podcast 2",
     youtubeUrl: "https://www.youtube.com/watch?v=3ZB7xZ5uw0c",
   },
+  {
+    title: "The Misconception About Teenage Minds | Why I Started Ikigai Teen",
+    youtubeUrl: "https://www.youtube.com/watch?v=EFeykHZoAv0&t=160s",
+  },
 ];
 
 const RecentEvents = () => {
