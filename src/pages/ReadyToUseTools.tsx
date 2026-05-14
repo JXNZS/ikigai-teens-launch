@@ -13,6 +13,7 @@ import pdf7 from "@/assets/PDF 7.pdf";
 import pdf8 from "@/assets/PDF 8.pdf";
 import pdf9 from "@/assets/PDF 9.pdf";
 import pdf10 from "@/assets/PDF 10.pdf";
+import pdf11 from "@/assets/PDF 11.pdf";
 
 const readyToUseTools = [
   {
@@ -74,6 +75,12 @@ const readyToUseTools = [
     heading: "The Teen Transition Years Toolkit",
     description: "A three-part guide — Reflect, Relate, Reframe — designed for parents navigating the shift from caregiver to mentor. It helps you understand what your teen is going through, strengthen your connection with the 3Cs, and adjust your own responses with honesty and care.",
     pdf: pdf10,
+  },
+  {
+    id: 11,
+    heading: "Identify and Adjust Your Parenting Style",
+    description: "A practical toolkit that helps you observe your current parenting patterns, spot the gaps, and make small but meaningful adjustments. It includes tips for building open communication, encouraging independence, and creating a home where your teen doesn't just survive — they thrive.",
+    pdf: pdf11,
   },
 ];
 
