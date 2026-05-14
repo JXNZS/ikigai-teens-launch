@@ -116,7 +116,7 @@ const HeroSlideshow = () => {
   return (
     <div className="relative flex flex-col items-center lg:items-end justify-center pt-4 lg:pt-0 gap-3 md:gap-6 w-full">
       {/* Slideshow container */}
-      <div className="relative w-full h-[240px] sm:h-[270px] md:h-[350px] lg:h-[370px] max-w-[280px] md:max-w-[320px]">
+      <div className="relative w-full h-[240px] sm:h-[270px] md:h-[350px] lg:h-[370px] max-w-[280px] md:max-w-[320px] mx-auto lg:mr-0">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentIndex}
