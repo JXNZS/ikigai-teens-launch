@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import logo from "@/assets/ikigai-logo-white.jpeg";
 import { Hero } from "@/components/ui/animated-hero";
 import HeroSlideshow from "@/components/HeroSlideshow";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -22,24 +21,6 @@ const HeroSection = () => {
       data-home-hero
       className="hero-theme-legacy relative min-h-screen flex items-start overflow-hidden bg-[#2C423F] py-8 md:py-16"
     >
-      <motion.img
-        src={logo}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 m-auto w-[min(72vw,560px)] h-[min(72vw,560px)] object-contain opacity-[0.12]"
-        style={
-          isMobile
-            ? {
-                WebkitMaskImage: "radial-gradient(circle, black 50%, transparent 80%)",
-                maskImage: "radial-gradient(circle, black 50%, transparent 80%)",
-              }
-            : {
-                y: textY,
-                WebkitMaskImage: "radial-gradient(circle, black 50%, transparent 80%)",
-                maskImage: "radial-gradient(circle, black 50%, transparent 80%)",
-              }
-        }
-      />
       <div className="absolute inset-0 bg-[#2C423F]/80" />
 
       <motion.div

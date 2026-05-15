@@ -137,15 +137,20 @@ function Hero() {
                 Discover your Ikigai - the intersection where your passion, mission, vocation, and profession align to create a life of meaning and fulfillment.
               </span>
             </p>
-            <div className="grid grid-cols-3 gap-3 md:gap-6 w-full max-w-3xl mt-6">
-              {credibilityStats.map((stat) => (
-                <CredibilityCounter
-                  key={stat.label}
-                  value={stat.value}
-                  suffix={stat.suffix}
-                  label={stat.label}
-                />
-              ))}
+            <div className="w-full max-w-3xl mt-10 md:mt-14">
+              <h2 className="mb-4 text-center lg:text-left text-sm md:text-base font-semibold tracking-[0.24em] uppercase text-[#FCEADE]">
+                Founder&apos;s Credibility Strip
+              </h2>
+              <div className="grid grid-cols-3 gap-3 md:gap-6">
+                {credibilityStats.map((stat) => (
+                  <CredibilityCounter
+                    key={stat.label}
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    label={stat.label}
+                  />
+                ))}
+              </div>
             </div>
             {/* Quote for Desktop - Aligned with Video Window */}
             <div className="hidden lg:block mt-20 max-w-2xl">
