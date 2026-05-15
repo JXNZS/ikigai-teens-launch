@@ -137,7 +137,7 @@ function Hero() {
                 Discover your Ikigai - the intersection where your passion, mission, vocation, and profession align to create a life of meaning and fulfillment.
               </span>
             </p>
-            <div className="w-full max-w-3xl mt-10 md:mt-14">
+            <div className="w-full max-w-3xl mt-14 md:mt-20">
               <h2 className="mb-4 text-center lg:text-left text-sm md:text-base font-semibold tracking-[0.24em] uppercase text-[#FCEADE]">
                 Founder&apos;s Credibility Strip
               </h2>
