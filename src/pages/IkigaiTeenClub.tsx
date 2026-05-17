@@ -257,10 +257,7 @@ const IkigaiTeenClub = () => {
 
                 <LetterSwapForward label="What Members Unlock" className="justify-center" />
               </h2>
-              <p className="text-center text-muted-foreground mb-8 md:mb-10 max-w-3xl mx-auto text-sm md:text-base">
-                Click any card to jump to a detailed section. The homepage stays breathable and the deeper content stays
-                easy to explore.
-              </p>
+             
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {memberUnlockCards.map((card, index) => (
                   <motion.div
@@ -274,7 +271,7 @@ const IkigaiTeenClub = () => {
                       {expandedCardId === card.id ? (
                         <motion.article
                           key={`${card.id}-expanded`}
-                          className="rounded-xl border border-border/60 bg-card p-6"
+                          className="rounded-xl border border-border/60 bg-[#FCEADE] p-6"
                           initial={{ opacity: 0, y: 12, scale: 0.99 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 8, scale: 0.99 }}
