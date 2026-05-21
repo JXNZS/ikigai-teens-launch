@@ -38,6 +38,12 @@ import ParentCircle from "./pages/ParentCircle.tsx";
 
 const queryClient = new QueryClient();
 
+const LegacyRedirect = ({ to }: { to: string }) => {
+  const location = useLocation();
+
+  return <Navigate to={`${to}${location.search}${location.hash}`} replace />;
+};
+
 const ScrollToHash = () => {
   const { hash, pathname, search } = useLocation();
 
@@ -79,6 +85,10 @@ const App = () => (
       <BrowserRouter>
         <ScrollToHash />
         <Routes>
+          <Route path="/get-involved/ikigai-patrons" element={<LegacyRedirect to="/get-involved/be-our-patrons" />} />
+          <Route path="/get-involved/expert" element={<LegacyRedirect to="/get-involved/be-our-experts" />} />
+          <Route path="/parent-hub/role" element={<LegacyRedirect to="/parent-hub/parent-role" />} />
+          <Route path="/parent-hub/support" element={<LegacyRedirect to="/teenzone/know-yourself" />} />
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/about/values-vision-mission" element={<ValuesVisionMission />} />

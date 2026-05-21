@@ -1,4 +1,26 @@
 {
+  "redirects": [
+    {
+      "source": "/get-involved/ikigai-patrons",
+      "destination": "/get-involved/be-our-patrons",
+      "permanent": true
+    },
+    {
+      "source": "/get-involved/expert",
+      "destination": "/get-involved/be-our-experts",
+      "permanent": true
+    },
+    {
+      "source": "/parent-hub/role",
+      "destination": "/parent-hub/parent-role",
+      "permanent": true
+    },
+    {
+      "source": "/parent-hub/support",
+      "destination": "/teenzone/know-yourself",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
