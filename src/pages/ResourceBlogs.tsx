@@ -6,6 +6,21 @@ import Footer from "@/components/Footer";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { articles } from "@/lib/articles";
 
+const orderedBlogSlugs = [
+  "your-brain-isnt-broken",
+  "digital-is-not-the-enemy-parent-guide",
+  "from-tool-to-trap-phone-starts-using-you",
+  "from-tool-to-trap-digital-dependence-in-teens",
+  "social-media-comparison-and-you",
+  "social-media-self-worth-comparison-culture",
+  "digital-is-not-the-enemy-for-teens",
+  "digital-is-not-the-enemy-for-parents",
+];
+
+const orderedArticles = orderedBlogSlugs
+  .map((slug) => articles.find((article) => article.slug === slug))
+  .filter((article): article is (typeof articles)[number] => Boolean(article));
+
 const ResourceBlogs = () => {
   const handleCardMouseMove = (e: MouseEvent<HTMLAnchorElement>) => {
     const card = e.currentTarget;
@@ -51,7 +66,7 @@ const ResourceBlogs = () => {
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto px-4 md:px-6 max-w-5xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {articles.map((article, index) => (
+              {orderedArticles.map((article, index) => (
                 <Link
                   key={article.slug}
                   to={`/resources/blog/${article.slug}`}
