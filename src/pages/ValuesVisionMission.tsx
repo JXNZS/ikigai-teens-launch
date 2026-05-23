@@ -1,6 +1,8 @@
+import { useRef } from "react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
+import TextToSpeechButton from "@/components/TextToSpeechButton";
 
 const introParagraphs = [
   "At Ikigai Teen, we believe that the strength of a young person's future is shaped by the values they build early in life. In a world filled with distraction, pressure, and rapid change, values act as an inner compass - helping teens make wise decisions, develop strong character, and contribute positively to the world around them.",
@@ -78,6 +80,8 @@ const missionStatement =
   "To equip teens with the mindset, values, and practical life skills needed to navigate modern challenges, discover who they are, and grow into emotionally strong, responsible individuals - through structured coaching, practical tools, and a supportive ecosystem of parents, educators, and mentors.";
 
 const ValuesVisionMission = () => {
+  const articleRef = useRef<HTMLElement>(null);
+
   return (
     <>
       <Navbar />
@@ -97,7 +101,8 @@ const ValuesVisionMission = () => {
 
         <section className="py-14 bg-background">
           <div className="container mx-auto px-6 max-w-4xl">
-            <article className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-8">
+            <article ref={articleRef} className="relative rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-8">
+              <TextToSpeechButton targetRef={articleRef} />
               <section className="space-y-6">
                 <div className="space-y-2">
                   <h3 className="text-xl md:text-2xl font-display font-semibold text-primary">Vision</h3>

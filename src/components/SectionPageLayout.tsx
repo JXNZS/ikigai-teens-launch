@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import TextToSpeechButton from "@/components/TextToSpeechButton";
 
 interface SectionPageLayoutProps {
   title: string;
@@ -29,6 +31,66 @@ const cardVariants = {
     scale: 1,
     transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] },
   },
+};
+
+const SectionCard = ({
+  section,
+}: {
+  section: SectionPageLayoutProps["sections"][number];
+}) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  const content = (
+    <motion.div
+      className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(25_83%_93%_/_0.8)] [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 group cursor-pointer hover:border-primary/40 transition-colors"
+      whileHover={{
+        y: -6,
+        boxShadow: "0 20px 40px -15px rgba(44,66,63,0.15)",
+        transition: { duration: 0.3 },
+      }}
+    >
+      <motion.div
+        className="w-1 h-0 bg-primary rounded-full mb-4"
+        whileInView={{ height: 24 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+      />
+      <h2 className="text-lg md:text-xl font-display font-semibold text-primary mb-3">{section.title}</h2>
+      <p className="text-muted-foreground font-body text-sm leading-relaxed">{section.description}</p>
+      {section.body?.length ? (
+        <div className="mt-5 space-y-3 md:space-y-4 text-xs sm:text-sm leading-relaxed text-muted-foreground font-body">
+          {section.body.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      ) : null}
+      {section.bullets?.length ? (
+        <div className="mt-5 space-y-2 md:space-y-3 text-xs sm:text-sm leading-relaxed text-muted-foreground font-body">
+          {section.bullets.map((bullet) => (
+            <p key={bullet}>{bullet}</p>
+          ))}
+        </div>
+      ) : null}
+    </motion.div>
+  );
+
+  if (section.path) {
+    return (
+      <div ref={contentRef} className="relative">
+        <TextToSpeechButton targetRef={contentRef} />
+        <Link to={section.path} className="block">
+          {content}
+        </Link>
+      </div>
+    );
+  }
+
+  return (
+    <motion.div ref={contentRef} className="relative" variants={cardVariants}>
+      <TextToSpeechButton targetRef={contentRef} />
+      {content}
+    </motion.div>
+  );
 };
 
 const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps) => {
@@ -66,78 +128,10 @@ const SectionPageLayout = ({ title, subtitle, sections }: SectionPageLayoutProps
         {/* Subsections */}
         <section className="py-12 md:py-16 bg-background">
           <div className="container mx-auto px-4 md:px-6">
-            <motion.div
-              className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto"
-            >
-              {sections.map((s) => (
-                <motion.div key={s.title} variants={cardVariants} id={s.id} className="scroll-mt-24">
-                  {s.path ? (
-                    <Link to={s.path} className="block">
-                      <motion.div
-                        className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(25_83%_93%_/_0.8)] [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 group cursor-pointer hover:border-primary/40 transition-colors"
-                        whileHover={{
-                            y: -6,
-                            boxShadow: "0 20px 40px -15px rgba(44,66,63,0.15)",
-                            transition: { duration: 0.3 },
-                        }}
-                      >
-                        <motion.div
-                          className="w-1 h-0 bg-primary rounded-full mb-4"
-                          whileInView={{ height: 24 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: 0.2 }}
-                        />
-                        <h2 className="text-lg md:text-xl font-display font-semibold text-primary mb-3">{s.title}</h2>
-                        <p className="text-muted-foreground font-body text-sm leading-relaxed">{s.description}</p>
-                        {s.body?.length ? (
-                          <div className="mt-5 space-y-3 md:space-y-4 text-xs sm:text-sm leading-relaxed text-muted-foreground font-body">
-                            {s.body.map((paragraph) => (
-                              <p key={paragraph}>{paragraph}</p>
-                            ))}
-                          </div>
-                        ) : null}
-                        {s.bullets?.length ? (
-                          <div className="mt-5 space-y-2 md:space-y-3 text-xs sm:text-sm leading-relaxed text-muted-foreground font-body">
-                            {s.bullets.map((bullet) => (
-                              <p key={bullet}>{bullet}</p>
-                            ))}
-                          </div>
-                        ) : null}
-                      </motion.div>
-                    </Link>
-                  ) : (
-                    <motion.div
-                      className="rounded-lg md:rounded-xl border border-border/60 bg-[hsl(25_83%_93%_/_0.8)] [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 group"
-                      whileHover={{
-                          y: -6,
-                          boxShadow: "0 20px 40px -15px rgba(44,66,63,0.15)",
-                          transition: { duration: 0.3 },
-                      }}
-                    >
-                      <motion.div
-                        className="w-1 h-0 bg-primary rounded-full mb-4"
-                        whileInView={{ height: 24 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: 0.2 }}
-                      />
-                      <h2 className="text-lg md:text-xl font-display font-semibold text-primary mb-3">{s.title}</h2>
-                      <p className="text-muted-foreground font-body text-sm leading-relaxed">{s.description}</p>
-                      {s.body?.length ? (
-                        <div className="mt-5 space-y-3 md:space-y-4 text-xs sm:text-sm leading-relaxed text-muted-foreground font-body">
-                          {s.body.map((paragraph) => (
-                            <p key={paragraph}>{paragraph}</p>
-                          ))}
-                        </div>
-                      ) : null}
-                      {s.bullets?.length ? (
-                        <div className="mt-5 space-y-2 md:space-y-3 text-xs sm:text-sm leading-relaxed text-muted-foreground font-body">
-                          {s.bullets.map((bullet) => (
-                            <p key={bullet}>{bullet}</p>
-                          ))}
-                        </div>
-                      ) : null}
-                    </motion.div>
-                  )}
+            <motion.div className="grid sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
+              {sections.map((section) => (
+                <motion.div key={section.title} variants={cardVariants} id={section.id} className="scroll-mt-24">
+                  <SectionCard section={section} />
                 </motion.div>
               ))}
             </motion.div>

@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useRef } from "react";
 import { SiGoogle, SiSpotify, SiTiktok } from "react-icons/si";
 import { FaDiscord } from "react-icons/fa";
 import { Github, Twitter, Instagram, Facebook, Linkedin, Code } from "lucide-react";
 import { useAnimate } from "framer-motion";
+import TextToSpeechButton from "@/components/TextToSpeechButton";
 
 type Side = "left" | "right" | "top" | "bottom";
 
@@ -106,6 +107,7 @@ export const ClipPathLinks = () => {
 
 export const ClipPathInfoCard = ({ title, body, className = "", children }: ClipPathInfoCardProps) => {
   const [scope, animate] = useAnimate();
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
     const side = getNearestSide(e);
@@ -123,10 +125,12 @@ export const ClipPathInfoCard = ({ title, body, className = "", children }: Clip
 
   return (
     <div
+      ref={contentRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={`group relative overflow-hidden rounded-xl border border-border/60 bg-[#FCEADE] p-5 transition-[transform,border-color,box-shadow] duration-300 ${className}`}
     >
+      <TextToSpeechButton targetRef={contentRef} />
       <div className="relative z-10">
         {title && <h4 className="text-base font-semibold text-foreground mb-2">{title}</h4>}
         {body ? <p className="text-sm text-muted-foreground">{body}</p> : null}

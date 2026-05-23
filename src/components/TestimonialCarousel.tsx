@@ -8,6 +8,7 @@ import Sunil from "@/assets/sunil.jpeg";
 import Archana from "@/assets/Archana.jpeg";
 import Reshma from "@/assets/Reshma.jpeg";
 import Dilip from "@/assets/Dilip.jpeg";
+import TextToSpeechButton from "@/components/TextToSpeechButton";
 
 type Testimonial = {
   quote: string;
@@ -113,6 +114,46 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+const TestimonialSlide = ({ testimonial }: { testimonial: Testimonial }) => {
+  const contentRef = useRef<HTMLElement>(null);
+
+  return (
+    <div className="min-w-full flex-shrink-0 flex justify-center px-1.5 sm:px-3 md:px-4">
+      <article
+        ref={contentRef}
+        className="relative w-full max-w-[calc(100vw-3.5rem)] md:max-w-4xl bg-card rounded-lg md:rounded-2xl border border-border/60 p-4 sm:p-6 md:p-10 min-h-[320px] md:min-h-[400px] flex flex-col justify-center"
+      >
+        <TextToSpeechButton targetRef={contentRef} label={`Read testimonial from ${testimonial.name}`} />
+        <div
+          className={`flex flex-col md:flex-row items-start gap-4 md:gap-8 ${
+            testimonial.imgAlign === "right" ? "md:flex-row-reverse" : ""
+          }`}
+        >
+          <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32">
+            <img
+              src={testimonial.img}
+              alt={testimonial.name}
+              className="w-full h-full rounded-full object-cover"
+              style={{
+                objectPosition: testimonial.imgPosition ?? "50% 30%",
+                transform: `scale(${testimonial.imgScale ?? 1})`,
+                transition: "transform 300ms ease",
+              }}
+            />
+          </div>
+          <div className="text-[12px] sm:text-sm md:text-base leading-relaxed text-left">
+            <div className="text-foreground mb-3 md:mb-5 whitespace-pre-line italic">“{testimonial.quote}”</div>
+            <div className="space-y-0.5">
+              <p className="font-semibold text-primary">{testimonial.name}</p>
+              {testimonial.title && <p className="text-xs md:text-sm text-muted-foreground whitespace-pre-line">{testimonial.title}</p>}
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  );
+};
+
 const TestimonialCarousel = () => {
   const [index, setIndex] = useState(0);
   const intervalRef = useRef<number | null>(null);
@@ -141,36 +182,8 @@ const TestimonialCarousel = () => {
               transition: "transform 700ms ease-in-out",
             }}
           >
-            {testimonials.map((t, i) => (
-              <div key={i} className="min-w-full flex-shrink-0 flex justify-center px-1.5 sm:px-3 md:px-4">
-                <article className="w-full max-w-[calc(100vw-3.5rem)] md:max-w-4xl bg-card rounded-lg md:rounded-2xl border border-border/60 p-4 sm:p-6 md:p-10 min-h-[320px] md:min-h-[400px] flex flex-col justify-center">
-                  <div
-                    className={`flex flex-col md:flex-row items-start gap-4 md:gap-8 ${
-                      t.imgAlign === "right" ? "md:flex-row-reverse" : ""
-                    }`}
-                  >
-                    <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32">
-                      <img
-                        src={t.img}
-                        alt={t.name}
-                        className="w-full h-full rounded-full object-cover"
-                        style={{
-                          objectPosition: t.imgPosition ?? "50% 30%",
-                          transform: `scale(${t.imgScale ?? 1})`,
-                          transition: "transform 300ms ease",
-                        }}
-                      />
-                    </div>
-                    <div className="text-[12px] sm:text-sm md:text-base leading-relaxed text-left">
-                      <div className="text-foreground mb-3 md:mb-5 whitespace-pre-line italic">“{t.quote}”</div>
-                      <div className="space-y-0.5">
-                        <p className="font-semibold text-primary">{t.name}</p>
-                        {t.title && <p className="text-xs md:text-sm text-muted-foreground whitespace-pre-line">{t.title}</p>}
-                      </div>
-                    </div>
-                  </div>
-                </article>
-              </div>
+            {testimonials.map((testimonial) => (
+              <TestimonialSlide key={testimonial.name} testimonial={testimonial} />
             ))}
           </div>
 

@@ -6,6 +6,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import TeenRealityCards from "@/components/TeenRealityCards";
 import { X } from "lucide-react";
 import irene1Photo from "@/assets/Irene 1.jpeg";
+import TextToSpeechButton from "@/components/TextToSpeechButton";
 
 const CircleProfilePhoto = ({ src, alt, imageClassName, imageStyle, containerClassName }: { src: string; alt: string; imageClassName?: string; imageStyle?: CSSProperties; containerClassName?: string }) => {
   const [failed, setFailed] = useState(false);
@@ -194,6 +195,7 @@ const CredibilityCounter = ({ value, suffix, label, shouldAnimate }: Credibility
 
 const Journey = () => {
   const stripRef = useRef<HTMLDivElement>(null);
+  const whyArticleRef = useRef<HTMLElement>(null);
   const timelineScrollRef = useRef<HTMLDivElement>(null);
   const [stripVisible, setStripVisible] = useState(false);
   const [activeMilestoneLabel, setActiveMilestoneLabel] = useState<string | null>(null);
@@ -462,7 +464,8 @@ const Journey = () => {
 
         <section className="pb-20 bg-background">
           <div className="container mx-auto px-4 sm:px-6 max-w-5xl">
-            <article className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
+            <article ref={whyArticleRef} className="relative rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-5">
+              <TextToSpeechButton targetRef={whyArticleRef} />
               <div className="flex flex-col md:flex-row gap-6 md:gap-8 items-start md:items-center">
                 <div className="flex-shrink-0">
                   <CircleProfilePhoto

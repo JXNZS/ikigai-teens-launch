@@ -102,7 +102,7 @@ If you’ve ever said:
 “I don’t even enjoy this anymore, so why am I still watching?”
 That does NOT mean you’re weak, lazy, or have no self-control.
 It means your brain is growing up in a highly addictive digital world.
-■ Your brain is under construction
+Your brain is under construction
 Your brain is not fully “done” yet — and that’s actually a good thing.
 The part of your brain that helps with: self-control, focus, planning, stopping yourself before doing something impulsive
 …is still building itself. It usually finishes developing in your mid-20s.
@@ -110,7 +110,7 @@ But the part of your brain that feels emotions strongly, loves excitement, and w
 So basically, your brain is like:
 “I WANT THIS NOW”
 and the “let’s think calmly” part is still loading… That’s normal.
-■ Why your phone is extra powerful for your brain
+Why your phone is extra powerful for your brain
 Apps, games, and social media are designed to do one thing very well: keep you hooked.
 Every time you get a notification, see a new reel, get a like or message, or refresh your feed, your brain gets a small dopamine hit.
 Dopamine is not the “happy chemical”. It’s the “go check again” chemical.
@@ -120,7 +120,7 @@ It makes your brain say:
 “One more minute”
 For your age group, this effect is even stronger than for adults.
 So if you feel like: “My hand opens the app before I even decide” — that’s brain wiring + app design working together.
-■ “I can’t focus anymore”
+“I can’t focus anymore”
 A lot of people your age say:
 “I can’t concentrate like before”
 “Studying feels impossible”
@@ -130,28 +130,28 @@ Short videos, fast content, quick switches train your brain to get bored fast, w
 So when you sit with a book or classwork, your brain goes:
 “This is too slow. Where is the stimulation?” That’s not stupidity. That’s training effect.
 The good news? Brains can be re-trained.
-■ Why emotions feel more intense online
+Why emotions feel more intense online
 Your emotions are already strong. That’s part of growing up.
 But online life adds comparison, likes and views, fear of missing out, and seeing “perfect” lives all the time.
 So some days you feel confident and happy.
 Other days you feel suddenly insecure, anxious, or low for “no clear reason”.
 A lot of that is your nervous system reacting to what you consume.
-■ Why “just control yourself” doesn’t work
+Why “just control yourself” doesn’t work
 Self-control is a skill. And skills take time and training to build.
 Telling yourself “I should be more disciplined” without changing your environment is like saying “I should be stronger” while trying to lift weights that are too heavy.
 You don’t need more self-hate. You need smarter systems.
-■ What actually helps
+What actually helps
 1. Understand your own patterns.
 2. Reduce overload before trying to “control”.
 3. Don’t aim for “no phone”. Aim for “better use”.
 4. Build friction (phone away while studying, notifications off, app limits).
 A tired, overstimulated brain has almost zero willpower. Sleep, breaks, and offline time are brain maintenance.
-■ The most important thing to remember
+The most important thing to remember
 Your brain is plastic. That means it changes based on what you do repeatedly.
 You are NOT stuck like this.
 Focus can come back. Motivation can come back. Calm can come back.
 Not by hating yourself. But by working with your brain instead of against it.
-❤■ Final truth
+Final truth
 You are not weak.
 You are growing up in the most attention-hijacking time in history.
 Learning to manage your mind in this world is a superpower.

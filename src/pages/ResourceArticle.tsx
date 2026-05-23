@@ -1,13 +1,23 @@
-import { Link, Navigate, useParams } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { Link, Navigate, useLocation, useParams } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock3, User } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { articles, findArticleBySlug } from "@/lib/articles";
 import PdfInlineViewer from "@/components/ui/pdf-inline-viewer";
+import TextToSpeechButton, { resetTextToSpeechState } from "@/components/TextToSpeechButton";
 
 const ResourceArticle = () => {
   const { slug } = useParams();
   const article = findArticleBySlug(slug);
+  const location = useLocation();
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    return () => {
+      resetTextToSpeechState();
+    };
+  }, [location.pathname]);
 
   if (!article) {
     return <Navigate to="/resources" replace />;
@@ -21,14 +31,16 @@ const ResourceArticle = () => {
       <main className="pt-16 bg-background min-h-screen">
         <section className="footer-theme-legacy py-12 md:py-16 md:py-20 bg-card border-b border-border/50">
           <div className="container mx-auto px-4 md:px-6 max-w-5xl">
-            <Link to="/resources" className="inline-flex items-center gap-2 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors mb-4 md:mb-5">
-              <ArrowLeft className="h-4 w-4" />
-              Back to all articles
-            </Link>
+            <div className="mb-4 md:mb-5 flex items-center justify-between gap-4">
+              <Link to="/resources" className="inline-flex items-center gap-2 text-xs md:text-sm text-muted-foreground hover:text-foreground transition-colors">
+                <ArrowLeft className="h-4 w-4" />
+                Back to all articles
+              </Link>
 
-            <span className="inline-flex rounded-full bg-primary/15 px-2 md:px-3 py-1 text-xs font-semibold text-primary mb-3 md:mb-4">
-              {article.audience}
-            </span>
+              <span className="shrink-0 text-xs md:text-sm font-medium text-muted-foreground text-right">
+                {article.audience}
+              </span>
+            </div>
 
             <h1 className="text-2xl sm:text-3xl md:text-5xl font-display font-semibold tracking-tight leading-tight max-w-4xl mb-4 md:mb-5" style={{ color: '#FCEADE' }}>
               {article.title}
@@ -54,7 +66,8 @@ const ResourceArticle = () => {
         <section className="py-10 md:py-12 lg:py-14 bg-background">
           <div className="container mx-auto px-4 md:px-6 max-w-5xl">
             {article.content && article.content.length > 0 ? (
-              <article className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 mb-14 space-y-5">
+              <article ref={contentRef} className="relative rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 mb-14 space-y-5">
+                <TextToSpeechButton targetRef={contentRef} />
                 {article.content.map((block, index) => {
                   const key = `${block.type}-${index}`;
 

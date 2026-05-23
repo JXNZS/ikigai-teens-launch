@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useRef } from "react";
+import TextToSpeechButton from "@/components/TextToSpeechButton";
 
 const philosophyParagraphs = [
   "At Ikigai Teen, our philosophy is inspired by timeless Japanese principles that emphasize purposeful living, steady growth, and mindful action. These ideas are simple yet powerful - and when applied early in life, they help young people build strong foundations for the future.",
@@ -179,6 +181,7 @@ const CircleButton = ({ index, principleData, hovered, setHovered, descriptionPo
 const GroundingPhilosophy = () => {
   const [hovered, setHovered] = useState<number | null>(null);
   const isMobile = useIsMobile();
+  const philosophyRef = useRef<HTMLElement>(null);
   return (
     <>
       <Navbar />
@@ -199,7 +202,8 @@ const GroundingPhilosophy = () => {
         <section className="py-14 bg-background overflow-hidden">
           <div className="container mx-auto px-6 max-w-6xl flex flex-col md:flex-row gap-10 md:gap-16 items-stretch">
             {/* Left: Philosophy Box */}
-            <article className="flex-1 rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-6 flex flex-col justify-center min-w-[320px] max-w-xl">
+            <article ref={philosophyRef} className="relative flex-1 rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-6 md:p-8 space-y-6 flex flex-col justify-center min-w-[320px] max-w-xl">
+              <TextToSpeechButton targetRef={philosophyRef} />
               <div className="space-y-3">
                 <h2 className="text-2xl md:text-3xl font-display font-semibold text-primary">Philosophy</h2>
                 <div className="space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed font-body">

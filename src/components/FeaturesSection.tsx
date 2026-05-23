@@ -1,6 +1,7 @@
 import { ReactNode, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
+import TextToSpeechButton from "@/components/TextToSpeechButton";
 
 const renderNumberText = (text: string): ReactNode => {
   const numberPattern = /\d[\d,-]*/g;
@@ -31,6 +32,7 @@ const renderNumberText = (text: string): ReactNode => {
 
 const FeaturesSection = () => {
   const ref = useRef<HTMLElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -41,12 +43,14 @@ const FeaturesSection = () => {
     <section ref={ref} className="pt-12 pb-6 md:pt-20 md:pb-10 bg-[hsl(25_83%_93%_/_0.8)] overflow-hidden">
       <div className="container mx-auto px-4 md:px-6">
         <motion.div
-          className="max-w-4xl mx-auto text-center rounded-lg md:rounded-2xl border border-border/60 bg-card p-6 md:p-10"
+          ref={cardRef}
+          className="relative max-w-4xl mx-auto text-center rounded-lg md:rounded-2xl border border-border/60 bg-card p-6 md:p-10"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
         >
+          <TextToSpeechButton targetRef={cardRef} />
           <motion.h2 style={{ color: headingColor }}>
             <LetterSwapForward
               label="Origin Of Ikigai Teen"

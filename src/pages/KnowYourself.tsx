@@ -393,7 +393,7 @@ const resultProfiles1618 = [
 const teenStruggles1618 = [
   {
     title: "Feeling Pressure To Have Your Future Figured Out",
-    whatItFeelsLike: "You feel pressure to already know what career, college, goals, or 'life plan' you want � even though you're still discovering yourself.",
+    whatItFeelsLike: "You feel pressure to already know what career, college, goals, or 'life plan' you want even though you're still discovering yourself.",
     identify: [
       "Thinking about the future makes you anxious.",
       "You constantly compare your progress to others.",
