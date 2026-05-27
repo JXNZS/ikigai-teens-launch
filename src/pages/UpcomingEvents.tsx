@@ -149,7 +149,7 @@ export default function UpcomingEvents() {
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
                 <h2 className="text-4xl md:text-3xl lg:text-6xl font-semibold tracking-tight text-balance text-primary">Season 2: Ikigai Teen Conversations</h2>
-                <h3 className="text-2xl md:text-2xl lg:text-3xl font-semibold tracking-tight text-balance text-primary">Releases — June 5</h3>
+                <h3 className="text-2xl md:text-2xl lg:text-3xl font-semibold tracking-tight text-balance text-primary">Podcast Releases — June 5</h3>
                 <p className="text-muted-foreground text-base md:text-lg max-w-xl leading-relaxed">A new season of podcasts releasing on June 5 — conversations with teens, coaches, and educators offering practical insights and stories.</p>
 
                 <div className="grid grid-cols-3 gap-2 md:flex md:items-center md:gap-4 relative z-10 w-full md:w-auto">

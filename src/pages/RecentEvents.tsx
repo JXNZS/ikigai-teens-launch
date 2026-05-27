@@ -6,16 +6,19 @@ import { getYoutubeThumbnail } from "@/lib/videos";
 
 const recentEvents = [
   {
-    title: "Peepal TV Podcast 1",
-    youtubeUrl: "https://www.youtube.com/watch?v=Ei1vhi6TGK0",
+    title: "The Misconception About Teenage Minds | Why I Started Ikigai Teen",
+    date: "11/05/2026",
+    youtubeUrl: "https://www.youtube.com/watch?v=EFeykHZoAv0&t=160s",
   },
   {
     title: "Peepal TV Podcast 2",
+    date: "08/05/2026",
     youtubeUrl: "https://www.youtube.com/watch?v=3ZB7xZ5uw0c",
   },
   {
-    title: "The Misconception About Teenage Minds | Why I Started Ikigai Teen",
-    youtubeUrl: "https://www.youtube.com/watch?v=EFeykHZoAv0&t=160s",
+    title: "Peepal TV Podcast 1",
+    date: "07/05/2026",
+    youtubeUrl: "https://www.youtube.com/watch?v=Ei1vhi6TGK0",
   },
 ];
 
@@ -59,6 +62,7 @@ const RecentEvents = () => {
 
                   <div className="p-4">
                     <h2 className="text-lg font-display font-semibold text-primary leading-snug">{event.title}</h2>
+                    <p className="mt-1 text-sm font-medium text-primary/80">Date: {event.date}</p>
                     <p className="mt-2 inline-flex items-center gap-1.5 text-xs text-muted-foreground">
                       Open on YouTube
                       <ExternalLink className="h-3.5 w-3.5" />

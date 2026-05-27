@@ -59,7 +59,7 @@ const testimonials: Testimonial[] = [
     title: "Canada",
     img: Howard,
     imgPosition: "50% 28%",
-    imgScale: 1,
+    imgScale: 0.85,
     imgAlign: "left",
   },
   {
@@ -129,11 +129,11 @@ const TestimonialSlide = ({ testimonial }: { testimonial: Testimonial }) => {
             testimonial.imgAlign === "right" ? "md:flex-row-reverse" : ""
           }`}
         >
-          <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32">
+          <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 rounded-full overflow-hidden">
             <img
               src={testimonial.img}
               alt={testimonial.name}
-              className="w-full h-full rounded-full object-cover"
+              className="w-full h-full object-cover"
               style={{
                 objectPosition: testimonial.imgPosition ?? "50% 30%",
                 transform: `scale(${testimonial.imgScale ?? 1})`,

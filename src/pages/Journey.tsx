@@ -46,7 +46,7 @@ const credibilityStats: CredibilityStat[] = [
   { value: 200, suffix: "+", label: "Schools Engaged" },
   { value: 63, label: "Villages Served" },
   { value: 32, label: "Countries with Footprints" },
-  { value: 136, label: "Nationalities for Colleagues" },
+  { value: 136, label: "Nationalities of Colleagues" },
 ];
 
 type Milestone = {
@@ -131,10 +131,10 @@ const milestones: Milestone[] = [
   },
 ];
 
-const whyIkigaiSummary = "Ikigai Teen was founded after Irene Arathi Pais observed dramatic changes in teen behaviour following the widespread adoption of smartphones during the COVID era for education purposes among teens. Conversations with parents, educators, teenagers and government officials revealed rising digital dependency, declining focus, and emotional strain. Ikigai Teen helps teens develop awareness, resilience, and purpose so they can navigate the digital world wisely and grow into responsible future leaders";
+const whyIkigaiSummary = "Ikigai Teen was founded after Irene Arathi observed dramatic changes in teen behaviour following the widespread adoption of smartphones during the COVID era for education purposes among teens. Conversations with parents, educators, teenagers and government officials revealed rising digital dependency, declining focus, and emotional strain. Ikigai Teen helps teens develop awareness, resilience, and purpose so they can navigate the digital world wisely and grow into responsible future leaders";
 
 const whyIkigaiExpanded = [
-  "After more than two decades of working with children across schools, villages, and humanitarian programs, Irene Arathi Pais has witnessed how profoundly the teen years shape the future of individuals and societies.",
+  "After more than two decades of working with children across schools, villages, and humanitarian programs, Irene Arathi has witnessed how profoundly the teen years shape the future of individuals and societies.",
   "Her concern deepened during the COVID-19 pandemic when millions of students were required to use smartphones for online learning. While technology ensured continuity in education, it also opened unrestricted digital access for many teenagers - often without guidance or awareness from adults.",
   "In the years since, conversations with parents, educators, and teens themselves revealed worrying patterns: declining focus, weakening family connections, growing digital dependency, and increasing exposure to unsafe online behaviour.",
   "At the same time, Irene recognised that technology itself is not the enemy. When used wisely, it can be a powerful tool for learning, creativity, and opportunity.",
@@ -470,7 +470,7 @@ const Journey = () => {
                 <div className="flex-shrink-0">
                   <CircleProfilePhoto
                     src={irene1Photo}
-                    alt="Irene Arathi Pais"
+                    alt="Irene Arathi"
                     imageStyle={{ transform: 'scale(1.5)', transformOrigin: 'center 35%' }}
                   />
                 </div>
@@ -524,7 +524,7 @@ const Journey = () => {
                     <p className="text-sm md:text-base italic font-semibold text-foreground/85">
                       "Teen years are the foundation of a nation's future - what we guide today becomes the character of society tomorrow."
                     </p>
-                    <p className="text-xs md:text-sm font-semibold text-primary/90">- Irene Arathi Pais</p>
+                    <p className="text-xs md:text-sm font-semibold text-primary/90">- Irene Arathi</p>
                   </div>
                 </div>
               </div>
@@ -556,7 +556,7 @@ const Journey = () => {
               <p className="text-sm md:text-base italic font-semibold text-foreground/85">
                 "If teenagers learn to master their minds before the digital world masters them, they become builders of the future, not victims of it."
               </p>
-              <p className="text-xs md:text-sm font-semibold text-primary/90">- Irene Arathi Pais</p>
+              <p className="text-xs md:text-sm font-semibold text-primary/90">- Irene Arathi</p>
             </article>
           </div>
         </section>

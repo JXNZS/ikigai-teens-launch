@@ -24,17 +24,17 @@ type TeamMember = {
 
 const teamMembers: TeamMember[] = [
 	{
-		name: "Irene Arathi Pais",
+		name: "Irene Arathi",
 		role: "Founder, Ikigai Teen",
 		image: irenePhoto,
 		imageStyle: { objectPosition: "50% 40%", transform: "translateX(-23%) scale(1.95)", transformOrigin: "center center" },
 		quote: "When young people understand themselves early, they gain the power to shape their future with clarity and courage.",
 		bio: [
-			"Irene Arathi Pais is the founder of Ikigai Teen, a teen development initiative dedicated to helping teenagers build self-awareness, resilience, and purpose in a rapidly changing world. With over two decades of professional experience in human resources and humanitarian project leadership across international organisations across the globe, including work in disaster response and conflict environments, she has designed and delivered youth-focused programs that have reached over 107,893 students across India.",
+			"Irene Arathi is the founder of Ikigai Teen, a teen development initiative dedicated to helping teenagers build self-awareness, resilience, and purpose in a rapidly changing world. With over two decades of professional experience in human resources and humanitarian project leadership across international organisations across the globe, including work in disaster response and conflict environments, she has designed and delivered youth-focused programs that have reached over 107,893 students across India.",
 			"Drawing from her background in child development, leadership, and community engagement and social sector, Irene founded Ikigai Teen to create practical tools and conversations that support teens, parents, and educators alike.",
 		],
 		extendedBio: [
-			"Irene Arathi Pais is the founder of Ikigai Teen, a values-driven initiative dedicated to helping young people grow into self-aware, resilient and responsible individuals.",
+			"Irene Arathi is the founder of Ikigai Teen, a values-driven initiative dedicated to helping young people grow into self-aware, resilient and responsible individuals.",
 			"With over two decades of professional experience in human resources, humanitarian operations and youth-focused initiatives, Irene has worked in some of the world's most complex environments, including India, Iraq, Sudan, Ethiopia and Haiti. Her work has included roles within the Red Cross movement, United Nations system and international organisations such as Oxfam, where she contributed to programmes in disaster response, conflict contexts and large-scale humanitarian operations.",
 			"Through these experiences, Irene witnessed first-hand how resilience, character and inner strength shape the course of a young person's life. Alongside her humanitarian career, she pursued her deep interest in child development and adolescent growth, designing and delivering programmes for high school students across several Indian states that reached over 100,000 students.",
 			"Irene holds a Master's degree and has been trained in child development and youth engagement practices. Over the years, she has worked closely with educators, institutions and communities to support young people in building life skills, emotional strength and a sense of purpose.",
@@ -175,7 +175,7 @@ const FounderTeam = () => {
 											<div className="flex flex-col sm:flex-row gap-5 items-start pt-1">
 												<CircleProfilePhoto src={member.image} alt={member.name} imageClassName={member.imageClassName} imageStyle={member.imageStyle} />
 												<div className="space-y-3">
-													{member.name === "Irene Arathi Pais" ? (
+													{member.name === "Irene Arathi" ? (
 														<>
 															{(showFullFounderBio ? member.extendedBio ?? member.bio : member.bio).map((paragraph, paragraphIndex) => (
 																<p key={`founder-bio-${paragraphIndex}`} className="text-sm md:text-base text-muted-foreground leading-relaxed">

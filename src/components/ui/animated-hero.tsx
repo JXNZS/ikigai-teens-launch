@@ -158,7 +158,7 @@ function Hero() {
                 "Teen years are the foundation of a nation's future - what we guide today becomes the character of society tomorrow."
               </p>
               <p className="text-[#FCEADE] font-semibold mt-3 text-sm md:text-base">
-                - Irene Arathi Pais
+                - Irene Arathi
               </p>
             </div>
           </div>

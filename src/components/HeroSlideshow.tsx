@@ -254,7 +254,7 @@ const HeroSlideshow = () => {
           "Teen years are the foundation of a nation's future - what we guide today becomes the character of society tomorrow."
         </p>
         <p className="text-[#FCEADE] font-semibold mt-2 text-[13px] sm:text-sm">
-          - Irene Arathi Pais
+          - Irene Arathi
         </p>
       </div>
     </div>
