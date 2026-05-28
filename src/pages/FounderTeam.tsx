@@ -100,7 +100,7 @@ const teamMembers: TeamMember[] = [
 		imageStyle: { objectPosition: "50% 90%", transform: "translateX(0%) translateY(0%) scale(1.0)", transformOrigin: "center center" },
 		quote: "Grace, responsibility, and sincerity in small actions often build the strongest foundations.",
 		bio: [
-			"Jiya Giri is a young and thoughtful contributor from Dharwad, a student of German language and literature with a strong interest in healthcare, emotional well-being, and meaningful human connection. Currently pursuing her studies in science, she brings a calm, responsible, and people-centred approach to the work she takes on. Known for being polished, sincere, and meticulous, Jiya has a natural ability to communicate with warmth, attentiveness, and care.",
+			"Jiya Giri is a young and thoughtful contributor from Dharwad, with a strong interest in healthcare, emotional well-being, and meaningful human connection. Currently pursuing her studies in science, she brings a calm, responsible, and people-centred approach to the work she takes on. Known for being polished, sincere, and meticulous, Jiya has a natural ability to communicate with warmth, attentiveness, and care.",
 			"At Ikigai Teen, Jiya supports networking, coordination, and relationship management across key areas of the initiative. Her role includes assisting with communication, stakeholder coordination, and operational follow-through that help keep engagements and collaborations organised and professional. With her grounded nature and strong sense of responsibility, she reflects the kind of thoughtful young leadership that helps meaningful initiatives grow with care and consistency.",
 		],
 	},
