@@ -3,6 +3,7 @@ export type ArticleContentBlock =
   | { type: "paragraph"; text: string }
   | { type: "quote"; text: string }
   | { type: "list"; items: string[] }
+  | { type: "image"; src: string; alt: string }
   | { type: "raw"; text: string };
 
 export const articleBodies: Record<string, ArticleContentBlock[]> = {

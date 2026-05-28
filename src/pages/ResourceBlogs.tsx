@@ -6,20 +6,20 @@ import Footer from "@/components/Footer";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { articles } from "@/lib/articles";
 
-const orderedBlogSlugs = [
-  "your-brain-isnt-broken",
-  "digital-is-not-the-enemy-parent-guide",
-  "from-tool-to-trap-phone-starts-using-you",
-  "from-tool-to-trap-digital-dependence-in-teens",
-  "social-media-comparison-and-you",
-  "social-media-self-worth-comparison-culture",
-  "digital-is-not-the-enemy-for-teens",
-  "digital-is-not-the-enemy-for-parents",
-];
+const parsePublishedOn = (value: string) => {
+  const [day, month, year] = value.split("/").map(Number);
+  return new Date(year, month - 1, day).getTime();
+};
 
-const orderedArticles = orderedBlogSlugs
-  .map((slug) => articles.find((article) => article.slug === slug))
-  .filter((article): article is (typeof articles)[number] => Boolean(article));
+const orderedArticles = [...articles].sort((left, right) => {
+  const dateDifference = parsePublishedOn(right.publishedOn) - parsePublishedOn(left.publishedOn);
+
+  if (dateDifference !== 0) {
+    return dateDifference;
+  }
+
+  return left.title.localeCompare(right.title);
+});
 
 const ResourceBlogs = () => {
   const handleCardMouseMove = (e: MouseEvent<HTMLAnchorElement>) => {

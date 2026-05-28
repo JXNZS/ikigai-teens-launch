@@ -53,7 +53,16 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
         continue;
       }
 
-      lines.push(block.text);
+      // Only access `text` on block types that actually have it
+      if (block.type === "heading" || block.type === "paragraph" || block.type === "quote") {
+        lines.push(
+          ...block.text
+            .split("\n")
+            .map((line) => line.trim())
+            .filter((line) => line.length > 0),
+        );
+      }
+      // skip images and other non-text blocks
     }
 
     return lines.slice(0, 12);

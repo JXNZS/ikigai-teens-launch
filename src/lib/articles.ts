@@ -6,7 +6,30 @@ import blog4Parent from "@/assets/BLOG 4 PARENT FORMAT.pdf";
 import blog4Teen from "@/assets/BLOG 4 TEEN FORMAT.pdf";
 import blog5Parent from "@/assets/BLOG 5 PARENT FORMAT.pdf";
 import blog5Teen from "@/assets/BLOG 5 TEEN FORMAT.pdf";
+import zubaidaEp1Image from "@/assets/zubaida/zubaida-ep1-1.png";
+import zubaidaEp2Image from "@/assets/zubaida/zubaida-ep2-1.png";
+import zubaidaEp3Image from "@/assets/zubaida/zubaida-ep3-1.png";
+import zubaidaEp4Image from "@/assets/zubaida/zubaida-ep4-1.png";
+import zubaidaEp5Image from "@/assets/zubaida/zubaida-ep5-1.png";
+import zubaidaEp6Image from "@/assets/zubaida/zubaida-ep6-1.png";
+import zubaidaEp7Image from "@/assets/zubaida/zubaida-ep7-1.png";
 import { articleBodies, type ArticleContentBlock } from "@/lib/articleBodies";
+import { zubaidaBodies } from "./zubaidaBodies";
+
+const stripLeadingTitle = (text: string | undefined, title: string) => {
+  if (!text) return "";
+  const normalizedText = text.replace(/\r\n/g, "\n");
+  const normalizedTitle = title.trim();
+
+  if (!normalizedText.startsWith(normalizedTitle)) {
+    return text;
+  }
+
+  return normalizedText
+    .slice(normalizedTitle.length)
+    .replace(/^\n+/, "")
+    .replace(/\n/g, "\r\n");
+};
 
 export type Article = {
   slug: string;
@@ -21,102 +44,22 @@ export type Article = {
 };
 
 export const articles: Article[] = [
-  {
-    slug: "from-tool-to-trap-digital-dependence-in-teens",
-    title: "From Tool to Trap: When Digital Use Quietly Turns into Digital Dependence in Teens",
-    audience: "For Parents",
-    summary:
-      "Digital dependence rarely begins with extreme behaviour. It begins with small, invisible changes in daily life. The child who once put the phone down easily now becomes irritated when asked to.",
-    author: "Ikigai Teen",
-    pdfUrl: blog2Parent2,
-    readTime: "5 min read",
-    publishedOn: "Jan 22, 2024",
-    content: articleBodies["from-tool-to-trap-digital-dependence-in-teens"],
-  },
-  {
-    slug: "social-media-self-worth-comparison-culture",
-    title: "Social Media, Self-Worth, and Comparison Culture: Why Today's Teens Feel 'Never Enough'",
-    audience: "For Parents",
-    summary:
-      "Today's teenagers are not just growing up with social media. They are growing up inside a comparison machine, and many high-functioning teens still end up feeling like they are failing at life.",
-    author: "Ikigai Teen",
-    pdfUrl: blog3Parent,
-    readTime: "4 min read",
-    publishedOn: "Jan 29, 2024",
-    content: articleBodies["social-media-self-worth-comparison-culture"],
-  },
-  {
-    slug: "digital-is-not-the-enemy-for-parents",
-    title: "Digital Is Not the Enemy: The Missed Opportunities Parents Overlook While Focusing Only on Screen Time",
-    audience: "For Parents",
-    summary:
-      "Most conversations about teens and technology revolve around one question: how much screen time is too much. But that is the wrong starting point.",
-    author: "Ikigai Teen",
-    pdfUrl: blog4Parent,
-    readTime: "5 min read",
-    publishedOn: "Feb 5, 2024",
-    content: articleBodies["digital-is-not-the-enemy-for-parents"],
-  },
-  {
-    slug: "digital-is-not-the-enemy-parent-guide",
-    title: "Digital Is Not the Enemy: A Parent's Guide to Healthy Digital Habits for Teens",
-    audience: "For Parents",
-    summary:
-      "Teens do not need a world without screens, they need adults who can coach them toward healthier digital routines. This guide helps parents move from control-focused rules to skill-building conversations.",
-    author: "Ikigai Teen",
-    pdfUrl: blog5Parent,
-    readTime: "4 min read",
-    publishedOn: "Feb 12, 2024",
-    content: articleBodies["inside-the-teen-brain-digital-world"],
-  },
-  {
-    slug: "your-brain-isnt-broken",
-    title: "Your Brain Isn't Broken. It's Just Growing Up in a Crazy Digital World.",
-    audience: "For Teens",
-    summary:
-      "If you've ever said 'I'll stop scrolling after 5 minutes' and then it's suddenly 1 hour later, that does NOT mean you're weak, lazy, or have no self-control. It means your brain is growing up in a highly addictive digital world.",
-    author: "Irene Pais",
-    pdfUrl: blog2Teen,
-    readTime: "5 min read",
-    publishedOn: "Jan 15, 2024",
-    content: articleBodies["your-brain-isnt-broken"],
-  },
-  {
-    slug: "from-tool-to-trap-phone-starts-using-you",
-    title: "From Tool to Trap: How to Know When Your Phone Starts Using You",
-    audience: "For Teens",
-    summary:
-      "Your phone is useful. It helps you learn, relax, connect, and escape boredom. But if you're honest, you might also recognise this feeling: 'I open my phone for one thing and suddenly a lot of time is gone.'",
-    author: "Ikigai Teen",
-    pdfUrl: blog3Teen,
-    readTime: "3 min read",
-    publishedOn: "Jan 22, 2024",
-    content: articleBodies["from-tool-to-trap-phone-starts-using-you"],
-  },
-  {
-    slug: "social-media-comparison-and-you",
-    title: "Social Media, Comparison, and You: Why So Many Teens Feel 'Never Enough'",
-    audience: "For Teens",
-    summary:
-      "Have you ever looked at someone's post and suddenly felt worse about your own life? If yes, you're not alone. And you're not broken.",
-    author: "Ikigai Teen",
-    pdfUrl: blog4Teen,
-    readTime: "4 min read",
-    publishedOn: "Jan 29, 2024",
-    content: articleBodies["social-media-comparison-and-you"],
-  },
-  {
-    slug: "digital-is-not-the-enemy-for-teens",
-    title: "Digital Is Not the Enemy: How to Use Your Phone Without Wasting Your Life",
-    audience: "For Teens",
-    summary:
-      "That doesn't mean you're lazy. It means you're living in a world designed to pull attention. Your phone is not the enemy. Unconscious use is.",
-    author: "Ikigai Teen",
-    pdfUrl: blog5Teen,
-    readTime: "4 min read",
-    publishedOn: "Feb 5, 2024",
-    content: articleBodies["digital-is-not-the-enemy-for-teens"],
-  },
+  { slug: "digital-is-not-the-enemy-for-teens", title: "Digital Is Not the Enemy: How to Use Your Phone Without Wasting Your Life", audience: "For Teens", summary: "That doesn't mean you're lazy. It means you're living in a world designed to pull attention. Your phone is not the enemy. Unconscious use is.", author: "Ikigai Teen", pdfUrl: blog5Teen, readTime: "4 min read", publishedOn: "15/04/2026", content: articleBodies["digital-is-not-the-enemy-for-teens"] },
+  { slug: "digital-is-not-the-enemy-parent-guide", title: "Digital Is Not the Enemy: A Parent's Guide to Healthy Digital Habits for Teens", audience: "For Parents", summary: "Teens do not need a world without screens, they need adults who can coach them toward healthier digital routines.", author: "Ikigai Teen", pdfUrl: blog5Parent, readTime: "4 min read", publishedOn: "01/04/2026", content: articleBodies["inside-the-teen-brain-digital-world"] },
+  { slug: "digital-is-not-the-enemy-for-parents", title: "Digital Is Not the Enemy: The Missed Opportunities Parents Overlook While Focusing Only on Screen Time", audience: "For Parents", summary: "Most conversations about teens and technology revolve around one question: how much screen time is too much.", author: "Ikigai Teen", pdfUrl: blog4Parent, readTime: "5 min read", publishedOn: "18/03/2026", content: articleBodies["digital-is-not-the-enemy-for-parents"] },
+  { slug: "from-tool-to-trap-phone-starts-using-you", title: "From Tool to Trap: How to Know When Your Phone Starts Using You", audience: "For Teens", summary: "Your phone is useful. It helps you learn, relax, connect, and escape boredom.", author: "Ikigai Teen", pdfUrl: blog3Teen, readTime: "3 min read", publishedOn: "04/03/2026", content: articleBodies["from-tool-to-trap-phone-starts-using-you"] },
+  { slug: "from-tool-to-trap-digital-dependence-in-teens", title: "From Tool to Trap: When Digital Use Quietly Turns into Digital Dependence in Teens", audience: "For Parents", summary: "Digital dependence rarely begins with extreme behaviour.", author: "Ikigai Teen", pdfUrl: blog2Parent2, readTime: "5 min read", publishedOn: "18/02/2026", content: articleBodies["from-tool-to-trap-digital-dependence-in-teens"] },
+  { slug: "social-media-comparison-and-you", title: "Social Media, Comparison, and You: Why So Many Teens Feel 'Never Enough'", audience: "For Teens", summary: "Have you ever looked at someone's post and suddenly felt worse about your own life?", author: "Ikigai Teen", pdfUrl: blog4Teen, readTime: "4 min read", publishedOn: "04/02/2026", content: articleBodies["social-media-comparison-and-you"] },
+  { slug: "social-media-self-worth-comparison-culture", title: "Social Media, Self-Worth, and Comparison Culture: Why Today's Teens Feel 'Never Enough'", audience: "For Parents", summary: "Today's teenagers are growing up inside a comparison machine.", author: "Ikigai Teen", pdfUrl: blog3Parent, readTime: "4 min read", publishedOn: "21/01/2026", content: articleBodies["social-media-self-worth-comparison-culture"] },
+  { slug: "your-brain-isnt-broken", title: "Your Brain Isn't Broken. It's Just Growing Up in a Crazy Digital World.", audience: "For Teens", summary: "If you've ever said 'I'll stop scrolling after 5 minutes' and then it's suddenly 1 hour later...", author: "Irene Pais", pdfUrl: blog2Teen, readTime: "5 min read", publishedOn: "07/01/2026", content: articleBodies["your-brain-isnt-broken"] },
+
+  { slug: "zubaida-ep7-blog", title: "The Silent Struggles: Understanding Anxiety, Stress, and Self-Esteem in Teens", audience: "For Parents", summary: "Episode 7 in the Zubaida series.", author: "Zubaida", pdfUrl: "", readTime: "5 min read", publishedOn: "24/12/2025", content: [ { type: "image", src: zubaidaEp7Image, alt: "Zubaida Ep7 Blog image" }, { type: "raw", text: stripLeadingTitle(zubaidaBodies["zubaida-ep7-blog"], "The Silent Struggles: Understanding Anxiety, Stress, and Self-Esteem in Teens") } ] },
+  { slug: "zubaida-ep6-blog", title: "Who Am I? Navigating Teen Identity, Belonging, and Peer Pressure", audience: "For Parents", summary: "Episode 6 in the Zubaida series.", author: "Zubaida", pdfUrl: "", readTime: "5 min read", publishedOn: "10/12/2025", content: [ { type: "image", src: zubaidaEp6Image, alt: "Zubaida Ep6 Blog image" }, { type: "raw", text: stripLeadingTitle(zubaidaBodies["zubaida-ep6-blog"], "Who Am I? Navigating Teen Identity, Belonging, and Peer Pressure") } ] },
+  { slug: "zubaida-ep5-blog", title: "Digital Overload: Why Our Teens Can't Just 'Switch Off'", audience: "For Parents", summary: "Episode 5 in the Zubaida series.", author: "Zubaida", pdfUrl: "", readTime: "5 min read", publishedOn: "26/11/2025", content: [ { type: "image", src: zubaidaEp5Image, alt: "Zubaida Ep5 Blog image" }, { type: "raw", text: stripLeadingTitle(zubaidaBodies["zubaida-ep5-blog"], "Digital Overload: Why Our Teens Can't Just 'Switch Off'") } ] },
+  { slug: "zubaida-ep4-blog", title: "What Were They Thinking? Unlocking the Secrets of the Teen Mindset", audience: "For Parents", summary: "Episode 4 in the Zubaida series.", author: "Zubaida", pdfUrl: "", readTime: "5 min read", publishedOn: "12/11/2025", content: [ { type: "image", src: zubaidaEp4Image, alt: "Zubaida Ep4 Blog image" }, { type: "raw", text: stripLeadingTitle(zubaidaBodies["zubaida-ep4-blog"], "What Were They Thinking? Unlocking the Secrets of the Teen Mindset") } ] },
+  { slug: "zubaida-ep3-blog", title: "The Teen Transition: Why Your Presence as a Parent Matters More Than Ever", audience: "For Parents", summary: "Episode 3 in the Zubaida series.", author: "Zubaida", pdfUrl: "", readTime: "5 min read", publishedOn: "29/10/2025", content: [ { type: "image", src: zubaidaEp3Image, alt: "Zubaida Ep3 Blog image" }, { type: "raw", text: stripLeadingTitle(zubaidaBodies["zubaida-ep3-blog"], "The Teen Transition: Why Your Presence as a Parent Matters More Than Ever") } ] },
+  { slug: "zubaida-ep2-blog", title: "6 More Principles to Empower Tomorrow's Leaders", audience: "For Parents", summary: "Episode 2 in the Zubaida series.", author: "Zubaida", pdfUrl: "", readTime: "5 min read", publishedOn: "15/10/2025", content: [ { type: "image", src: zubaidaEp2Image, alt: "Zubaida Ep2 Blog image" }, { type: "raw", text: stripLeadingTitle(zubaidaBodies["zubaida-ep2-blog"], "6 More Principles to Empower Tomorrow's Leaders") } ] },
+  { slug: "zubaida-ep1-blog", title: "Feeling Stuck with your teen? 6 Principles for Building a Stronger, More Resilient Life", audience: "For Parents", summary: "Episode 1 in the Zubaida series.", author: "Zubaida", pdfUrl: "", readTime: "5 min read", publishedOn: "01/10/2025", content: [ { type: "image", src: zubaidaEp1Image, alt: "Zubaida Ep1 Blog image" }, { type: "raw", text: stripLeadingTitle(zubaidaBodies["zubaida-ep1-blog"], "Feeling Stuck with your teen? 6 Principles for Building a Stronger, More Resilient Life") } ] },
 ];
 
 export const findArticleBySlug = (slug?: string) => articles.find((article) => article.slug === slug);

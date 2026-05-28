@@ -7,6 +7,15 @@ import { articles, findArticleBySlug } from "@/lib/articles";
 import PdfInlineViewer from "@/components/ui/pdf-inline-viewer";
 import TextToSpeechButton, { resetTextToSpeechState } from "@/components/TextToSpeechButton";
 
+const normalizeCitationText = (text: string) => {
+  return text
+    .replace(/`r`n/g, "\n")
+    .replace(/\\\[/g, "[")
+    .replace(/\\\]/g, "]")
+    .replace(/\[\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)\]/g, "[$1]($2)")
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, "[$1]");
+};
+
 const ResourceArticle = () => {
   const { slug } = useParams();
   const article = findArticleBySlug(slug);
@@ -90,8 +99,21 @@ const ResourceArticle = () => {
                   if (block.type === "raw") {
                     return (
                       <div key={key} className="text-muted-foreground text-lg leading-loose whitespace-pre-wrap">
-                        {block.text}
+                        {normalizeCitationText(block.text)}
                       </div>
+                    );
+                  }
+
+                  if (block.type === "image") {
+                    return (
+                      <figure key={key} className="my-3 md:my-4">
+                        <img
+                          src={block.src}
+                          alt={block.alt}
+                          className="w-full h-auto rounded-lg border border-border/40 bg-card"
+                          loading="lazy"
+                        />
+                      </figure>
                     );
                   }
 
