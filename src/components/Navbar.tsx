@@ -14,17 +14,17 @@ export const navItems = [
   {
     label: "About",
     path: "/about",
-    children: ["Vision, Mission & Values", "Grounding Philosophy", "The Journey", "Architects of IkigaiTeen"],
+    children: ["Vision, Mission & Values", "Grounding Philosophy", "The Journey", "Architects of Ikigai Teen"],
   },
   {
     label: "Teen Zone",
     path: "/teenzone",
-    children: ["Know Yourself", "Teen Toolkit", "IkigaiTeen Club", "IkigaiTeen App"],
+    children: ["Know Yourself", "Teen Toolkit", "Ikigai Teen Club", "Ikigai Teen App"],
   },
   {
     label: "Parent Hub",
     path: "/parent-hub",
-    children: ["Parent Role", "Parent Challenges", "Parent Collab", "IkigaiTeen Parent Circle"],
+    children: ["Parent Role", "Parent Challenges", "Parent Collab", "Ikigai Teen Parent Circle"],
   },
   {
     label: "Resources",
@@ -144,7 +144,7 @@ const Navbar = () => {
   };
 
   const getChildPath = (parentLabel: string, childLabel: string, fallbackPath: string) => {
-    if (parentLabel === "About" && childLabel === "Architects of IkigaiTeen") {
+    if (parentLabel === "About" && childLabel === "Architects of Ikigai Teen") {
       return "/about/founder-team";
     }
 
@@ -168,11 +168,11 @@ const Navbar = () => {
       return "/teenzone/teen-toolkit";
     }
 
-    if (parentLabel === "Teen Zone" && childLabel === "IkigaiTeen Club") {
+    if (parentLabel === "Teen Zone" && childLabel === "Ikigai Teen Club") {
       return "/teenzone/ikigai-teen-club";
     }
 
-    if (parentLabel === "Teen Zone" && childLabel === "IkigaiTeen App") {
+    if (parentLabel === "Teen Zone" && childLabel === "Ikigai Teen App") {
       return "/teenzone/ikigai-teen-app";
     }
 
@@ -188,7 +188,7 @@ const Navbar = () => {
       return "/parent-hub/parent-collab";
     }
 
-    if (parentLabel === "Parent Hub" && childLabel === "IkigaiTeen Parent Circle") {
+    if (parentLabel === "Parent Hub" && childLabel === "Ikigai Teen Parent Circle") {
       return "/parent-hub/parent-circle";
     }
 

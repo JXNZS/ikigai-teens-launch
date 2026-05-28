@@ -8,7 +8,7 @@ const sections = [
   },
   { title: "Grounding Philosophy", path: "/about/grounding-philosophy", description: "Rooted in the Japanese concept of Ikigai, we help teens find balance, direction, and meaningful growth." },
   { title: "The Journey", path: "/about/journey", description: "From a small initiative to a growing movement, Ikigai Teen has been on a mission to empower teenagers across communities to live with purpose and passion." },
-  { title: "Architects of IkigaiTeen", description: "Meet the passionate team behind Ikigai Teen — educators, mentors, and youth advocates dedicated to making a difference in every teen's life." },
+  { title: "Architects of Ikigai Teen", description: "Meet the passionate team behind Ikigai Teen — educators, mentors, and youth advocates dedicated to making a difference in every teen's life." },
 ];
 
 const About = () => (

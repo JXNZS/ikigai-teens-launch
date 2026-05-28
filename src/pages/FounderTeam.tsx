@@ -143,10 +143,10 @@ const FounderTeam = () => {
 					<div className="container mx-auto px-4 sm:px-6 max-w-4xl text-center">
 						<h1>
 							<LetterSwapForward
-								label="Architects of IkigaiTeen"
-								className="justify-center text-4xl md:text-5xl font-display font-bold mb-4"
-								style={{ color: '#FCEADE' }}
-							/>
+									label="Architects of Ikigai Teen"
+									className="justify-center text-4xl md:text-5xl font-display font-bold mb-4"
+									style={{ color: '#FCEADE' }}
+								/>
 						</h1>
 						<p className="text-lg text-white font-body">Meet the people shaping Ikigai Teen.</p>
 					</div>

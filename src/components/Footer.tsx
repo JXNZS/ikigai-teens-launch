@@ -88,7 +88,7 @@ const Footer = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   const getChildPath = (groupLabel: string, childLabel: string, fallbackPath: string) => {
-    if (groupLabel === "About" && childLabel === "Architects of IkigaiTeen") {
+    if (groupLabel === "About" && childLabel === "Architects of Ikigai Teen") {
       return "/about/founder-team";
     }
 
@@ -112,11 +112,11 @@ const Footer = () => {
       return "/teenzone/teen-toolkit";
     }
 
-    if (groupLabel === "Teen Zone" && childLabel === "IkigaiTeen Club") {
+    if (groupLabel === "Teen Zone" && childLabel === "Ikigai Teen Club") {
       return "/teenzone/ikigai-teen-club";
     }
 
-    if (groupLabel === "Teen Zone" && childLabel === "IkigaiTeen App") {
+    if (groupLabel === "Teen Zone" && childLabel === "Ikigai Teen App") {
       return "/teenzone/ikigai-teen-app";
     }
 
@@ -132,7 +132,7 @@ const Footer = () => {
       return "/parent-hub/parent-collab";
     }
 
-    if (groupLabel === "Parent Hub" && childLabel === "IkigaiTeen Parent Circle") {
+    if (groupLabel === "Parent Hub" && childLabel === "Ikigai Teen Parent Circle") {
       return "/parent-hub/parent-circle";
     }
 

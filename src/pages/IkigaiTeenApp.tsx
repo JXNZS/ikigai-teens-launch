@@ -478,7 +478,7 @@ const IkigaiTeenApp = () => {
           <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-display font-bold mb-4" style={{ color: '#FCEADE' }}>
-                <LetterSwapForward label="IkigaiTeen App" className="justify-center" />
+                 <LetterSwapForward label="Ikigai Teen App" className="justify-center" />
               </h1>
               <p className="text-lg md:text-xl text-white font-medium">
                 Under construction
