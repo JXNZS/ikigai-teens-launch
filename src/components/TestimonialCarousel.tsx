@@ -108,7 +108,7 @@ const testimonials: Testimonial[] = [
     name: "Dilip C.S",
     title: "Entrepreneur | Co-Founder, Kalpamrutha",
     img: Dilip,
-    imgPosition: "50% 30%",
+    imgPosition: "50% 0%",
     imgScale: 1,
     imgAlign: "left",
   },
@@ -129,15 +129,19 @@ const TestimonialSlide = ({ testimonial }: { testimonial: Testimonial }) => {
             testimonial.imgAlign === "right" ? "md:flex-row-reverse" : ""
           }`}
         >
-          <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 rounded-full overflow-hidden">
+          <div
+            className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-32 md:h-32 rounded-2xl overflow-hidden"
+            style={{ borderRadius: '0.75rem' }}
+          >
             <img
               src={testimonial.img}
               alt={testimonial.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-xl"
               style={{
                 objectPosition: testimonial.imgPosition ?? "50% 30%",
                 transform: `scale(${testimonial.imgScale ?? 1})`,
                 transition: "transform 300ms ease",
+                borderRadius: '0.5rem',
               }}
             />
           </div>
