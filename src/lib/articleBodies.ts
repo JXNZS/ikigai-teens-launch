@@ -95,7 +95,7 @@ Instead of starting with rules this week, try one conversation:
       type: "raw",
       text: `Your Brain Isn’t Broken.
 It’s Just Growing Up in a Crazy Digital World.
-Ikigai Teen by Irene Pais
+Ikigai Teen by Irene Arathi
 Let’s start with something important:
 If you’ve ever said:
 “I’ll stop scrolling after 5 minutes” and then it’s suddenly 1 hour later
