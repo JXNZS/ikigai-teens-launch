@@ -48,8 +48,8 @@ const testimonials: Testimonial[] = [
     title:
       "Master Trainer-Disaster Management and First Aid. \nNational & South Aisa Regional Disaster Response Team\nIndian Red Cross Society",
     img: Kumar,
-    imgPosition: "50% 30%",
-    imgScale: 1,
+    imgPosition: "50% -80%",
+    imgScale: 1.4,
     imgAlign: "left",
   },
   {
