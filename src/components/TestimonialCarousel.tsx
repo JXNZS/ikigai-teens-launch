@@ -69,7 +69,7 @@ const testimonials: Testimonial[] = [
     title: "Centre Director — Trans Family Services, Singapore",
     img: Manivannan,
     imgPosition: "50% 30%",
-    imgScale: 1,
+    imgScale: 1.4,
     imgAlign: "left",
   },
   {
