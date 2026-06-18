@@ -91,19 +91,6 @@ const teamMembers: TeamMember[] = [
 			"At Ikigai Teen, Jeevan supports both application and website development, along with collaboration-building efforts that strengthen the initiative's digital and operational ecosystem, driving innovation and rapid evolution. His interests in tech design, systems thinking, and continuous learning make him a valuable contributor to a mission-driven platform designed for the next generation. Passionate about growth and stepping beyond his comfort zone, Jeevan embodies the curiosity, adaptability, and purpose-driven mindset that Ikigai Teen seeks to nurture in young people.",
 		],
 	},
-	{
-		name: "Jiya Giri",
-		role: "Networking & Business Coordination",
-		region: "India",
-		image: jiyaPhoto,
-		imageClassName: "object-center",
-		imageStyle: { objectPosition: "50% 90%", transform: "translateX(0%) translateY(0%) scale(1.0)", transformOrigin: "center center" },
-		quote: "Grace, responsibility, and sincerity in small actions often build the strongest foundations.",
-		bio: [
-			"Jiya Giri is a young and thoughtful contributor from Dharwad, with a strong interest in healthcare, emotional well-being, and meaningful human connection. Currently pursuing her studies in science, she brings a calm, responsible, and people-centred approach to the work she takes on. Known for being polished, sincere, and meticulous, Jiya has a natural ability to communicate with warmth, attentiveness, and care.",
-			"At Ikigai Teen, Jiya supports networking, coordination, and relationship management across key areas of the initiative. Her role includes assisting with communication, stakeholder coordination, and operational follow-through that help keep engagements and collaborations organised and professional. With her grounded nature and strong sense of responsibility, she reflects the kind of thoughtful young leadership that helps meaningful initiatives grow with care and consistency.",
-		],
-	},
 ];
 
 const CircleProfilePhoto = ({ src, alt, imageClassName, imageStyle }: { src: string; alt: string; imageClassName?: string; imageStyle?: CSSProperties }) => {

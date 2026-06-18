@@ -7,12 +7,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 
-// Target date: June 15th of this year (or next year if passed)
+// Target date: August 15th of this year (or next year if passed)
 function getTargetDate() {
   const now = new Date();
-  let target = new Date(now.getFullYear(), 5, 15, 0, 0, 0); // month 5 = June
+  let target = new Date(now.getFullYear(), 7, 15, 0, 0, 0); // month 7 = August
   if (now > target) {
-    target = new Date(now.getFullYear() + 1, 5, 15, 0, 0, 0);
+    target = new Date(now.getFullYear() + 1, 7, 15, 0, 0, 0);
   }
   return target;
 }
@@ -21,9 +21,9 @@ const TARGET_DATE = getTargetDate();
 
 function getSeason2Date() {
   const now = new Date();
-  let target = new Date(now.getFullYear(), 5, 5, 0, 0, 0); // June 5
+  let target = new Date(now.getFullYear(), 6, 15, 0, 0, 0); // July 15
   if (now > target) {
-    target = new Date(now.getFullYear() + 1, 5, 5, 0, 0, 0);
+    target = new Date(now.getFullYear() + 1, 6, 15, 0, 0, 0);
   }
   return target;
 }
@@ -124,7 +124,7 @@ export default function UpcomingEvents() {
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
                 <h2 className="text-4xl md:text-3xl lg:text-6xl font-semibold tracking-tight text-balance text-primary">Ikigai Teen Initiative</h2>
-                <h3 className="text-2xl md:text-2xl lg:text-3xl font-semibold tracking-tight text-balance text-primary">Grand Launch — June 15</h3>
+                <h3 className="text-2xl md:text-2xl lg:text-3xl font-semibold tracking-tight text-balance text-primary">Grand Launch — August 15</h3>
                 <p className="text-muted-foreground text-base md:text-lg max-w-xl leading-relaxed">Join us for the official launch of the Ikigai Teen Initiative in Schools. Be among the first to experience our new programs, workshops, and community offerings.</p>
 
                 <div className="grid grid-cols-3 gap-2 md:flex md:items-center md:gap-4 relative z-10 w-full md:w-auto">
@@ -149,8 +149,8 @@ export default function UpcomingEvents() {
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
                 <h2 className="text-4xl md:text-3xl lg:text-6xl font-semibold tracking-tight text-balance text-primary">Season 2: Ikigai Teen Conversations</h2>
-                <h3 className="text-2xl md:text-2xl lg:text-3xl font-semibold tracking-tight text-balance text-primary">Podcast Releases — June 5</h3>
-                <p className="text-muted-foreground text-base md:text-lg max-w-xl leading-relaxed">A new season of podcasts releasing on June 5 — conversations with teens, coaches, and educators offering practical insights and stories.</p>
+                <h3 className="text-2xl md:text-2xl lg:text-3xl font-semibold tracking-tight text-balance text-primary">Podcast Releases — July 15</h3>
+                <p className="text-muted-foreground text-base md:text-lg max-w-xl leading-relaxed">A new season of podcasts releasing on July 15 — conversations with teens, coaches, and educators offering practical insights and stories.</p>
 
                 <div className="grid grid-cols-3 gap-2 md:flex md:items-center md:gap-4 relative z-10 w-full md:w-auto">
                   <TimeUnit value={timeSeason2?.hours ?? 0} label="Hours" />

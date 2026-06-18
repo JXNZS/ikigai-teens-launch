@@ -88,7 +88,7 @@ const testimonials: Testimonial[] = [
     name: "Archana Jayaprasad",
     title: "Chicago",
     img: Archana,
-    imgPosition: "50% 20%",
+    imgPosition: "50% 50%",
     imgScale: 1,
     imgAlign: "left",
   },
