@@ -4,7 +4,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  assetsInclude: ["**/*.HEIC", "**/*.heic", "**/*.PNG"],
+  assetsInclude: ["**/*.HEIC", "**/*.heic", "**/*.PNG", "**/*.docx"],
   server: {
     host: "::",
     port: 8080,
