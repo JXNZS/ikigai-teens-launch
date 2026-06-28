@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
-import { Calendar, Clock3, User } from "lucide-react";
+import { Calendar, Clock3, User, Eye } from "lucide-react";
+import { useEffect, useState } from "react";
 import type { MouseEvent } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import { articles } from "@/lib/articles";
+import { getBlogViews } from "@/lib/blogViews";
 
 const parsePublishedOn = (value: string) => {
   const [day, month, year] = value.split("/").map(Number);
@@ -22,6 +24,16 @@ const orderedArticles = [...articles].sort((left, right) => {
 });
 
 const ResourceBlogs = () => {
+  const [views, setViews] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    const viewsMap: Record<string, number> = {};
+    articles.forEach((article) => {
+      viewsMap[article.slug] = getBlogViews(article.slug);
+    });
+    setViews(viewsMap);
+  }, []);
+
   const handleCardMouseMove = (e: MouseEvent<HTMLAnchorElement>) => {
     const card = e.currentTarget;
     const rect = card.getBoundingClientRect();
@@ -104,6 +116,10 @@ const ResourceBlogs = () => {
                       <span className="inline-flex items-center gap-1.5">
                         <Clock3 className="h-3.5 w-3.5" />
                         {article.readTime}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <Eye className="h-3.5 w-3.5" />
+                        {views[article.slug] !== undefined ? `${views[article.slug]} views` : "..."}
                       </span>
                     </div>
                   </div>

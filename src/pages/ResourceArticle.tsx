@@ -1,11 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, Navigate, useLocation, useParams } from "react-router-dom";
-import { ArrowLeft, Calendar, Clock3, User } from "lucide-react";
+import { ArrowLeft, Calendar, Clock3, User, Eye } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { articles, findArticleBySlug } from "@/lib/articles";
 import PdfInlineViewer from "@/components/ui/pdf-inline-viewer";
 import TextToSpeechButton, { resetTextToSpeechState } from "@/components/TextToSpeechButton";
+import { getBlogViews, incrementBlogViews } from "@/lib/blogViews";
 
 const normalizeCitationText = (text: string) => {
   return text
@@ -21,6 +22,23 @@ const ResourceArticle = () => {
   const article = findArticleBySlug(slug);
   const location = useLocation();
   const contentRef = useRef<HTMLDivElement>(null);
+
+  const [views, setViews] = useState<number | undefined>(undefined);
+  const [moreViews, setMoreViews] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    if (article) {
+      const updatedViews = incrementBlogViews(article.slug);
+      setViews(updatedViews);
+
+      const moreViewsMap: Record<string, number> = {};
+      const related = articles.filter((item) => item.slug !== article.slug).slice(0, 4);
+      related.forEach((item) => {
+        moreViewsMap[item.slug] = getBlogViews(item.slug);
+      });
+      setMoreViews(moreViewsMap);
+    }
+  }, [slug]);
 
   useEffect(() => {
     return () => {
@@ -67,6 +85,10 @@ const ResourceArticle = () => {
               <span className="inline-flex items-center gap-2">
                 <Clock3 className="h-4 w-4" />
                 {article.readTime}
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <Eye className="h-4 w-4" />
+                {views !== undefined ? `${views} views` : "..."}
               </span>
             </div>
           </div>
@@ -143,15 +165,23 @@ const ResourceArticle = () => {
             <div>
               <h2 className="text-2xl md:text-3xl font-display font-semibold text-foreground mb-6">More Articles</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {moreArticles.map((item) => (
+                 {moreArticles.map((item) => (
                   <Link
                     key={item.slug}
                     to={`/resources/blog/${item.slug}`}
-                    className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-5 hover:border-primary/40 transition-colors"
+                    className="rounded-xl border border-border/60 bg-white [--foreground:0_0%_0%] [--muted-foreground:0_0%_0%] [--border:152_20%_86%] p-5 hover:border-primary/40 transition-colors flex flex-col justify-between"
                   >
-                    <p className="text-xs font-semibold text-primary mb-1.5">{item.audience}</p>
-                    <h3 className="text-lg font-semibold text-primary mb-2">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.summary}</p>
+                    <div>
+                      <p className="text-xs font-semibold text-primary mb-1.5">{item.audience}</p>
+                      <h3 className="text-lg font-semibold text-primary mb-2">{item.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-4">{item.summary}</p>
+                    </div>
+                    <div className="flex items-center text-xs text-muted-foreground mt-2">
+                      <span className="inline-flex items-center gap-1.5">
+                        <Eye className="h-3.5 w-3.5" />
+                        {moreViews[item.slug] !== undefined ? `${moreViews[item.slug]} views` : "..."}
+                      </span>
+                    </div>
                   </Link>
                 ))}
               </div>

@@ -1,0 +1,27 @@
+import { describe, it, expect, beforeEach } from "vitest";
+import { getBlogViews, incrementBlogViews } from "../lib/blogViews";
+
+describe("blogViews utility", () => {
+  beforeEach(() => {
+    localStorage.clear();
+  });
+
+  it("should return a deterministic initial value for a slug", () => {
+    const slug = "test-slug-1";
+    const views1 = getBlogViews(slug);
+    const views2 = getBlogViews(slug);
+
+    expect(views1).toBeGreaterThanOrEqual(84);
+    expect(views1).toBeLessThanOrEqual(472);
+    expect(views1).toBe(views2);
+  });
+
+  it("should increment views when incrementBlogViews is called", () => {
+    const slug = "test-slug-2";
+    const initialViews = getBlogViews(slug);
+    const nextViews = incrementBlogViews(slug);
+
+    expect(nextViews).toBe(initialViews + 1);
+    expect(getBlogViews(slug)).toBe(initialViews + 1);
+  });
+});

@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Eye } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { articles } from "@/lib/articles";
+import { getBlogViews } from "@/lib/blogViews";
 
 export interface TestimonialCarouselProps {
   className?: string;
@@ -13,6 +14,15 @@ export interface TestimonialCarouselProps {
 
 export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [views, setViews] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    const viewsMap: Record<string, number> = {};
+    articles.forEach((article) => {
+      viewsMap[article.slug] = getBlogViews(article.slug);
+    });
+    setViews(viewsMap);
+  }, []);
 
   const handleNext = () => setCurrentIndex((index) => (index + 1) % articles.length);
   const handlePrevious = () => setCurrentIndex((index) => (index - 1 + articles.length) % articles.length);
@@ -107,7 +117,15 @@ export function TestimonialCarousel({ className }: TestimonialCarouselProps) {
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
-                <p className="text-xs uppercase tracking-[0.14em] text-primary font-semibold mb-1.5">{currentArticle.audience}</p>
+                <div className="flex justify-between items-center mb-1.5">
+                  <p className="text-xs uppercase tracking-[0.14em] text-primary font-semibold">{currentArticle.audience}</p>
+                  {views[currentArticle.slug] !== undefined && (
+                    <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <Eye className="h-3.5 w-3.5" />
+                      {views[currentArticle.slug]} views
+                    </span>
+                  )}
+                </div>
                 <p className="text-sm text-[hsl(195_25%_18%)] leading-relaxed mb-4 line-clamp-4 min-h-[5rem]">{currentArticle.summary}</p>
 
                 <motion.span
