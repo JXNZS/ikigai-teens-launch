@@ -16,6 +16,11 @@ describe("blogViews utility", () => {
     expect(views1).toBe(views2);
   });
 
+  it("should return exactly 21 views for the high achieving students slug", () => {
+    const slug = "why-high-achieving-students-are-more-vulnerable-to-burnout";
+    expect(getBlogViews(slug)).toBe(21);
+  });
+
   it("should increment views when incrementBlogViews is called", () => {
     const slug = "test-slug-2";
     const initialViews = getBlogViews(slug);

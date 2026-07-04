@@ -641,4 +641,160 @@ We give them the freedom to grow without losing themselves.
 
 In our next blog, we'll explore another important question: "Why High-Achieving Students Are More Vulnerable to Burnout." It's a conversation every parent of an ambitious teenager should read.
 `,
+  "why-high-achieving-students-are-more-vulnerable-to-burnout": `Why High-Achieving Students Are More Vulnerable to Burnout
+Welcome back to the Ikigai Teen blog.
+
+In our previous articles, we explored how burnout often hides behind good grades and why it is very different from everyday stress. Today, we're addressing another question that surprises many parents:
+
+If a teenager is succeeding academically, shouldn't they be less likely to burn out?
+
+Ironically, the opposite is often true.
+
+Some of the students most vulnerable to burnout are not the ones who struggle in school. They are the ones who rarely miss deadlines, consistently score high marks, and earn praise for being "responsible."
+
+From the outside, they appear to have everything under control.
+
+On the inside, many are carrying a weight that few people notice.
+
+Success Can Become a Trap
+
+Imagine climbing a staircase.
+
+The first few steps feel exciting because every achievement brings confidence. A good grade, a compliment from a teacher, or recognition from family reinforces the belief that hard work pays off.
+
+But sometimes, without anyone intending it, success quietly changes its meaning.
+
+Instead of becoming something to celebrate, it becomes something to maintain.
+
+A student who once studied because they loved learning may begin studying because they are afraid of disappointing others.
+
+The motivation shifts from "I want to grow" to "I can't afford to fall behind."
+
+That shift is where the risk begins.
+
+The Hidden Pressure of Being "The Smart One"
+
+High-achieving teenagers often develop an identity around being successful.
+
+Friends describe them as intelligent.
+
+Teachers rely on them.
+
+Parents proudly introduce them as the child who always performs well.
+
+While these compliments come from love and admiration, they can unintentionally create pressure.
+
+The teenager begins believing they must always live up to that image.
+
+Every test becomes a measure of who they are rather than simply what they know.
+
+Every mistake feels public.
+
+Every setback feels personal.
+
+Over time, maintaining the identity becomes more exhausting than pursuing the goal itself.
+
+When Praise Becomes a Performance Contract
+
+Parents naturally celebrate achievements.
+
+The challenge arises when achievements become the primary source of appreciation.
+
+If conversations revolve around marks, rankings, awards, and future careers, teenagers may begin to assume that success is what earns love, attention, and approval.
+
+Even when parents never say this directly, young minds can interpret it that way.
+
+Gradually, they stop asking themselves,
+
+"What do I enjoy?"
+
+and start asking,
+
+"What will make everyone proud?"
+
+That is a heavy question for any teenager to carry.
+
+Perfection Isn't the Goal—Safety Is
+
+Many people assume perfectionists simply want everything to be flawless.
+
+In reality, many high-achieving students are not chasing perfection because they enjoy it.
+
+They are chasing certainty.
+
+If they score full marks, perhaps they won't disappoint anyone.
+
+If they prepare for every possible outcome, perhaps nothing will go wrong.
+
+Perfection becomes less about excellence and more about protection.
+
+Unfortunately, certainty is impossible.
+
+No matter how much they achieve, another challenge always appears.
+
+The finish line keeps moving.
+
+The Cost of Always Being Strong
+
+High-achieving students are often the last to ask for help.
+
+They worry that admitting they are struggling will disappoint the people who believe in them.
+
+So they smile.
+
+They continue performing.
+
+They reassure everyone that everything is fine.
+
+Eventually, many become experts at hiding exhaustion.
+
+This is why burnout can remain invisible for months.
+
+Sometimes even the teenager doesn't realise how overwhelmed they have become until their motivation suddenly disappears.
+
+What Parents Can Do Differently
+
+One of the greatest gifts parents can offer is separating achievement from identity.
+
+Instead of saying,
+
+"I'm proud of you because you scored well,"
+
+try saying,
+
+"I'm proud of the kindness, resilience, and integrity you show every day."
+
+Celebrate effort, but also celebrate curiosity.
+
+Celebrate discipline, but also celebrate rest.
+
+Celebrate achievements, but also celebrate character.
+
+When teenagers know they are valued for who they are—not just what they accomplish—they become more willing to take healthy risks, make mistakes, and ask for help when they need it.
+
+A Reflection for Parents
+
+Take a moment to think about the conversations you've had with your teenager recently.
+
+How often have you asked about marks?
+
+How often have you asked about their happiness?
+
+How often have you asked what they're excited to learn, explore, or create?
+
+Sometimes the questions we ask reveal the values we unintentionally communicate.
+
+Final Thought
+
+High achievement is something to be celebrated.
+
+But it should never become a teenager's entire identity.
+
+The goal of education is not simply to produce impressive report cards. It is to nurture young people who are curious, resilient, compassionate, and confident enough to grow through both success and failure.
+
+At Ikigai Teen, we believe the healthiest students are not those who never stumble. They are the ones who know that their worth does not rise and fall with every result.
+
+Because when teenagers feel free to learn instead of feeling obligated to prove themselves, achievement becomes a joyful journey—not a burden to carry.
+
+In our next blog, we'll explore another important question: "When Encouragement Feels Like Pressure: A Parent's Guide." Together, we'll look at how well-meaning words can sometimes create unintended stress—and how small changes in our conversations can make a lasting difference.`,
 };

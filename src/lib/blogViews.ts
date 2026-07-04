@@ -1,4 +1,7 @@
 const getBaseViews = (slug: string): number => {
+  if (slug === "why-high-achieving-students-are-more-vulnerable-to-burnout") {
+    return 21;
+  }
   let hash = 0;
   for (let i = 0; i < slug.length; i++) {
     hash = slug.charCodeAt(i) + ((hash << 5) - hash);
@@ -12,6 +15,15 @@ export const getBlogViews = (slug: string): number => {
     return getBaseViews(slug);
   }
   const viewsKey = `blog_views_${slug}`;
+  
+  // Force reset this specific blog to 21 once on the client side
+  const initializedKey = `blog_initialized_21_${slug}`;
+  if (slug === "why-high-achieving-students-are-more-vulnerable-to-burnout" && !localStorage.getItem(initializedKey)) {
+    localStorage.setItem(viewsKey, "21");
+    localStorage.setItem(initializedKey, "true");
+    return 21;
+  }
+
   const stored = localStorage.getItem(viewsKey);
   if (stored !== null) {
     const num = parseInt(stored, 10);
