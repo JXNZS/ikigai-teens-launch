@@ -9,6 +9,7 @@ import blog5Teen from "@/assets/BLOG 5 TEEN FORMAT.pdf";
 import websiteBlog1Image from "@/assets/website blog 1 image.png";
 import websiteBlog2Image from "@/assets/Website blog 2 png.png";
 import websiteBlog3Image from "@/assets/website Blog 3 png.png";
+import websiteBlog4Image from "@/assets/Website blog 4 png.png";
 import zubaidaEp1Image from "@/assets/zubaida/zubaida-ep1-1.png";
 import zubaidaEp2Image from "@/assets/zubaida/zubaida-ep2-1.png";
 import zubaidaEp3Image from "@/assets/zubaida/zubaida-ep3-1.png";
@@ -57,6 +58,7 @@ export type Article = {
 };
 
 export const articles: Article[] = [
+  { slug: "when-encouragement-feels-like-pressure", title: "When Encouragement Feels Like Pressure: A Parent's Guide", audience: "For Parents", summary: "Can encouragement itself sometimes become pressure? For many parents, this idea feels uncomfortable.", author: "Ikigai Teen", pdfUrl: "", readTime: "5 min read", publishedOn: "11/07/2026", content: [ { type: "image", src: websiteBlog4Image, alt: "When Encouragement Feels Like Pressure" }, { type: "raw", text: stripLeadingTitle(getArticleBodyString("when-encouragement-feels-like-pressure"), "When Encouragement Feels Like Pressure: A Parent's Guide") } ] },
   { slug: "why-high-achieving-students-are-more-vulnerable-to-burnout", title: "Why High-Achieving Students Are More Vulnerable to Burnout", audience: "For Parents", summary: "If a teenager is succeeding academically, shouldn't they be less likely to burn out? Ironically, the opposite is often true.", author: "Ikigai Teen", pdfUrl: "", readTime: "5 min read", publishedOn: "04/07/2026", content: [ { type: "image", src: websiteBlog3Image, alt: "Why High-Achieving Students Are More Vulnerable to Burnout" }, { type: "raw", text: stripLeadingTitle(getArticleBodyString("why-high-achieving-students-are-more-vulnerable-to-burnout"), "Why High-Achieving Students Are More Vulnerable to Burnout") } ] },
   { slug: "is-your-teen-burned-out", title: "Is Your Teen Burned Out? The Warning Sign Most Parents Never Notice", audience: "For Parents", summary: "Burnout isn't always visible. Sometimes it hides behind good grades. Sometimes it hides behind responsibility. Sometimes it hides behind a smile.", author: "Ikigai Teen", pdfUrl: "", readTime: "4 min read", publishedOn: "20/06/2026", content: [ { type: "image", src: websiteBlog1Image, alt: "Teen burnout illustration" }, { type: "raw", text: stripLeadingTitle(getArticleBodyString("is-your-teen-burned-out"), "Is Your Teen Burned Out? The Warning Sign Most Parents Never Notice") } ] },
   { slug: "stress-vs-burnout-in-teens", title: "The Difference Between Stress and Burnout in Teenagers: When \"Busy\" Becomes \"Empty\"", audience: "For Parents", summary: "How to tell if your teen is stressed or burned out and what to do next.", author: "Ikigai Teen", pdfUrl: "", readTime: "4 min read", publishedOn: "27/06/2026", content: [ { type: "image", src: websiteBlog2Image, alt: "Stress vs Burnout illustration" }, { type: "raw", text: stripLeadingTitle(getArticleBodyString("stress-vs-burnout-in-teens"), "The Difference Between Stress and Burnout in Teenagers: When \"Busy\" Becomes \"Empty\"") } ] },

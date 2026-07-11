@@ -797,4 +797,174 @@ At Ikigai Teen, we believe the healthiest students are not those who never stumb
 Because when teenagers feel free to learn instead of feeling obligated to prove themselves, achievement becomes a joyful journey—not a burden to carry.
 
 In our next blog, we'll explore another important question: "When Encouragement Feels Like Pressure: A Parent's Guide." Together, we'll look at how well-meaning words can sometimes create unintended stress—and how small changes in our conversations can make a lasting difference.`,
+  "when-encouragement-feels-like-pressure": `When Encouragement Feels Like Pressure: A Parent's Guide
+Welcome back to the Ikigai Teen blog.
+
+Over the past few weeks, we've explored how burnout often hides behind success, how it differs from everyday stress, and why high-achieving students are especially vulnerable. But this naturally leads to another important question:
+
+Can encouragement itself sometimes become pressure?
+
+For many parents, this idea feels uncomfortable.
+
+After all, every word of encouragement comes from love. We motivate our teenagers because we believe in them. We remind them of their potential because we want them to succeed. We celebrate their achievements because we're proud.
+
+Yet sometimes, what we intend as support is experienced very differently by the person receiving it.
+
+The gap between intention and perception is where pressure often begins.
+
+Two Parents, The Same Sentence
+
+Imagine two parents saying exactly the same words:
+
+"I know you can do better."
+
+One teenager hears:
+
+"My parents believe in me."
+
+Another hears:
+
+"Who I am today isn't enough."
+
+The words haven't changed.
+
+The meaning has.
+
+Teenagers don't simply hear our sentences—they interpret them through their own fears, insecurities, and expectations. A child who already puts immense pressure on themselves may not need more motivation. They may simply need reassurance that they are loved regardless of the outcome.
+
+When Every Conversation Has a Goal
+
+Take a moment to think about your conversations over the past week.
+
+How many began with questions like:
+
+"How was school?"
+
+"How did the exam go?"
+
+"Did you finish your assignment?"
+
+None of these questions are wrong.
+
+But if most conversations revolve around performance, teenagers may begin to believe that performance is what matters most.
+
+Without anyone saying it directly, they can start connecting attention with achievement.
+
+Eventually, home begins to feel less like a safe place to simply exist and more like another place where they are evaluated.
+
+Encouragement Isn't Always About Pushing Forward
+
+Many of us think encouragement means pushing someone to reach their potential.
+
+Sometimes it does.
+
+Sometimes encouragement means giving someone permission to slow down.
+
+Imagine a marathon runner nearing exhaustion.
+
+A coach doesn't always shout, "Run faster."
+
+Sometimes the coach says, "Drink some water. Catch your breath. You still have a long race ahead."
+
+Both are encouragement.
+
+The difference is knowing which one the runner needs in that moment.
+
+Parenting teenagers is no different.
+
+The Weight of "Just Do Your Best"
+
+Parents often say,
+
+"Just do your best."
+
+It sounds like a healthy message.
+
+But for a perfectionist, "my best" can quietly become "I must give 100% every single time."
+
+When that happens, there is no room for ordinary days.
+
+No room for mistakes.
+
+No room for being human.
+
+Instead of asking whether your teen always did their best, consider asking whether they gave their best while also taking care of themselves.
+
+Success achieved through exhaustion is rarely sustainable.
+
+What Encouragement Really Sounds Like
+
+Sometimes the most powerful encouragement isn't motivational at all.
+
+It sounds like:
+
+"I'm proud of the way you handled that challenge."
+
+"You don't have to prove your worth to me."
+
+"Let's figure this out together."
+
+"It's okay if this didn't go as planned."
+
+"Your health matters more than any grade."
+
+These conversations don't reduce ambition.
+
+They reduce fear.
+
+And teenagers learn far more effectively when they are driven by curiosity than by anxiety.
+
+The Gift of Being Seen
+
+Every teenager wants to feel understood.
+
+Not understood for their marks.
+
+Not understood for their achievements.
+
+Understood as a person.
+
+When parents notice effort, courage, kindness, honesty, or resilience just as much as academic performance, teenagers begin developing an identity that is larger than success.
+
+That identity becomes one of the strongest protections against burnout.
+
+Because when failure eventually comes—as it does for everyone—it no longer feels like the end of who they are.
+
+One Small Change This Week
+
+This week, try replacing one familiar question.
+
+Instead of asking:
+
+"How did you perform today?"
+
+Ask:
+
+"What made you smile today?"
+
+Or,
+
+"What was the most interesting thing you learned?"
+
+Notice how the conversation changes.
+
+Notice how your teenager responds.
+
+Sometimes changing one question changes the entire relationship.
+
+Final Thought
+
+Teenagers don't expect perfect parents.
+
+They don't need constant praise or endless advice.
+
+What they need is the confidence that your love isn't something they have to earn.
+
+Encouragement becomes pressure when young people feel they must constantly achieve to deserve approval.
+
+Real encouragement reminds them that they are already enough—and from that place of security, they become far more willing to learn, grow, and challenge themselves.
+
+At Ikigai Teen, we believe the healthiest families aren't those with the highest expectations. They're the ones where expectations are balanced with empathy, achievement is balanced with acceptance, and success never becomes more important than the person pursuing it.
+
+In our next blog, we'll explore a practical question every family can benefit from: "Study Smarter, Not Longer: Healthy Habits That Prevent Burnout." Because preventing burnout begins long before the first signs appear.`,
 };

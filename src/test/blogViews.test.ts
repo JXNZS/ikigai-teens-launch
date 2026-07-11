@@ -21,6 +21,11 @@ describe("blogViews utility", () => {
     expect(getBlogViews(slug)).toBe(21);
   });
 
+  it("should return exactly 16 views for the encouragement feels like pressure slug", () => {
+    const slug = "when-encouragement-feels-like-pressure";
+    expect(getBlogViews(slug)).toBe(16);
+  });
+
   it("should increment views when incrementBlogViews is called", () => {
     const slug = "test-slug-2";
     const initialViews = getBlogViews(slug);
