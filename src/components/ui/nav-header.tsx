@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import type { Dispatch, SetStateAction } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { labelToKey } from "@/lib/translations";
 
 type NavHeaderProps = {
   items: string[];
@@ -75,6 +77,8 @@ type TabProps = {
 
 const Tab = ({ label, setPosition, onClick }: TabProps) => {
   const ref = useRef<HTMLLIElement>(null);
+  const { t } = useLanguage();
+  const displayLabel = labelToKey[label] ? t(labelToKey[label]) : label;
 
   return (
     <li
@@ -92,7 +96,7 @@ const Tab = ({ label, setPosition, onClick }: TabProps) => {
       onClick={() => onClick(label)}
       className="relative z-10 block cursor-pointer select-none px-3 py-1.5 text-xs font-body uppercase tracking-wide text-white mix-blend-lighten md:px-5 md:py-2 md:text-sm"
     >
-      {label}
+      {displayLabel}
     </li>
   );
 };

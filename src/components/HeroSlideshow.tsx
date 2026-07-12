@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { VolumeX, Volume2, Youtube, ChevronLeft, ChevronRight } from "lucide-react";
 import tile1Image from "@/assets/Tile 1 image.png";
+import { useLanguage } from "@/context/LanguageContext";
 
 const tiles = [
   {
@@ -35,11 +36,22 @@ const tiles = [
   },
 ];
 
+const slideIdToKey: Record<number, string> = {
+  1: "home.slide1",
+  2: "home.slide2",
+  3: "home.slide3",
+  4: "home.slide4",
+  5: "home.slide5",
+  6: "home.slide6",
+  7: "home.slide7",
+};
+
 const HeroSlideshow = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMuted, setIsMuted] = useState(true);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
+  const { t } = useLanguage();
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
@@ -131,8 +143,8 @@ const HeroSlideshow = () => {
             className="absolute inset-0 flex flex-col px-6 pt-4 pb-8 sm:px-8 sm:pt-5 sm:pb-10 md:px-10 md:pt-6 md:pb-12 bg-white/10 backdrop-blur-md rounded-2xl border border-[#FCEADE]/50 shadow-xl"
           >
             <div className="w-full h-full flex flex-col justify-start items-center overflow-y-auto no-scrollbar gap-3 text-center">
-              <p className="text-[13px] md:text-sm text-white/95 font-medium leading-relaxed font-body">
-                {tiles[currentIndex].content}
+              <p className="text-[13px] md:text-sm text-white/95 font-medium leading-relaxed font-body whitespace-pre-line">
+                {slideIdToKey[tiles[currentIndex].id] ? t(slideIdToKey[tiles[currentIndex].id]) : tiles[currentIndex].content}
               </p>
               {tiles[currentIndex].image && (
                 <div className="flex-shrink-0 w-full max-w-[180px] md:max-w-[230px] mx-auto mt-2">

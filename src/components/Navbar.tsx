@@ -6,6 +6,8 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import logo from "@/assets/ikigai logo no bg.png";
 import { LetterSwapPingPong } from "@/components/ui/letter-swap";
 import NavHeader from "@/components/ui/nav-header";
+import { useLanguage } from "@/context/LanguageContext";
+import { labelToKey } from "@/lib/translations";
 
 const NAVBAR_OPEN_EVENT = "ikigai:openNavbarDropdown";
 const DARK_SECTION_CLASSES = ["hero-theme-legacy", "content-theme-legacy", "footer-theme-legacy", "navbar-theme-legacy"];
@@ -43,7 +45,7 @@ const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [useLightNavbarSurface, setUseLightNavbarSurface] = useState(true);
   const [dropdownAnchorX, setDropdownAnchorX] = useState<number | null>(null);
-  const [selectedLanguage, setSelectedLanguage] = useState<'english' | 'kannada'>('english');
+  const { language, setLanguage, t } = useLanguage();
   const desktopNavRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const isHomePage = location.pathname === "/";
@@ -136,11 +138,7 @@ const Navbar = () => {
   const activeDesktopItem = navItems.find((item) => item.label === openDropdown) ?? null;
 
   const handleLanguageClick = () => {
-    // Don't change the selected language yet — only show the "Coming soon" popup
-    setShowLanguageSoon(true);
-    window.setTimeout(() => {
-      setShowLanguageSoon(false);
-    }, 1500);
+    setLanguage(language === "en" ? "kn" : "en");
   };
 
   const getChildPath = (parentLabel: string, childLabel: string, fallbackPath: string) => {
@@ -310,16 +308,16 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div ref={desktopNavRef} className="hidden lg:flex relative">
-          <NavHeader 
-            items={!isHomePage ? ["Home", ...navItems.map((item) => item.label)] : navItems.map((item) => item.label)} 
-            activeItem={openDropdown} 
+          <NavHeader
+            items={!isHomePage ? ["Home", ...navItems.map((item) => item.label)] : navItems.map((item) => item.label)}
+            activeItem={openDropdown}
             onItemClick={(label) => {
               if (label === "Home") {
                 window.location.href = "/";
               } else {
                 handleDesktopHeaderClick(label);
               }
-            }} 
+            }}
           />
 
           <AnimatePresence mode="wait">
@@ -339,7 +337,7 @@ const Navbar = () => {
                       to={getChildPath(activeDesktopItem.label, child, activeDesktopItem.path)}
                       className="block px-4 py-2.5 text-sm font-body text-[#FCEADE] hover:text-[#FCEADE]/80 hover:bg-secondary/50 transition-colors"
                     >
-                      {child}
+                      {t(labelToKey[child] || child)}
                     </Link>
                   </motion.div>
                 ))}
@@ -354,32 +352,27 @@ const Navbar = () => {
               type="button"
               onClick={handleLanguageClick}
               aria-label="Switch language"
-              className="relative inline-flex h-9 w-[132px] items-center overflow-hidden rounded-full border border-[rgba(44,66,63,0.35)] text-[13px] font-semibold transition-colors"
+              className="relative inline-flex h-9 w-[132px] items-center overflow-hidden rounded-full border border-[rgba(44,66,63,0.35)] text-[13px] font-semibold transition-colors animate-fade-in"
               style={{ backgroundColor: "#FCEADE" }}
             >
               <span
-                className="absolute inset-y-0 left-0 w-1/2 z-0 transition-colors"
-                style={{ backgroundColor: '#2C423F' }}
+                className="absolute inset-y-0 w-1/2 z-0 transition-all duration-300"
+                style={{ backgroundColor: '#2C423F', left: language === 'en' ? '0' : '50%' }}
               />
               <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-6 w-px z-10" style={{ backgroundColor: '#2C423F' }} />
               <span 
-                className="relative z-20 w-1/2 text-center font-semibold transition-colors"
-                style={{ color: '#FCEADE' }}
+                className="relative z-20 w-1/2 text-center font-semibold transition-colors duration-300"
+                style={{ color: language === 'en' ? '#FCEADE' : '#2C423F' }}
               >
                 English
               </span>
               <span 
-                className="relative z-20 w-1/2 text-center font-semibold transition-colors"
-                style={{ color: '#2C423F' }}
+                className="relative z-20 w-1/2 text-center font-semibold transition-colors duration-300"
+                style={{ color: language === 'kn' ? '#FCEADE' : '#2C423F' }}
               >
                 ಕನ್ನಡ
               </span>
             </button>
-            <div
-              className={`pointer-events-none absolute left-1/2 top-full z-20 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md border border-border/70 bg-background px-2.5 py-1 text-[11px] font-medium text-foreground shadow-sm transition-all duration-200 ${showLanguageSoon ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"}`}
-            >
-              Coming soon
-            </div>
           </div>
 
           <motion.div
@@ -391,9 +384,8 @@ const Navbar = () => {
           >
             <Link
               to="/#contact"
-              className={`inline-flex px-5 py-2 rounded-full text-sm font-semibold font-body transition-all duration-300 ${
-                contactActive ? "ring-2 ring-[rgba(44,66,63,0.5)]" : ""
-              }`}
+              className={`inline-flex px-5 py-2 rounded-full text-sm font-semibold font-body transition-all duration-300 ${contactActive ? "ring-2 ring-[rgba(44,66,63,0.5)]" : ""
+                }`}
               style={{ backgroundColor: "#2C423F", color: "#FCEADE" }}
             >
               <LetterSwapPingPong label="Contact Us" className="justify-center" />
@@ -423,7 +415,7 @@ const Navbar = () => {
                   className="block py-2.5 px-2 text-foreground/80 font-body text-xs md:text-sm uppercase tracking-wide hover:bg-secondary/50 rounded transition-colors font-semibold border-b border-[rgba(0,0,0,0.1)] mb-2"
                   onClick={() => setMobileOpen(false)}
                 >
-                  Home
+                  {t("navbar.home")}
                 </Link>
               )}
               {navItems.map((item) => (
@@ -432,7 +424,7 @@ const Navbar = () => {
                     onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
                     className="w-full flex items-center justify-between py-2.5 px-2 text-foreground/80 font-body text-xs md:text-sm uppercase tracking-wide hover:bg-secondary/50 rounded transition-colors"
                   >
-                    {item.label}
+                    {t(labelToKey[item.label] || item.label)}
                     <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === item.label ? "rotate-180" : ""}`} />
                   </button>
                   <AnimatePresence>
@@ -445,7 +437,7 @@ const Navbar = () => {
                       >
                         {item.children.map((child) => (
                           <Link key={child} to={getChildPath(item.label, child, item.path)} className="block py-1.5 px-2 text-xs md:text-sm text-[#FCEADE] hover:text-[#FCEADE] font-body rounded transition-colors" onClick={() => setMobileOpen(false)}>
-                            {child}
+                            {t(labelToKey[child] || child)}
                           </Link>
                         ))}
                       </motion.div>
@@ -463,32 +455,27 @@ const Navbar = () => {
                     style={{ backgroundColor: "#FCEADE" }}
                   >
                     <span
-                      className="absolute inset-y-0 left-0 w-1/2 z-0 transition-colors"
-                      style={{ backgroundColor: '#2C423F' }}
+                      className="absolute inset-y-0 w-1/2 z-0 transition-all duration-300"
+                      style={{ backgroundColor: '#2C423F', left: language === 'en' ? '0' : '50%' }}
                     />
                     <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-6 w-px z-10" style={{ backgroundColor: '#2C423F' }} />
                     <span 
-                      className="relative z-20 w-1/2 text-center font-semibold transition-colors"
-                      style={{ color: '#FCEADE' }}
+                      className="relative z-20 w-1/2 text-center font-semibold transition-colors duration-300"
+                      style={{ color: language === 'en' ? '#FCEADE' : '#2C423F' }}
                     >
                       English
                     </span>
                     <span 
-                      className="relative z-20 w-1/2 text-center font-semibold transition-colors"
-                      style={{ color: '#2C423F' }}
+                      className="relative z-20 w-1/2 text-center font-semibold transition-colors duration-300"
+                      style={{ color: language === 'kn' ? '#FCEADE' : '#2C423F' }}
                     >
                       ಕನ್ನಡ
                     </span>
                   </button>
-                  <div
-                    className={`pointer-events-none absolute left-1/2 top-full z-20 mt-2 -translate-x-1/2 whitespace-nowrap rounded-md border border-border/70 bg-background px-2.5 py-1 text-[11px] font-medium text-foreground shadow-sm transition-all duration-200 ${showLanguageSoon ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-1"}`}
-                  >
-                    Coming soon
-                  </div>
                 </div>
 
                 <Link to="/#contact" className="block text-center px-4 py-2 rounded-full text-xs md:text-sm font-semibold font-body" style={{ backgroundColor: "#FCEADE", color: "#000000" }} onClick={() => setMobileOpen(false)}>
-                  <LetterSwapPingPong label="Contact Us" className="justify-center" />
+                  <LetterSwapPingPong label={t("navbar.contactUs")} className="justify-center" />
                 </Link>
               </div>
             </div>

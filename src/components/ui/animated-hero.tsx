@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import { useLanguage } from "@/context/LanguageContext";
 
 const localizedGlowMask = "radial-gradient(var(--hero-glow-radius, 140px) var(--hero-glow-radius, 140px) at var(--hero-glow-x, 50%) var(--hero-glow-y, 50%), rgba(0,0,0,1) 20%, rgba(0,0,0,0) 76%)";
   const heroAccentColor = "hsl(144 19% 42%)"; // sage primary (#588068)
@@ -22,7 +23,10 @@ const credibilityStats: CredibilityStat[] = [
   { value: 200, suffix: "+", label: "Schools Engaged" },
 ];
 
-const formatNumber = (value: number) => value.toLocaleString("en-US");
+const formatNumber = (value: number, lang: string) => {
+  const locale = lang === "kn" ? "en-IN" : "en-US";
+  return value.toLocaleString(locale);
+};
 
 const useCountUp = (target: number, duration: number = 3200) => {
   const [currentValue, setCurrentValue] = useState(0);
@@ -54,16 +58,24 @@ const useCountUp = (target: number, duration: number = 3200) => {
   return currentValue;
 };
 
+const statLabelToKey: Record<string, string> = {
+  "Children Reached": "home.statsReached",
+  "Years Humanitarian Experience": "home.statsExperience",
+  "Schools Engaged": "home.statsEngaged",
+};
+
 const CredibilityCounter = ({ value, suffix, label }: CredibilityStat) => {
   const currentValue = useCountUp(value);
+  const { language, t } = useLanguage();
+  const displayLabel = statLabelToKey[label] ? t(statLabelToKey[label]) : label;
 
   return (
     <div className="rounded-2xl border border-black/5 bg-[#FCEADE] p-2 md:p-5 text-center shadow-sm flex-1 flex flex-col items-center justify-start min-h-[85px] md:min-h-[125px] overflow-hidden pt-4 md:pt-7">
       <div className="font-display text-lg sm:text-2xl md:text-4xl font-extrabold text-black leading-none tracking-tight whitespace-nowrap w-full tabular-nums">
-        {formatNumber(currentValue)}{suffix ?? ""}
+        {formatNumber(currentValue, language)}{suffix ?? ""}
       </div>
       <p className="mt-2 md:mt-3 text-[9px] sm:text-[11px] md:text-sm font-medium text-black/80 leading-tight">
-        {label}
+        {displayLabel}
       </p>
     </div>
   );
@@ -71,6 +83,7 @@ const CredibilityCounter = ({ value, suffix, label }: CredibilityStat) => {
 
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
+  const { t } = useLanguage();
   const titles = useMemo(
     () => ["Find Their Purpose", "Navigate Through Life", "Unlock Their Potential", "Stand Out"],
     [],
@@ -132,14 +145,14 @@ function Hero() {
               </span>
             </h1>
             <p className="relative text-sm md:text-lg md:text-xl leading-relaxed tracking-tight text-foreground max-w-3xl text-center lg:text-left">
-              Discover your Ikigai - the intersection where your passion, mission, vocation, and profession align to create a life of meaning and fulfillment.
+              {t("home.heroDiscover")}
               <span aria-hidden="true" className="pointer-events-none absolute inset-0" style={localizedGlowStyle}>
-                Discover your Ikigai - the intersection where your passion, mission, vocation, and profession align to create a life of meaning and fulfillment.
+                {t("home.heroDiscover")}
               </span>
             </p>
             <div className="w-full max-w-3xl mt-14 md:mt-20">
               <h2 className="mb-4 text-center lg:text-left text-sm md:text-base font-semibold tracking-[0.24em] uppercase text-[#FCEADE]">
-                Founder&apos;s Credibility Strip
+                {t("home.credibilityStrip")}
               </h2>
               <div className="grid grid-cols-3 gap-3 md:gap-6">
                 {credibilityStats.map((stat) => (
@@ -155,7 +168,7 @@ function Hero() {
             {/* Quote for Desktop - Aligned with Video Window */}
             <div className="hidden lg:block mt-20 max-w-2xl">
               <p className="text-white italic text-base md:text-lg leading-relaxed opacity-90">
-                "Teen years are the foundation of a nation's future - what we guide today becomes the character of society tomorrow."
+                "{t("home.heroQuote")}"
               </p>
               <p className="text-[#FCEADE] font-semibold mt-3 text-sm md:text-base">
                 - Irene Arathi

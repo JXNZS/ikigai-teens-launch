@@ -4,6 +4,8 @@ import { ChevronDown, Facebook, Instagram, Linkedin, Mail, Youtube } from "lucid
 import logo from "@/assets/ikigai logo no bg.png";
 import { navItems } from "@/components/Navbar";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
+import { useLanguage } from "@/context/LanguageContext";
+import { labelToKey } from "@/lib/translations";
 import TiltedDock, { type TiltedDockItem } from "@/components/ui/tilted-dock";
 import { ReactNode } from "react";
 
@@ -86,6 +88,7 @@ const renderNumberText = (text: string): ReactNode => {
 
 const Footer = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const { t } = useLanguage();
 
   const getChildPath = (groupLabel: string, childLabel: string, fallbackPath: string) => {
     if (groupLabel === "About" && childLabel === "Architects of Ikigai Teen") {
@@ -207,7 +210,7 @@ const Footer = () => {
                     onClick={() => setOpenDropdown(openDropdown === group.label ? null : group.label)}
                     className="w-full flex items-center justify-between max-w-xs font-display text-sm md:text-base font-semibold text-foreground hover:text-[#FCEADE] transition-colors"
                   >
-                    <span>{group.label}</span>
+                    <span>{t(labelToKey[group.label] || group.label)}</span>
                     <ChevronDown className={`w-4 h-4 transition-transform ${openDropdown === group.label ? "rotate-180" : ""}`} />
                   </button>
                   {openDropdown === group.label && (
@@ -218,7 +221,7 @@ const Footer = () => {
                           to={getChildPath(group.label, child, group.path)}
                           className="block text-xs font-body text-[#FCEADE] hover:text-[#FCEADE] transition-colors"
                         >
-                          {child}
+                          {t(labelToKey[child] || child)}
                         </Link>
                       ))}
                     </div>
