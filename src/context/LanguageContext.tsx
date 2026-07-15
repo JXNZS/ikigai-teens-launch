@@ -10,6 +10,24 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const getTranslation = (key: string, lang: Language): string => {
+  // 1. Handle special namespaces containing dots or custom structure
+  if (key.startsWith("faq.questions.")) {
+    const subKey = key.slice("faq.questions.".length);
+    const translation = translations.faq?.questions?.[lang]?.[subKey] || translations.faq?.questions?.["en"]?.[subKey];
+    return translation !== undefined ? translation : subKey;
+  }
+  if (key.startsWith("faq.strings.")) {
+    const subKey = key.slice("faq.strings.".length);
+    const translation = translations.faq?.strings?.[lang]?.[subKey] || translations.faq?.strings?.["en"]?.[subKey];
+    return translation !== undefined ? translation : subKey;
+  }
+  if (key.startsWith("values.strings.")) {
+    const subKey = key.slice("values.strings.".length);
+    const translation = translations.values?.strings?.[lang]?.[subKey] || translations.values?.strings?.["en"]?.[subKey];
+    return translation !== undefined ? translation : subKey;
+  }
+
+  // 2. Standard nested lookup
   const parts = key.split(".");
   let current: any = translations;
   

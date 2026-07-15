@@ -2,6 +2,7 @@ import { ReactNode, useRef, useState } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
+import { useLanguage } from "@/context/LanguageContext";
 
 type FAQPoint = {
   title: string;
@@ -377,10 +378,20 @@ const faqItems: FAQItem[] = [
 
 ];
 
+const getPointPrefix = (index: number, lang: string) => {
+  const number = index + 1;
+  if (lang === "kn") {
+    const knNumerals = ["೦", "೧", "೨", "೩", "೪", "೫", "೬", "೭", "೮", "೯"];
+    return number.toString().split("").map(digit => knNumerals[parseInt(digit)] || digit).join("") + ". ";
+  }
+  return `${number}. `;
+};
+
 const FAQSection = () => {
   const ref = useRef<HTMLElement>(null);
   const [openFaq, setOpenFaq] = useState<string | undefined>(undefined);
   const [openPointKeys, setOpenPointKeys] = useState<Record<string, boolean>>({});
+  const { language, t } = useLanguage();
 
   const togglePoint = (faqIndex: number, pointKey: string) => {
     setOpenPointKeys((prev) => {
@@ -425,12 +436,12 @@ const FAQSection = () => {
             <div className="text-center mb-6 md:mb-8">
               <motion.h2 style={{ color: headingColor }}>
                 <LetterSwapForward
-                  label="Frequently Asked Questions"
+                  label={t("faq.title")}
                   className="justify-center text-2xl sm:text-3xl md:text-4xl font-display font-bold text-current mb-2 md:mb-3"
                 />
               </motion.h2>
               <p className="text-base sm:text-lg md:text-xl font-display text-primary px-2">
-                Ikigai Teen is real, safe, intelligent, and trustworthy.
+                {t("faq.subtitle")}
               </p>
             </div>
 
@@ -450,7 +461,7 @@ const FAQSection = () => {
                   className="border-border/60 group px-3 md:px-4 data-[state=open]:bg-card data-[state=open]:rounded-lg md:data-[state=open]:rounded-xl transition-all duration-300"
                 >
                   <AccordionTrigger data-faq-trigger="true" className="text-left text-sm md:text-lg font-display font-semibold text-[#2C423F] hover:text-[#2C423F] data-[state=open]:text-[#2C423F] hover:no-underline transition-all duration-300">
-                    {item.question}
+                    {t(`faq.questions.${item.question}`)}
                   </AccordionTrigger>
                   <AccordionContent className="text-primary font-body">
                     <div className="space-y-2 md:space-y-4 pt-1 px-1">
@@ -458,15 +469,15 @@ const FAQSection = () => {
                         item.question === "The Ikigai Teen Growth Framework" && item.intro.length >= 3 ? (
                           <div className="space-y-2">
                             <p className="text-xs md:text-base leading-relaxed text-black">
-                              {renderNumberText(item.intro.slice(0, 2).join(" "))}
+                              {renderNumberText(item.intro.slice(0, 2).map(txt => t(`faq.strings.${txt}`)).join(" "))}
                             </p>
                             <p className="text-xs md:text-base leading-relaxed text-black">
-                              {renderNumberText(item.intro[2])}
+                              {renderNumberText(t(`faq.strings.${item.intro[2]}`))}
                             </p>
                           </div>
                         ) : (
                           <p key="intro" className="text-xs md:text-base leading-relaxed text-black">
-                            {renderNumberText(item.intro.join(" "))}
+                            {renderNumberText(item.intro.map(txt => t(`faq.strings.${txt}`)).join(" "))}
                           </p>
                         )
                       )}
@@ -494,7 +505,7 @@ const FAQSection = () => {
                                     }}
                                   >
                                     <span className="font-semibold text-primary">
-                                      {pointIndex + 1}. {renderNumberText(point.title)}
+                                      {getPointPrefix(pointIndex, language)}{renderNumberText(t(`faq.strings.${point.title}`))}
                                     </span>
 
                                     {point.description ? (
@@ -520,7 +531,7 @@ const FAQSection = () => {
                                         transition={{ duration: 0.18 }}
                                         className="overflow-hidden"
                                       >
-                                        <p className="text-black mt-1 md:mt-2">{renderNumberText(point.description)}</p>
+                                        <p className="text-black mt-1 md:mt-2">{renderNumberText(t(`faq.strings.${point.description}`))}</p>
                                       </motion.div>
                                     )}
                                   </AnimatePresence>
@@ -533,7 +544,7 @@ const FAQSection = () => {
                             {item.points.map((point, pointIndex) => (
                               <li key={point.title} className="text-xs md:text-base leading-relaxed">
                                 <span className="font-semibold text-primary">
-                                  {pointIndex + 1}. {renderNumberText(point.title)}
+                                  {getPointPrefix(pointIndex, language)}{renderNumberText(t(`faq.strings.${point.title}`))}
                                 </span>
                               </li>
                             ))}
@@ -543,7 +554,7 @@ const FAQSection = () => {
 
                       {item.closing && item.closing.length > 0 && (
                         <p key="closing" className="text-xs md:text-base leading-relaxed italic text-black">
-                          {renderNumberText(item.closing.join(" "))}
+                          {renderNumberText(item.closing.map(txt => t(`faq.strings.${txt}`)).join(" "))}
                         </p>
                       )}
                     </div>

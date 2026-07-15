@@ -178,7 +178,7 @@ const HeroSlideshow = () => {
       {/* Video Section */}
       <div className="w-full max-w-[280px] md:max-w-[320px] mx-auto lg:ml-auto lg:mr-0 flex flex-col gap-2 md:gap-4 mt-1 md:mt-0">
         <h3 className="text-[#FCEADE] font-display font-semibold text-base md:text-xl text-center drop-shadow-md">
-          Why Ikigai Teen?
+          {t("home.slideVideoHeader")}
         </h3>
         <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl border-2 border-white/20 bg-black group z-20">
 
