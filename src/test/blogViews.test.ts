@@ -26,6 +26,11 @@ describe("blogViews utility", () => {
     expect(getBlogViews(slug)).toBe(16);
   });
 
+  it("should return exactly 12 views for the perfectionism and academic burnout slug", () => {
+    const slug = "the-link-between-perfectionism-and-academic-burnout";
+    expect(getBlogViews(slug)).toBe(12);
+  });
+
   it("should increment views when incrementBlogViews is called", () => {
     const slug = "test-slug-2";
     const initialViews = getBlogViews(slug);
