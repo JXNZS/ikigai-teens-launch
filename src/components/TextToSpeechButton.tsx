@@ -1,5 +1,6 @@
 import { useEffect, useId, useState, useSyncExternalStore, type RefObject } from "react";
 import { Pause, Play, Volume2 } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 type TTSStatus = "idle" | "speaking" | "paused";
 
@@ -127,8 +128,14 @@ const TextToSpeechButton = ({ targetRef, label = "Read this section aloud", minW
   const id = useId();
   const { activeId, status } = useSyncExternalStore(subscribe, getSnapshot, getSnapshot);
   const [isEligible, setIsEligible] = useState(false);
+  const { language } = useLanguage();
 
   useEffect(() => {
+    if (language === "kn") {
+      setIsEligible(false);
+      return;
+    }
+
     const element = targetRef.current;
 
     if (!element) {
@@ -159,9 +166,9 @@ const TextToSpeechButton = ({ targetRef, label = "Read this section aloud", minW
         stopSpeech();
       }
     };
-  }, [id, minWords, targetRef]);
+  }, [id, minWords, targetRef, language]);
 
-  if (!supportsSpeechSynthesis() || !isEligible) {
+  if (language === "kn" || !supportsSpeechSynthesis() || !isEligible) {
     return null;
   }
 
