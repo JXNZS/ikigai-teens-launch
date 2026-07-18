@@ -26,6 +26,16 @@ export const getTranslation = (key: string, lang: Language): string => {
     const translation = translations.values?.strings?.[lang]?.[subKey] || translations.values?.strings?.["en"]?.[subKey];
     return translation !== undefined ? translation : subKey;
   }
+  if (key.startsWith("philosophy.strings.")) {
+    const subKey = key.slice("philosophy.strings.".length);
+    const translation = translations.philosophy?.strings?.[lang]?.[subKey] || translations.philosophy?.strings?.["en"]?.[subKey];
+    return translation !== undefined ? translation : subKey;
+  }
+  if (key.startsWith("journey.strings.")) {
+    const subKey = key.slice("journey.strings.".length);
+    const translation = translations.journey?.strings?.[lang]?.[subKey] || translations.journey?.strings?.["en"]?.[subKey];
+    return translation !== undefined ? translation : subKey;
+  }
 
   // 2. Standard nested lookup
   const parts = key.split(".");

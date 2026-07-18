@@ -2,6 +2,7 @@ import { ReactNode, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { LetterSwapForward } from "@/components/ui/letter-swap";
 import TextToSpeechButton from "@/components/TextToSpeechButton";
+import { useLanguage } from "@/context/LanguageContext";
 
 const renderNumberText = (text: string): ReactNode => {
   const numberPattern = /\d[\d,-]*/g;
@@ -33,6 +34,7 @@ const renderNumberText = (text: string): ReactNode => {
 const FeaturesSection = () => {
   const ref = useRef<HTMLElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const { language } = useLanguage();
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -53,20 +55,31 @@ const FeaturesSection = () => {
           <TextToSpeechButton targetRef={cardRef} />
           <motion.h2 style={{ color: headingColor }}>
             <LetterSwapForward
-              label="Origin Of Ikigai Teen"
+              label={language === "kn" ? "ಇಕಿಗೈ ಟೀನ್ನ ಹುಟ್ಟು" : "Origin Of Ikigai Teen"}
               className="justify-center text-2xl sm:text-3xl md:text-4xl font-display font-bold text-current mb-2 md:mb-3"
             />
           </motion.h2>
-          <p className="text-base sm:text-lg md:text-xl font-display text-black mb-4 md:mb-6 px-2">{renderNumberText("From Humanitarian Field Work to a Teen Mindset Movement")}</p>
+          <p className="text-base sm:text-lg md:text-xl font-display text-black mb-4 md:mb-6 px-2">
+            {language === "kn"
+              ? renderNumberText("ಮಾನವೀಯ ಸೇವೆಯ ಪಯಣದಿಂದ ತರುಣರ ಮನೋವಿಕಾಸದ ಆಂದೋಲನದವರೆಗೆ")
+              : renderNumberText("From Humanitarian Field Work to a Teen Mindset Movement")}
+          </p>
           <div className="space-y-3 md:space-y-4 text-xs sm:text-sm md:text-base text-muted-foreground font-body leading-relaxed text-left md:text-center px-2 md:px-0">
             <p>
-              After two decades of working with children through humanitarian programs, education initiatives, and youth
-              development projects across India, Irene Arathi has reached over {renderNumberText("107,893")} children through life-skills
-              education, disaster preparedness training, and school-based programs.
+              {language === "kn"
+                ? renderNumberText("ಎರಡು ದಶಕಗಳಿಗೂ ಹೆಚ್ಚು ಕಾಲ ಭಾರತದಾದ್ಯಂತ ಮಾನವೀಯ ಸೇವಾ ಕಾರ್ಯಕ್ರಮಗಳು, ಶಿಕ್ಷಣ ಉಪಕ್ರಮಗಳು ಹಾಗೂ ತರುಣರ ಬೆಳವಣಿಗೆಯ ಯೋಜನೆಗಳ ಮೂಲಕ ಮಕ್ಕಳೊಂದಿಗೆ ಕಾರ್ಯನಿರ್ವಹಿಸಿರುವ ಐರೀನ್ ಆರತಿ ಅವರು, ಜೀವನ ಕೌಶಲ್ಯ ಶಿಕ್ಷಣ, ವಿಪತ್ತು ಸನ್ನದ್ಧತಾ ತರಬೇತಿ ಮತ್ತು ಶಾಲಾ ಆಧಾರಿತ ಕಾರ್ಯಕ್ರಮಗಳ ಮೂಲಕ 1,07,893ಕ್ಕೂ ಹೆಚ್ಚು ಮಕ್ಕಳಿಗೆ ತರಬೇತಿ ಮತ್ತು ಮಾರ್ಗದರ್ಶನ ನೀಡಿದ್ದಾರೆ.")
+                : (
+                  <>
+                    After two decades of working with children through humanitarian programs, education initiatives, and youth
+                    development projects across India, Irene Arathi has reached over {renderNumberText("107,893")} children through life-skills
+                    education, disaster preparedness training, and school-based programs.
+                  </>
+                )}
             </p>
             <p>
-              Today, that experience is being transformed into Ikigai Teen - a platform dedicated to helping teenagers develop
-              clarity, resilience, character, and purpose in a rapidly changing world.
+              {language === "kn"
+                ? "ಇಂದು, ಆ ಸಮೃದ್ಧ ಅನುಭವವೇ ಇಕಿಗೈ ಟೀನ್ ರೂಪದಲ್ಲಿ ಅರಳಿದೆ—ವೇಗವಾಗಿ ಬದಲಾಗುತ್ತಿರುವ ಜಗತ್ತಿನಲ್ಲಿ ತರುಣರು ಸ್ಪಷ್ಟತೆ, ಸ್ಥೈರ್ಯ, ಸದೃಢ ವ್ಯಕ್ತಿತ್ವ ಮತ್ತು ಬದುಕಿನ ಉದ್ದೇಶವನ್ನು ಬೆಳೆಸಿಕೊಳ್ಳಲು ನೆರವಾಗುವ ಒಂದು ಮೌಲ್ಯಾಧಾರಿತ ವೇದಿಕೆಯಾಗಿ."
+                : "Today, that experience is being transformed into Ikigai Teen - a platform dedicated to helping teenagers develop clarity, resilience, character, and purpose in a rapidly changing world."}
             </p>
           </div>
         </motion.div>

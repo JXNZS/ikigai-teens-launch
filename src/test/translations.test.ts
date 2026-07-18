@@ -50,4 +50,20 @@ describe("i18n Translation System", () => {
     expect(getTranslation("values.valuesTitle", "kn")).toBe("ಮೌಲ್ಯಗಳು – Values");
     expect(getTranslation("values.strings.Integrity - Doing what is right even when it is difficult or when no one is watching.", "kn")).toBe("ಪ್ರಾಮಾಣಿಕತೆ (Integrity) – ಕಷ್ಟದ ಸಂದರ್ಭದಲ್ಲಿಯೂ ಅಥವಾ ಯಾರೂ ನೋಡದಿದ್ದಾಗಲೂ ಸರಿಯಾದದ್ದನ್ನೇ ಮಾಡುವ ಮನೋಭಾವ.");
   });
+
+  it("should return translated Philosophy page elements", () => {
+    expect(getTranslation("philosophy.title", "en")).toBe("Grounding Philosophy");
+    expect(getTranslation("philosophy.title", "kn")).toBe("ಮೂಲ ತತ್ವದರ್ಶನ");
+    expect(getTranslation("philosophy.philosophyTitle", "kn")).toBe("ನಮ್ಮ ತತ್ವಗಳು");
+    expect(getTranslation("philosophy.strings.Ikigai", "kn")).toBe("ಇಕಿಗೈ (Ikigai)");
+    expect(getTranslation("philosophy.strings.Discovering meaning and direction in life by aligning one's strengths, interests, values, and contribution to the world.", "kn")).toBe("ಜೀವನದ ಉದ್ಧೇಶ: ಒಬ್ಬರ ಕೌಶಲ್ಯ, ಆಸಕ್ತಿ, ಮೌಲ್ಯಗಳು ಮತ್ತು ಸಮಾಜಕ್ಕೆ ನೀಡಬಹುದಾದ ಕೊಡುಗೆಯನ್ನು ಸಮತೋಲನಗೊಳಿಸಿ, ಬದುಕಿಗೊಂದು ಅರ್ಥಪೂರ್ಣ ದಾರಿ ಕಂಡುಕೊಳ್ಳುವುದು");
+  });
+
+  it("should return translated Journey page elements", () => {
+    expect(getTranslation("journey.title", "en")).toBe("The Journey");
+    expect(getTranslation("journey.title", "kn")).toBe("ಉದ್ದೇಶದತ್ತ ಪಯಣ");
+    expect(getTranslation("journey.milestonesTitle", "kn")).toBe("ಸಂಸ್ಥಾಪಕರ ಸಾಧನೆಯ ಪಯಣ – ಐರೀನ್ ಆರತಿ");
+    expect(getTranslation("journey.strings.Children Reached", "kn")).toBe("ಮಕ್ಕಳಿಗೆ ತರಬೇತಿ");
+    expect(getTranslation("journey.strings.Read more", "kn")).toBe("ಹೆಚ್ಚು ಓದಿ");
+  });
 });

@@ -18,7 +18,8 @@ export const translations: Record<string, any> = {
       en: "Vision, Mission & Values"
     },
     team: {
-      en: "Architects of Ikigai Teen"
+      en: "Architects of Ikigai Teen",
+      kn: "ಇಕಿಗೈ ಟೀನ್ ಪರಿಕಲ್ಪನೆ ರೂಪಿಸಿದವರು"
     },
     teenZone: {
       en: "Teen Zone"
@@ -631,6 +632,94 @@ export const translations: Record<string, any> = {
         "Contribution - Using one's talents, skills, and strengths to make a positive difference in the world.": "ಕೊಡುಗೆ (Contribution) – ತನ್ನ ಪ್ರತಿಭೆ, ಕೌಶಲ್ಯ ಮತ್ತು ಸಾಮರ್ಥ್ಯಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಸಮಾಜ ಮತ್ತು ಜಗತ್ತಿನಲ್ಲಿ ಸಕಾರಾತ್ಮಕ ಬದಲಾವಣೆಯನ್ನು ಮೂಡಿಸುವುದು.",
         "These values shape the culture of Ikigai Teen - guiding our coaching programs, our learning tools, and the community we build with teens, parents, educators, and mentors.": "ಈ ಮೌಲ್ಯಗಳೇ ಇಕಿಗೈ ಟೀನ್ನ ಸಂಸ್ಕೃತಿ ಮತ್ತು ಕಾರ್ಯವಿಧಾನಕ್ಕೆ ದಿಕ್ಕು ನೀಡುತ್ತವೆ. ನಮ್ಮ ತರಬೇತಿ ಕಾರ್ಯಕ್ರಮಗಳು, ಕಲಿಕಾ ಸಾಧನಗಳು ಹಾಗೂ ತರುಣರು, ಪೋಷಕರು, ಶಿಕ್ಷಕರು ಮತ್ತು ಮಾರ್ಗದರ್ಶಕರೊಂದಿಗೆ ನಾವು ನಿರ್ಮಿಸುವ ಕಲಿಕಾ ಸಮುದಾಯದ ಅಡಿಪಾಯವೂ ಇವೇ.",
         "Our aim is not perfection, but the steady development of self-aware, responsible, and compassionate individuals who can lead meaningful lives.": "ನಮ್ಮ ಗುರಿ ಪರಿಪೂರ್ಣ ವ್ಯಕ್ತಿಗಳನ್ನು ರೂಪಿಸುವುದಲ್ಲ; ಆತ್ಮಜಾಗೃತಿ, ಜವಾಬ್ದಾರಿಯುತ ನಡೆ ಮತ್ತು ಸಹಾನುಭೂತಿ ಹೊಂದಿರುವ ವ್ಯಕ್ತಿಗಳಾಗಿ ನಿರಂತರವಾಗಿ ಬೆಳೆಯಲು ತರುಣರಿಗೆ ನೆರವಾಗಿ, ಅವರು ಅರ್ಥಪೂರ್ಣ ಜೀವನವನ್ನು ನಡೆಸುವಂತೆ ಸಬಲಗೊಳಿಸುವುದೇ ನಮ್ಮ ಧ್ಯೇಯ."
+      }
+    }
+  },
+  philosophy: {
+    title: {
+      en: "Grounding Philosophy",
+      kn: "ಮೂಲ ತತ್ವದರ್ಶನ"
+    },
+    philosophyTitle: {
+      en: "Philosophy",
+      kn: "ನಮ್ಮ ತತ್ವಗಳು"
+    },
+    strings: {
+      en: {
+        "The ideas that shape how Ikigai Teen supports purposeful growth.": "The ideas that shape how Ikigai Teen supports purposeful growth.",
+        "Ikigai": "Ikigai",
+        "Discovering meaning and direction in life by aligning one's strengths, interests, values, and contribution to the world.": "Discovering meaning and direction in life by aligning one's strengths, interests, values, and contribution to the world.",
+        "Kaizen": "Kaizen",
+        "The practice of small, consistent improvements that lead to lasting personal growth.": "The practice of small, consistent improvements that lead to lasting personal growth.",
+        "Shoshin": "Shoshin",
+        "The beginner's mind, encouraging curiosity, openness, and the willingness to learn without ego.": "The beginner's mind, encouraging curiosity, openness, and the willingness to learn without ego.",
+        "Hansei": "Hansei",
+        "Thoughtful reflection and self-awareness, helping teens learn from experiences and make wiser decisions.": "Thoughtful reflection and self-awareness, helping teens learn from experiences and make wiser decisions.",
+        "Kintsugi": "Kintsugi",
+        "The idea that imperfections and setbacks can strengthen character and become part of one's unique story.": "The idea that imperfections and setbacks can strengthen character and become part of one's unique story."
+      },
+      kn: {
+        "The ideas that shape how Ikigai Teen supports purposeful growth.": "ಇಕಿಗೈ ಟೀನ್ನ ಉದ್ದೇಶಪೂರ್ಣ ಬೆಳವಣಿಗೆಗೆ ದಿಕ್ಕು ರೂಪಿಸುವ ವಿಚಾರಗಳು.",
+        "Ikigai": "ಇಕಿಗೈ (Ikigai)",
+        "Discovering meaning and direction in life by aligning one's strengths, interests, values, and contribution to the world.": "ಜೀವನದ ಉದ್ಧೇಶ: ಒಬ್ಬರ ಕೌಶಲ್ಯ, ಆಸಕ್ತಿ, ಮೌಲ್ಯಗಳು ಮತ್ತು ಸಮಾಜಕ್ಕೆ ನೀಡಬಹುದಾದ ಕೊಡುಗೆಯನ್ನು ಸಮತೋಲನಗೊಳಿಸಿ, ಬದುಕಿಗೊಂದು ಅರ್ಥಪೂರ್ಣ ದಾರಿ ಕಂಡುಕೊಳ್ಳುವುದು",
+        "Kaizen": "ಕೈಜೆನ್ (Kaizen)",
+        "The practice of small, consistent improvements that lead to lasting personal growth.": "ನಿರಂತರ ಪ್ರಗತಿ: ದಿನನಿತ್ಯದ ಸಣ್ಣ ಮತ್ತು ಸ್ಥಿರವಾದ ಬದಲಾವಣೆಗಳ ಮೂಲಕ ಬದುಕಿನಲ್ಲಿ ದೀರ್ಘಕಾಲಿಕ ಹಾಗೂ ದೊಡ್ಡ ಸುಧಾರಣೆಗಳನ್ನು ತರುವುದು.",
+        "Shoshin": "ಶೋಶಿನ್ (Shoshin)",
+        "The beginner's mind, encouraging curiosity, openness, and the willingness to learn without ego.": "ಜ್ಞಾನದ ಹಸಿವು: \"ಯಾವಾಗಲೂ ಕಲಿಯುವವನ ಮನಸ್ಥಿತಿ\"ಯನ್ನು ಹೊಂದುವುದು. ಯಾವುದೇ ಅಹಂಕಾರವಿಲ್ಲದೆ, ಮುಕ್ತ ಮನಸ್ಸಿನಿಂದ ಹೊಸ ವಿಷಯಗಳನ್ನು ತಿಳಿಯುವ ಕುತೂಹಲ.",
+        "Hansei": "ಹ್ಯಾನ್ಸೆ (Hansei)",
+        "Thoughtful reflection and self-awareness, helping teens learn from experiences and make wiser decisions.": "ಆತ್ಮಾವಲೋಕನ: ತಪ್ಪು ಮತ್ತು ಒಪ್ಪುಗಳನ್ನು ಪ್ರಾಮಾಣಿಕವಾಗಿ ವಿಶ್ಲೇಷಿಸುವುದು. ಇದು ತರುಣರು ತಮ್ಮ ಹಳೆಯ ಅನುಭವಗಳಿಂದ ಕಲಿತು, ಉತ್ತಮ ನಿರ್ಧಾರಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳಲು ನೆರವಾಗುತ್ತದೆ.",
+        "Kintsugi": "ಕಿಂಟ್ಸುಗಿ (Kintsugi)",
+        "The idea that imperfections and setbacks can strengthen character and become part of one's unique story.": "ಕಠಿಣತೆಯೇ ಕಲಾಕೃತಿ: ಸೋಲುಗಳು ಮತ್ತು ತಪ್ಪುಗಳೇ ವ್ಯಕ್ತಿತ್ವವನ್ನು ಮತ್ತಷ್ಟು ಗಟ್ಟಿಗೊಳಿಸುತ್ತವೆ ಹಾಗೂ ನಮ್ಮ ಬದುಕಿನ ಕಥೆಯನ್ನು ವಿಶಿಷ್ಟವಾಗಿಸುತ್ತವೆ ಎಂಬ ಸಕಾರಾತ್ಮಕ ಚಿಂತನೆ."
+      }
+    }
+  },
+  journey: {
+    title: {
+      en: "The Journey",
+      kn: "ಉದ್ದೇಶದತ್ತ ಪಯಣ"
+    },
+    subtitle: {
+      en: "Every teenager carries a spark of purpose – Their IKIGAI",
+      kn: "ಪ್ರತಿಯೊಬ್ಬ ತರುಣನೊಳಗೂ ಜೀವನದ ಒಂದು ಉದ್ದೇಶದ ಕಿಡಿ ಅಡಗಿದೆ – ಅದುವೇ ಅವರ 'ಇಕಿಗೈ'"
+    },
+    credibilityTitle: {
+      en: "Founder's Credibility Strip",
+      kn: "ಸಂಸ್ಥಾಪಕರ ವಿಶ್ವಾಸಾರ್ಹತೆ ಪಟ್ಟಿ"
+    },
+    milestonesTitle: {
+      en: "Founder Milestones - Irene Arathi",
+      kn: "ಸಂಸ್ಥಾಪಕರ ಸಾಧನೆಯ ಪಯಣ – ಐರೀನ್ ಆರತಿ"
+    },
+    whyIreneTitle: {
+      en: "Why Irene Started Ikigai Teen",
+      kn: "ಐರೀನ್ ಅವರು 'ಇಕಿಗೈ ಟೀನ್' ಪ್ರಾರಂಭಿಸಲು ಕಾರಣವೇನು?"
+    },
+    teenRealityTitle: {
+      en: "Today's Teen Reality",
+      kn: "ಇಂದಿನ ತರುಣರ ವಾಸ್ತವತೆ"
+    },
+    strings: {
+      en: {
+        "Children Reached": "Children Reached",
+        "Years Humanitarian Experience": "Years Humanitarian Experience",
+        "Schools Engaged": "Schools Engaged",
+        "Villages Served": "Villages Served",
+        "Countries with Footprints": "Countries with Footprints",
+        "Nationalities of Colleagues": "Nationalities of Colleagues",
+        "Read more": "Read more",
+        "Show less": "Show less",
+        "Close milestone details": "Close milestone details"
+      },
+      kn: {
+        "Children Reached": "ಮಕ್ಕಳಿಗೆ ತರಬೇತಿ",
+        "Years Humanitarian Experience": "ವರ್ಷ ಮಾನವೀಯ ನೆರವು ಮತ್ತು ಪರಿಹಾರ ಸೇವೆಯ ಅನುಭವ",
+        "Schools Engaged": "ಶಾಲೆಗಳೊಂದಿಗೆ ಕಾರ್ಯನಿರ್ವಹಣೆ",
+        "Villages Served": "ಗ್ರಾಮಗಳಲ್ಲಿ ಸೇವೆ ತಂದ ಬದಲಾವಣೆ",
+        "Countries with Footprints": "ದೇಶಗಳಲ್ಲಿ ಕಾರ್ಯಾನುಭವ",
+        "Nationalities of Colleagues": "ರಾಷ್ಟ್ರೀಯತೆಗಳ ಸಹೋದ್ಯೋಗಿಗಳೊಂದಿಗೆ ಕಾರ್ಯನುಭವ",
+        "Read more": "ಹೆಚ್ಚು ಓದಿ",
+        "Show less": "ಕಡಿಮೆ ತೋರಿಸಿ",
+        "Close milestone details": "ಮುಚ್ಚಿ"
       }
     }
   }
