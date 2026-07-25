@@ -31,6 +31,11 @@ describe("blogViews utility", () => {
     expect(getBlogViews(slug)).toBe(12);
   });
 
+  it("should return exactly 7 views for the study smarter not longer slug", () => {
+    const slug = "study-smarter-not-longer-healthy-habits-that-prevent-burnout";
+    expect(getBlogViews(slug)).toBe(7);
+  });
+
   it("should increment views when incrementBlogViews is called", () => {
     const slug = "test-slug-2";
     const initialViews = getBlogViews(slug);

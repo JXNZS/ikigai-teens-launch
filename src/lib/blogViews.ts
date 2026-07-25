@@ -8,6 +8,9 @@ const getBaseViews = (slug: string): number => {
   if (slug === "the-link-between-perfectionism-and-academic-burnout") {
     return 12;
   }
+  if (slug === "study-smarter-not-longer-healthy-habits-that-prevent-burnout") {
+    return 7;
+  }
   let hash = 0;
   for (let i = 0; i < slug.length; i++) {
     hash = slug.charCodeAt(i) + ((hash << 5) - hash);
@@ -44,6 +47,14 @@ export const getBlogViews = (slug: string): number => {
     localStorage.setItem(viewsKey, "12");
     localStorage.setItem(initializedKey3, "true");
     return 12;
+  }
+
+  // Force reset this specific blog to 7 once on the client side
+  const initializedKey4 = `blog_initialized_7_${slug}`;
+  if (slug === "study-smarter-not-longer-healthy-habits-that-prevent-burnout" && !localStorage.getItem(initializedKey4)) {
+    localStorage.setItem(viewsKey, "7");
+    localStorage.setItem(initializedKey4, "true");
+    return 7;
   }
 
   const stored = localStorage.getItem(viewsKey);
